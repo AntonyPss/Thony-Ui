@@ -1,0 +1,154 @@
+{
+  "namespace": "common_buttons",
+
+  "border_image_button": {
+    "type": "image",
+    "texture": "textures/ui/button_texture",
+    "layer": 1,
+    "alpha": "$button_image_alpha",
+    "$button_image_alpha|default": 0.5
+  },
+
+  "border_text_button": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "content@common.button": {
+          "$button_text|default": "",
+          "$button_text_shadow|default": false,
+      
+          "$button_type_image|default": "common_buttons.border_image_button",
+      
+          "$default_text_button_color|default": [ 1.0, 1.0, 1.0 ],
+          "$hover_text_button_color|default": [ 0.6, 0.6, 0.6 ],
+          "$pressed_text_button_color|default": [ 0.8, 0.8, 0.8 ],
+      
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "controls": [
+            {
+              "default@$button_type_image": {
+                "controls": [
+                  {
+                    "text": {
+                      "type": "label",
+                      "text": "$button_text",
+                      "text_alignment": "center",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 4,
+                      "shadow": "$button_text_shadow",
+                      "color": "$default_text_button_color",
+                      "size": [ "100%", "default" ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "hover@$button_type_image": {
+                "$button_image_alpha": 0.6,
+                "controls": [
+                  {
+                    "text": {
+                      "type": "label",
+                      "text": "$button_text",
+                      "text_alignment": "center",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 4,
+                      "shadow": "$button_text_shadow",
+                      "color": "$hover_text_button_color",
+                      "size": [ "100%", "default" ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "pressed@$button_type_image": {
+                "$button_image_alpha": 0.8,
+                "controls": [
+                  {
+                    "text": {
+                      "type": "label",
+                      "text": "$button_text",
+                      "text_alignment": "center",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 4,
+                      "shadow": "$button_text_shadow",
+                      "color": "$pressed_text_button_color",
+                      "size": [ "100%", "default" ],
+                      "offset": [ 0, 1 ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "border_content_button": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "content@common.button": {
+          "$button_content|default": "common.empty_panel",
+      
+          "$button_type_image|default": "common_buttons.border_image_button",
+      
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "controls": [
+            {
+              "default@$button_type_image": {
+                "controls": [
+                  {
+                    "icon@$button_content": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 3
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "hover@$button_type_image": {
+                "$button_image_alpha": 0.6,
+                "controls": [
+                  {
+                    "icon@$button_content": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 3
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "pressed@$button_type_image": {
+                "$button_image_alpha": 0.8,
+                "controls": [
+                  {
+                    "icon@$button_content": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 3,
+                      "offset": [ 0, 1 ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
