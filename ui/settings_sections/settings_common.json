@@ -1,0 +1,294 @@
+{
+  "namespace": "settings_common",
+
+  "option_generic_core": {
+    "$option_description_label_size|default": [ "100%", "default" ],
+    "$option_description_label_offset|default": [ 2, 2 ]
+  },
+
+  "option_generic_core/one_line_layout/option_descriptive_text": {
+    "size": "$option_description_label_size",
+    "offset": "$option_description_label_offset"
+  },
+
+  "option_generic_core/one_line_layout/option_label": {
+    "offset": [ 32, 2 ]
+  },
+
+  "warning_icon": {
+    "type": "image",
+    "texture": "textures/ui/blue_info_glyph",
+    "layer": 2,
+    "size": [ 7, 14 ]
+  },
+
+  "settings_content/background": {
+    "alpha": 0.4
+  },
+
+  "world_seed_label": {
+    "type": "label",
+    "text": "Semilla:",
+    "layer": 24,
+    "color": "$title_text_color",
+    "size": [ "default", 10 ]
+  },
+
+  "world_seed_panel": {
+    "type": "label",
+    "text": "#item_name",
+    "layer": 24,
+    "color": [ 0.4, 0.4, 0.4 ],
+    "size": [ "default", 10 ],
+    "offset": [ 2, 0 ],
+    "bindings": [
+      {
+        "binding_name": "#world_seed",
+        "binding_name_override": "#item_name"
+      }
+    ]
+  },
+
+  "dialog_titles": {
+    "size": [ "100%", 16 ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      {
+        "left_padding": {
+          "type": "panel",
+          "size": [ 20, 0 ]
+        }
+      },
+      {
+        "title_dialog": {
+          "type": "panel",
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "dialog_title": {
+                "type": "label",
+                "text": "#dialog_title",
+                "font_scale_factor": 1.4,
+                "font_type": "MinecraftTen",
+                "layer": 16,
+                "color": "$title_text_color",
+                "size": [ "default", "100%" ],
+                "offset": [ 0, -1 ],
+                "bindings": [
+                  {
+                    "binding_name": "#dialog_title"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding0": {
+          "type": "panel",
+          "size": [ 2, 0 ]
+        }
+      },
+      {
+        "world_seed_icon": {
+          "type": "panel",
+          "ignored": "(not $include_world_section)",
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "icon": {
+                "type": "image",
+                "texture": "textures/ui/icon_new",
+                "layer": 12,
+                "size": [ 18, 18 ]
+              }
+            }
+          ]
+        }
+      }, 
+      {
+        "padding1": {
+          "type": "panel",
+          "size": [ 4, 0 ]
+        }
+      },     
+      {
+        "information_panel": {
+          "type": "panel",
+          "ignored": "(not $include_world_section)",
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "stack_panel": {
+                "type": "stack_panel",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [ "100%c", 24 ],
+                "offset": [ 0, 2 ],
+                "controls": [
+                  { "seed_label@world_seed_label": {} },
+                  { "world_seed@world_seed_panel": {} }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding_fill": {
+          "type": "panel",
+          "size": [ "fill", 0 ]
+        }
+      },
+      {
+        "section_title_panel": {
+          "type": "panel",
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "section_title": {
+                "type": "label",
+                "text": "#section_title",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 12,
+                "color": "$title_text_color",
+                "size": [ "default", 10 ],
+                "bindings": [
+                  {
+                    "binding_name": "#section_title"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding2": {
+          "type": "panel",
+          "size": [ 4, 0 ]
+        }
+      },
+      {
+        "warning_panel": {
+          "type": "panel",
+          "size": [ "100%cm", "100%c" ],
+          "ignored": "$warning_toggle_panel_visible",
+          "controls": [
+            {
+              "toggle@common_toggles.light_content_toggle": {
+                "$toggle_view_binding_name": "warning_toggle_panel",
+                "$toggle_name": "warning_toggle",
+                "$button_content": "settings_common.warning_icon",
+                "size": [ 18, 18 ],
+                "offset": [ -2, -1 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "dynamic_dialog_screen": {
+    "$screen_background_alpha": 0.6,
+    "$is_full_screen_layout": false
+  },
+
+  "set_to_classic_toggle@light_ui_toggle": {
+    "$button_type_panel": "common_buttons.new_ui_binding_button_label",
+    "$button_text": "settings.switchUiProfile.button",
+    "$toggle_name": "#ui_profile_radio_classic",
+    "$pressed_button_name": "button.menu_exit",
+    "$toggle_view_binding_name": null,
+    "size": [ "100%", 24 ]
+  },
+
+  "light_ui_toggle": {
+    "type": "panel",
+    "$toggle_view_binding_name|default": "this_toggle",
+    "$template_toggle|default": "common_toggles.action_light_template_toggle",
+    "controls": [
+      {
+        "$toggle_view_binding_name@$template_toggle": {}
+      }
+    ]
+  },
+
+  "dialog_content": {
+    "$warning_toggle_panel_visible|default": true,
+    "variables": [
+      {
+        "requires": "$pocket_screen",
+        "$warning_toggle_panel_visible": false
+      }
+    ],
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "warning_toggle_image": {
+              "type": "panel",
+              "anchor_from": "top_right",
+              "anchor_to": "top_right",
+              "layer": 99,
+              "size": [ "100%cm", "100%cm" ],
+              "offset": [ -24, 4 ],
+              "ignored": "$warning_toggle_panel_visible",
+              "bindings": [
+                {
+                  "binding_type": "view",
+                  "source_control_name": "warning_toggle_panel",
+                  "source_property_name": "#toggle_state",
+                  "target_property_name": "#visible"
+                }
+              ],
+              "controls": [
+                {
+                  "background": {
+                    "type": "image",
+                    "texture": "textures/ui/greyBorder",
+                    "layer": 2,
+                    "size": [ "100%c + 12px", "100%c + 10px" ],
+                    "controls": [
+                      {
+                        "stack_content": {
+                          "type": "stack_panel",
+                          "size": [ 164, "100%c" ],
+                          "controls": [
+                            {
+                              "text": {
+                                "type": "label",
+                                "text": "settings.switchUiProfile.tooltip",
+                                "text_alignment": "center",
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "layer": 16,
+                                "localize": true,
+                                "color": "$body_text_color",
+                                "size": [ 164, "default" ]
+                              }
+                            },
+                            {
+                              "set_to_classic_toggle@set_to_classic_toggle": {
+                                "size": [ "100%", 18 ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

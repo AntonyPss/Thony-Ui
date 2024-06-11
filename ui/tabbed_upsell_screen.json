@@ -1,0 +1,15 @@
+{
+  "tabbed_upsell_screen@common.base_screen": {
+    "force_render_below": false,
+    "$screen_content": "asa_music_player_panel.music_player_screen_content",
+    "$is_full_screen_layout": true,
+    "$screen_bg_content": "$asa_custom_bg",
+    "$asa_custom_bg|default": "asa_background_common.music_player_bg",
+    "$screen_animations": [
+      "@common.screen_exit_animation_push_fade",
+      "@common.screen_exit_animation_pop_fade",
+      "@common.screen_entrance_animation_push_fade",
+      "@common.screen_entrance_animation_pop_fade"
+    ]
+  }
+}

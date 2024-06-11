@@ -260,21 +260,18 @@
   "play@common_buttons.border_text_button": {
     "$pressed_button_name": "$play_button_target",
     "$button_text": "menu.play",
-    "$button_text_shadow": true,
     "size": [ "100%", 24 ]
   },
 
   "settings@common_buttons.border_text_button": {
     "$pressed_button_name": "button.menu_settings",
     "$button_text": "menu.options",
-    "$button_text_shadow": true,
     "size": [ "100%", 24 ]
   },
 
   "achievements@common_buttons.border_text_button": {
     "$pressed_button_name": "button.menu_achievements",
     "$button_text": "menu.achievements",
-    "$button_text_shadow": true,
     "size": [ "100%", 24 ]
   },
 
@@ -399,7 +396,8 @@
     "size": [ 256, 72  ],
     "offset": [ 0, "2%" ],
     "controls": [
-      { "image": {
+      {
+        "image": {
           "type": "image",
           "texture": "textures/ui/title",
           "anchor_from": "center",
@@ -421,15 +419,5 @@
       { "skin@skin_viewer_panel": {} },
       { "text_panel@text_panel": {} }
     ]
-  },
-
-  "start_screen": {
-    "$screen_bg_content": ""
-  },
-
-  "options@common.button": {
-    "$pressed_button_name": "button.menu_settings",
-    "fill": true,
-    "layer": -3
   }
 }

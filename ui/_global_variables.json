@@ -1,0 +1,23 @@
+{
+  // Border Button Text Color //
+  "$border_default_text_button_color": [ 1.0, 1.0, 1.0 ],
+  "$border_hover_text_button_color": [ 0.8, 0.8, 0.8 ],
+  "$border_pressed_text_button_color": [ 0.7, 0.7, 0.7 ],
+  "$border_locked_text_button_color": [ 0.6, 0.6, 0.6 ],
+
+  // Border Toggle Text Color //
+  "$border_default_text_toggle_color": [ 1.0, 1.0, 1.0 ],
+  "$border_hover_text_toggle_color": [ 0.6, 0.6, 0.6 ],
+  "$border_pressed_text_toggle_color": [ 0.8, 0.8, 0.8 ],
+  "$border_locked_text_toggle_color": [ 0.7, 0.7, 0.7 ],
+
+  // Percent Template //
+  "$percent_text_color": [ 1.0, 1.0, 1.0 ],
+  "$percent_text_shadow": true,
+  "$percent_text_layer": 2,
+  "$percent_text_alpha": 1.0,
+  "$percent_font_type": "default",
+  "$percent_font_size": 1.0,
+  "$percent_visible": true,
+  "$percent_offset": [ 0, 0 ]
+}

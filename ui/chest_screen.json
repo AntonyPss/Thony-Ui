@@ -1,0 +1,128 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#6038
+
+*/
+
+{
+    "small_chest_screen": {
+        "force_render_below": true
+    },
+
+    "large_chest_screen": {
+        "force_render_below": true
+    },
+
+    "ender_chest_screen": {
+        "force_render_below": true
+    },
+
+    "shulker_box_screen": {
+        "force_render_below": true
+    },
+
+    "barrel_screen": {
+        "force_render_below": true
+    },
+    
+    "small_chest_panel/root_panel": {
+        "controls": [
+            {
+                "common_panel@common.common_panel": {
+                    "$show_close_button": false
+                }
+            },
+            {
+                "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
+            },           
+            {
+                "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
+                    "offset": [ 22, 0 ]
+                }
+            },
+            {
+                "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
+                  "offset": [ -6, -2 ]
+                }
+            },
+            {
+                "chest_panel": {
+                    "type": "panel",
+                    "layer": 5,
+                    "controls": [
+                        {
+                            "small_chest_panel_top_half@chest.small_chest_panel_top_half": {}
+                        },
+                        {
+                            "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+                "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+        ]
+    },
+
+    "large_chest_panel/root_panel": {
+        "controls": [
+            {
+                "common_panel@common.common_panel": {
+                    "$show_close_button": false
+                }
+            },
+            {
+                "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
+            },
+            {
+                "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
+                    "offset": [ 22, 0 ]
+                }
+            },
+            {
+                "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
+                  "offset": [ -6, 25 ]
+                }
+            },
+            {
+                "chest_panel": {
+                    "type": "panel",
+                    "layer": 5,
+                    "controls": [
+                        {
+                            "large_chest_panel_top_half@chest.large_chest_panel_top_half": {}
+                        },
+                        {
+                            "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+                "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+        ]
+    }
+}

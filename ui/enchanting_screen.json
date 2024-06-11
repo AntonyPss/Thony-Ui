@@ -1,0 +1,88 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#6038
+
+*/
+
+{
+    "asa_cus_enchant_panel": {
+        "type": "panel",
+        "controls": [
+            {
+                "default@enchanting_panel": {}
+            },
+            {
+                "item_viewer@asa_enchant_screen_content.asa_item_viewer_stack": {}
+            }
+        ]
+    },
+
+    "enchanting_screen@common.inventory_screen_common": {
+        "$close_on_player_hurt|default": true,
+        "force_render_below": true,
+        "close_on_player_hurt": "$close_on_player_hurt",
+        "variables": [
+            {
+                "requires": "$desktop_screen",
+                "$screen_content": "enchanting.asa_cus_enchant_panel",
+                "$screen_bg_content": "common.screen_background"
+            },
+            {
+                "requires": "$pocket_screen",
+                "$screen_content": "enchanting_pocket.enchanting_panel"
+            }
+        ]
+    },
+
+    "enchanting_panel/root_panel": {
+        "controls": [
+            {
+                "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
+            },
+            {
+                "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
+                    "offset": [
+                        22,
+                        0
+                    ]
+                }
+            },
+            {
+                "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
+                    "offset": [
+                        -6,
+                        -2
+                    ]
+                }
+            },
+            {
+                "common_panel@common.common_panel": {
+                    "$show_close_button": false
+                }
+            },
+            {
+                "enchanting_screen_inventory": {
+                    "type": "panel",
+                    "layer": 5,
+                    "controls": [
+                        {
+                            "enchanting_panel_top_half@enchanting.enchanting_panel_top_half": {}
+                        },
+                        {
+                            "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

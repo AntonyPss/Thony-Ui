@@ -1,0 +1,25 @@
+## Settings ##
+settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
+settings.switchUiProfile.button=Change the UI to Classic
+
+## Options ##
+options.button.paste=Paste
+options.button.copy=Copy
+options.button.copyToClipboard=Copy to clipboard
+
+## Chat Settings ##
+chat.settings.muteAll.description=Hide game chat, this will make messages not globally visible
+chat.settings.muteEmotes.description=Hide player emotes, you will not be alerted if a player plays an emote
+chat.settings.tts.description=Enable Text to Speech assistant for game chat for individuals with a disability
+
+## Progress Screen ##
+progress.allowCellularData.title=¡Activated Mobile Data!
+progress.allowCellularData.message=This could incur additional data charges.
+
+progress.loadingWorld.overworld.title=Regenerating The Overworld
+progress.loadingWorld.nether.title=Regenerating The Nether
+progress.loadingWorld.theEnd.title=Regenerating The End
+
+progress.loadingWorld.overworld.tip=Back to the familiar and peaceful, welcome back to the Overworld.
+progress.loadingWorld.nether.tip=Prepare yourself for the heat and flames, you're about to step into the fearsome Nether.
+progress.loadingWorld.theEnd.tip=Mystery and darkness are ahead, you’re about to venture into The End.

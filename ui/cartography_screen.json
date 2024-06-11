@@ -1,0 +1,56 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#6038
+
+*/
+
+{
+    "cartography_panel/root_panel": {
+        "controls": [
+            {
+                "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
+            },
+            {
+                "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
+                    "offset": [
+                        22,
+                        0
+                    ]
+                }
+            },
+            {
+                "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
+                  "offset": [ -6, 25 ]
+                }
+            },
+            {
+                "common_panel@common.common_panel": {
+                    "$show_close_button": false
+                }
+            },
+            {
+                "cartography_screen_inventory": {
+                    "type": "panel",
+                    "layer": 2,
+                    "controls": [
+                        {
+                            "top_half_panel@cartography.top_half_panel": {}
+                        },
+                        {
+                            "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

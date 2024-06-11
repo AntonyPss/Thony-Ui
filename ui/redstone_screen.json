@@ -1,0 +1,85 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#6038
+
+*/
+
+{
+    "hopper_screen": {
+        "force_render_below": true,
+        "$asa_debug_offset": [
+            -6,
+            -18
+        ]
+    },
+
+    "dispenser_screen": {
+        "force_render_below": true
+    },
+
+    "dropper_screen": {
+        "force_render_below": true
+    },
+
+    "panel/root_panel": {
+        "controls": [
+            {
+                "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
+            },
+            {
+                "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
+                    "offset": [
+                        22,
+                        0
+                    ]
+                }
+            },
+            {
+                "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
+                    "offset": "$asa_debug_offset",
+                    "$asa_debug_offset|default": [
+                        -6,
+                        -2
+                    ]
+                }
+            },
+            {
+                "common_panel@common.common_panel": {
+                    "$show_close_button": false
+                }
+            },
+            {
+                "redstone_screen_inventory": {
+                    "type": "panel",
+                    "layer": 5,
+                    "controls": [
+                        {
+                            "red_panel@redstone.redstone_panel_top_half": {}
+                        },
+                        {
+                            "red_bottom_half@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "red_hold_icon@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "red_icon@common.inventory_selected_icon_button": {}
+            },
+            {
+                "gamepad_cursor@common.gamepad_cursor_button": {}
+            },
+            {
+                "$screen_label@$screen_label": {}
+            }
+        ]
+    }
+}

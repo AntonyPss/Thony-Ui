@@ -1,0 +1,25 @@
+## Settings ##
+settings.switchUiProfile.tooltip=Para obtener una mejor experiencia en la UI, cambia el perfil de Modo de Bolsillo a Clásico
+settings.switchUiProfile.button=Cambiar la UI a Clásico
+
+## Options ##
+options.button.paste=Pegar
+options.button.copy=Copiar
+options.button.copyToClipboard=Copiar al portapapeles
+
+## Chat Settings ##
+chat.settings.muteAll.description=Ocultar el chat de juego, esto hará que los mensajes no se vean globalmente
+chat.settings.muteEmotes.description=Ocultar los gestos de los jugadores, no se te avisará si un jugador reproduce un gesto
+chat.settings.tts.description=Activar el asistente de Texto a Voz para el chat de juego para personas con algun tipo discapacidad
+
+## Progress Screen ##
+progress.allowCellularData.title=¡Datos Móviles Activado!
+progress.allowCellularData.message=Esto podría generar un coste adicional de datos.
+
+progress.loadingWorld.overworld.title=Regenerando el Mundo Principal
+progress.loadingWorld.nether.title=Regenerando el Nether
+progress.loadingWorld.theEnd.title=Regenerando el End
+
+progress.loadingWorld.overworld.tip=De vuelta a la familiaridad y la tranquilidad, bienvenido de nuevo al mundo principal.
+progress.loadingWorld.nether.tip=Prepárate para el calor y las llamas, estás a punto de adentrarte en el temible Nether.
+progress.loadingWorld.theEnd.tip=El misterio y la oscuridad te esperan, estás a punto de aventurarte en The End.

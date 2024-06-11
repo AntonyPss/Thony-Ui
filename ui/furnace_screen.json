@@ -1,0 +1,284 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#6038
+
+*/
+
+{
+    "furnace_screen": {
+        "force_render_below": true
+    },
+
+    "asa_furnace_tab_content": {
+        "type": "panel",
+        "layer": 1,
+        "controls": [
+            {
+                "asa_stack_panel": {
+                    "type": "stack_panel",
+                    "size": [ "100% - 12px", "100% - 12px" ],
+                    "controls": [
+                        {
+                            "vertical_padding_1@crafting.tab_content_padding": {
+                                "size": [ 0, 2 ]
+                            }
+                        },
+                        {
+                            "creative_label": {
+                                "type": "panel",
+                                "size": [ "fill", 10 ],
+                                "controls": [
+                                    {
+                                        "asa_tab_0": {
+                                            "type": "label",
+                                            "layer": 10,
+                                            "color": [ 0.3, 0.3, 0.3 ],
+                                            "text_alignment": "right",
+                                            "anchor_from": "left_middle",
+                                            "anchor_to": "left_middle",
+                                            "size": [ "default", 10 ],
+                                            "text": "Foods",
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_control_name": "asa_recipe_food_tab",
+                                                    "source_property_name": "#toggle_state",
+                                                    "target_property_name": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "asa_tab_1": {
+                                            "type": "label",
+                                            "layer": 10,
+                                            "color": [ 0.3, 0.3, 0.3 ],
+                                            "text_alignment": "right",
+                                            "anchor_from": "left_middle",
+                                            "anchor_to": "left_middle",
+                                            "size": [ "default", 10 ],
+                                            "text": "Blocks",
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_control_name": "asa_recipe_block_tab",
+                                                    "source_property_name": "#toggle_state",
+                                                    "target_property_name": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "asa_tab_2": {
+                                            "type": "label",
+                                            "layer": 10,
+                                            "color": [ 0.3, 0.3, 0.3 ],
+                                            "text_alignment": "right",
+                                            "anchor_from": "left_middle",
+                                            "anchor_to": "left_middle",
+                                            "size": [ "default", 10 ],
+                                            "text": "Items",
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_control_name": "asa_recipe_item_tab",
+                                                    "source_property_name": "#toggle_state",
+                                                    "target_property_name": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "vertical_padding_3@crafting.tab_content_padding": {
+                                "size": [
+                                    0,
+                                    2
+                                ]
+                            }
+                        },
+                        {
+                            "scroll_pane@$scrolling_pane_control": {
+                                "size": [
+                                    "100%",
+                                    "fill"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    "furnace_panel/root_panel": {
+        "type": "stack_panel",
+        "size": [ "100%c", "100%cm" ],
+        "orientation": "horizontal",
+        "controls": [
+
+            /*Top*//*/
+            {
+                "asa_empty": {
+                    "type": "panel",
+                    "size": [ 30, 0 ]
+                }
+            },
+            {
+                "asa_recipe_panel": {
+                    "type": "panel",
+                    "size": [ 146, 166 ],
+                    "controls": [
+                        {
+                            "asa_furnace_recipe_toggle_common@asa_furnace_recipe_toggle_common.asa_nav_tab_stack": {}
+                        },
+                        {
+                            "bg@common.common_panel": {
+                                "$show_close_button": false
+                            }
+                        },
+                        {
+                            "tab_content_panel@furnace.asa_furnace_tab_content": {
+                                "size": [ "100%", "100%" ],
+                                "layer": 2,
+                                "$scrolling_pane_control": "asa_furnace_recipe_toggle_common.asa_recipe_book_scroll"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "center_fold@crafting.center_fold": {
+                    "size": [ 4, 166 ],
+                    "layer": -1
+                }
+            },/**/
+            //Bottom
+
+            {
+                "asa_furnace_panel": {
+                    "type": "input_panel",
+                    "size": [ 176, 166 ],
+                    "button_mappings": [
+                        {
+                            "from_button_id": "button.menu_select",
+                            "to_button_id": "button.container_reset_held",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.menu_secondary_select",
+                            "to_button_id": "button.container_reset_held",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.menu_ok",
+                            "to_button_id": "button.container_reset_held",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.controller_back",
+                            "to_button_id": "button.container_reset_held",
+                            "mapping_type": "pressed",
+                            "ignored": "(not $is_ps4)"
+                        },
+                        {
+                            "from_button_id": "button.controller_select",
+                            "to_button_id": "button.container_reset_held",
+                            "mapping_type": "pressed"
+                        },
+                        {
+                            "from_button_id": "button.controller_secondary_select",
+                            "to_button_id": "button.container_reset_held",
+                            "mapping_type": "pressed"
+                        }
+                    ],
+                    "controls": [
+                        /*{ "asa_view@asa_furnace_recipe_toggle_common.asa_furnace_full_panel": {} },
+                        {
+                            "asa_recipe_detect@asa_furnace_recipe_toggle_common.asa_is_can_be_furnace_items": {}
+                        },*/
+                        {
+                            "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
+                        },
+                        {
+                            "aroow_percent@asa_percent_template.asa_percent_template": {
+                                "$asa_binding_name": "#furnace_flame_ratio",
+                                "$percent_color": [ 0.3, 0.3, 0.3 ],
+                                "offset": [ -40, -39.5 ],
+                                "$percent_layer": 20,
+                                "$percent_shadow": false,
+                                "anchor_from": "center",
+                                "anchor_to": "right_middle",
+                                "$asa_binding_condition": "always"
+                            }
+                        },
+                        {
+                            "arrow_percent@asa_percent_template.asa_percent_template": {
+                                "$asa_binding_name": "#furnace_arrow_ratio",
+                                "$percent_color": [ 0.3, 0.3, 0.3 ],
+                                "offset": [ 0, -21 ],
+                                "$percent_layer": 20,
+                                "$percent_shadow": false,
+                                "anchor_from": "center",
+                                "anchor_to": "center",
+                                "$asa_binding_condition": "always"
+                            }
+                        },
+                        {
+                            "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
+                                "offset": [
+                                    22,
+                                    0
+                                ]
+                            }
+                        },
+                        {
+                            "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
+                                "offset": [
+                                    -6,
+                                    -2
+                                ]
+                            }
+                        },
+                        {
+                            "common_panel@common.common_panel": {
+                                "$show_close_button": false
+                            }
+                        },
+                        {
+                            "furnace_screen_inventory": {
+                                "type": "panel",
+                                "layer": 5,
+                                "controls": [
+                                    {
+                                        "furnace_panel_top_half@furnace.furnace_panel_top_half": {}
+                                    },
+                                    {
+                                        "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                                    },
+                                    {
+                                        "hotbar_grid@common.hotbar_grid_template": {}
+                                    },
+                                    {
+                                        "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+                        },
+                        {
+                            "gamepad_cursor@common.gamepad_cursor_button": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,277 @@
+{
+  "namespace": "popup_dialog",
+
+  "modal_title_text": {
+    "font_type": "$title_text_font",
+    "font_scale_factor": "$title_text_size",
+    "$title_text_font|default": "normal",
+    "$title_text_size|default": 1.0,
+    "shadow": true,
+    "size": [ "100% - 4px", 14 ]
+  },
+
+  "modal_label_panel@common.scrolling_panel": {
+    "$scrolling_pane_size": [ "100% - 2px", "100% - 2px" ],
+    "$scrolling_pane_offset": [ 0, 1 ],
+    "$scroll_size": [ 4, "100% - 4px" ]
+  },
+
+  "dark_text_button@common_buttons.dark_text_button": {
+    "layer": 2
+  },
+
+  "modal_left_button@dark_text_button": {
+    "anchor_to": "top_middle",
+    "anchor_from": "top_middle",
+    "size": [ "100%", "50%-1px" ],
+    "$pressed_button_name": "$popup_dialog_left_button_name",
+    "$button_text": "#modal_left_button_text",
+    "$left_focus_number|default": 0,
+    "default_focus_precedence": "$left_focus_number"
+  },
+
+  "modal_middle_button@dark_text_button": {
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "size": [ "100%", "50%-1px" ],
+    "$pressed_button_name": "$popup_dialog_middle_button_name",
+    "$button_text|default": "#modal_middle_button_text",
+    "$middle_focus_number|default": 0,
+    "default_focus_precedence": "$middle_focus_number"
+  },
+
+  "modal_rightcancel_button@dark_text_button": {
+    "anchor_to": "bottom_middle",
+    "anchor_from": "bottom_middle",
+    "size": [ "100%", "50%-1px" ],
+    "$pressed_button_name": "$popup_dialog_rightcancel_button_name",
+    "$button_text": "#modal_rightcancel_button_text",
+    "$right_focus_number|default": 1,
+    "default_focus_precedence": "$right_focus_number"
+  },
+
+  "three_buttons_panel": {
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "size": [ "100%", 72 ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      {
+        "left@popup_dialog.modal_left_button": {
+          "size": [ "100% - 4px", "33% - 1px" ]
+        }
+      },
+      {
+        "middle@popup_dialog.modal_middle_button": {
+          "size": [ "100% - 4px", "33% - 1px" ]
+        }
+      },
+      {
+        "right@popup_dialog.modal_rightcancel_button": {
+          "size": [ "100% - 4px", "33% - 1px" ]
+        }
+      }
+    ]
+  },
+
+  "destructive_three_buttons_panel": {
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "size": [ "100%", 72 ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      {
+        "left@popup_dialog.modal_left_button": {
+          "size": [ "100% - 4px", "33% - 1px" ]
+        }
+      },
+      {
+        "middle@popup_dialog.modal_middle_button": {
+          "size": [ "100% - 4px", "33% - 1px" ]
+        }
+      },
+      {
+        "right@popup_dialog.modal_rightcancel_button": {
+          "size": [ "100% - 4px", "33% - 1px" ]
+        }
+      }
+    ]
+  },
+
+  "two_buttons_panel": {
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "size": [ "100%", 64 ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      { "left@popup_dialog.modal_left_button": {} },
+      { "right@popup_dialog.modal_rightcancel_button": {} }
+    ]
+  },
+
+  "destructive_two_buttons_panel": {
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "size": [ "100%", 64 ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      { "left@popup_dialog.modal_left_button": {} },
+      { "right@popup_dialog.modal_rightcancel_button": {} }
+    ]
+  },
+
+  "single_button_panel": {
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "size": [ "100%", 24 ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      {
+        "left@popup_dialog.modal_middle_button": {
+          "size": [ "100% - 4px", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "modal_dialog_with_buttons": {
+    "controls": [
+      {
+        "background@black_tint_image": {
+          "alpha": 0.7
+        }
+      },
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "anchor_to": "center",
+          "anchor_from": "center",
+          "size": [ "100% - 4px", "100% - 4px" ],
+          "controls": [
+            {
+              "title_text_panel": {
+                "type": "panel",
+                "size": [ "100%", 16 ],
+                "controls": [
+                  {
+                    "title_text@modal_title_text": {
+                      "$title_text_font": "MinecraftTen",
+                      "$title_text_anchor": "center",
+                      "$title_text_alignment": "center",
+                      "$title_text_color": "$main_header_text_color",
+                      "$title_text_offset": [ 0, -1 ],
+                      "size": [ "100%", 14 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "modal_label@modal_label_panel": {
+                "size": [ "100%", "fill" ],
+                "offset": [ 0, 0 ]
+              }
+            },
+            {
+              "p": {
+                "type": "panel",
+                "size": [ 0, 4 ]
+              }
+            },
+            {
+              "buttons@$button_panel": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "modal_dialog_popup": {
+    "variables": [
+      {
+        "requires": "$three_buttons_visible",
+        "$modal_screen_size": [ 236, 186 ],
+        "$button_panel": "popup_dialog.three_buttons_panel"
+      },
+      {
+        "requires": "$destructive_three_buttons_visible",
+        "$modal_screen_size": [ 236, 186 ],
+        "$button_panel": "popup_dialog.destructive_three_buttons_panel"
+      },
+      {
+        "requires": "$two_buttons_visible",
+        "$modal_screen_size": [ 236, 176 ],
+        "$button_panel": "popup_dialog.two_buttons_panel"
+      },
+      {
+        "requires": "$destructive_two_buttons_visible",
+        "$modal_screen_size": [ 236, 176 ],
+        "$button_panel": "popup_dialog.destructive_two_buttons_panel"
+      },
+      {
+        "requires": "$single_button_visible",
+        "$modal_screen_size": [ 236, 132 ],
+        "$button_panel": "popup_dialog.single_button_panel"
+      },
+      {
+        "requires": "$no_buttons_visible",
+        "$modal_screen_size": [ 236, 1012 ],
+        "$button_panel": "common.empty_panel"
+      }
+    ]
+  },
+
+  "progress_dialog_popup": {
+    "size": [ 264, 98 ],
+    "controls": [
+      {
+        "background@black_tint_image": {
+          "alpha": 0.7
+        }
+      },
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "anchor_to": "center",
+          "anchor_from": "center",
+          "size": [ "100% - 4px", "100% - 4px" ],
+          "controls": [
+            {
+              "title_text_panel": {
+                "type": "panel",
+                "size": [ "100%", 16 ],
+                "controls": [
+                  {
+                    "title_text@modal_title_text": {
+                      "$title_text_font": "MinecraftTen",
+                      "$title_text_anchor": "center",
+                      "$title_text_alignment": "center",
+                      "$title_text_color": "$main_header_text_color",
+                      "$title_text_offset": [ 0, -1 ],
+                      "size": [ "100%", 14 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "progress_content.progress_content": {}
+            },
+            {
+              "button@single_button_panel": {
+                "$visibility_source_control_name|default": "modal_bg_no_buttons",
+                "bindings": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "progress_content": {
+    "size": [ "100%", "fill" ],
+    "offset": [ 0, 0 ]
+  }
+}

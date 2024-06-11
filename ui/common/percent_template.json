@@ -1,0 +1,1495 @@
+{
+  "namespace": "percent_template",
+
+  "percent_bindings": {
+    "type": "label",
+    "localize": false,
+
+    // Global Variables //
+    "color": "$percent_text_color",
+    "shadow": "$percent_text_shadow",
+    "layer": "$percent_text_layer",
+    "alpha": "$percent_text_alpha",
+    "font_type": "$percent_font_type",
+    "font_scale_factor": "$percent_font_size",
+    "ignored": "(not $percent_visible)",
+
+    // Bindings //
+    "bindings": "$percent_bindings",
+    "$binding_name|default": "",
+    "$binding_condition|default": "none",
+    "$percent_bindings|default": [
+      {
+        "binding_name": "$binding_name",
+        "binding_condition": "$binding_condition",
+        "binding_type": "global"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "((($binding_name > $min) and ($binding_name < $max)) or ($binding_name = $max))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "percent_template": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "$reverser_percent_count|default": false,
+    "$percent_panel|default": "percent_template.percent_number",
+    "size": [ "100%c", "100%cm" ],
+    "offset": "$percent_offset",
+    "variables": [
+      {
+        "requires": "$reverser_percent_count",
+        "$percent_panel": "percent_template.percent_number_reverse"
+      }
+    ],
+    "controls": [
+      {
+        "percent_panel@$percent_panel": {
+          "offset": "$percent_offset"
+        }
+      },
+      {
+        "percent_bindings@percent_bindings": {
+          "offset": "$percent_offset",
+          "text": "%",
+          "$min": -1,
+          "$max": 1
+        }
+      }
+    ]
+  },
+
+  "percent_number": {
+    "type": "panel",
+    "size": [ "100%cm", 12 ],
+    "controls": [
+      {
+        "101@percent_bindings": {
+          "text": "100",
+          "$min": -1,
+          "$max": 0
+        }
+      },
+      {
+        "100@percent_bindings": {
+          "text": "99",
+          "$min": 0,
+          "$max": 0.01
+        }
+      },
+      {
+        "99@percent_bindings": {
+          "text": "98",
+          "$min": 0.01,
+          "$max": 0.02
+        }
+      },
+      {
+        "98@percent_bindings": {
+          "text": "97",
+          "$min": 0.02,
+          "$max": 0.03
+        }
+      },
+      {
+        "97@percent_bindings": {
+          "text": "96",
+          "$min": 0.03,
+          "$max": 0.04
+        }
+      },
+      {
+        "96@percent_bindings": {
+          "text": "95",
+          "$min": 0.04,
+          "$max": 0.05
+        }
+      },
+      {
+        "95@percent_bindings": {
+          "text": "94",
+          "$min": 0.05,
+          "$max": 0.06
+        }
+      },
+      {
+        "94@percent_bindings": {
+          "text": "93",
+          "$min": 0.06,
+          "$max": 0.07
+        }
+      },
+      {
+        "93@percent_bindings": {
+          "text": "92",
+          "$min": 0.07,
+          "$max": 0.08
+        }
+      },
+      {
+        "92@percent_bindings": {
+          "text": "91",
+          "$min": 0.08,
+          "$max": 0.09
+        }
+      },
+      {
+        "91@percent_bindings": {
+          "text": "90",
+          "$min": 0.09,
+          "$max": 0.10
+        }
+      },
+      {
+        "90@percent_bindings": {
+          "text": "89",
+          "$min": 0.10,
+          "$max": 0.11
+        }
+      },
+      {
+        "89@percent_bindings": {
+          "text": "88",
+          "$min": 0.11,
+          "$max": 0.12
+        }
+      },
+      {
+        "88@percent_bindings": {
+          "text": "87",
+          "$min": 0.12,
+          "$max": 0.13
+        }
+      },
+      {
+        "87@percent_bindings": {
+          "text": "86",
+          "$min": 0.13,
+          "$max": 0.14
+        }
+      },
+      {
+        "86@percent_bindings": {
+          "text": "85",
+          "$min": 0.14,
+          "$max": 0.15
+        }
+      },
+      {
+        "85@percent_bindings": {
+          "text": "84",
+          "$min": 0.15,
+          "$max": 0.16
+        }
+      },
+      {
+        "84@percent_bindings": {
+          "text": "83",
+          "$min": 0.16,
+          "$max": 0.17
+        }
+      },
+      {
+        "83@percent_bindings": {
+          "text": "82",
+          "$min": 0.17,
+          "$max": 0.18
+        }
+      },
+      {
+        "82@percent_bindings": {
+          "text": "81",
+          "$min": 0.18,
+          "$max": 0.19
+        }
+      },
+      {
+        "81@percent_bindings": {
+          "text": "80",
+          "$min": 0.19,
+          "$max": 0.20
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "79",
+          "$min": 0.20,
+          "$max": 0.21
+        }
+      },
+      {
+        "79@percent_bindings": {
+          "text": "78",
+          "$min": 0.21,
+          "$max": 0.22
+        }
+      },
+      {
+        "78@percent_bindings": {
+          "text": "77",
+          "$min": 0.22,
+          "$max": 0.23
+        }
+      },
+      {
+        "77@percent_bindings": {
+          "text": "76",
+          "$min": 0.23,
+          "$max": 0.24
+        }
+      },
+      {
+        "76@percent_bindings": {
+          "text": "75",
+          "$min": 0.24,
+          "$max": 0.25
+        }
+      },
+      {
+        "75@percent_bindings": {
+          "text": "74",
+          "$min": 0.25,
+          "$max": 0.26
+        }
+      },
+      {
+        "74@percent_bindings": {
+          "text": "73",
+          "$min": 0.26,
+          "$max": 0.27
+        }
+      },
+      {
+        "73@percent_bindings": {
+          "text": "72",
+          "$min": 0.27,
+          "$max": 0.28
+        }
+      },
+      {
+        "72@percent_bindings": {
+          "text": "71",
+          "$min": 0.28,
+          "$max": 0.29
+        }
+      },
+      {
+        "71@percent_bindings": {
+          "text": "70",
+          "$min": 0.29,
+          "$max": 0.30
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "69",
+          "$min": 0.30,
+          "$max": 0.31
+        }
+      },
+      {
+        "69@percent_bindings": {
+          "text": "68",
+          "$min": 0.31,
+          "$max": 0.32
+        }
+      },
+      {
+        "68@percent_bindings": {
+          "text": "67",
+          "$min": 0.32,
+          "$max": 0.33
+        }
+      },
+      {
+        "67@percent_bindings": {
+          "text": "66",
+          "$min": 0.33,
+          "$max": 0.34
+        }
+      },
+      {
+        "66@percent_bindings": {
+          "text": "65",
+          "$min": 0.34,
+          "$max": 0.35
+        }
+      },
+      {
+        "65@percent_bindings": {
+          "text": "64",
+          "$min": 0.35,
+          "$max": 0.36
+        }
+      },
+      {
+        "64@percent_bindings": {
+          "text": "63",
+          "$min": 0.36,
+          "$max": 0.37
+        }
+      },
+      {
+        "63@percent_bindings": {
+          "text": "62",
+          "$min": 0.37,
+          "$max": 0.38
+        }
+      },
+      {
+        "62@percent_bindings": {
+          "text": "61",
+          "$min": 0.38,
+          "$max": 0.39
+        }
+      },
+      {
+        "61@percent_bindings": {
+          "text": "60",
+          "$min": 0.39,
+          "$max": 0.40
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "59",
+          "$min": 0.40,
+          "$max": 0.41
+        }
+      },
+      {
+        "59@percent_bindings": {
+          "text": "58",
+          "$min": 0.41,
+          "$max": 0.42
+        }
+      },
+      {
+        "58@percent_bindings": {
+          "text": "57",
+          "$min": 0.42,
+          "$max": 0.43
+        }
+      },
+      {
+        "57@percent_bindings": {
+          "text": "56",
+          "$min": 0.43,
+          "$max": 0.44
+        }
+      },
+      {
+        "56@percent_bindings": {
+          "text": "55",
+          "$min": 0.44,
+          "$max": 0.45
+        }
+      },
+      {
+        "55@percent_bindings": {
+          "text": "54",
+          "$min": 0.45,
+          "$max": 0.46
+        }
+      },
+      {
+        "54@percent_bindings": {
+          "text": "53",
+          "$min": 0.46,
+          "$max": 0.47
+        }
+      },
+      {
+        "53@percent_bindings": {
+          "text": "52",
+          "$min": 0.47,
+          "$max": 0.48
+        }
+      },
+      {
+        "52@percent_bindings": {
+          "text": "51",
+          "$min": 0.48,
+          "$max": 0.49
+        }
+      },
+      {
+        "51@percent_bindings": {
+          "text": "50",
+          "$min": 0.49,
+          "$max": 0.50
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "49",
+          "$min": 0.50,
+          "$max": 0.51
+        }
+      },
+      {
+        "49@percent_bindings": {
+          "text": "48",
+          "$min": 0.51,
+          "$max": 0.52
+        }
+      },
+      {
+        "48@percent_bindings": {
+          "text": "47",
+          "$min": 0.52,
+          "$max": 0.53
+        }
+      },
+      {
+        "47@percent_bindings": {
+          "text": "46",
+          "$min": 0.53,
+          "$max": 0.54
+        }
+      },
+      {
+        "46@percent_bindings": {
+          "text": "45",
+          "$min": 0.54,
+          "$max": 0.55
+        }
+      },
+      {
+        "45@percent_bindings": {
+          "text": "44",
+          "$min": 0.55,
+          "$max": 0.56
+        }
+      },
+      {
+        "44@percent_bindings": {
+          "text": "43",
+          "$min": 0.56,
+          "$max": 0.57
+        }
+      },
+      {
+        "43@percent_bindings": {
+          "text": "42",
+          "$min": 0.57,
+          "$max": 0.58
+        }
+      },
+      {
+        "42@percent_bindings": {
+          "text": "41",
+          "$min": 0.58,
+          "$max": 0.59
+        }
+      },
+      {
+        "41@percent_bindings": {
+          "text": "40",
+          "$min": 0.59,
+          "$max": 0.60
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "39",
+          "$min": 0.60,
+          "$max": 0.61
+        }
+      },
+      {
+        "39@percent_bindings": {
+          "text": "38",
+          "$min": 0.61,
+          "$max": 0.62
+        }
+      },
+      {
+        "38@percent_bindings": {
+          "text": "37",
+          "$min": 0.62,
+          "$max": 0.63
+        }
+      },
+      {
+        "37@percent_bindings": {
+          "text": "36",
+          "$min": 0.63,
+          "$max": 0.64
+        }
+      },
+      {
+        "36@percent_bindings": {
+          "text": "35",
+          "$min": 0.64,
+          "$max": 0.65
+        }
+      },
+      {
+        "35@percent_bindings": {
+          "text": "34",
+          "$min": 0.65,
+          "$max": 0.66
+        }
+      },
+      {
+        "34@percent_bindings": {
+          "text": "33",
+          "$min": 0.66,
+          "$max": 0.67
+        }
+      },
+      {
+        "33@percent_bindings": {
+          "text": "32",
+          "$min": 0.67,
+          "$max": 0.68
+        }
+      },
+      {
+        "32@percent_bindings": {
+          "text": "31",
+          "$min": 0.68,
+          "$max": 0.69
+        }
+      },
+      {
+        "31@percent_bindings": {
+          "text": "30",
+          "$min": 0.69,
+          "$max": 0.70
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "29",
+          "$min": 0.70,
+          "$max": 0.71
+        }
+      },
+      {
+        "29@percent_bindings": {
+          "text": "28",
+          "$min": 0.71,
+          "$max": 0.72
+        }
+      },
+      {
+        "28@percent_bindings": {
+          "text": "27",
+          "$min": 0.72,
+          "$max": 0.73
+        }
+      },
+      {
+        "27@percent_bindings": {
+          "text": "26",
+          "$min": 0.73,
+          "$max": 0.74
+        }
+      },
+      {
+        "26@percent_bindings": {
+          "text": "25",
+          "$min": 0.74,
+          "$max": 0.75
+        }
+      },
+      {
+        "25@percent_bindings": {
+          "text": "24",
+          "$min": 0.75,
+          "$max": 0.76
+        }
+      },
+      {
+        "24@percent_bindings": {
+          "text": "23",
+          "$min": 0.76,
+          "$max": 0.77
+        }
+      },
+      {
+        "23@percent_bindings": {
+          "text": "22",
+          "$min": 0.77,
+          "$max": 0.78
+        }
+      },
+      {
+        "22@percent_bindings": {
+          "text": "21",
+          "$min": 0.78,
+          "$max": 0.79
+        }
+      },
+      {
+        "21@percent_bindings": {
+          "text": "20",
+          "$min": 0.79,
+          "$max": 0.80
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "19",
+          "$min": 0.80,
+          "$max": 0.81
+        }
+      },
+      {
+        "19@percent_bindings": {
+          "text": "18",
+          "$min": 0.81,
+          "$max": 0.82
+        }
+      },
+      {
+        "18@percent_bindings": {
+          "text": "17",
+          "$min": 0.82,
+          "$max": 0.83
+        }
+      },
+      {
+        "17@percent_bindings": {
+          "text": "16",
+          "$min": 0.83,
+          "$max": 0.84
+        }
+      },
+      {
+        "16@percent_bindings": {
+          "text": "15",
+          "$min": 0.84,
+          "$max": 0.85
+        }
+      },
+      {
+        "15@percent_bindings": {
+          "text": "14",
+          "$min": 0.85,
+          "$max": 0.86
+        }
+      },
+      {
+        "14@percent_bindings": {
+          "text": "13",
+          "$min": 0.86,
+          "$max": 0.87
+        }
+      },
+      {
+        "13@percent_bindings": {
+          "text": "12",
+          "$min": 0.87,
+          "$max": 0.88
+        }
+      },
+      {
+        "12@percent_bindings": {
+          "text": "11",
+          "$min": 0.88,
+          "$max": 0.89
+        }
+      },
+      {
+        "11@percent_bindings": {
+          "text": "10",
+          "$min": 0.89,
+          "$max": 0.90
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "9",
+          "$min": 0.90,
+          "$max": 0.91
+        }
+      },
+      {
+        "9@percent_bindings": {
+          "text": "8",
+          "$min": 0.91,
+          "$max": 0.92
+        }
+      },
+      {
+        "8@percent_bindings": {
+          "text": "7",
+          "$min": 0.92,
+          "$max": 0.93
+        }
+      },
+      {
+        "7@percent_bindings": {
+          "text": "6",
+          "$min": 0.93,
+          "$max": 0.94
+        }
+      },
+      {
+        "6@percent_bindings": {
+          "text": "5",
+          "$min": 0.94,
+          "$max": 0.95
+        }
+      },
+      {
+        "5@percent_bindings": {
+          "text": "4",
+          "$min": 0.95,
+          "$max": 0.96
+        }
+      },
+      {
+        "4@percent_bindings": {
+          "text": "3",
+          "$min": 0.96,
+          "$max": 0.97
+        }
+      },
+      {
+        "3@percent_bindings": {
+          "text": "2",
+          "$min": 0.97,
+          "$max": 0.98
+        }
+      },
+      {
+        "2@percent_bindings": {
+          "text": "1",
+          "$min": 0.98,
+          "$max": 0.99
+        }
+      },
+      {
+        "1@percent_bindings": {
+          "text": "0",
+          "$min": 0.99,
+          "$max": 2.00
+        }
+      }
+    ]
+  },
+
+  "percent_number_reverse": {
+    "type": "panel",
+    "size": [
+      "100%cm",
+      "100%cm"
+    ],
+    "controls": [
+      {
+        "101@percent_bindings": {
+          "text": "0",
+          "$min": -1,
+          "$max": 0
+        }
+      },
+      {
+        "100@percent_bindings": {
+          "text": "1",
+          "$min": 0,
+          "$max": 0.01
+        }
+      },
+      {
+        "99@percent_bindings": {
+          "text": "2",
+          "$min": 0.01,
+          "$max": 0.02
+        }
+      },
+      {
+        "98@percent_bindings": {
+          "text": "3",
+          "$min": 0.02,
+          "$max": 0.03
+        }
+      },
+      {
+        "97@percent_bindings": {
+          "text": "4",
+          "$min": 0.03,
+          "$max": 0.04
+        }
+      },
+      {
+        "96@percent_bindings": {
+          "text": "5",
+          "$min": 0.04,
+          "$max": 0.05
+        }
+      },
+      {
+        "95@percent_bindings": {
+          "text": "6",
+          "$min": 0.05,
+          "$max": 0.06
+        }
+      },
+      {
+        "94@percent_bindings": {
+          "text": "7",
+          "$min": 0.06,
+          "$max": 0.07
+        }
+      },
+      {
+        "93@percent_bindings": {
+          "text": "8",
+          "$min": 0.07,
+          "$max": 0.08
+        }
+      },
+      {
+        "92@percent_bindings": {
+          "text": "9",
+          "$min": 0.08,
+          "$max": 0.09
+        }
+      },
+      {
+        "91@percent_bindings": {
+          "text": "10",
+          "$min": 0.09,
+          "$max": 0.10
+        }
+      },
+      {
+        "90@percent_bindings": {
+          "text": "11",
+          "$min": 0.10,
+          "$max": 0.11
+        }
+      },
+      {
+        "89@percent_bindings": {
+          "text": "12",
+          "$min": 0.11,
+          "$max": 0.12
+        }
+      },
+      {
+        "88@percent_bindings": {
+          "text": "13",
+          "$min": 0.12,
+          "$max": 0.13
+        }
+      },
+      {
+        "87@percent_bindings": {
+          "text": "14",
+          "$min": 0.13,
+          "$max": 0.14
+        }
+      },
+      {
+        "86@percent_bindings": {
+          "text": "15",
+          "$min": 0.14,
+          "$max": 0.15
+        }
+      },
+      {
+        "85@percent_bindings": {
+          "text": "16",
+          "$min": 0.15,
+          "$max": 0.16
+        }
+      },
+      {
+        "84@percent_bindings": {
+          "text": "17",
+          "$min": 0.16,
+          "$max": 0.17
+        }
+      },
+      {
+        "83@percent_bindings": {
+          "text": "18",
+          "$min": 0.17,
+          "$max": 0.18
+        }
+      },
+      {
+        "82@percent_bindings": {
+          "text": "19",
+          "$min": 0.18,
+          "$max": 0.19
+        }
+      },
+      {
+        "81@percent_bindings": {
+          "text": "20",
+          "$min": 0.19,
+          "$max": 0.20
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "21",
+          "$min": 0.20,
+          "$max": 0.21
+        }
+      },
+      {
+        "79@percent_bindings": {
+          "text": "22",
+          "$min": 0.21,
+          "$max": 0.22
+        }
+      },
+      {
+        "78@percent_bindings": {
+          "text": "23",
+          "$min": 0.22,
+          "$max": 0.23
+        }
+      },
+      {
+        "77@percent_bindings": {
+          "text": "24",
+          "$min": 0.23,
+          "$max": 0.24
+        }
+      },
+      {
+        "76@percent_bindings": {
+          "text": "25",
+          "$min": 0.24,
+          "$max": 0.25
+        }
+      },
+      {
+        "75@percent_bindings": {
+          "text": "26",
+          "$min": 0.25,
+          "$max": 0.26
+        }
+      },
+      {
+        "74@percent_bindings": {
+          "text": "27",
+          "$min": 0.26,
+          "$max": 0.27
+        }
+      },
+      {
+        "73@percent_bindings": {
+          "text": "28",
+          "$min": 0.27,
+          "$max": 0.28
+        }
+      },
+      {
+        "72@percent_bindings": {
+          "text": "29",
+          "$min": 0.28,
+          "$max": 0.29
+        }
+      },
+      {
+        "71@percent_bindings": {
+          "text": "30",
+          "$min": 0.29,
+          "$max": 0.30
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "31",
+          "$min": 0.30,
+          "$max": 0.31
+        }
+      },
+      {
+        "69@percent_bindings": {
+          "text": "32",
+          "$min": 0.31,
+          "$max": 0.32
+        }
+      },
+      {
+        "68@percent_bindings": {
+          "text": "33",
+          "$min": 0.32,
+          "$max": 0.33
+        }
+      },
+      {
+        "67@percent_bindings": {
+          "text": "34",
+          "$min": 0.33,
+          "$max": 0.34
+        }
+      },
+      {
+        "66@percent_bindings": {
+          "text": "35",
+          "$min": 0.34,
+          "$max": 0.35
+        }
+      },
+      {
+        "65@percent_bindings": {
+          "text": "36",
+          "$min": 0.35,
+          "$max": 0.36
+        }
+      },
+      {
+        "64@percent_bindings": {
+          "text": "37",
+          "$min": 0.36,
+          "$max": 0.37
+        }
+      },
+      {
+        "63@percent_bindings": {
+          "text": "38",
+          "$min": 0.37,
+          "$max": 0.38
+        }
+      },
+      {
+        "62@percent_bindings": {
+          "text": "39",
+          "$min": 0.38,
+          "$max": 0.39
+        }
+      },
+      {
+        "61@percent_bindings": {
+          "text": "40",
+          "$min": 0.39,
+          "$max": 0.40
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "41",
+          "$min": 0.40,
+          "$max": 0.41
+        }
+      },
+      {
+        "59@percent_bindings": {
+          "text": "42",
+          "$min": 0.41,
+          "$max": 0.42
+        }
+      },
+      {
+        "58@percent_bindings": {
+          "text": "43",
+          "$min": 0.42,
+          "$max": 0.43
+        }
+      },
+      {
+        "57@percent_bindings": {
+          "text": "44",
+          "$min": 0.43,
+          "$max": 0.44
+        }
+      },
+      {
+        "56@percent_bindings": {
+          "text": "45",
+          "$min": 0.44,
+          "$max": 0.45
+        }
+      },
+      {
+        "55@percent_bindings": {
+          "text": "46",
+          "$min": 0.45,
+          "$max": 0.46
+        }
+      },
+      {
+        "54@percent_bindings": {
+          "text": "47",
+          "$min": 0.46,
+          "$max": 0.47
+        }
+      },
+      {
+        "53@percent_bindings": {
+          "text": "48",
+          "$min": 0.47,
+          "$max": 0.48
+        }
+      },
+      {
+        "52@percent_bindings": {
+          "text": "49",
+          "$min": 0.48,
+          "$max": 0.49
+        }
+      },
+      {
+        "51@percent_bindings": {
+          "text": "50",
+          "$min": 0.49,
+          "$max": 0.50
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "51",
+          "$min": 0.50,
+          "$max": 0.51
+        }
+      },
+      {
+        "49@percent_bindings": {
+          "text": "52",
+          "$min": 0.51,
+          "$max": 0.52
+        }
+      },
+      {
+        "48@percent_bindings": {
+          "text": "53",
+          "$min": 0.52,
+          "$max": 0.53
+        }
+      },
+      {
+        "47@percent_bindings": {
+          "text": "54",
+          "$min": 0.53,
+          "$max": 0.54
+        }
+      },
+      {
+        "46@percent_bindings": {
+          "text": "55",
+          "$min": 0.54,
+          "$max": 0.55
+        }
+      },
+      {
+        "45@percent_bindings": {
+          "text": "56",
+          "$min": 0.55,
+          "$max": 0.56
+        }
+      },
+      {
+        "44@percent_bindings": {
+          "text": "57",
+          "$min": 0.56,
+          "$max": 0.57
+        }
+      },
+      {
+        "43@percent_bindings": {
+          "text": "58",
+          "$min": 0.57,
+          "$max": 0.58
+        }
+      },
+      {
+        "42@percent_bindings": {
+          "text": "59",
+          "$min": 0.58,
+          "$max": 0.59
+        }
+      },
+      {
+        "41@percent_bindings": {
+          "text": "60",
+          "$min": 0.59,
+          "$max": 0.60
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "61",
+          "$min": 0.60,
+          "$max": 0.61
+        }
+      },
+      {
+        "39@percent_bindings": {
+          "text": "62",
+          "$min": 0.61,
+          "$max": 0.62
+        }
+      },
+      {
+        "38@percent_bindings": {
+          "text": "63",
+          "$min": 0.62,
+          "$max": 0.63
+        }
+      },
+      {
+        "37@percent_bindings": {
+          "text": "64",
+          "$min": 0.63,
+          "$max": 0.64
+        }
+      },
+      {
+        "36@percent_bindings": {
+          "text": "65",
+          "$min": 0.64,
+          "$max": 0.65
+        }
+      },
+      {
+        "35@percent_bindings": {
+          "text": "66",
+          "$min": 0.65,
+          "$max": 0.66
+        }
+      },
+      {
+        "34@percent_bindings": {
+          "text": "67",
+          "$min": 0.66,
+          "$max": 0.67
+        }
+      },
+      {
+        "33@percent_bindings": {
+          "text": "68",
+          "$min": 0.67,
+          "$max": 0.68
+        }
+      },
+      {
+        "32@percent_bindings": {
+          "text": "69",
+          "$min": 0.68,
+          "$max": 0.69
+        }
+      },
+      {
+        "31@percent_bindings": {
+          "text": "70",
+          "$min": 0.69,
+          "$max": 0.70
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "71",
+          "$min": 0.70,
+          "$max": 0.71
+        }
+      },
+      {
+        "29@percent_bindings": {
+          "text": "72",
+          "$min": 0.71,
+          "$max": 0.72
+        }
+      },
+      {
+        "28@percent_bindings": {
+          "text": "73",
+          "$min": 0.72,
+          "$max": 0.73
+        }
+      },
+      {
+        "27@percent_bindings": {
+          "text": "74",
+          "$min": 0.73,
+          "$max": 0.74
+        }
+      },
+      {
+        "26@percent_bindings": {
+          "text": "75",
+          "$min": 0.74,
+          "$max": 0.75
+        }
+      },
+      {
+        "25@percent_bindings": {
+          "text": "76",
+          "$min": 0.75,
+          "$max": 0.76
+        }
+      },
+      {
+        "24@percent_bindings": {
+          "text": "77",
+          "$min": 0.76,
+          "$max": 0.77
+        }
+      },
+      {
+        "23@percent_bindings": {
+          "text": "78",
+          "$min": 0.77,
+          "$max": 0.78
+        }
+      },
+      {
+        "22@percent_bindings": {
+          "text": "79",
+          "$min": 0.78,
+          "$max": 0.79
+        }
+      },
+      {
+        "21@percent_bindings": {
+          "text": "80",
+          "$min": 0.79,
+          "$max": 0.80
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "81",
+          "$min": 0.80,
+          "$max": 0.81
+        }
+      },
+      {
+        "19@percent_bindings": {
+          "text": "82",
+          "$min": 0.81,
+          "$max": 0.82
+        }
+      },
+      {
+        "18@percent_bindings": {
+          "text": "83",
+          "$min": 0.82,
+          "$max": 0.83
+        }
+      },
+      {
+        "17@percent_bindings": {
+          "text": "84",
+          "$min": 0.83,
+          "$max": 0.84
+        }
+      },
+      {
+        "16@percent_bindings": {
+          "text": "85",
+          "$min": 0.84,
+          "$max": 0.85
+        }
+      },
+      {
+        "15@percent_bindings": {
+          "text": "86",
+          "$min": 0.85,
+          "$max": 0.86
+        }
+      },
+      {
+        "14@percent_bindings": {
+          "text": "87",
+          "$min": 0.86,
+          "$max": 0.87
+        }
+      },
+      {
+        "13@percent_bindings": {
+          "text": "88",
+          "$min": 0.87,
+          "$max": 0.88
+        }
+      },
+      {
+        "12@percent_bindings": {
+          "text": "89",
+          "$min": 0.88,
+          "$max": 0.89
+        }
+      },
+      {
+        "11@percent_bindings": {
+          "text": "90",
+          "$min": 0.89,
+          "$max": 0.90
+        }
+      },
+      {
+        "80@percent_bindings": {
+          "text": "91",
+          "$min": 0.90,
+          "$max": 0.91
+        }
+      },
+      {
+        "9@percent_bindings": {
+          "text": "92",
+          "$min": 0.91,
+          "$max": 0.92
+        }
+      },
+      {
+        "8@percent_bindings": {
+          "text": "93",
+          "$min": 0.92,
+          "$max": 0.93
+        }
+      },
+      {
+        "7@percent_bindings": {
+          "text": "94",
+          "$min": 0.93,
+          "$max": 0.94
+        }
+      },
+      {
+        "6@percent_bindings": {
+          "text": "95",
+          "$min": 0.94,
+          "$max": 0.95
+        }
+      },
+      {
+        "5@percent_bindings": {
+          "text": "96",
+          "$min": 0.95,
+          "$max": 0.96
+        }
+      },
+      {
+        "4@percent_bindings": {
+          "text": "97",
+          "$min": 0.96,
+          "$max": 0.97
+        }
+      },
+      {
+        "3@percent_bindings": {
+          "text": "98",
+          "$min": 0.97,
+          "$max": 0.98
+        }
+      },
+      {
+        "2@percent_bindings": {
+          "text": "99",
+          "$min": 0.98,
+          "$max": 0.99
+        }
+      },
+      {
+        "1@percent_bindings": {
+          "text": "100",
+          "$min": 0.99,
+          "$max": 2.00
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,709 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#6038
+
+*/
+
+{
+    "auto_complete_panel_contents_with_item": {
+        "type": "panel",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "size": [
+            "100%",
+            10 
+        ],
+        "controls": [
+            {
+                "asa_autocomplete_panel_stack": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "anchor_from": "left_middle",
+                    "anchor_to": "left_middle",
+                    "offset": [ 2, 0 ],
+                    "size": [ "100%c", "100%cm" ],
+                    "controls": [
+                        {
+                            "asa_auto_complete_item_renderer@common.item_renderer": {
+                                "size": [
+                                    9,
+                                    9
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#auto_complete_item",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "auto_complete"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (('§z' + #item_id_aux) = '§z0'))",
+                                        "target_property_name": "#visible"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "#auto_complete_item",
+                                        "target_property_name": "#item_id_aux"
+                                    }
+                                ]
+                            }
+                        },
+
+                        {
+                            "asa_item_id_panel": {
+                                "type": "panel",
+                                "size": [ 26, "100%sm" ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#auto_complete_item",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "auto_complete"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(#text or (not ((#item_id_aux = '§z0') or (#item_id_aux = '§z'))))",
+                                        "target_property_name": "#visible"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + (#auto_complete_item / 65536))",
+                                        "target_property_name": "#item_id_aux"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "asa_text": {
+                                            "type": "label",
+                                            "color": [ 0.333, 1.0, 1.0 ],
+                                            "text": "#item_id_aux",
+                                            "anchor_from": "right_middle",
+                                            "anchor_to": "right_middle",
+                                            "text_alignment": "right",
+                                            "size": [ "100%", "default" ],
+                                            "offset": [ -1, 0 ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#auto_complete_item",
+                                                    "binding_type": "collection",
+                                                    "binding_collection_name": "auto_complete"
+                                                },
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_property_name": "('§z' + (#auto_complete_item / 65536))",
+                                                    "target_property_name": "#item_id_aux"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+
+                        {
+                            "asa_text_panel": {
+                                "type": "panel",
+                                "size": [ "100%c,", "100%sm" ],
+                                "controls": [
+                                    {
+                                        "asa_text": {
+                                            "type": "label",
+                                            "color": "$chat_text_color",
+                                            "text": "#text",
+                                            "localize": false,
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "collection",
+                                                    "binding_name": "#auto_complete_text",
+                                                    "binding_collection_name": "auto_complete"
+                                                },
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_property_name": "(('§7' + (('§7' + #auto_complete_text) - '§7   §7'))",
+                                                    "target_property_name": "#text"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "autocomplete_button@common.button": {
+                    "$pressed_button_name": "button.click_autocomplete",
+                    "tts_inherit_siblings": true,
+                    "controls": [
+                        {
+                            "default": {
+                                "type": "panel"
+                            }
+                        },
+                        {
+                            "hover@chat.click_autocomplete_is_focused": {}
+                        },
+                        {
+                            "pressed@chat.click_autocomplete_is_focused": {}
+                        }
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "collection_details",
+                            "binding_collection_name": "auto_complete"
+                        },
+                        {
+                            "binding_type": "global",
+                            "binding_condition": "always",
+                            "binding_name": "#message_text_box_content"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('asa19823367' + #message_text_box_content)",
+                            "target_property_name": "#asa_1"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not + ((#asa_1 - 'asa19823367/') = #asa_1))",
+                            "target_property_name": "#asa_01"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_16310_autocomplete_command",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#asa_02"
+                        },
+                        {
+                            "binding_type": "collection",
+                            "binding_name": "#auto_complete_text",
+                            "binding_collection_name": "auto_complete"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('§z' + #auto_complete_text)",
+                            "target_property_name": "#text"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not (#text = '§z' or #text = '§z...'))",
+                            "target_property_name": "#asa_03"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "((#text - '§z/') = #text)",
+                            "target_property_name": "#asa_04"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#asa_01 and #asa_02 and #asa_03 and #asa_04)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+
+    "chat_screen@common.base_screen": {
+        "close_on_player_hurt": "$asa_close_hurd",
+        "$asa_close_hurd": false,
+        "force_render_below": true
+    },
+
+    "chat_header/title_panel/chat_header_content_area": {
+        "controls": []
+    },
+
+    "chat_bottom_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "size": [
+            "100%",
+            27
+        ],
+        "min_size": [
+            "100%",
+            27
+        ],
+        "controls": [
+            {
+                "keyboard_button@chat.keyboard_button": {}
+            },
+            {
+                "host_main_button@host_options.host_main_button": {
+                    "ignored": "$is_pregame",
+                    "$focus_override_up": "coordinate_dropdown_focus_id"
+                }
+            },
+            {
+                "chat_settings@chat.chat_settings_button": {}
+            },
+            {
+                "chat_autocomplete@asa_chat_utility.chat_auto_complete_stack": {}
+            },
+            {
+                "text_box@chat.text_edit_box": {}
+            },
+            {
+                "chat_messenger@asa_chat_utility.chat_message_stack": {}
+            },
+            {
+                "send_button@chat.send_button": {
+                    "offset": [
+                        -20,
+                        0
+                    ]
+                }
+            }
+        ]
+    },
+
+    "chat_screen_content": {
+        "type": "panel",
+        "controls": [
+            {
+                "messages_panel@chat.messages_scrolling_panel": {
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_16310_always_view",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "chat_bottom_panel@chat.chat_bottom_panel": {
+                    "layer": 2
+                }
+            },
+            {
+                "chat_top_panel@chat.chat_header": {
+                    "layer": 2
+                }
+            },
+            {
+                "host_main_panel@host_options.host_panel": {
+                    "layer": 4
+                }
+            },
+            {
+                "popup_factory@chat_settings.popup_factory": {}
+            },
+            //{
+            //    "command_panel@asa_chat_command.asa_command_panel": {}
+            //},
+            {
+                "asa_chat@12_asa_always_visible_chat_panel": {}
+            },
+
+            {
+                "asa_command_list@common.scrolling_panel": {
+                    "type": "panel",
+                    "size": [ "100%-2px", "100%-50px" ],
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "offset": [ 2, -27 ],
+                    "$scrolling_content": "chat.asa_scroll_panel",
+                    "$scroll_size": [
+                        5,
+                        "100%-4px"
+                    ],
+                    "$jump_to_bottom_on_update": true,
+                    "$show_background": false,
+                    "$always_handle_scrolling": true,
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#chat_visible"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_16310_always_view",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#asa_1"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#asa_1 and (not #chat_visible))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "asa_scroll_panel": {
+        "type": "stack_panel",
+        "size": [ "100%", "100%c" ],
+        "controls": [
+            {
+                "asa_panel": {
+                    "type": "panel",
+                    "size": [ 1, 1 ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_16310_scroll_to_bottom",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "auto_complete_grid": {
+                    "type": "grid",
+                    "grid_item_template": "chat.auto_complete_panel_contents_with_item",
+                    "grid_fill_direction": "vertical",
+                    "collection_name": "auto_complete",
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "size": [ "100%", 25000 ],
+                    "bindings": [
+                        {
+                            "binding_name": "#get_grid_size",
+                            "binding_type": "collection",
+                            "binding_collection_name": "auto_complete"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "asa_chat_button_stack": {
+        "type": "stack_panel",
+        "size": [ "100%c", 16 ],
+        "orientation": "horizontal",
+        "offset": [ -1.5, -1.5 ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+        "controls": [
+            {
+                "asa_coordinates_panel": {
+                    "type": "panel",
+                    "size": [ 100, 16 ],
+                    "$default_texture": "textures/ui/button_borderless_light",
+                    "$hover_texture": "textures/ui/button_borderless_light",
+                    "$pressed_texture": "textures/ui/button_borderless_lighthover",
+                    "$pressed_no_hover_texture": "textures/ui/button_borderless_lighthover",
+
+                    "$default_text_color|default": "$light_toggle_default_text_color",
+                    "$hover_text_color|default": "$light_toggle_default_text_color",
+                    "$default_checked_text_color|default": "$light_toggle_default_text_color",
+                    "$hover_checked_text_color|default": "$light_toggle_default_text_color",
+                    "controls": [
+                        {
+                            "1@asa_toggle_common.asa_toggle_nav_template":{
+                                "size": [ "100%", "100%" ],
+                                "$asa_state_toggle": "#coordinate_type_facing",
+                                "$button_text": "chat.coordinateTypePosition",
+                                "$button_type_panel": "asa_toggle_common.button_text_panel",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#coordinate_type_position",
+                                        "binding_name_override": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "2@asa_toggle_common.asa_toggle_nav_template":{
+                                "size": [ "100%", "100%" ],
+                                "$asa_state_toggle": "#coordinate_type_position",
+                                "$button_text": "chat.coordinateTypeFacing",
+                                "$button_type_panel": "asa_toggle_common.button_text_panel",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#coordinate_type_facing",
+                                        "binding_name_override": "#visible"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "coordinates_panel": {
+                    "type": "panel",
+                    "size": [ "100%c", 16 ],
+                    "controls": [
+                        {
+                            "coordinates_background_image": {
+                                "type": "image",
+                                "anchor_to": "center",
+                                "anchor_from": "center",
+                                "size": [ "100%c + 14px", 12 ],
+                                "min_size": [ 160, 12 ],
+                                "texture": "textures/ui/lightgreybars",
+                                "layer": 1,
+                                "controls": [
+                                    {
+                                        "coordinates_text": {
+                                            "type": "label",
+                                            "size": [ "default", 10 ],
+                                            "text": "#text",
+                                            "color": "$main_header_text_color",
+                                            "layer": 2,
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#coordinates_text",
+                                                    "binding_name_override": "#text"
+                                                },
+                                                {
+                                                    "binding_name": "#chat_coordinate_dropdown_visible",
+                                                    "binding_name_override": "#visible",
+                                                    "binding_type": "global"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "asa_coordinates_disable": {
+                                            "type": "label",
+                                            "size": [ "default", 10 ],
+                                            "text": "Enable Copy Coordinates:§7 Disable",
+                                            "color": "$main_header_text_color",
+                                            "layer": 2,
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "(not #chat_coordinate_dropdown_visible)",
+                                                    "binding_name_override": "#visible",
+                                                    "binding_type": "global"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "copy_coordinate_button@chat.copy_coordinate_button": {
+                    "size": [
+                        16,
+                        16
+                    ]
+                }
+            },
+            {
+                "paste_button@chat.paste_button": {
+                    "size": [
+                        16,
+                        16
+                    ]
+                }
+            },
+
+            {
+                "2@asa_autocomplete_command_sugestion_button": {}
+            },
+            {
+                "1@asa_show_chat_button": {}
+            },
+            {
+                "3@scroll_to_bottom_panel": {}
+            }
+        ]
+    },
+
+    "asa_autocomplete_command_sugestion_button": {
+        "type": "panel",
+        "size": [ 16, 16 ],
+        "controls": [
+            {
+                "1@asa_autocomplete_command_button_content": {}
+            },
+            {
+                "2@asa_button_autocomplete_command_icon": {}
+            }
+        ]
+    },
+
+    "back_content_panel/back_button": {
+        "$button_text": "#chat_title_text"
+    },
+
+    "chat_header/title_panel/title": {
+        "visible": false,
+        "bindings": []
+    },
+
+    "asa_autocomplete_command_button_content@common_toggles.light_image_toggle_collection": {
+        "$toggle_view_binding_name": "asa_16310_autocomplete_command",
+        "layer": 20,
+        "controls": [
+            {
+                "$toggle_view_binding_name@$template_toggle": {
+                    "focus_wrap_enabled": false,
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#message_text_box_content"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "('asa19823367' + #message_text_box_content)",
+                            "target_property_name": "#asa_1"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(not + ((#asa_1 - 'asa19823367/') = #asa_1))",
+                            "target_property_name": "#toggle_state"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "asa_button_autocomplete_command_icon": {
+        "type": "label",
+        "text": "/",
+        "color": [ 0.3, 0.3, 0.3 ],
+        "layer": 50
+    },
+
+    "scroll_to_bottom_panel": {
+        "type": "panel",
+        "size": [ 16, 16 ],
+        "controls": [
+            {
+                "1@asa_show_chat_button_content": {
+                    "$toggle_view_binding_name": "asa_16310_scroll_to_bottom",
+                    "$unchecked_control": "common_toggles.toggle_unchecked",
+                    "$checked_control": "common_toggles.toggle_unchecked",
+                    "$unchecked_hover_control": "common_toggles.toggle_unchecked_hover",
+                    "$checked_hover_control": "common_toggles.toggle_unchecked_hover"
+                }
+            },
+            {
+                "2@asa_button_always_view_icon": {
+                    "color": [ 0.3, 0.3, 0.3 ],
+                    "texture": "textures/ui/down_arrow"
+                }
+            }
+        ]
+    },
+
+    "asa_show_chat_button": {
+        "type": "panel",
+        "size": [ 16, 16 ],
+        "controls": [
+            {
+                "1@asa_show_chat_button_content": {
+                    "$toggle_view_binding_name": "asa_16310_always_view"
+                }
+            },
+            {
+                "2@asa_button_always_view_icon": {}
+            }
+        ]
+    },
+
+    "asa_show_chat_button_content@common_toggles.light_image_toggle_collection": {
+        "layer": 20
+    },
+
+    "asa_button_always_view_icon": {
+        "type": "image",
+        "size": [ 10, 10 ],
+        "layer": 50,
+        "texture": "textures/ui/flyout"
+    },
+
+    "chat_header": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "asa@asa_chat_button_stack": {}
+                    }
+                ]
+            }
+        ]
+    },
+
+    "12_asa_always_visible_chat_panel": {
+        "type": "panel",
+        "controls": [
+            {
+                "asa_view@asa_always_visible_chat_scroll_panel": {}
+            }
+        ]
+    },
+
+    "asa_always_visible_chat_scroll_panel@common.scrolling_panel": {
+        "type": "panel",
+        "size": [ "100%-2px", "100%-50px" ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [ 2, -27 ],
+        "$scrolling_content": "chat.asa_always_visible_chat_stack_panel",
+        "$scroll_size": [ 5, "100%-4px" ],
+        "$jump_to_bottom_on_update": true,
+        "$show_background": false,
+        "$always_handle_scrolling": true
+    },
+
+    "asa_always_visible_chat_stack_panel": {
+        "type": "stack_panel",
+        "orientation": "vertical",
+        "$scrolling_content_anchor_from": "bottom_left",
+        "$scrolling_content_anchor_to": "bottom_left",
+        "factory": {
+            "name": "messages_factory",
+            "max_children_size": 100,
+            "control_ids": {
+                "chat_screen_messages": "chat_screen_messages@chat.asa_view_tts_chat_panel"
+            }
+        }
+    },
+
+    "asa_view_tts_chat_panel@common.tts_label_focus_wrapper": {
+        "$tts_label_panel": "chat.asa_messages_text",
+        "$focus_border_visible_binding": "#host_options_menu_not_open_and_tts_enabled"
+    },
+
+    "asa_messages_text": {
+        "type": "panel",
+        "size": [ "100%", "100%c" ],
+        "controls": [
+            {
+                "text": {
+                    "type": "label",
+                    "color": "$chat_text_color",
+                    "localize": false,
+                    "size": [ "100%", "default" ],
+                    "text": "#text",
+                    "text_tts": "#text_tts",
+                    "font_type": "$chat_font_type",
+                    "font_scale_factor": "$chat_font_scale_factor",
+                    "line_padding": "$chat_line_spacing"
+                }
+            }
+        ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_16310_always_view",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    }
+}

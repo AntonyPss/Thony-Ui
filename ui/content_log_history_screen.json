@@ -1,0 +1,35 @@
+{
+  "namespace": "content_log_history",
+
+  "clipboard_button": {
+    "size": [ "fill", 30 ]
+  },
+
+  "clear_button": {
+    "size": [ "50%", 30 ]
+  },
+
+  "horizontal_button_stack_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 30 ],
+    "controls": [
+      {
+        "clipboard_button@clipboard_button": {
+        }
+      },
+      {
+        "clear_button@clear_button": {
+        }
+      }
+    ]
+  },
+
+  "content_log_message": {
+    "shadow": true
+  },
+
+  "messages_scrolling_panel": {
+    "$scroll_size": [ 4, "100% - 4px" ]
+  }
+}

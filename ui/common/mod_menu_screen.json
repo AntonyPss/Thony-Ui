@@ -1,0 +1,105 @@
+{
+  "namespace": "thony_mod_screen",
+
+  "open_mod_menu_toggle_pause@common_toggles.light_text_toggle": {
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "$toggle_default_state": "",
+    "$radio_toggle_group": true,
+    "$button_text": "[show]",
+    "$toggle_view_binding_name": "mod_menu_panel",
+    "$toggle_name": "mod_menu_screen",
+    "size": [ 42, 16 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "quit_world_screen",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "mod_menu_toggle_template": {
+    "type": "toggle",
+
+    "radio_toggle_group": "$radio_toggle_group",
+    "toggle_name": "$toggle_name",
+    "toggle_default_state": "$toggle_default_state",
+
+    "$radio_toggle_group|default": true,
+    "$toggle_name|default": "this_toggle",
+    "$toggle_default_state|default": "",
+
+    "unchecked_control": "default",
+    "unchecked_hover_control": "pressed",
+    "checked_control": "enable_default",
+    "checked_hover_control": "enable_pressed",
+
+    "sound_name": "random.click",
+    "sound_volume": 1.0,
+    "sound_pitch": 1.0,
+
+    "property_bag": {
+      "#toggle_state": true
+    },
+
+    "button_mappings": "$toggle_custom_button_mappings",
+
+    "$toggle_custom_button_mappings|default": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "focused"
+      }
+    ],
+    "controls": [
+      {
+        "default@menu_toggle_common": {
+          "$button_text": "OFF"
+        }
+      },
+      {
+        "pressed@menu_toggle_common": {
+          "$button_text": "OFF"
+        }
+      },
+      {
+        "enable_default@menu_toggle_common": {
+          "$button_text": "ON"
+        }
+      },
+      {
+        "enable_pressed@menu_toggle_common": {
+          "$button_text": "ON"
+        }
+      }
+    ]
+  },
+
+  "menu_toggle_common": {
+    "type": "image",
+    "texture": "textures/ui/hud_tip_text_background",
+    "layer": 1,
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "text": {
+          "type": "label",
+          "text": "$button_text",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 3,
+          "shadow": true,
+          "color": "$main_header_text_color",
+          "size": [ "default", "default" ]
+        }
+      }
+    ]
+  }
+}

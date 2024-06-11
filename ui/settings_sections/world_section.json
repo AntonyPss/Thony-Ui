@@ -1,0 +1,266 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#6038
+
+*/
+
+{
+    "game_section": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "replace",
+                "where": {
+                    "option_dropdown_0@settings_common.option_dropdown_no_scroll": {
+                        "$option_label": "createWorldScreen.gameMode.default",
+                        "$dropdown_content": "world_section.world_game_mode_dropdown_content",
+                        "$dropdown_area": "content_area",
+                        "$dropdown_name": "world_game_mode_dropdown",
+                        "$options_dropdown_toggle_label_binding": "#world_game_mode_dropdown_toggle_label",
+                        "$option_enabled_binding_name": "#world_game_mode_dropdown_enabled",
+                        "$selection_highlight_offset": [
+                            -2,
+                            1
+                        ],
+                        "$selection_highlight_size": [
+                            "100%",
+                            "100% + 1px"
+                        ],
+                        "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+                    }
+                },
+                "value": [
+                    {
+                        "game_option_1": {
+                            "type": "stack_panel",
+                            "size": [ "100%", 45 ],
+                            "controls": [
+                                {
+                                    "option_header": { 
+                                        "type": "label",
+                                        "size": [ "default", 10 ],
+                                        "max_size": [ "100%", 10 ],
+                                        "text": "createWorldScreen.gameMode.default"
+                                    }
+                                },
+                                {
+                                    "setting_panel": {
+                                        "size": [ "100%", "100%cm" ],
+                                        "type": "stack_panel",
+                                        "orientation": "horizontal",
+                                        "$option_enabled_binding_name": "#world_game_mode_dropdown_enabled",
+                                        "$button_type_panel": "asa_toggle_common.button_text_panel_third",
+                                        "controls": [
+                                            {
+                                                "1@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#world_game_mode_radio_survival",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "createWorldScreen.gameMode.survival",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "2@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#world_game_mode_radio_creative",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "createWorldScreen.gameMode.creative",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "3@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#world_game_mode_radio_adventure",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "createWorldScreen.gameMode.adventure",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+
+            {
+                "array_name": "controls",
+                "operation": "replace",
+                "where": {
+                    "option_dropdown_1@settings_common.option_dropdown": {
+                        "ignored": "$is_pregame",
+                        "$option_label": "createWorldScreen.gameMode.personal",
+                        "$dropdown_content": "world_section.player_game_mode_dropdown_content",
+                        "$dropdown_area": "content_area",
+                        "$dropdown_name": "player_game_mode_dropdown",
+                        "$options_dropdown_toggle_label_binding": "#player_game_mode_dropdown_toggle_label",
+                        "$option_enabled_binding_name": "#player_game_mode_dropdown_enabled",
+                        "$dropdown_scroll_content_size": [
+                            "100%",
+                            "260%"
+                        ],
+                        "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                        "bindings": [
+                            {
+                                "binding_name": "#player_game_mode_dropdown_visible",
+                                "binding_name_override": "#visible"
+                            }
+                        ]
+                    }
+                },
+                "value": [
+                    {
+                        "game_option_2": {
+                            "type": "stack_panel",
+                            "size": [ "100%", 45 ],
+                            "bindings": [
+                                {
+                                    "binding_name": "#player_game_mode_dropdown_visible",
+                                    "binding_name_override": "#visible"
+                                }
+                            ],
+                            "controls": [
+                                {
+                                    "option_header": { 
+                                        "type": "label",
+                                        "size": [ "default", 10 ],
+                                        "max_size": [ "100%", 10 ],
+                                        "text": "createWorldScreen.gameMode.personal"
+                                    }
+                                },
+                                {
+                                    "setting_panel": {
+                                        "size": [ "100%", "100%cm" ],
+                                        "type": "stack_panel",
+                                        "orientation": "horizontal",
+                                        "$option_enabled_binding_name": "#player_game_mode_dropdown_enabled",
+                                        "$button_type_panel": "asa_toggle_common.button_text_panel_third",
+                                        "controls": [
+                                            {
+                                                "1@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#player_game_mode_radio_default",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "createWorldScreen.gameMode.serverDefault",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "2@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#player_game_mode_radio_survival",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "createWorldScreen.gameMode.survival",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "3@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#player_game_mode_radio_creative",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "createWorldScreen.gameMode.creative",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "4@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#player_game_mode_radio_adventure",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "createWorldScreen.gameMode.adventure",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+
+            {
+                "array_name": "controls",
+                "operation": "replace",
+                "where": {
+                    "option_dropdown_2@settings_common.option_dropdown": {
+                        "$option_label": "options.difficulty",
+                        "$dropdown_content": "world_section.world_difficulty_dropdown_content",
+                        "$dropdown_area": "content_area",
+                        "$dropdown_name": "world_difficulty_dropdown",
+                        "$options_dropdown_toggle_label_binding": "#world_difficulty_dropdown_toggle_label",
+                        "$option_enabled_binding_name": "#world_difficulty_dropdown_enabled",
+                        "$dropdown_scroll_content_size": [
+                            "100%",
+                            "260%"
+                        ],
+                        "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+                    }
+                },
+                "value": [
+                    {
+                        "game_option_3": {
+                            "type": "stack_panel",
+                            "size": [ "100%", 45 ],
+                            "controls": [
+                                {
+                                    "option_header": { 
+                                        "type": "label",
+                                        "size": [ "default", 10 ],
+                                        "max_size": [ "100%", 10 ],
+                                        "text": "createWorldScreen.gameMode.personal"
+                                    }
+                                },
+                                {
+                                    "setting_panel": {
+                                        "size": [ "100%", "100%cm" ],
+                                        "type": "stack_panel",
+                                        "orientation": "horizontal",
+                                        "$option_enabled_binding_name": "#world_difficulty_dropdown_enabled",
+                                        "$button_type_panel": "asa_toggle_common.button_text_panel_third",
+                                        "controls": [
+                                            {
+                                                "1@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#world_difficulty_radio_peaceful",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "options.difficulty.peaceful",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "2@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#world_difficulty_radio_easy",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "options.difficulty.easy",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "3@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#world_difficulty_radio_normal",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "options.difficulty.normal",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            },
+                                            {
+                                                "4@asa_toggle_common.asa_toggle_nav_template": {
+                                                    "$asa_state_toggle": "#world_difficulty_radio_hard",
+                                                    "size": [ "fill", 30 ],
+                                                    "$button_text": "options.difficulty.hard",
+                                                    "$button_type_panel": "asa_toggle_common.button_text_panel"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,37 @@
+{
+  "namespace": "hud",
+
+  "hud_content": {
+    "controls": [
+      {
+        "root_panel@hud.root_panel": {}
+      },
+      {
+        "camera_renderer@camera_renderer": {}
+      },
+      {
+        "mod_menu@asa_mod_menu.asa_mod_menu_toggle_default": {}
+      },
+      {
+        "asa_mod_menu_toggle@asa_mod_menu.asa_open_mod_menu_toggle": {}
+      }
+    ]
+  },
+
+  "root_panel": {
+    "type": "panel",
+    "controls": [
+        {
+            "default@asa_hud_screen.asa_default_root_panel": {}
+        },
+        {
+            "cus@asa_hud_screen.asa_custom_root_panel": {}
+        }
+    ]
+},
+
+  "hud_screen": {
+    "$screen_bg_content": "asa_hud_screen.asa_full_screen_root_panel",
+    "always_accepts_input": true
+  }
+}
