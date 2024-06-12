@@ -1,4 +1,8 @@
 # Thony UI Pack
 Resource Pack for Minecraft Bedrock Ui mod menu, etc.
-## Information
-This is just a resource pack, not a Client and will also reduce your FPS when using. Developed by @Antony Pss (Discord).
+
+## Language Support
+- English - Inglés: https://github.com/AntonyXD2009/Thony-UI-Pack/blob/main/README-en.md
+- Spanish - Español: https://github.com/AntonyXD2009/Thony-UI-Pack/blob/main/README-es.md
+
+  
