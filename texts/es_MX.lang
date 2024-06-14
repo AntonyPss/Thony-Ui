@@ -1,3 +1,8 @@
+## Pack ##
+menu.welcome.title=Bienvenido a Minecraft Bedrock:
+menu.creator.name=Thony Pack Ui hecho por Antony Pss
+menu.creator.info=Revisa mis Redes Sociales y mi Servidor de Discord
+
 ## Settings ##
 settings.switchUiProfile.tooltip=Para obtener una mejor experiencia en la interfaz de usuario, cambia el perfil de Modo de Bolsillo a Clásico
 settings.switchUiProfile.button=Cambiar la UI a Clásico
@@ -23,3 +28,9 @@ progress.loadingWorld.theEnd.title=Regenerando el End
 progress.loadingWorld.overworld.tip=Regresando a lo conocido y tranquilo, bienvenido de nuevo al mundo principal.
 progress.loadingWorld.nether.tip=Prepárate para el calor y las llamas, vas a entrar en el temible Nether.
 progress.loadingWorld.theEnd.tip=El misterio y la oscuridad te aguardan, vas a aventurarte en The End.
+
+## Pause Screen ##
+confirmLeaveWarning.worldName.title=Nombre del mundo:
+
+## Chat Screen ##
+chat.placeHolderText=Escribe aqui un texto o comando...
