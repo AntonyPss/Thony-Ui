@@ -15,7 +15,7 @@
     "type": "panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [ "100%cm", "100%cm" ],
+    "size": [ "100%cm", 24 ],
     "offset": [ 1, 1 ],
     "anims": [
       "s@pause.feature_world_panel_anim"
@@ -49,7 +49,7 @@
           "anchor_to": "center",
           "layer": 2,
           "alpha": 0.7,
-          "size": [ "100%c", 24 ],
+          "size": [ "100%cm + 8px", 24 ],
           "controls": [
             {
               "stack_panel": {
@@ -57,8 +57,7 @@
                 "orientation": "horizontal",
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "size": [ "100%cm", "100%" ],
-                "offset": [ 4, 0 ],
+                "size": [ "100%cm - 2px", "100% - 4px" ],
                 "controls": [
                   {
                     "world_icon": {
@@ -129,7 +128,6 @@
                                         "localize": false,
                                         "shadow": true,
                                         "size": [ "default", 10 ],
-                                        "offset": [ 1, 0 ],
                                         "bindings": [
                                           {
                                             "binding_name": "#worldname"
@@ -243,7 +241,7 @@
     "size": [ "100%", "100%" ]
   },
 
-  "player_list_invite_button@common_buttons.light_text_button": {
+  "player_list_invite_button@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.menu_invite_players",
     "$button_text": "pauseScreen.invite",
     "focus_change_down": "FOCUS_OVERRIDE_STOP",
@@ -313,14 +311,14 @@
                   { "inside_header_panel@$child_control": {} }
                 ]
               }
-            },
-            {
+            }
+            /*{
               "button_panel@$button_panel": {
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "size": [ "100%", 24 ]
               }
-            }
+            }*/
           ]
         }
       }
@@ -336,7 +334,7 @@
         "main@pause.main_panel_one_button": {
           "$text_name": "key.playerlist",
           "$child_control": "pause.player_list_scrolling_panel",
-          "$button_panel": "pause.player_list_invite_button",
+          // "$button_panel": "pause.player_list_invite_button",
           "size": [ "100% - 4px", "100% - 4px" ]
         }
       }
@@ -345,27 +343,27 @@
 
   // Main Buttons Panel //
 
-  "continue@common_buttons.border_text_button": {
+  "continue@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.menu_continue",
     "$button_text": "menu.returnToGame",
     "size": [ "100%", 24 ]
   },
 
-  "settings@common_buttons.border_text_button": {
+  "settings@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.menu_settings",
     "$button_text": "menu.options",
     "size": [ "100%", 24 ]
   },
 
-  "profile@common_buttons.border_text_button": {
+  "profile@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.to_profile_or_skins_screen",
     "$button_text": "menu.skins",
     "size": [ "100%", 24 ]
   },
 
-  "quit_toggle@common_toggles.light_text_toggle": {
+  "quit_toggle@exit_world.toggle_common_panel": {
     "$toggle_view_binding_name": "quit_world_screen",
-    "$toggle_name": "exit_world",
+    "$toggle_group_forced_index": 1,
     "$button_text": "menu.quit",
     "size": [ "100%", 24 ]
   },
@@ -469,7 +467,7 @@
     "type": "image",
     "texture": "textures/ui/Black",
     "layer": 12,
-    "alpha": 0.4,
+    "alpha": 0.2,
     "fill": true,
     "size": [ "100%", "100%" ],
     "bindings": [
@@ -484,7 +482,7 @@
 
   "pause_screen@common.base_screen": {
     "cache_screen": true,
-    "$screen_background_alpha": 0.2,
+    "$screen_background_alpha": 0.3,
     "force_render_below": true,
     "render_game_behind": true,
     "button_mappings": []
