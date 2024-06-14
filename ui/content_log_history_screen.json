@@ -2,17 +2,17 @@
   "namespace": "content_log_history",
 
   "clipboard_button": {
-    "size": [ "fill", 30 ]
+    "size": [ "fill", 24 ]
   },
 
   "clear_button": {
-    "size": [ "50%", 30 ]
+    "size": [ "50%", 24 ]
   },
 
   "horizontal_button_stack_panel": {
     "type": "stack_panel",
     "orientation": "horizontal",
-    "size": [ "100%", 30 ],
+    "size": [ "100%", 24 ],
     "controls": [
       {
         "clipboard_button@clipboard_button": {
@@ -31,5 +31,9 @@
 
   "messages_scrolling_panel": {
     "$scroll_size": [ 4, "100% - 4px" ]
+  },
+
+  "content_log_history_panel": {
+    "size": "$extra_large_screen_size"
   }
 }

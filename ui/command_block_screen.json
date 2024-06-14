@@ -34,7 +34,7 @@
       {
         "text": {
           "type": "label",
-          "text": "#asa_delay_tick",
+          "text": "#delay_tick",
           "shadow": true,
           "alpha": 0.8,
           "color": "$body_text_color",
@@ -49,17 +49,17 @@
             {
               "binding_type": "view",
               "source_property_name": "('asa' + #command_tick_delay - 'asa')",
-              "target_property_name": "#asa_cmd_delay_tick"
+              "target_property_name": "#cmd_delay_tick"
             },
             {
               "binding_type": "view",
-              "source_property_name": "(#asa_cmd_delay_tick / 20)",
+              "source_property_name": "(#cmd_delay_tick / 20)",
               "target_property_name": "#delay_second"
             },
             {
               "binding_type": "view",
               "source_property_name": "(#delay_second / 60)",
-              "target_property_name": "#asa_minute"
+              "target_property_name": "#minute"
             },
             {
               "binding_type": "view",
@@ -78,23 +78,23 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(#delay_second - (#asa_minute * 60))",
+              "source_property_name": "(#delay_second - (#minute * 60))",
               "target_property_name": "#delay_time_seconds"
             },
             {
               "binding_type": "view",
-              "source_property_name": "(((#asa_cmd_delay_tick * 10) / 2) - (#delay_second * 100))",
+              "source_property_name": "(((#cmd_delay_tick * 10) / 2) - (#delay_second * 100))",
               "target_property_name": "#delay_time_demical_seconds"
             },
             {
               "binding_type": "view",
               "source_property_name": "(('§f0' + ((('§f' + #delay_time_demical_seconds + '§f') - '§f5§f' - '§f0§f') - '§f')) - '§f010' - '§f015' - '§f020' - '§f025' - '§f030' - '§f035' - '§f040' - '§f045' - '§f050' - '§f055' - '§f060' - '§f065' - '§f070' - '§f075' - '§f080' - '§f085' - '§f090' - '§f095')",
-              "target_property_name": "#asa_fixed_number"
+              "target_property_name": "#fixed_number"
             },
             {
               "binding_type": "view",
-              "source_property_name": "('Data: ' + #delay_time_hours + 'h ' + #delay_time_minutes + 'm ' + #delay_time_seconds + '.' + #asa_fixed_number + #delay_time_demical_seconds + 's')",
-              "target_property_name": "#asa_delay_tick"
+              "source_property_name": "('Data: ' + #delay_time_hours + 'h ' + #delay_time_minutes + 'm ' + #delay_time_seconds + '.' + #fixed_number + #delay_time_demical_seconds + 's')",
+              "target_property_name": "#delay_tick"
             }
           ]
         }
@@ -111,10 +111,12 @@
     "type": "panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
+
     "$start_text|default": "",
     "$text_binding_name|default": "",
     "$text_color_binding_name|default": "",
     "$bind_type|default": "none",
+
     "size": [ "100%", 24 ],
     "controls": [
       {
@@ -257,7 +259,8 @@
           "$toggle_name": "track_output",
           "$option_binding_name": "#track_output_binding",
           "$option_enabled_binding_name": "#close_button_visible_binding_name",
-          "$focus_id": "show_output_toggle"
+          "$focus_id": "show_output_toggle",
+          "$option_label_offset": [ 32, 4 ]
         }
       },
       {

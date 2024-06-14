@@ -417,9 +417,11 @@
   "play_screen_content": {
     "controls": [
       { "main_stack@main_stack_panel": {} },
-      { "editor_text@editor_text_panel": {
+      {
+        "editor_text@editor_text_panel": {
           "visible": "$is_editor_mode_enabled"
-      } },
+        }
+      },
       {
         "popup_dialog_factory": {
           "type": "factory",
@@ -436,10 +438,13 @@
 
   "popup_dialog_join_by_code": {
     "controls": [
-      { "bg@popup_dialog.black_tint_image": {
+      {
+        "bg@popup_dialog.black_tint_image": {
           "alpha": 0.7
-      } },
-      { "popup_dialog@common_dialogs.main_panel_one_button": {
+        }
+      },
+      {
+        "popup_dialog@common_dialogs.main_panel_one_button": {
           "$close_button_to_button_id": "button.menu_network_join_by_code_close",
           "$text_name": "networkWorld.joinByCode",
           "$child_control": "play.popup_dialog_join_by_code_content",
@@ -448,38 +453,41 @@
           "$popup_dialog_middle_button_name": "button.menu_network_join_by_code_popup_join",
           "layer": 1,
           "size": [ 212, 128 ]
-      } }
+        }
+      }
     ]
   },
 
   "popup_dialog_join_by_code_content": {
-    "type": "panel",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "size": [ "100% - 4px", "100% - 4px" ],
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100% - 4px", "100%c - 4px" ],
+    "offset": [ 1, 1 ],
     "controls": [
-      { "padding_0": {
-          "type": "panel",
-          "size": [ 0, 4 ]
-      } },
-      { "text_box@join_by_code_popup_code_text_field": {
+      {
+        "text_box@join_by_code_popup_code_text_field": {
           "size": [ "100%", 16 ]
-      } },
-      { "text_0": {
+        }
+      },
+      {
+        "description_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c + 16px" ],
+          "size": [ "100%", "100%c + 4px" ],
           "controls": [
-            { "text": {
-              "type": "label",
-              "text": "networkWold.joinByCodeHelpText",
-              "layer": 3,
-              "shadow": true,
-              "color": [ 0.8, 0.8, 0.8 ],
-              "size": [ "100% - 4px", "default" ],
-              "offset": [ 2, 24 ]
-            } }
+            {
+              "description_text": {
+                "type": "label",
+                "text": "networkWold.joinByCodeHelpText",
+                "layer": 3,
+                "shadow": true,
+                "color": [ 0.8, 0.8, 0.8 ],
+                "size": [ "100%", "default" ]
+              }
+            }
           ]
-      } }
+        }
+      }
     ]
   },
 
@@ -487,144 +495,152 @@
 
   "popup_dialog_high_ping": {
     "controls": [
-      { "bg@common_assets.modal_background": {} },
-      { "high_ping_popup_content@play.popup_dialog_high_ping_content": {
-          "layer": 1
-      } }
+      {
+        "bg@popup_dialog.black_tint_image": {
+          "alpha": 0.7
+        }
+      },
+      {
+        "popup_dialog@common_dialogs.main_panel_one_button": {
+          "$show_close_button": false,
+          "$text_name": "networkWorld.highPingWarning.title",
+          "$child_control": "play.popup_dialog_high_ping_content",
+          "$button_panel": "play.two_buttons_panel",
+          "layer": 1,
+          "size": [ 212, 200 ]
+        }
+      }
     ]
   },
 
   "popup_dialog_high_ping_content": {
-    "type": "panel",
-    "size": [ 228, 168 ],
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100% - 4px", "100% - 4px" ],
+    "offset": [ 1, 1 ],
     "controls": [
       {
-        "background": {
-          "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 1,
-          "alpha": 0.4
-        }
-      },
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "size": [ "100% - 4px", "100% - 4px" ],
+        "ping_images": {
+          "type": "panel",
+          "size": [ "100%", 48 ],
           "controls": [
             {
-              "ping_images": {
-                "type": "panel",
-                "size": [ "100%", 48 ],
+              "medium_connection": {
+                "type": "image",
+                "texture": "textures/ui/hud_tip_text_background",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 2,
+                "alpha": 0.4,
+                "size": [ 36, 36 ],
+                "offset": [ -32, 0 ],
                 "controls": [
-                  { "medium_connection": {
+                  {
+                    "image": {
                       "type": "image",
-                      "texture": "textures/ui/hud_tip_text_background",
+                      "texture": "textures/ui/Ping_Yellow_Dark",
                       "anchor_from": "center",
                       "anchor_to": "center",
-                      "layer": 2,
-                      "alpha": 0.4,
-                      "size": [ 36, 36 ],
-                      "offset": [ -32, 0 ],
-                      "controls": [
-                        { "image": {
-                            "type": "image",
-                            "texture": "textures/ui/Ping_Yellow_Dark",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 4,
-                            "size": [ 32, 32 ]
-                        } }
-                      ]
-                  } },
-                  { "low_connection": {
-                      "type": "image",
-                      "texture": "textures/ui/hud_tip_text_background",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "layer": 2,
-                      "alpha": 0.4,
-                      "size": [ 36, 36 ],
-                      "offset": [ 32, 0 ],
-                      "controls": [
-                        { "image": {
-                            "type": "image",
-                            "texture": "textures/ui/Ping_Red_Dark",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "layer": 4,
-                            "size": [ 32, 32 ]
-                        } }
-                      ]
-                  } }
+                      "layer": 4,
+                      "size": [ 32, 32 ]
+                    }
+                  }
                 ]
               }
             },
-            { "padding_0": {
-                "type": "panel",
-                "size": [ 0, 12 ]
-            } },
-            { "text_0": {
-                "type": "panel",
-                "size": [ "100%", "100%c" ],
+            {
+              "low_connection": {
+                "type": "image",
+                "texture": "textures/ui/hud_tip_text_background",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 2,
+                "alpha": 0.4,
+                "size": [ 36, 36 ],
+                "offset": [ 32, 0 ],
                 "controls": [
-                  { "text": {
-                    "type": "label",
-                    "text": "networkWorld.highPingWarning.line1",
-                    "layer": 3,
-                    "shadow": true,
-                    "size": [ "100% - 4px", "default" ],
-                    "offset": [ 2, 0 ]
-                  } }
+                  {
+                    "image": {
+                      "type": "image",
+                      "texture": "textures/ui/Ping_Red_Dark",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 4,
+                      "size": [ 32, 32 ]
+                    }
+                  }
                 ]
-            } },
-            { "padding_1": {
-                "type": "panel",
-                "size": [ 0, 8 ]
-            } },
-            { "text_1": {
-                "type": "panel",
-                "size": [ "100%", "100%c" ],
-                "controls": [
-                  { "text": {
-                    "type": "label",
-                    "text": "networkWorld.highPingWarning.line2",
-                    "layer": 3,
-                    "shadow": true,
-                    "size": [ "100% - 4px", "default" ],
-                    "offset": [ 2, 0 ]
-                  } }
-                ]
-            } },
-            { "padding_3": {
-                "type": "panel",
-                "size": [ 0, "fill" ]
-            } },
-            { "horizontal": {
-                "type": "stack_panel",
-                "orientation": "horizontal",
-                "size": [ "100%", 28 ],
-                "controls": [
-                  { "join@high_ping_join_modal_button": {
-                      "size": [ "50%", "100%" ]
-                  } },
-                  { "cancel@high_ping_cancel_modal_button": {
-                      "size": [ "fill", "100%" ]
-                  } }
-                ]
-            } }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "p0": {
+          "type": "panel",
+          "size": [ 0, 4 ]
+        }
+      },
+      {
+        "description_panel_0": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "description_text_0": {
+                "type": "label",
+                "text": "networkWorld.highPingWarning.line1",
+                "layer": 3,
+                "shadow": true,
+                "size": [ "100% - 4px", "default" ],
+                "offset": [ 1, 0 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "p1": {
+          "type": "panel",
+          "size": [ 0, 8 ]
+        }
+      },
+      {
+        "description_panel_1": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "description_text_1": {
+                "type": "label",
+                "text": "networkWorld.highPingWarning.line2",
+                "layer": 3,
+                "shadow": true,
+                "size": [ "100% - 4px", "default" ],
+                "offset": [ 1, 0 ]
+              }
+            }
           ]
         }
       }
     ]
   },
 
-  "high_ping_join_modal_button@common_buttons.border_text_button": {
+  "two_buttons_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      { "join@high_ping_join_modal_button": {} },
+      { "cancel@high_ping_cancel_modal_button": {} }
+    ]
+  },
+
+  "high_ping_join_modal_button@common_buttons.dark_text_button": {
     "$button_text": "networkWorld.join",
     "$pressed_button_name": "button.join_server_anyway",
+    "size": [ "50%", "100%" ],
     "button_mappings": [
       {
         "from_button_id": "button.menu_select",
@@ -639,9 +655,10 @@
     ]
   },
 
-  "high_ping_cancel_modal_button@common_buttons.border_text_button": {
+  "high_ping_cancel_modal_button@common_buttons.dark_text_button": {
     "$button_text": "gui.cancel",
     "$pressed_button_name": "button.cancel_join_server",
+    "size": [ "50%", "100%" ],
     "button_mappings": [
       {
         "from_button_id": "button.menu_select",
