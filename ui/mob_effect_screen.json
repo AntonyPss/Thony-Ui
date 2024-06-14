@@ -146,16 +146,6 @@
     "$text_name": "key.mobEffects",
     "$child_control": "mob_effect.scrolling_panel",
     "$fill_alpha": 0.6,
-    "size": "$screen_size",
-    "variables": [
-      {
-        "requires": "$desktop_screen",
-        "$screen_size": [ 204, 132 ]
-      },
-      {
-        "requires": "$pocket_screen",
-        "$screen_size": [ 212, 148 ]
-      }
-    ]
+    "size": [ 212, 148 ]
   }
 }
