@@ -19,9 +19,6 @@
     "asa_ui/brewing_screen/asa_recipe_section.json",
     "asa_ui/brewing_screen/asa_recipe_panel.json",
     "asa_ui/brewing_screen/brewing_screen_content.json",
-    //Chat Screen
-    "asa_ui/chat_screen/custom_command_test.json",
-    "asa_ui/chat_screen/utility_chat.json",
     //Container Mode
     "asa_ui/container_mode/auto_place.json",
     "asa_ui/container_mode/drop_one.json",
