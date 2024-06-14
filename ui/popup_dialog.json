@@ -1,12 +1,17 @@
 {
   "namespace": "popup_dialog",
 
+  "popup_dialog_button_with_binding@common_buttons.dark_text_button": {
+    "size": [ "100%", 20 ]
+  },
+
   "modal_title_text": {
-    "font_type": "$title_text_font",
-    "font_scale_factor": "$title_text_size",
-    "$title_text_font|default": "normal",
-    "$title_text_size|default": 1.0,
+    "font_type": "MinecraftTen",
+    "$title_text_anchor": "center",
+    "$title_text_alignment": "center",
+    "$title_text_offset": [ 0, -1 ],
     "shadow": true,
+    "color": "$popup_dialog_title_text_color",
     "size": [ "100% - 4px", 14 ]
   },
 
@@ -25,7 +30,7 @@
     "anchor_from": "top_middle",
     "size": [ "100%", "50%-1px" ],
     "$pressed_button_name": "$popup_dialog_left_button_name",
-    "$button_text": "#modal_left_button_text",
+    "$button_text|default": "#modal_left_button_text",
     "$left_focus_number|default": 0,
     "default_focus_precedence": "$left_focus_number"
   },
@@ -45,7 +50,7 @@
     "anchor_from": "bottom_middle",
     "size": [ "100%", "50%-1px" ],
     "$pressed_button_name": "$popup_dialog_rightcancel_button_name",
-    "$button_text": "#modal_rightcancel_button_text",
+    "$button_text|default": "#modal_rightcancel_button_text",
     "$right_focus_number|default": 1,
     "default_focus_precedence": "$right_focus_number"
   },
@@ -154,14 +159,7 @@
                 "size": [ "100%", 16 ],
                 "controls": [
                   {
-                    "title_text@modal_title_text": {
-                      "$title_text_font": "MinecraftTen",
-                      "$title_text_anchor": "center",
-                      "$title_text_alignment": "center",
-                      "$title_text_color": "$main_header_text_color",
-                      "$title_text_offset": [ 0, -1 ],
-                      "size": [ "100%", 14 ]
-                    }
+                    "title_text@modal_title_text": {}
                   }
                 ]
               }
@@ -243,14 +241,7 @@
                 "size": [ "100%", 16 ],
                 "controls": [
                   {
-                    "title_text@modal_title_text": {
-                      "$title_text_font": "MinecraftTen",
-                      "$title_text_anchor": "center",
-                      "$title_text_alignment": "center",
-                      "$title_text_color": "$main_header_text_color",
-                      "$title_text_offset": [ 0, -1 ],
-                      "size": [ "100%", 14 ]
-                    }
+                    "title_text@modal_title_text": {}
                   }
                 ]
               }

@@ -1,0 +1,248 @@
+{
+  "namespace": "common_dialogs",
+
+  "background_panel": {
+    "type": "image",
+    "texture": "$dialog_background_image",
+    "$dialog_background_image|default": "textures/ui/Black",
+    "layer": 1,
+    "$fill_alpha|default": 0.4,
+    "alpha": "$fill_alpha"
+  },
+
+  "standard_title_label": {
+    "font_type": "MinecraftTen",
+    "shadow": true,
+    "color": "$common_dialogs_title_text_color",
+    "size": [ "default", 10 ]
+  },
+
+  "title_label": {
+    "size": [ "100%c", 12 ],
+    "offset": [ 0, 0 ]
+  },
+
+  "close_button@common.light_close_button": {
+    "ignored": "(not $show_close_button)",
+    "$close_button_panel_size": [ 14, 14 ],
+    "size": [ 14, 14 ],
+    "bindings": []
+  },
+
+  "main_panel": {
+    "controls": [
+      { "background@common_dialogs.background_panel": {} },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100% - 12px", "100% - 12px" ],
+          "offset": [ 0, 0 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "main_panel_small_title_one_button": {
+    "$show_close_button": false,
+    "$main_panel_size|default": [ "100% - 12px", "100% - 44px" ],
+    "$button_panel_size|default": [ "100% - 4px", 24 ],
+    "controls": [
+      { "close_button@common_dialogs.close_button": {} },
+      { "background@common_dialogs.background_panel": {} },
+      { "title_panel@common_dialogs.title_label": {} },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": "$main_panel_size",
+          "offset": [ 0, 16 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
+        }
+      },
+      {
+        "button_panel@$button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": "$button_panel_size",
+          "offset": [ 0, -2 ]
+        }
+      }
+    ]
+  },
+
+  "main_panel_no_title_no_buttons": {
+    "$show_close_button|default": true,
+    "$button_panel_size|default": [ "100% - 4px", 24 ],
+    "controls": [
+      { "close_button@common_dialogs.close_button": {} },
+      { "background@common_dialogs.background_panel": {} },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "100% - 12px", "100% - 20px" ],
+          "offset": [ 0, 16 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "main_panel_no_buttons": {
+    "$show_close_button|default": true,
+    "$panel_indent_size|default": [ "100% - 12px", "100% - 20px" ],
+    "controls": [
+      { "close_button@common_dialogs.close_button": {} },
+      { "background@common_dialogs.background_panel": {} },
+      { "title_panel@common_dialogs.title_label": {} },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": "$panel_indent_size",
+          "offset": [ 0, 16 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "main_panel_one_button": {
+    "$show_close_button|default": true,
+    "controls": [
+      { "close_button@common_dialogs.close_button": {} },
+      { "background@common_dialogs.background_panel": {} },
+      { "title_panel@common_dialogs.title_label": {} },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "100% - 12px", "100% - 44px" ],
+          "offset": [ 0, 16 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
+        }
+      },
+      {
+        "button_panel@$button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "100% - 4px", 24 ],
+          "offset": [ 0, -2 ]
+        }
+      }
+    ]
+  },
+
+  "main_panel_two_buttons": {
+    "$show_close_button|default": true,
+    "controls": [
+      { "close_button@common_dialogs.close_button": {} },
+      { "background@common_dialogs.background_panel": {} },
+      { "title_panel@common_dialogs.title_label": {} },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "100% - 12px", "100% - 68px" ],
+          "offset": [ 0, 16 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
+        }
+      },
+      {
+        "button_panel_a@$top_button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "100% - 4px", 24 ],
+          "offset": [ 0, -26 ]
+        }
+      },
+      {
+        "button_panel_b@$bottom_button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "100% - 4px", 24 ],
+          "offset": [ 0, -2 ]
+        }
+      }
+    ]
+  },
+
+  "main_panel_three_buttons": {
+    "$show_close_button|default": true,
+    "controls": [
+      { "close_button@common_dialogs.close_button": {} },
+      { "background@common_dialogs.background_panel": {} },
+      { "title_panel@common_dialogs.title_label": {} },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "100% - 12px", "100% - 92px" ],
+          "offset": [ 0, 16 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
+        }
+      },
+      {
+        "button_panel_a@$top_button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "100% - 4px", 24 ],
+          "offset": [ 0, -50 ]
+        }
+      },
+      {
+        "button_panel_b@$middle_button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "100% - 4px", 24 ],
+          "offset": [ 0, -26 ]
+        }
+      },
+      {
+        "button_panel_c@$bottom_button_panel": {
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "size": [ "100% - 4px", 24 ],
+          "offset": [ 0, -2 ]
+        }
+      }
+    ]
+  }
+}
