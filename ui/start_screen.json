@@ -1,45 +1,13 @@
 {
   "namespace": "start",
 
-  // Icons //
-
-  "icon_image": {
-    "type": "image",
-    "layer": 2
-  },
-
-  "marketplace_icon@icon_image": {
-    "texture": "textures/ui/sidebar_icons/marketplace",
-    "size": [ 16, 16 ]
-  },
-
-  "invite_icon@icon_image": {
-    "texture": "textures/ui/realms",
-    "size": [ 16, 16 ]
-  },
-
-  "bell_icon@icon_image": {
-    "texture": "textures/ui/notification",
-    "size": [ 16, 16 ]
-  },
-
-  "profile_icon@icon_image": {
-    "texture": "textures/ui/sidebar_icons/classic_skins",
-    "size": [ 16, 16 ]
-  },
-
-  "close_icon@icon_image": {
-    "texture": "textures/ui/exit",
-    "size": [ 16, 16 ]
-  },
-
-  // Labels Panel //
+  // Bottom Left Text Panel //
 
   "packname": {
     "type": "image",
     "texture": "textures/ui/hud_tip_text_background",
-    "anchor_from": "bottom_left",
-    "anchor_to": "bottom_left",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
     "controls": [
@@ -48,12 +16,12 @@
           "type": "label",
           "text": "Thony UI Pack v1",
           "text_alignment": "center",
+          "font_type": "smooth",
           "anchor_from": "center",
           "anchor_to": "center",
           "layer": 2,
-          "shadow": true,
           "size": [ "default", 10 ],
-          "offset": [ -1, 0 ]
+          "offset": [ 0, 0 ]
         }
       }
     ]
@@ -66,19 +34,18 @@
     "anchor_to": "bottom_left",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
-    "offset": [ 0, -15 ],
     "controls": [
       {
         "label": {
           "type": "label",
           "text": "menu.copyright",
           "text_alignment": "center",
+          "font_type": "smooth",
           "anchor_from": "center",
           "anchor_to": "center",
           "layer": 2,
-          "shadow": true,
           "size": [ "default", 10 ],
-          "offset": [ -1, 0 ]
+          "offset": [ 0, 0 ]
         }
       }
     ]
@@ -87,21 +54,20 @@
   "version": {
     "type": "image",
     "texture": "textures/ui/hud_tip_text_background",
-    "anchor_from": "bottom_left",
-    "anchor_to": "bottom_left",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
-    "offset": [ 0, -30 ],
     "controls": [
       {
         "label": {
           "type": "label",
           "text": "#version",
           "text_alignment": "center",
+          "font_type": "smooth",
           "anchor_from": "center",
           "anchor_to": "center",
           "layer": 2,
-          "shadow": true,
           "size": [ "default", 10 ],
           "bindings": [
             {
@@ -114,11 +80,8 @@
   },
 
   "text_panel": {
-    "type": "panel",
-    "anchor_from": "bottom_left",
-    "anchor_to": "bottom_left",
-    "size": [ "100%c - 2px", "100%" ],
-    "offset": [ 2, -2 ],
+    "size": [ "100% - 4px", "100%cm" ],
+    "offset": [ 0, -2 ],
     "controls": [
       { "version@version": {} },
       { "packname@packname": {} },
@@ -126,14 +89,13 @@
     ]
   },
 
-  // Skin Panel //
-  
+  // Skin Viewer Panel //
+
   "skin_viewer_panel": {
     "type": "input_panel",
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
-    "size": [ "100%", "100%c" ],
-    "offset": [ 0, -56 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100%", "100%" ],
     "gesture_tracking_button": "button.turn_doll",
     "tts_ignore_count": true,
     "button_mappings": [
@@ -148,7 +110,8 @@
       {
         "paper_doll_panel": {
           "type": "panel",
-          "size": [ 56, 48 ],
+          "size": [ 62, 72 ],
+          "offset": [ 0, "-14px" ],
           "controls": [
             {
               "paper_doll": {
@@ -201,52 +164,111 @@
     ]
   },
 
-  // Gamertag Panel //
+  // Main Center Buttons Panel //
 
-  "gamertag_panel": {
+  "main_text_button@common_buttons.dark_text_button": {
+    "$border_visible": false,
+    "$default_button_texture": "textures/ui/hud_tip_text_background",
+    "$hover_button_texture": "textures/ui/hud_tip_text_background",
+    "$pressed_button_texture": "textures/ui/hud_tip_text_background",
+
+    "$font_type": "smooth",
+    "$hover_text_color": [ 0.7, 0.7, 0.7 ],
+    "$button_alpha": 0.3
+  },
+
+  "play@main_text_button": {
+    "$pressed_button_name": "$play_button_target",
+    "$button_text": "menu.play",
+    "size": [ "100%", 24 ]
+  },
+
+  "settings@main_text_button": {
+    "$pressed_button_name": "button.menu_settings",
+    "$button_text": "menu.options",
+    "size": [ "50%", 24 ]
+  },
+
+  "store@main_text_button": {
+    "$pressed_button_name": "button.menu_store",
+    "$button_text": "menu.store",
+    "size": [ "50%", 24 ]
+  },
+
+  "achievements@main_text_button": {
+    "$pressed_button_name": "button.menu_achievements",
+    "$button_text": "menu.achievements",
+    "size": [ "50%", 24 ]
+  },
+
+  "skins@main_text_button": {
+    "$pressed_button_name": "button.menu_skins",
+    "$button_text": "menu.skins",
+    "size": [ "50%", 24 ]
+  },
+
+  "exit@main_text_button": {
+    "$pressed_button_name": "button.menu_exit",
+    "$button_text": "gui.exit",
+    "size": [ "100%", 24 ]
+  },
+
+  "horizontal_panel_0": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 24 ],
+    "controls": [
+      { "settings@settings": {} },
+      { "store@store": {} }
+    ]
+  },
+
+  "horizontal_panel_1": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 24 ],
+    "controls": [
+      { "achievements@achievements": {} },
+      { "skins@skins": {} }
+    ]
+  },
+
+  "main_stack_panel": {
+    "type": "stack_panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ 164, "100%c" ],
+    "controls": [
+      { "0@play": {} },
+      { "1@horizontal_panel_0": {} },
+      { "3@horizontal_panel_1": {} },
+      { "4@exit": {} }
+    ]
+  },
+
+  "main_stack_bg": {
     "type": "image",
-    "texture": "textures/ui/hud_tip_text_background",
-    "anchor_from": "bottom_right",
-    "anchor_to": "bottom_right",
+    "texture": "textures/ui/Black",
+    "anchor_from": "center",
+    "anchor_to": "center",
     "alpha": 0.4,
-    "size": [ "100%c + 8px", 24 ],
-    "offset": [ -2, -2 ],
+    "size": [ "100%c + 8px", "100%c + 4px" ],
     "controls": [
       {
-        "content": {
-          "type": "panel",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "size": [ "100%cm", "100% - 4px" ],
-          "offset": [ 0, 0 ],
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "layer": 2,
+          "size": [ "100%c", 96 ],
           "controls": [
             {
-              "welcome_text": {
-                "type": "label",
-                "text": "xbox.signin.welcome",
-                "anchor_from": "top_right",
-                "anchor_to": "top_right",
-                "layer": 2,
-                "shadow": true,
-                "size": [ "default", 10 ]
+              "skin_viewer@skin_viewer_panel": {
+                "size": [ 64, "100%" ]
               }
             },
             {
-              "gamertag_label": {
-                "type": "label",
-                "text": "#playername",
-                "anchor_from": "top_right",
-                "anchor_to": "top_right",
-                "layer": 2,
-                "shadow": true,
-                "color": [ 0.8, 0.8, 0.8 ],
-                "size": [ "default", 12 ],
-                "offset": [ 0, 10 ],
-                "bindings": [
-                  {
-                    "binding_name": "#playername"
-                  }
-                ]
+              "main_stack@main_stack_panel": {
+                "size": [ 164, "100%" ]
               }
             }
           ]
@@ -255,128 +277,49 @@
     ]
   },
 
-  // Main Panel //
+  // Welcome Gamertag Panel //
 
-  "play@common_buttons.border_text_button": {
-    "$pressed_button_name": "$play_button_target",
-    "$button_text": "menu.play",
-    "size": [ "100%", 24 ]
-  },
-
-  "settings@common_buttons.border_text_button": {
-    "$pressed_button_name": "button.menu_settings",
-    "$button_text": "menu.options",
-    "size": [ "100%", 24 ]
-  },
-
-  "achievements@common_buttons.border_text_button": {
-    "$pressed_button_name": "button.menu_achievements",
-    "$button_text": "menu.achievements",
-    "size": [ "100%", 24 ]
-  },
-
-  "main_stack_panel": {
-    "type": "stack_panel",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "size": [ 176, "100%c" ],
-    "controls": [
-      { "play@play": {} },
-      { "settings@settings": {} },
-      { "achievements@achievements": {} }
-    ]
-  },
-
-  // Down Panel //
-
-  "down_button@common_buttons.border_content_button": {
-    "layer": 3,
-    "size": [ 24, 24 ]
-  },
-
-  "marketplace_button@down_button": {
-    "$pressed_button_name": "button.menu_store",
-    "$button_content": "start.marketplace_icon"
-  },
-
-  "profile_button@down_button": {
-    "$pressed_button_name": "button.to_profile_screen",
-    "$button_content": "start.profile_icon"
-  },
-
-  "invitation_button@down_button": {
-    "$pressed_button_name": "button.menu_invite_notification",
-    "$button_content": "start.invite_icon"
-  },
-
-  "inbox_button@down_button": {
-    "$pressed_button_name": "button.menu_inbox",
-    "$button_content": "start.bell_icon"
-  },
-
-  "exit_button@down_button": {
-    "$pressed_button_name": "button.menu_exit",
-    "$button_content": "start.close_icon"
-  },
-
-  "down_stack_panel": {
+  "welcome_gamertag_panel": {
     "type": "image",
     "texture": "textures/ui/hud_tip_text_background",
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 1,
     "alpha": 0.4,
-    "size": [ 124, 38 ],
-    "offset": [ 0, -4 ],
+    "size": [ "100%cm + 8px", 24 ],
+    "offset": [ 0, 68 ],
     "controls": [
       {
         "stack_panel": {
           "type": "stack_panel",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [ "100%", "100%" ],
+          "size": [ "100%c", 24 ],
           "controls": [
-            { "title_tools": {
-                "type": "panel",
-                "size": [ "100%", 10 ],
-                "controls": [
-                  {
-                    "text": {
-                      "type": "label",
-                      "text": "howtoplay.tools",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "layer": 2,
-                      "shadow": true,
-                      "size": [ "default", 10 ],
-                      "offset": [ 0, 2 ]
-                    }
-                  }
-                ]
+            {
+              "welcome_text": {
+                "type": "label",
+                "text": "menu.welcome.title",
+                "text_alignment": "center",
+                "layer": 3,
+                "color": "$main_header_text_color",
+                "shadow": true,
+                "size": [ "default", 10 ]
               }
             },
-            { "pad": {
-              "type": "panel",
-              "size": [ 0, "fill" ]
-            } },
-            { "vertical": {
-                "type": "panel",
-                "size": [ "100%", 24 ],
-                "controls": [
+            {
+              "gamertag_text": {
+                "type": "label",
+                "text": "#text",
+                "text_alignment": "center",
+                "layer": 3,
+                "color": [ 0.8, 0.8, 0.8 ],
+                "shadow": true,
+                "size": [ "default", 10 ],
+                "bindings": [
                   {
-                    "stack_panel": {
-                      "type": "stack_panel",
-                      "orientation": "horizontal",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "size": [ 120, "100% + 2px" ],
-                      "controls": [
-                        { "marketplace@marketplace_button": {} },
-                        { "profile@profile_button": {} },
-                        { "invite@invitation_button": {} },
-                        { "inbox@inbox_button": {} },
-                        { "exit@exit_button": {} }
-                      ]
-                    }
+                    "binding_name": "#playername",
+                    "binding_name_override": "#text"
                   }
                 ]
               }
@@ -397,7 +340,7 @@
     "offset": [ 0, "2%" ],
     "controls": [
       {
-        "image": {
+        "title_image": {
           "type": "image",
           "texture": "textures/ui/title",
           "anchor_from": "center",
@@ -408,16 +351,23 @@
     ]
   },
 
-  // Screen Base //
+  // Screen Content //
 
   "start_screen_content": {
     "controls": [
-      { "gamertag_panel@gamertag_panel": {} },
-      { "down_stack@down_stack_panel": {} },
-      { "main_stack@main_stack_panel": {} },
-      { "title_panel@title_panel": {} },
-      { "skin@skin_viewer_panel": {} },
-      { "text_panel@text_panel": {} }
+      { "text_panel@text_panel": {} },
+      { "main_stack@main_stack_bg": {} },
+      { "hello@welcome_gamertag_panel": {} },
+      { "title_panel@title_panel": {} }
     ]
+  },
+
+  "start_screen": {
+    "$screen_bg_content": "start.bg"
+  },
+
+  "bg@common.button": {
+    "$pressed_button_name": "button.menu_settings",
+    "fill": true
   }
 }
