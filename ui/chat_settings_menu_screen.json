@@ -64,6 +64,7 @@
     "type": "image",
     "texture": "textures/ui/refresh",
     "layer": 2,
+    "color": [ 1, 1, 1 ],
     "size": [ 16, 16 ]
   },
 
@@ -124,7 +125,7 @@
     ]
   },
 
-  "reset_button_icon@common_buttons.light_content_button": {
+  "reset_button_icon@common_buttons.dark_content_button": {
     "$pressed_button_name": "button.reset_chat_settings",
     "$button_content": "chat_settings.reset_button_panel",
     "$focus_id": "reset_button_focus_id",
@@ -207,41 +208,31 @@
     "$scroll_bar_left_padding_size": [ 2, 0 ],
     "$scroll_bar_right_padding_size": [ 0, 0 ],
     "$scroll_size": [ 4, "100% - 4px" ],
-    "size": [ "100% - 4px", "100% - 2px" ],
+    "size": [ "100% - 2px", "100% - 2px" ],
     "offset": [ 1, 1 ]
   },
 
   "chat_settings_popup@popup_dialog.modal_input_panel": {
     "size": [ "100%", "100%" ],
-    "controls": [
+    "button_mappings": [
       {
-        "bg@popup_dialog.black_tint_image": {
-          "alpha": 0.5
-        }
+        "from_button_id": "button.menu_exit",
+        "to_button_id": "modal.escape",
+        "mapping_type": "global"
       },
       {
-        "main_panel": {
-          "type": "panel",
-          "size": [ 276, 168 ],
-          "controls": [
-            {
-              "close@common.close_button": {
-                "$close_button_to_button_id": "button.close_chat_settings",
-                "anchor_from": "top_right",
-                "anchor_to": "top_right",
-                "size": [ 14, 14 ],
-                "offset": [ -6, 6 ]
-              }
-            },
-            {
-              "main@common_dialogs.main_panel_no_buttons": {
-                "$show_close_button": false,
-                "$text_name": "chat.settings",
-                "$child_control": "chat_settings.chat_setting_scrolling_panel",
-                "$fill_alpha": 0.7
-              }
-            }
-          ]
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "modal.escape",
+        "mapping_type": "global"
+      }
+    ],
+    "controls": [
+      {
+        "main@common_dialogs.main_panel_no_buttons": {
+          "$close_button_to_button_id": "button.close_chat_settings",
+          "$text_name": "chat.settings",
+          "$child_control": "chat_settings.chat_setting_scrolling_panel",
+          "size": [ 276, 186 ]
         }
       }
     ]
