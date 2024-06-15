@@ -10,6 +10,10 @@
     "anchor_to": "bottom_middle",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
+    "anims": [ "@animations.background_label_anim_offset" ],
+    "disable_anim_fast_forward": true,
+    "$label_anim_bg_from": [ 0, "12%" ],
+    "$label_anim_bg_to": [ 0, 0 ],
     "controls": [
       {
         "label": {
@@ -34,6 +38,10 @@
     "anchor_to": "bottom_left",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
+    "anims": [ "@animations.background_label_anim_offset" ],
+    "disable_anim_fast_forward": true,
+    "$label_anim_bg_from": [ "-16%", 0 ],
+    "$label_anim_bg_to": [ 0, 0 ],
     "controls": [
       {
         "label": {
@@ -58,6 +66,10 @@
     "anchor_to": "bottom_right",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
+    "anims": [ "@animations.background_label_anim_offset" ],
+    "disable_anim_fast_forward": true,
+    "$label_anim_bg_from": [ "16%", 0 ],
+    "$label_anim_bg_to": [ 0, 0 ],
     "controls": [
       {
         "label": {
@@ -177,6 +189,14 @@
     "$button_alpha": 0.3
   },
 
+  "information_button@main_text_button": {
+    "$pressed_button_name": "button.menu_buy_game",
+    "$button_text": "!",
+    "$font_type": "MinecraftTen",
+    "$button_offset": [ 0, -2 ],
+    "size": [ 18, 18 ]
+  },
+
   "play@main_text_button": {
     "$pressed_button_name": "$play_button_target",
     "$button_text": "menu.play",
@@ -248,10 +268,10 @@
 
   "main_stack_bg": {
     "type": "image",
-    "texture": "textures/ui/Black",
+    "texture": "textures/ui/hud_tip_text_background",
     "anchor_from": "center",
     "anchor_to": "center",
-    "alpha": 0.4,
+    "alpha": 0.5,
     "size": [ "100%c + 8px", "100%c + 4px" ],
     "controls": [
       {
@@ -277,6 +297,21 @@
     ]
   },
 
+  // Top More Buttons //
+
+  "header_button_stack": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%cm", "100%c" ],
+    "offset": [ 2, 2 ],
+    "controls": [
+      {
+        "information@information_button": {}
+      }
+    ]
+  },
+
   // Welcome Gamertag Panel //
 
   "welcome_gamertag_panel": {
@@ -294,32 +329,52 @@
           "type": "stack_panel",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [ "100%c", 24 ],
+          "size": [ "100%cm", 20 ],
           "controls": [
             {
-              "welcome_text": {
-                "type": "label",
-                "text": "menu.welcome.title",
-                "text_alignment": "center",
-                "layer": 3,
-                "color": "$main_header_text_color",
-                "shadow": true,
-                "size": [ "default", 10 ]
+              "welcome_text_panel": {
+                "type": "panel",
+                "size": [ "100%cm", 10 ],
+                "controls": [
+                  {
+                    "welcome_text": {
+                      "type": "label",
+                      "text": "menu.welcome.title",
+                      "text_alignment": "center",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "font_type": "smooth",
+                      "layer": 3,
+                      "color": "$main_header_text_color",
+                      "size": [ "default", 10 ]
+                    }
+                  }
+                ]
               }
             },
             {
-              "gamertag_text": {
-                "type": "label",
-                "text": "#text",
-                "text_alignment": "center",
-                "layer": 3,
-                "color": [ 0.8, 0.8, 0.8 ],
-                "shadow": true,
-                "size": [ "default", 10 ],
-                "bindings": [
+              "gamertag_text_panel": {
+                "type": "panel",
+                "size": [ "100%sm", 10 ],
+                "controls": [
                   {
-                    "binding_name": "#playername",
-                    "binding_name_override": "#text"
+                    "gamertag_text": {
+                      "type": "label",
+                      "text": "#text",
+                      "text_alignment": "center",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "font_type": "smooth",
+                      "layer": 3,
+                      "color": [ 0.7, 0.7, 0.7 ],
+                      "size": [ "default", 10 ],
+                      "bindings": [
+                        {
+                          "binding_name": "#playername",
+                          "binding_name_override": "#text"
+                        }
+                      ]
+                    }
                   }
                 ]
               }
@@ -336,16 +391,13 @@
     "type": "panel",
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
-    "size": [ 256, 72  ],
-    "offset": [ 0, "2%" ],
+    "size": [ "55%", "18.85%x" ],
+    "offset": [ 0, "6%" ],
     "controls": [
+      { "title_image@common_art.title_image": {} },
       {
-        "title_image": {
-          "type": "image",
-          "texture": "textures/ui/title",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 4
+        "splash_text@common_art.splash_text": {
+          "offset": [ -8, 10 ]
         }
       }
     ]
@@ -358,16 +410,8 @@
       { "text_panel@text_panel": {} },
       { "main_stack@main_stack_bg": {} },
       { "hello@welcome_gamertag_panel": {} },
+      { "header_stack@header_button_stack": {} },
       { "title_panel@title_panel": {} }
     ]
-  },
-
-  "start_screen": {
-    "$screen_bg_content": "start.bg"
-  },
-
-  "bg@common.button": {
-    "$pressed_button_name": "button.menu_settings",
-    "fill": true
   }
 }
