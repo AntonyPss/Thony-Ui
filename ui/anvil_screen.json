@@ -1,48 +1,42 @@
-/*
-
-©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
-Youtube: https://www.youtube.com/c/AsakiZuki
-Facebook: https://facebook.com/asakizuki
-Discord: Kotori Itsuka#6038
-
-*/
-
 {
-    "text_edit_control": {
-        "max_length": 100
-    },
-    
-    "anvil_panel/root_panel": {
-        "modifications": [
-            {
-                "array_name": "controls",
-                "operation": "insert_front",
-                "value": [
-                    {
-                        "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
-                    },
-                    {
-                        "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
-                            "offset": [
-                                22,
-                                0
-                            ]
-                        }
-                    },
-                    {
-                        "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
-                            "offset": [
-                                -6,
-                                -2
-                            ]
-                        }
-                    }
-                ]
-            }
-        ]
-    },
+  "generic_label": {
+    "color": "$main_header_text_color",
+    "shadow": true,
+    "size": [ "default", 12 ]
+  },
 
-    "anvil_screen": {
-        "force_render_below": true
-    }
+  "anvil_icon": {
+    "size": [ 28, 28 ]
+  },
+
+  "text_edit_control": {
+    "max_length": 100
+  },
+
+  "anvil_panel/root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "close_button@common_dialogs.close_button": {}
+          }
+        ]
+      },
+      {
+        "control_name": "common_panel",
+        "operation": "replace",
+        "value": [
+          {
+            "background@common_assets.background_panel": {}
+          }
+        ]
+      }
+    ]
+  },
+
+  "anvil_screen": {
+    "force_render_below": true
+  }
 }
