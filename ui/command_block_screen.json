@@ -5,7 +5,7 @@
     "color": "$text_color"
   },
 
-  "plus_icon_button@common_buttons.light_content_button": {
+  "plus_icon_button@common_buttons.dark_content_button": {
     "$button_content": "command_block.plus_icon",
     "$pressed_button_name": "command_block.input_maximize",
     "bindings": [
@@ -16,7 +16,7 @@
     ]
   },
 
-  "paste_icon_button@common_buttons.light_content_button": {
+  "paste_icon_button@common_buttons.dark_content_button": {
     "$button_content": "command_block.paste_icon",
     "$pressed_button_name": "command_block.paste",
     "bindings": [
@@ -520,7 +520,7 @@
     "offset": [ 2, 2 ]
   },
 
-  "cancel_button@common_buttons.light_text_button": {
+  "close_button@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.menu_leave_screen",
     "$button_text": "gui.cancel",
     "layer": 2,
@@ -533,11 +533,11 @@
     ]
   },
 
-  "accept_button@common_buttons.light_text_button": {
+  "confirm_button@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.menu_exit",
     "$button_text": "gui.done",
     "layer": 2,
-    "size": [ "fill", "100%" ]
+    "size": [ "50%", "100%" ]
   },
 
   "button_stack_panel": {
@@ -545,8 +545,8 @@
     "orientation": "horizontal",
     "size": [ "100%", "100%" ],
     "controls": [
-      { "cancel@cancel_button": {} },
-      { "accept@accept_button": {} }
+      { "cancel@close_button": {} },
+      { "accept@confirm_button": {} }
     ]
   },
 
@@ -667,7 +667,7 @@
         }
       },
       {
-        "paste_button@common_buttons.light_content_button": {
+        "paste_button@common_buttons.dark_content_button": {
           "$pressed_button_name": "command_block.paste",
           "$button_content": "command_block.paste_button_panel",
           "size": [ "100% - 2px", 24 ],

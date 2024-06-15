@@ -18,7 +18,7 @@
     "size": [ "100%cm", 24 ],
     "offset": [ 1, 1 ],
     "anims": [
-      "s@pause.feature_world_panel_anim"
+      "@pause.feature_world_panel_anim"
     ],
     "bindings": [
       {
@@ -123,14 +123,15 @@
                                     {
                                       "world_name_label": {
                                         "type": "label",
-                                        "text": "#worldname",
+                                        "text": "#text",
                                         "layer": 4,
                                         "localize": false,
                                         "shadow": true,
                                         "size": [ "default", 10 ],
                                         "bindings": [
                                           {
-                                            "binding_name": "#worldname"
+                                            "binding_name": "#worldname",
+                                            "binding_name_override": "#text"
                                           }
                                         ]
                                       }

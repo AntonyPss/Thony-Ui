@@ -478,6 +478,7 @@
                       "color": "$text_color",
                       "size": [ "default", 10 ],
                       "offset": [ 0, 1 ],
+                      "$button_text_binding_type|default": "#none",
                       "bindings": [
                         {
                           "binding_name": "$button_text",
