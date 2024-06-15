@@ -31,3 +31,6 @@ progress.loadingWorld.theEnd.tip=Mystery and darkness await you, you’re about 
 
 ## Pause Screen ##
 confirmLeaveWarning.worldName.title=World Name:
+
+## Chat Screen ##
+chat.placeHolderText=Write here a text or command...
