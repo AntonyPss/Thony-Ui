@@ -141,11 +141,23 @@
     "offset": [ 1, 1 ]
   },
 
+  "close_button@common_buttons.dark_text_button": {
+    "$pressed_button_name": "button.menu_exit",
+    "$button_text": "gui.exit",
+    "size": [ "100%", 24 ]
+  },
 
-  "main_screen@common_dialogs.main_panel_no_button": {
-    "$text_name": "key.mobEffects",
-    "$child_control": "mob_effect.scrolling_panel",
-    "$fill_alpha": 0.6,
-    "size": [ 212, 148 ]
+  "main_screen": {
+    "controls": [
+      {
+        "main@common_dialogs.main_panel_one_button": {
+          "$show_close_button": false,
+          "$text_name": "key.mobEffects",
+          "$child_control": "mob_effect.scrolling_panel",
+          "$button_panel": "mob_effect.close_button",
+          "size": [ 200, 148 ]
+        }
+      }
+    ]
   }
 }
