@@ -1,4 +1,10 @@
 {
+  "text_edit_box_place_holder_label": {
+    "offset": "$place_holder_text_offset",
+    "$place_holder_text_offset|default": [ 8, 0 ],
+    "size": [ "default", "100%" ]
+  },
+
   "scroll_box/box": {
     "modifications": [
       {
