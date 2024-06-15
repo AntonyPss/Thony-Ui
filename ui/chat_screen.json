@@ -1,30 +1,8 @@
 {
 	"namespace": "chat",
 
-  "keyboard_button": {
-		"size": [ 24, 24 ]
-  },
-
-  "send_button@small_button": {
-    "$pressed_button_name": "button.send",
-		"$button_content": "chat.send_image",
-    "$tts_enabled|default": true,
-    "focus_enabled": "$tts_enabled",
-    "$focus_id": "send_button_focus_id",
-    "$focus_override_up": "paste_button_focus_id",
-
-    "$button_content_panel": "chat.send_panel",
-    "$button_tts_header": "#send_button_accessibility_text",
-		"size": [ 48, 24 ],
-    "bindings": [
-      {
-        "binding_name": "#send_button_visible",
-        "binding_name_override": "#enabled"
-      },
-      {
-        "binding_name": "#send_button_accessibility_text"
-      }
-    ]
+  "keyboard_image": {
+		"texture": "textures/ui/chat_keyboard_hover"
   },
 
 	"messages_text/text": {
@@ -34,261 +12,18 @@
 	"messages_scrolling_panel": {
 		"anchor_from": "bottom_middle",
 		"anchor_to": "bottom_middle",
-		"size": [ "100% - 4px", "100% - 48px" ],
+		"size": [ "100% - 4px", "100% - 50px" ],
 		"offset": [ 0, -24 ]
 	},
 
 	"commands_panel": {
-		"size": [ "100% - 4px", "100% - 48px" ],
-		"offset": [ 1, -24 ]
+		"size": [ "100% - 12px", "100% - 50px" ],
+		"offset": [ 2, -24 ]
 	},
 
-	"position_text_panel": {
-		"type": "panel",
-		"size": [ "100%", "100%" ],
-		"controls": [
-			{
-				"text": {
-					"type": "label",
-					"text": "XYZ",
-					"text_alignment": "center",
-					"anchor_from": "center",
-					"anchor_to": "center",
-					"layer": 2,
-					"color": "$text_color",
-					"size": [ "100%", 10 ]
-				}
-			}
-		]
-	},
-
-	"chat_header@common_assets.store_top_bar": {
-    "anchor_to": "top_left",
-    "anchor_from": "top_left",
-		"layer": 4,
-		"controls": [
-			{
-				"back_content@common.back_content_panel": {
-					"offset": [ 2, 0 ]
-				} 
-			},
-			{
-				"title_panel": {
-					"type": "panel",
-					"anchor_from": "top_left",
-					"anchor_to": "top_left",
-					"size": [ "100%c", "100%" ],
-					"controls": [
-						{
-							"text": {
-								"type": "label",
-								"text": "#text",
-								"font_scale_factor": 1.2,
-								"font_type": "MinecraftTen",
-								"layer": 4,
-								"color": "$title_text_color",
-								"size": [ "default", "100%" ],
-								"offset": [ 20, 2 ],
-								"bindings": [
-									{
-										"binding_name": "#chat_title_text",
-										"binding_name_override": "#text"
-									}
-								]
-							}
-						}
-					]
-				}
-			},
-			{
-				"popup_dialog_factory": {
-					"type": "factory",
-					"control_ids": {
-						"toast_message": "@chat.popup_toast"
-					}
-				}
-			},
-			{
-				"chat_header_content_area": {
-					"type": "panel",
-					"anchor_from": "right_middle",
-					"anchor_to": "right_middle",
-					"size": [ "100%cm", "100%c" ],
-					"controls": [
-						{
-							"stack_content": {
-								"type": "stack_panel",
-								"orientation": "horizontal",
-								"anchor_from": "right_middle",
-								"anchor_to": "right_middle",
-								"size": [ "100%c", "100%cm" ],
-								"offset": [ -2, -1 ],
-								"controls": [
-									{
-										"host_main@common_buttons.light_content_button": {
-											"ignored": "$is_pregame",
-											"$pressed_button_name": "button.host_toggle",
-											"$button_content": "host_options.host_image_panel",
-											"$focus_id": "host_main_button_focus_id",
-											"$focus_override_up": "coordinate_dropdown_focus_id",
-											"size": [ 18, 18 ],
-											"bindings": [
-												{
-													"binding_name": "#cheats_on",
-													"binding_name_override": "#enabled"
-												},
-												{
-													"binding_name": "#host_main_button_focus_override_up",
-													"binding_name_override": "#focus_change_up"
-												},
-												{
-													"binding_name": "#host_main_button_focus_override_down",
-													"binding_name_override": "#focus_change_down"
-												}
-											]
-										}
-									},
-									{
-										"show_coordinates_toggle@common_toggles.light_text_toggle": {
-											"$toggle_view_binding_name": "coordinates_toggle_panel",
-											"$toggle_name": "coordinates_toggle",
-											"$button_type_panel": "chat.position_text_panel",
-											"size": [ 28, 18 ]
-										}
-									}
-								]
-							}
-						}
-					]
-				}
-			}
-		]
-	},
-
-  "coordinate_buttons_panel": {
-    "type": "panel",
-
-    "$radio_toggle_group": true,
-
-		"$default_texture": "textures/ui/button_borderless_light",
-		"$hover_texture": "textures/ui/button_borderless_light",
-		"$pressed_texture": "textures/ui/button_borderless_lighthover",
-		"$pressed_no_hover_texture": "textures/ui/button_borderless_lighthover",
-
-    "size": [ "100%", 16 ],
-    "controls": [
-      {
-        "player_position@common_toggles.dark_text_toggle": {
-          "$toggle_name": "#coordinate_type_position",
-          "$toggle_state_binding_name": "#coordinate_type_position",
-          "$button_text": "chat.coordinateTypeFacing",
-          "bindings": [
-            {
-              "binding_name": "#coordinate_type_facing",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      },
-      {
-        "block_position@common_toggles.dark_text_toggle": {
-          "$toggle_name": "#coordinate_type_facing",
-          "$toggle_state_binding_name": "#coordinate_type_facing",
-          "$button_text": "chat.coordinateTypePosition",
-          "bindings": [
-            {
-              "binding_name": "#coordinate_type_position",
-              "binding_name_override": "#visible"
-            }
-          ]
-        }
-      }
-    ]
+  "chat_bottom_panel/send_button": {
+    "ignored": true
   },
-
-	"coordinates_toggle_panel": {
-		"type": "image",
-		"texture": "textures/ui/greyBorder",
-		"anchor_from": "top_right",
-		"anchor_to": "top_right",
-		"layer": 99,
-		"size": [ "100%c + 10px", "100%c + 10px" ],
-		"offset": [ -2, 26 ],
-		"bindings": [
-			{
-				"binding_type": "view",
-				"source_control_name": "coordinates_toggle_panel",
-				"source_property_name": "#toggle_state",
-				"target_property_name": "#visible"
-			}
-		],
-		"controls": [
-			{
-				"stack_content": {
-					"type": "stack_panel",
-					"size": [ 124, "100%c" ],
-					"controls": [
-						{
-							"horizontal": {
-								"type": "stack_panel",
-								"orientation": "horizontal",
-								"size": [ "100%", 32 ],
-								"controls": [
-									{
-										"coordinate_text_panel": {
-											"type": "panel",
-											"size": [ "fill", "100%" ],
-											"controls": [
-												{
-													"coordinates_text": {
-														"type": "label",
-														"text": "#text",
-														"text_alignment": "center",
-														"layer": 24,
-														"shadow": true,
-														"size": [ "100%", "default" ],
-														"bindings": [
-															{
-																"binding_name": "#coordinates_text",
-																"binding_name_override": "#text"
-															}
-														]
-													}
-												}
-											]
-										}
-									},
-									{
-										"vertical": {
-											"type": "stack_panel",
-											"size": [ 16, 32 ],
-											"controls": [
-												{
-													"copy@copy_coordinate_button": {
-														"size": [ 16, "50%" ]
-													}
-												},
-												{
-													"paste@paste_button": {
-														"size": [ 16, "50%" ]
-													}
-												}
-											]
-										}
-									}
-								]
-							}
-						},
-						{
-							"coordinate_buttons@coordinate_buttons_panel": {
-								"size": [ "100%", 16 ]
-							}
-						}
-					]
-				}
-			}
-		]
-	},
 
 	"chat_bottom_panel": {
 		"size": [ "100%", 24 ],
@@ -298,6 +33,20 @@
 				"control_name": "host_main_button",
 				"operation": "remove"
 			},
+      {
+        "control_name": "keyboard_button",
+        "operation": "replace",
+        "value": [
+           { "keyboard_button@chat_panel.keyboard_button": {} }
+        ]
+      },
+      {
+        "control_name": "chat_settings",
+        "operation": "replace",
+        "value": [
+           { "chat_settings@chat_panel.chat_settings_button": {} }
+        ]
+      },
       {
         "control_name": "text_box",
         "operation": "insert_before",
@@ -328,7 +77,16 @@
             }
           }
         ]
-      }
+      },
+			{
+				"control_name": "send_button",
+				"operation": "insert_after",
+				"value": [
+					{
+						"send@chat_panel.send_button_panel": {}
+					}
+				]
+			}
     ]
 	},
 
@@ -356,11 +114,6 @@
     "texture": "textures/ui/chat_autocompleteback"
   },
 
-  "chat_settings_button": {
-    "$focus_override_right": "",
-		"size": [ 24, 24 ]
-  },
-
   "small_button@common_buttons.dark_glyph_button": {
     "$pressed_button_name|default": "",
     "$button_content|default": "",
@@ -376,8 +129,6 @@
   "text_edit_box": {
     "$text_edit_text_control": "message_text_box_display_text",
     "$place_holder_text": "chat.placeHolderText",
-    "$focus_override_left": "",
-    "$focus_override_right": "",
 		"size": [ "fill", 24 ]
   },
 
@@ -440,23 +191,14 @@
     ]
   },
 
-	"chat_screen_content": {
-		"modifications": [
-			{
-				"array_name": "controls",
-				"operation": "insert_front",
-				"value": [
-					{
-						"coordinates@chat.coordinates_toggle_panel": {}
-					}
-				]
-			}
-		]
+	"chat_screen": {
+    "$header_safezone_control": "common_assets.store_top_bar_filler",
+    "$header_bar_control": "common_assets.store_top_bar",
+		"$screen_content": "chat_panel.chat_screen_content",
+    "close_on_player_hurt": false
 	},
 
-	"chat_screen": {
-    // "$header_safezone_control": "common.store_top_bar_filler",
-    "$header_bar_control": "common_assets.store_top_bar",
-    "close_on_player_hurt": false
+	"chat_background": {
+		"alpha": 0.4
 	}
 }
