@@ -1,0 +1,33 @@
+{
+  "namespace": "animations",
+
+  "background_label_anim_offset": {
+    "anim_type": "offset",
+    "easing": "in_expo",
+    "duration": "$label_anim_bg_duration_offset",
+    "from": "$label_anim_bg_from",
+    "to": "$label_anim_bg_to",
+    "$label_anim_bg_from|default": [],
+    "$label_anim_bg_to|default": []
+  },
+
+  "background_panel_anim_alpha": {
+    "anim_type": "alpha",
+    "easing": "in_expo",
+    "duration": "$panel_anim_bg_duration_alpha",
+    "from": "$panel_anim_bg_from",
+    "to": "$panel_anim_bg_to",
+    "$panel_anim_bg_from|default": null,
+    "$panel_anim_bg_to|default": null
+  },
+
+  "background_label_anim_alpha": {
+    "anim_type": "alpha",
+    "easing": "in_expo",
+    "duration": "$label_anim_bg_duration_alpha",
+    "from": "$label_anim_bg_alpha_from",
+    "to": "$label_anim_bg_alpha_to",
+    "$label_anim_bg_alpha_from|default": null,
+    "$label_anim_bg_alpha_to|default": null
+  }
+}
