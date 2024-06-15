@@ -1,104 +1,12 @@
 {
   "ui_defs": [
-    "ui/common/ui_common.json",
-    "ui/common/exit_world_screen.json",
     "ui/common/auto_place_screen.json",
-    "ui/common/mod_menu_screen.json",
     "ui/common/mod_menu_panel.json",
+    "ui/common/mod_menu_screen.json",
     "ui/common/percent_template.json",
-
-    "asa_ui/animation/header_bg_animation.json",
-    "asa_ui/animation/start_screen_animation.json",
-    "asa_ui/animation/play_screen_animation.json",
-    "asa_ui/animation/setting_screen_animation.json",
-    "asa_ui/animation/pressed_anims.json",
-    "asa_ui/animation/extra_animation.json",
-    "asa_ui/animation/button_anims.json",
-    //Brewing Screen
-    "asa_ui/brewing_screen/brewing_recipe_common.json",
-    "asa_ui/brewing_screen/asa_recipe_section.json",
-    "asa_ui/brewing_screen/asa_recipe_panel.json",
-    "asa_ui/brewing_screen/brewing_screen_content.json",
-    //Container Mode
-    "asa_ui/container_mode/auto_place.json",
-    "asa_ui/container_mode/drop_one.json",
-    "asa_ui/container_mode/container_debug.json",
-    "asa_ui/container_mode/auto_place_panel.json",
-    "asa_ui/container_mode/enchant_book_viewer.json",
-    //Command Block
-    "asa_ui/command_block_screen/command_block_content.json",
-    "asa_ui/command_block_screen/java_command_block_helper.json",
-    //Background
-    "asa_ui/custom_background/background.json",
-    //Death Screen
-    "asa_ui/death_screen/death_screen.json",
-    //Enchant Screen
-    "asa_ui/enchant_screen/enchant_screen_content.json",
-    //Furnace Screen
-    "asa_ui/furnace_screen/asa_toggle_common.json",
-    //HUD Screen
-    "asa_ui/hud_screen/asa_mega_mod_menu.json",
-    "asa_ui/hud_screen/hud_debug_panel.json",
-    "asa_ui/hud_screen/hud_screen_panel.json",
-    "asa_ui/hud_screen/better_bossbar.json",
-    "asa_ui/hud_screen/hud_screen_content.json",
-    "asa_ui/hud_screen/mod_menu_common.json",
-    "asa_ui/hud_screen/mod_menu_panel.json",
-    "mod_menu.json",
-    //Inventory
-    "asa_ui/inventory/crafting_button.json",
-    "asa_ui/inventory/crafting_panel.json",
-    //Mob Effect
-    "asa_ui/mob_effect_screen/effect_timer.json",
-    //Music Player
-    "asa_ui/music_player/music_button_common.json",
-    "asa_ui/music_player/music_player_panel.json",
-    "asa_ui/music_player/music_player_content.json",
-    "asa_music_player/custom_music/music_infomation.json",
-    //Music Player Section
-    "asa_ui/music_player/sections/date_a_live.json",
-    "asa_ui/music_player/sections/masamune_revenge.json",
-    "asa_ui/music_player/sections/custom_music.json",
-    "asa_ui/music_player/sections/gotoubun_no_hanayome.json",
-    "asa_ui/music_player/sections/majo_no_tabitabi.json",
-    "asa_ui/music_player/sections/no_game_no_life.json",
-    //Pause Screen
-    "asa_ui/pause_screen/exit_confirm.json",
-    "asa_ui/pause_screen/exit_confirm_panel.json",
-    "asa_ui/pause_screen/pause_screen_panel.json",
-    "asa_ui/pause_screen/pause_screen_button_common.json",
-    "asa_ui/pause_screen/player_list.json",
-    //Play Screen
-    "asa_ui/play_screen/player_screen_button_template.json",
-    "asa_ui/play_screen/play_screen_content.json",
-    "asa_ui/play_screen/play_screen_common.json",
-    //Progress
-    "asa_ui/progress/progress_screen_panel.json",
-    "asa_ui/progress/dimension_progress_screen.json",
-    //Setting Screen
-    "asa_ui/setting_screen/asa_button_common.json",
-    "asa_ui/setting_screen/asa_setting_common.json",
-    "asa_ui/setting_screen/asa_toggle_common.json",
-    "asa_ui/setting_screen/asa_setting_screen.json",
-    "asa_ui/setting_screen/asa_general_setting.json",
-    //OLD
-    "asa_ui/setting_screen/resource_pack_common.json",
-    "asa_ui/setting_screen/setting_common.json",
-    "asa_ui/setting_screen/asa_setting_panel.json",
-    "asa_ui/setting_screen/resource_pack_section.json",
-    "asa_ui/setting_screen/search_setting_panel.json",
-  
-    //Template
-    "asa_ui/template/button_template.json",
-    "asa_ui/template/screen_template.json",
-    "asa_ui/template/toggle_template.json",
-    "asa_ui/template/text_box_template.json",
-    "asa_ui/template/percent_template.json",
-    "asa_ui/template/scroll_template.json",
-    "asa_ui/template/game_password.json",
-    //Trade Screen
-    "asa_ui/trade_screen/trade_expbar_percent.json",
-    //Other
-    "asa_ui/font_setup.json"
+    "ui/common/ui/animations_screen.json",
+    "ui/common/ui/chat_screen.json",
+    "ui/common/ui/exit_world_screen.json",
+    "ui/common/ui_common.json"
   ]
 }
