@@ -27,7 +27,7 @@ Este paquete está diseñado para Minecraft Bedrock. Asegúrate de tener la últ
 
 Si tienes una sugerencia o problema, no dudes en reportarlo a través de mi servidor de Discord. Estaremos encantados de poder ayudarte.
 
-**Nota:** Si descargaste el paquete sin haber pasado por la página de *MCPEDL.com*, ***no se te brindará soporte total sobre algún tipo de problema.***
+***Nota:** Si descargaste el paquete sin haber pasado por la página de *MCPEDL.com*, ***no se te brindará soporte total sobre algún tipo de problema.****
 
 ## Agradecimientos
 Gracias por descargar y usar **Thony Ui Pack**. ¡Esperamos que mejore tu experiencia de juego en Minecraft Bedrock!
