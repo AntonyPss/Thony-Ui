@@ -1,7 +1,9 @@
 {
   "namespace": "pause",
 
-  // Feature World Name Panel //
+  //---------------------------------------------------------------------------
+  // World Name Section
+  //---------------------------------------------------------------------------
 
   "feature_world_panel_anim": {
     "anim_type": "offset",
@@ -23,13 +25,7 @@
     "bindings": [
       {
         "binding_type": "view",
-        "source_control_name": "mod_menu_panel",
-        "source_property_name": "(not #toggle_state)",
-        "target_property_name": "#visible"
-      },
-      {
-        "binding_type": "view",
-        "source_control_name": "asa_mod_menu_panel",
+        "source_control_name": "mod_menu_view",
         "source_property_name": "(not #toggle_state)",
         "target_property_name": "#visible"
       },
@@ -226,7 +222,9 @@
     ]
   },
 
-  // Player List Content Panel //
+  //---------------------------------------------------------------------------
+  // Player List Section
+  //---------------------------------------------------------------------------
 
   "player_lists": {
     "size": [ "100%", "100%" ]
@@ -342,7 +340,9 @@
     ]
   },
 
-  // Main Buttons Panel //
+  //---------------------------------------------------------------------------
+  // Main Stack Section
+  //---------------------------------------------------------------------------
 
   "continue@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.menu_continue",
@@ -377,13 +377,7 @@
     "bindings": [
       {
         "binding_type": "view",
-        "source_control_name": "mod_menu_panel",
-        "source_property_name": "(not #toggle_state)",
-        "target_property_name": "#visible"
-      },
-      {
-        "binding_type": "view",
-        "source_control_name": "asa_mod_menu_panel",
+        "source_control_name": "mod_menu_view",
         "source_property_name": "(not #toggle_state)",
         "target_property_name": "#visible"
       },
@@ -425,13 +419,7 @@
           "bindings": [
             {
               "binding_type": "view",
-              "source_control_name": "mod_menu_panel",
-              "source_property_name": "(not #toggle_state)",
-              "target_property_name": "#visible"
-            },
-            {
-              "binding_type": "view",
-              "source_control_name": "asa_mod_menu_panel",
+              "source_control_name": "mod_menu_view",
               "source_property_name": "(not #toggle_state)",
               "target_property_name": "#visible"
             },
@@ -452,15 +440,17 @@
     ]
   },
 
-  // Screen Base //
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
 
   "pause_screen_content": {
     "controls": [
       { "main_buttons@pause.main_screen_panel": {} },
       { "world_name@pause.feature_world_name_panel": {} },
       { "exit_confirm@exit_world.exit_world_confirm_screen": {} },
-      { "background_screen@pause.background_screen": {} }
-      // { "asa_mod_menu_toggle@asa_mod_menu.asa_open_mod_menu_toggle_pause": {} }
+      { "background_screen@pause.background_screen": {} },
+      { "mod_menu_toggle@mod_menu_screen.show_mod_panel": {} }
     ]
   },
 
@@ -483,7 +473,7 @@
 
   "pause_screen@common.base_screen": {
     "cache_screen": true,
-    "$screen_background_alpha": 0.3,
+    "$screen_background_alpha": 0.2,
     "force_render_below": true,
     "render_game_behind": true,
     "button_mappings": []

@@ -1,6 +1,10 @@
 {
   "namespace": "command_block",
 
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
+
   "plus_icon": {
     "color": "$text_color"
   },
@@ -26,6 +30,97 @@
       }
     ]
   },
+
+  "paste_button_panel": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100% - 24px", "100% - 2px" ],
+    "controls": [
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "icon_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "icon@command_block.paste_icon": {
+                      "anchor_from": "center",
+                      "anchor_to": "center"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 8, 0 ]
+              }
+            },
+            {
+              "label_panel": {
+                "type": "panel",
+                "size": [ "100%c - 4px", "100%" ],
+                "controls": [
+                  {
+                    "label": {
+                      "type": "label",
+                      "text": "options.button.paste",
+                      "text_alignment": "center",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "color": "$text_color",
+                      "layer": 4,
+                      "size": [ "default", 10 ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "close_button@common_buttons.dark_text_button": {
+    "$pressed_button_name": "button.menu_leave_screen",
+    "$button_text": "gui.cancel",
+    "layer": 2,
+    "size": [ "50%", "100%" ],
+    "bindings": [
+      {
+        "binding_name": "#close_button_visible_binding_name",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "confirm_button@common_buttons.dark_text_button": {
+    "$pressed_button_name": "button.menu_exit",
+    "$button_text": "gui.done",
+    "layer": 2,
+    "size": [ "50%", "100%" ]
+  },
+
+  "button_stack_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      { "cancel@close_button": {} },
+      { "accept@confirm_button": {} }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Tick Delay Section
+  //---------------------------------------------------------------------------
 
   "tick_delay_text": {
     "type": "panel",
@@ -101,6 +196,10 @@
       }
     ]
   },
+
+  //---------------------------------------------------------------------------
+  // Command Block Info Section
+  //---------------------------------------------------------------------------
 
   "command_block_helper_stack/text_": {
     "shadow": true,
@@ -192,6 +291,10 @@
     ]
   },
 
+  //---------------------------------------------------------------------------
+  // Scrolling Content
+  //---------------------------------------------------------------------------
+
   "scroll_panel_content": {
     "type": "stack_panel",
     "size": [ "100% - 2px", "100%c - 2px" ],
@@ -210,7 +313,7 @@
         }
       },
       {
-        "p0": {
+        "padding0": {
           "type": "panel",
           "size": [ 0, 2 ]
         }
@@ -247,7 +350,7 @@
         }
       },
       {
-        "p1": {
+        "padding1": {
           "type": "panel",
           "size": [ 0, 4 ]
         }
@@ -264,7 +367,7 @@
         }
       },
       {
-        "4": {
+        "padding2": {
           "type": "panel",
           "size": [ 0, 4 ]
         }
@@ -353,7 +456,7 @@
         }
       },
       {
-        "p2": {
+        "padding3": {
           "type": "panel",
           "size": [ 0, 12 ]
         }
@@ -370,7 +473,7 @@
               }
             },
             {
-              "p0": {
+              "padding0": {
                 "type": "panel",
                 "size": [ 2, 0 ]
               }
@@ -382,7 +485,7 @@
               }
             },
             {
-              "p1": {
+              "padding1": {
                 "type": "panel",
                 "size": [ 2, 0 ]
               }
@@ -396,7 +499,7 @@
         }
       },
       {
-        "p3": {
+        "padding4": {
           "type": "panel",
           "size": [ 0, 12 ]
         }
@@ -422,7 +525,7 @@
                     }
                   },
                   {
-                    "offset_tick_delay": {
+                    "padding": {
                       "type": "panel",
                       "size": [ "100%", 2 ]
                     }
@@ -472,7 +575,7 @@
                     }
                   },
                   {
-                    "offset1": {
+                    "padding1": {
                       "type": "panel",
                       "size": [ "100%", 2 ]
                     }
@@ -484,7 +587,7 @@
                     }
                   },
                   {
-                    "offset2": {
+                    "padding2": {
                       "type": "panel",
                       "size": [ "100%", 2 ]
                     }
@@ -502,7 +605,7 @@
         }
       },
       {
-        "down": {
+        "padding5": {
           "type": "panel",
           "size": [ 0, 4 ]
         }
@@ -520,35 +623,9 @@
     "offset": [ 2, 2 ]
   },
 
-  "close_button@common_buttons.dark_text_button": {
-    "$pressed_button_name": "button.menu_leave_screen",
-    "$button_text": "gui.cancel",
-    "layer": 2,
-    "size": [ "50%", "100%" ],
-    "bindings": [
-      {
-        "binding_name": "#close_button_visible_binding_name",
-        "binding_name_override": "#enabled"
-      }
-    ]
-  },
-
-  "confirm_button@common_buttons.dark_text_button": {
-    "$pressed_button_name": "button.menu_exit",
-    "$button_text": "gui.done",
-    "layer": 2,
-    "size": [ "50%", "100%" ]
-  },
-
-  "button_stack_panel": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": [ "100%", "100%" ],
-    "controls": [
-      { "cancel@close_button": {} },
-      { "accept@confirm_button": {} }
-    ]
-  },
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
 
   "command_block_screen_panel@common_dialogs.main_panel_one_button": {
     "$show_close_button": false,
@@ -572,63 +649,6 @@
       {
         "binding_name": "#maximized_input_visible",
         "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  "paste_button_panel": {
-    "type": "panel",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "size": [ "100% - 24px", "100% - 2px" ],
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "icon_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "icon@command_block.paste_icon": {
-                      "anchor_from": "center",
-                      "anchor_to": "center"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 8, 0 ]
-              }
-            },
-            {
-              "label_panel": {
-                "type": "panel",
-                "size": [ "100%c - 4px", "100%" ],
-                "controls": [
-                  {
-                    "label": {
-                      "type": "label",
-                      "text": "options.button.paste",
-                      "text_alignment": "center",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "color": "$text_color",
-                      "layer": 4,
-                      "size": [ "default", 10 ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
       }
     ]
   },
@@ -693,6 +713,6 @@
   },
 
   "command_block_screen": {
-    "$screen_background_alpha": 0.6
+    "$screen_background_alpha": 0.4
   }
 }

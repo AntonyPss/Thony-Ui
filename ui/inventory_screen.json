@@ -23,11 +23,11 @@
       {
         "background": {
           "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
+          "texture": "textures/ui/Black",
           "anchor_from": "center",
           "anchor_to": "center",
           "alpha": 0.5,
-          "size": [ "100%cm + 8px", "100%" ],
+          "size": [ "100%cm + 4px", "100%" ],
           "controls": [
             {
               "stack_panel": {
@@ -159,11 +159,11 @@
     "$toggle_name": "navigation_tab",
     "$toggle_group_default_selected": "$construction_index",
 
-    "$default_texture": "textures/ui/hud_tip_text_background",
-    "$hover_texture": "textures/ui/hud_tip_text_background",
-    "$pressed_texture": "textures/ui/hud_tip_text_background",
-    "$pressed_no_hover_texture": "textures/ui/hud_tip_text_background",
-    "$locked_texture": "textures/ui/hud_tip_text_background",
+    "$default_texture": "textures/ui/Black",
+    "$hover_texture": "textures/ui/Black",
+    "$pressed_texture": "textures/ui/Black",
+    "$pressed_no_hover_texture": "textures/ui/Black",
+    "$locked_texture": "textures/ui/Black",
 
     "$default_texture_alpha": 0.5,
     "$default_checked_texture_alpha": 0.5,
@@ -294,7 +294,7 @@
       {
         "background": {
           "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
+          "texture": "textures/ui/Black",
           "anchor_from": "center",
           "anchor_to": "center",
           "alpha": 0.5
@@ -362,7 +362,7 @@
           {
             "padding": {
               "type": "panel",
-              "size": [ 4, 0 ]
+              "size": [ 2, 0 ]
             }
           }
         ]
@@ -390,7 +390,7 @@
           {
             "background": {
               "type": "image",
-              "texture": "textures/ui/hud_tip_text_background",
+              "texture": "textures/ui/Black",
               "anchor_from": "center",
               "anchor_to": "center",
               "alpha": 0.5

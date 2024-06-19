@@ -1,7 +1,9 @@
 {
   "namespace": "progress",
 
-  // Background Bottom Bar //
+  //---------------------------------------------------------------------------
+  // Progress Background Panel
+  //---------------------------------------------------------------------------
 
   "background_with_panel": {
     "type": "panel",
@@ -10,11 +12,14 @@
       {
         "background_image": {
           "type": "image",
-          "texture": "textures/ui/Black",
+          "texture": "$background_texture",
+          "$background_texture|default": "textures/ui/Black",
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle",
           "layer": 2,
           "alpha": 0.7,
+          "color": "$background_color",
+          "$background_color|default": [ 0.0, 0.0, 0.0 ],
           "size": [ "100%", "100%c" ],
           "controls": [
             {
@@ -215,27 +220,9 @@
     ]
   },
 
-  // Dimension Screen Base //
-
-  "overworld_loading_progress_screen@world_loading_progress_screen": {
-    "$screen_bg_content": "progress.overworld_loading_background",
-    "$screen_content": "progress.dimension_screen_content",
-    "$is_overword": true
-  },
-
-  "nether_loading_progress_screen@world_loading_progress_screen": {
-    "$screen_bg_content": "progress.nether_loading_background",
-    "$screen_content": "progress.dimension_screen_content",
-    "$is_nether": true
-  },
-
-  "theend_loading_progress_screen@world_loading_progress_screen": {
-    "$screen_bg_content": "progress.theend_loading_background",
-    "$screen_content": "progress.dimension_screen_content",
-    "$is_the_end": true
-  },
-
-  // Mobile Data Content //
+  //---------------------------------------------------------------------------
+  // Mobile Data Section
+  //---------------------------------------------------------------------------
 
   "mobile_data_icon_anim_offset": {
     "anim_type": "offset",
@@ -383,7 +370,9 @@
     ]
   },
 
-  // Progress Screen Content //
+  //---------------------------------------------------------------------------
+  // Title Section
+  //---------------------------------------------------------------------------
 
   "title_image_panel": {
     "type": "panel",
@@ -405,6 +394,10 @@
       }
     ]
   },
+
+  //---------------------------------------------------------------------------
+  // Popup Dialog and Modal Section
+  //---------------------------------------------------------------------------
 
   "cancel_icon": {
     "type": "image",
@@ -432,68 +425,6 @@
     "texture": "textures/ui/confirm",
     "layer": 2,
     "size": [ 12, 10 ]
-  },
-
-  "dark_button_panel": {
-    "type": "panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "size": [ "100% - 2px", "100% - 2px" ],
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "icon_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "icon@$button_icon": {
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "offset": [ 0, 1 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 4, "100%" ]
-              }
-            },
-            {
-              "label_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "label": {
-                      "type": "label",
-                      "text": "$button_text",
-                      "color": "$text_color",
-                      "size": [ "default", 10 ],
-                      "offset": [ 0, 1 ],
-                      "$button_text_binding_type|default": "#none",
-                      "bindings": [
-                        {
-                          "binding_name": "$button_text",
-                          "binding_type": "$button_text_binding_type"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
   },
 
   "dark_button@common_buttons.dark_content_button": {
@@ -561,11 +492,73 @@
     ]
   },
 
+  "dark_button_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100% - 2px", "100% - 2px" ],
+    "controls": [
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "icon_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "icon@$button_icon": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [ 0, 1 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 4, "100%" ]
+              }
+            },
+            {
+              "label_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "label": {
+                      "type": "label",
+                      "text": "$button_text",
+                      "color": "$text_color",
+                      "size": [ "default", 10 ],
+                      "offset": [ 0, 1 ],
+                      "$button_text_binding_type|default": "#none",
+                      "bindings": [
+                        {
+                          "binding_name": "$button_text",
+                          "binding_type": "$button_text_binding_type"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "simple_popup_dialog_base": {
     "type": "input_panel",
     "modal": true,
     "layer": 100,
-    "size": [ 332, 176 ],
+    "size": [ "100% - 128px", 224 ],
 
     "$use_top_button|default": false,
     "$top_button_press|default": "",
@@ -645,14 +638,13 @@
                     "description_text": {
                       "type": "label",
                       "text": "$description_text",
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left",
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
                       "layer": 100,
                       "alpha": 0.8,
                       "shadow": true,
                       "color": "$progress_subtitle_text_color",
-                      "size": [ "100% - 4px", "default" ],
-                      "offset": [ 1, 0 ]
+                      "size": [ "100% - 8px", "default" ]
                     }
                   }
                 ]
@@ -673,15 +665,14 @@
                     "description_text": {
                       "type": "label",
                       "text": "$description_text2",
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left",
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
                       "ignored": "(not $has_second_line)",
                       "layer": 100,
                       "alpha": 0.8,
                       "shadow": true,
                       "color": "$progress_subtitle_text_color",
-                      "size": [ "100% - 4px", "default" ],
-                      "offset": [ 1, 0 ]
+                      "size": [ "100% - 8px", "default" ]
                     }
                   }
                 ]
@@ -719,9 +710,9 @@
                         {
                           "padding_3": {
                             "type": "panel",
-                            "size": [ 0, 1 ],
                             "visible": "$use_top_button",
-                            "enabled": "$use_top_button"
+                            "enabled": "$use_top_button",
+                            "size": [ 0, 1 ]
                           }
                         },
                         {
@@ -776,8 +767,12 @@
   },
 
   "world_modal_progress_panel": {
-    "size": [ 200, 224 ]
+    "size": "$modal_screen_size"
   },
+
+  //---------------------------------------------------------------------------
+  // Screen Section
+  //---------------------------------------------------------------------------
 
   "world_convert_modal_progress_screen_content": {
     "$modal_button_panel": "progress.modal_button_panel",
@@ -802,6 +797,8 @@
   "realms_loading_world_modal_progress_screen_content": {
     "$modal_button_panel": "progress.modal_button_panel",
     "$screen_title_texture": "textures/ui/realms_title",
+    "$background_texture": "textures/ui/realmsparkle1",
+    "$background_color": [ 0.4, 0.4, 0.4 ],
     "controls": [
       { "title_image@progress.title_image_panel": {} },
       { "background@progress.background_with_panel": {} },
@@ -809,6 +806,10 @@
       { "popup_dialog_factory@progress.popup_dialog_factory": {} }
     ]
   },
+
+  //---------------------------------------------------------------------------
+  // Auto Save Section
+  //---------------------------------------------------------------------------
 
   "auto_save_panel": {
     "type": "panel",
@@ -841,7 +842,27 @@
     ]
   },
 
-  // Dimension Background Content //
+  //---------------------------------------------------------------------------
+  // Dimension Section
+  //---------------------------------------------------------------------------
+
+  "overworld_loading_progress_screen@world_loading_progress_screen": {
+    "$screen_bg_content": "progress.overworld_loading_background",
+    "$screen_content": "progress.dimension_screen_content",
+    "$is_overword": true
+  },
+
+  "nether_loading_progress_screen@world_loading_progress_screen": {
+    "$screen_bg_content": "progress.nether_loading_background",
+    "$screen_content": "progress.dimension_screen_content",
+    "$is_nether": true
+  },
+
+  "theend_loading_progress_screen@world_loading_progress_screen": {
+    "$screen_bg_content": "progress.theend_loading_background",
+    "$screen_content": "progress.dimension_screen_content",
+    "$is_the_end": true
+  },
 
   "world_icon_anim_offset": {
     "anim_type": "offset",
@@ -972,7 +993,7 @@
                             "anchor_to": "left_middle",
                             "layer": 4,
                             "shadow": true,
-                            "color": "$progress_subtitle_text_color",
+                            "color": "$progress_title_text_color",
                             "size": [ "100%", "default" ]
                           }
                         }

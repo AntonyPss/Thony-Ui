@@ -7,6 +7,8 @@
     "ui/common/ui/animations_screen.json",
     "ui/common/ui/chat_screen.json",
     "ui/common/ui/exit_world_screen.json",
-    "ui/common/ui_common.json"
+    "ui/common/ui_common.json",
+
+    "mod_menu.json"
   ]
 }

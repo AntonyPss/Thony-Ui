@@ -1,13 +1,9 @@
 {
   "namespace": "common_dialogs",
 
-  "background_panel": {
-    "type": "image",
-    "texture": "$dialog_background_image",
-    "$dialog_background_image|default": "textures/ui/Black",
-    "layer": 1,
-    "alpha": "$fill_alpha"
-  },
+  //---------------------------------------------------------------------------
+  // Label Section
+  //---------------------------------------------------------------------------
 
   "standard_title_label": {
     "font_type": "MinecraftTen",
@@ -21,12 +17,27 @@
     "offset": [ 0, 0 ]
   },
 
+  //---------------------------------------------------------------------------
+  // Common Section
+  //---------------------------------------------------------------------------
+
   "close_button@common.light_close_button": {
     "ignored": "(not $show_close_button)",
     "$close_button_panel_size": [ 14, 14 ],
-    "size": [ 14, 14 ],
-    "bindings": []
+    "size": [ 14, 14 ]
   },
+
+  "background_panel": {
+    "type": "image",
+    "texture": "$dialog_background_image",
+    "$dialog_background_image|default": "textures/ui/Black",
+    "layer": 1,
+    "alpha": "$fill_alpha"
+  },
+
+  //---------------------------------------------------------------------------
+  // Dialog Windows
+  //---------------------------------------------------------------------------
 
   "main_panel": {
     "controls": [
@@ -83,7 +94,8 @@
 
   "main_panel_no_title_no_buttons": {
     "$show_close_button|default": true,
-    "$button_panel_size|default": [ "100% - 4px", 24 ],
+    "$panel_content_size|default": [ "100% - 12px", "100% - 20px" ],
+    "$panel_content_offset|default": [ 0, 16 ],
     "controls": [
       { "close_button@common_dialogs.close_button": {} },
       { "background@common_dialogs.background_panel": {} },
@@ -92,8 +104,8 @@
           "type": "panel",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "size": [ "100% - 12px", "100% - 20px" ],
-          "offset": [ 0, 16 ],
+          "size": "$panel_content_size",
+          "offset": "$panel_content_offset",
           "controls": [
             {
               "child_control@$child_control": {}
