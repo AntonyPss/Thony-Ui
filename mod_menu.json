@@ -1,105 +1,17 @@
 {
-  "namespace": "asa_mod_menu",
+  "namespace": "mod_menu",
 
-  "asa_mod_menu_toggle_default": {
-    //false = off, true = on
-
-    // Gameplay //
-    "$asa_chat": true,
-    "$asa_chat_type": 2 /* 0 = Top chat, 1 = Bottom Chat, 2 = Auto */,
-    "$asa_name_text": true,
-    "$asa_name_text_background": false,
-    "$asa_hide_item_name_when_switching_to_empty_slot": false,
-    "$asa_item_name_type": 1 /* 0 = Bedrock Name Text, 1 = Java Name Text */,
-    "$asa_jukebox_name": false,
-    "$asa_jukebox_name_background": false,
-    "$asa_status": true,
-    "$asa_debug": false,
-    "$asa_device": false,
-    "$asa_gamemode": false,
-    "$asa_input": false,
-    "$asa_os": false,
-    "$asa_item_id_viewer": true,
-    "$asa_item_aux_viewer": false,
-    "$asa_charged_item_viewer": false,
-    "$asa_item_custom_color_viewer": false,
-    "$asa_item_pickup_time_viewer": false,
-    "$asa_show_item_pickup_viewer": false,
-    "$asa_banner_patterns_viewer": true,
-    "$asa_banner_colors_viewer": false,
-    "$asa_banner_type_viewer": false,
-    "$asa_shield_is_active_viewer": false,
-    "$asa_item_lodestone_tracking_handle_viewer": true,
-    "$asa_mob_effects": true,
-    "$asa_vignettes": false,
-    "$asa_shortcut_button": true,
-    "$asa_hide_inventory_button": false,
-    "$asa_3rd_crosshair": false,
-    "$asa_hotbar_type": 0 /* 0 = Default Hotbar, 1 = RGB Default Hotbar, 2 = Connected Hotbar */,
-    "$asa_creative_exp_bar": false,
-    "$asa_creative_item_count": false,
-
-    // Bossbar //
-    "$asa_bossbar": false,
-    "$asa_bossface": false,
-    "$asa_bossname": false,
-    "$asa_boss_health": false,
-    "$asa_bossbar_type": 1 /* 0 = Better Bossbar, 1 = Java Bossbar, 2 = Default Bossbar */,
-    "$asa_health_bar_percent": false,
-    //Utility
-    "$asa_armor_hud": false,
-    "$asa_armor_hud_position": 3 /* 0 = left Center, 1 = Left Bottom, 2 = Right Center, 3 = Right Bottom */,
-    "$asa_hunger_preview": false,
-    "$asa_hunger_perview_background": false,
-    "$asa_absorption_effect": false,
-    "$asa_absorption_effect_background": false,
-    "$asa_absorption_effect_icon_only": false,
-    "$asa_item_durability_percent": false,
-    "$asa_item_durability_number_below_26": false,
-    "$asa_saturation_screen": false,
-    "$asa_saturation_color": 1 /*0 = Red, 1 = Yellow, 2 = Green, 3 = Purple, 4 = Aqua, 5 = Blue*/,
-    "$asa_saturation_opacity": 0.2 /* 0 to 1 */,
-    "$asa_brighter": false,
-    "$asa_brighter_opacity": 0.2 /* 0 to 1 */,
-    "$asa_main_hand_slot": false,
-    "$asa_off_hand_slot": false,
-    "$asa_expbar_percent": false,
-    "$asa_shiny_potions": false,
-    "$asa_crosshair_throwing_item": false,
-    "$asa_pvp_hotbar_system": false,
-    "$asa_player_list_hud": false,
-    "$asa_world_name_hud": true,
-    "$asa_player_to_joid_popup": false,
-    "$asa_force_visiblity": true,
-    //Label
-    "$asa_scoreboard": false,
-    "$asa_score_on_scoreboard": false,
-    "$asa_coordinates": true,
-    "$asa_title": false,
-    "$asa_subtitle": false,
-    "$asa_actionbar": true,
-    "$asa_tip": false,
-    //Item Tools
-    "$asa_item_tools": true,
-    "$asa_item_tolls_enchant": false,
-    "$asa_clock": true,
-    "$asa_compass": true,
-    "$asa_lodestone_compass": false,
-    "$asa_lodestone_compass_id": 0 /* 0 to 50 */,
-    "$asa_recovery_compass": false,
+  "mod_menu_toggle_default": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "clips_children": true,
     "controls": [
       {
-        "@asa_mod_menu_panel.asa_mega_mod_menu_panel": {}
+        "mod_content@mod_menu_screen.mod_menu_panel_content": {}
       },
       {
-        "@asa_mega_mod_menu.asa_mega_mod_menu_option": {}
+        "mod_screen@mod_menu_panel.mod_menu_panel_screen": {}
       }
-    ],
-    "type": "panel",
-    "size": [
-      "100%",
-      "100%"
-    ],
-    "clips_children": true
+    ]
   }
 }
