@@ -3,6 +3,9 @@ menu.welcome.title=Be welcome to Minecraft Bedrock:
 menu.creator.name=Thony Pack Ui made by Antony Pss
 menu.creator.info=Check my Social Media and my Discord Server
 
+## Play Screen ##
+selectWorld.tab.worldsTemplates=Worlds and Templates
+
 ## Settings ##
 settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
 settings.switchUiProfile.button=Change the UI to Classic

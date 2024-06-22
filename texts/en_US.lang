@@ -2,6 +2,10 @@
 menu.welcome.title=Welcome to Minecraft Bedrock:
 menu.creator.name=Thony Pack Ui create by Antony Pss
 menu.creator.info=See my Social Media and my Discord Server
+menu.mojang.copyright=Copyright Mojang AB. Do no distribute!
+
+## Play Screen ##
+selectWorld.tab.worldsTemplates=Worlds and Templates
 
 ## Settings ##
 settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
