@@ -5,11 +5,58 @@
   // -- Inventory Common --  //
   /////////////////////////////
 
+  "new_ui_binding_button_label": {
+    "type": "label",
+    "layer": 2,
+    "text": "$button_text",
+    "color": "$text_color",
+    "$font_type|default": "default",
+    "font_type": "$font_type",
+    "font_size": "$button_font_size",
+    "$button_font_scale_factor|default": 1.0,
+    "font_scale_factor": "$button_font_scale_factor",
+    "$button_font_size|default": "normal",
+    "$new_ui_label_offset|default": "$button_offset",
+    "offset": "$new_ui_label_offset",
+    "$anchor|default": "center",
+    "anchor_from": "$anchor",
+    "anchor_to": "$anchor",
+    "shadow": false,
+    "$button_text_size|default": [ "default", "default" ],
+    "size": "$button_text_size",
+    "$button_text_max_size|default": [ "100%", 10 ], // Per design buttons are single line text only
+    "max_size": "$button_text_max_size",
+    "$text_alignment|default": "center",
+    "text_alignment": "$text_alignment",
+    "$tts_section_header|default": "",
+    "tts_section_header": "$tts_section_header",
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_collection_details|default": "none",
+    "$button_text_collection_prefix|default": "",
+    "$button_text_grid_collection_name|default": "",
+    "bindings": [
+      {
+        "binding_type": "$button_text_collection_details",
+        "binding_collection_name": "$button_text_grid_collection_name",
+        "binding_collection_prefix": "$button_text_collection_prefix"
+      },
+      {
+        "binding_type": "$button_text_binding_type",
+        "binding_condition": "$button_binding_condition",
+        "binding_collection_name": "$button_text_grid_collection_name",
+        "binding_name": "$button_text",
+        "binding_name_override": "$button_text"
+      }
+    ]
+  },
+
   // Images //
 
   "store_top_bar": {
     "type": "image",
     "texture": "textures/ui/StoreTopBar",
+    "layer": 1,
     "size": [ "100%", 24 ]
   },
 
@@ -457,5 +504,19 @@
     "$background_screen_alpha|default": 0.7,
     "$background_screen_layer|default": 1,
     "$background_screen_size|default": [ "100%cm + 4px", "100%cm + 4px" ]
+  },
+
+  "background_panel": {
+    "type": "image",
+    "texture": "textures/ui/Black",
+    "layer": 1,
+    "alpha": "$fill_alpha"
+  },
+
+  "background_image": {
+    "type": "image",
+    "texture": "textures/ui/hud_tip_text_background",
+    "layer": 1,
+    "alpha": "$fill_alpha"
   }
 }
