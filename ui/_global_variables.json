@@ -1,4 +1,8 @@
 {
+  // Please Dont no Delete this
+  // Pack Version
+  "$start_packname_title_text": "Thony Pack Ui v1 [BETA]",
+
   // Border Button Text Color //
   "$border_default_text_button_color": [ 1.0, 1.0, 1.0 ],
   "$border_hover_text_button_color": [ 0.8, 0.8, 0.8 ],
@@ -12,7 +16,6 @@
   "$border_locked_text_toggle_color": [ 0.7, 0.7, 0.7 ],
 
   // Text Colors Format //
-
   "$main_title_text_color": [ 1.0, 1.0, 1.0 ],
   "$main_subtitle_text_color": [ 0.8, 0.8, 0.8 ],
   "$subtitle_text_color": [ 0.6, 0.6, 0.6 ],

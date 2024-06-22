@@ -10,5 +10,11 @@
 
   "text_stack_panel/title": {
     "$toast_font_type": "MinecraftTen"
+  },
+
+  "text_stack_panel/subtitle/subtext_offset/subtext": {
+    "$toast_font_type": "smooth",
+    "$toast_text_color": "$body_text_color",
+    "alpha": 0.8
   }
 }

@@ -196,6 +196,7 @@
                           "button_panel": {
                             "type": "panel",
                             "size": [ "100%c", "100%" ],
+                            "$modal_button_panel|default": "progress.cancel_button",
                             "controls": [
                               {
                                 "button_template@$modal_button_panel": {
@@ -530,19 +531,8 @@
                 "size": [ "100%c", "100%" ],
                 "controls": [
                   {
-                    "label": {
-                      "type": "label",
-                      "text": "$button_text",
-                      "color": "$text_color",
-                      "size": [ "default", 10 ],
-                      "offset": [ 0, 1 ],
-                      "$button_text_binding_type|default": "#none",
-                      "bindings": [
-                        {
-                          "binding_name": "$button_text",
-                          "binding_type": "$button_text_binding_type"
-                        }
-                      ]
+                    "new_ui_binding_label@common_assets.new_ui_binding_button_label": {
+                      "offset": [ 0, 1 ]
                     }
                   }
                 ]

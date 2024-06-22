@@ -1,14 +1,10 @@
 {
   "ui_defs": [
     "ui/common/auto_place_screen.json",
-    "ui/common/mod_menu_panel.json",
-    "ui/common/mod_menu_screen.json",
     "ui/common/percent_template.json",
     "ui/common/ui/animations_screen.json",
     "ui/common/ui/chat_screen.json",
     "ui/common/ui/exit_world_screen.json",
-    "ui/common/ui_common.json",
-
-    "mod_menu.json"
+    "ui/common/ui_common.json"
   ]
 }

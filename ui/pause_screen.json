@@ -25,12 +25,6 @@
     "bindings": [
       {
         "binding_type": "view",
-        "source_control_name": "mod_menu_view",
-        "source_property_name": "(not #toggle_state)",
-        "target_property_name": "#visible"
-      },
-      {
-        "binding_type": "view",
         "source_control_name": "quit_world_screen",
         "source_property_name": "(not #toggle_state)",
         "target_property_name": "#visible"
@@ -311,13 +305,6 @@
                 ]
               }
             }
-            /*{
-              "button_panel@$button_panel": {
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "size": [ "100%", 24 ]
-              }
-            }*/
           ]
         }
       }
@@ -333,7 +320,6 @@
         "main@pause.main_panel_one_button": {
           "$text_name": "key.playerlist",
           "$child_control": "pause.player_list_scrolling_panel",
-          // "$button_panel": "pause.player_list_invite_button",
           "size": [ "100% - 4px", "100% - 4px" ]
         }
       }
@@ -377,12 +363,6 @@
     "bindings": [
       {
         "binding_type": "view",
-        "source_control_name": "mod_menu_view",
-        "source_property_name": "(not #toggle_state)",
-        "target_property_name": "#visible"
-      },
-      {
-        "binding_type": "view",
         "source_control_name": "quit_world_screen",
         "source_property_name": "(not #toggle_state)",
         "target_property_name": "#visible"
@@ -419,12 +399,6 @@
           "bindings": [
             {
               "binding_type": "view",
-              "source_control_name": "mod_menu_view",
-              "source_property_name": "(not #toggle_state)",
-              "target_property_name": "#visible"
-            },
-            {
-              "binding_type": "view",
               "source_control_name": "quit_world_screen",
               "source_property_name": "(not #toggle_state)",
               "target_property_name": "#visible"
@@ -449,8 +423,7 @@
       { "main_buttons@pause.main_screen_panel": {} },
       { "world_name@pause.feature_world_name_panel": {} },
       { "exit_confirm@exit_world.exit_world_confirm_screen": {} },
-      { "background_screen@pause.background_screen": {} },
-      { "mod_menu_toggle@mod_menu_screen.show_mod_panel": {} }
+      { "background_screen@pause.background_screen": {} }
     ]
   },
 
@@ -471,11 +444,7 @@
     ]
   },
 
-  "pause_screen@common.base_screen": {
-    "cache_screen": true,
-    "$screen_background_alpha": 0.2,
-    "force_render_below": true,
-    "render_game_behind": true,
-    "button_mappings": []
+  "pause_screen": {
+    "$screen_background_alpha": 0.2
   }
 }

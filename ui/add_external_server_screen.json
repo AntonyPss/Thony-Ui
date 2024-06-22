@@ -1,0 +1,221 @@
+{
+  "namespace": "add_external_server",
+
+  //---------------------------------------------------------------------------
+  // Title Section
+  //---------------------------------------------------------------------------
+
+  "title_text": {
+    "font_type": "MinecraftTen",
+    "layer": 2,
+    "shadow": true,
+    "color": "$main_header_text_color",
+    "size": [ "100%", 12 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Images Section
+  //---------------------------------------------------------------------------
+
+  "icon_panel": {
+    "type": "image",
+    "layer": 2
+  },
+
+  "play_icon@add_external_server.icon_panel": {
+    "texture": "textures/ui/controller_glyph_color",
+    "size": [ 21, 14 ]
+  },
+
+  "trash_icon@add_external_server.icon_panel": {
+    "texture": "textures/ui/icon_trash",
+    "size": [ 15, 16 ]
+  },
+
+  "save_icon@add_external_server.icon_panel": {
+    "texture": "textures/ui/confirm",
+    "size": [ 14, 16 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
+
+  "dark_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "add_external_server.dark_content_panel",
+    "size": [ "50%", "100%" ]
+  },
+
+  "dark_content_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100% - 2px", "100% - 2px" ],
+    "controls": [
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "icon_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "icon@$button_content": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [ 0, 1 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 4, "100%" ]
+              }
+            },
+            {
+              "label_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "new_ui_binding_label@common_buttons.new_ui_binding_button_label": {
+                      "offset": [ 0, 1 ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "play_button@dark_button": {
+    "$pressed_button_name": "button.play_button",
+    "$button_text": "addExternalServerScreen.playButtonLabel",
+    "$button_content": "add_external_server.play_icon",
+    "ignored": "$edit_mode",
+    "bindings": [
+      {
+        "binding_name": "#play_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "play_disabled_button@play_button": {
+    "$text_color": "$light_button_locked_text_color",
+    "bindings": [
+      {
+        "binding_name": "#play_button_disabled",
+        "binding_name_override": "#visible"
+      },
+      {
+        "binding_name": "#play_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "remove_button@dark_button": {
+    "$pressed_button_name": "button.remove_button",
+    "$button_text": "addExternalServerScreen.removeButtonLabel",
+    "$button_content": "add_external_server.trash_icon",
+    "visible": "($edit_mode)"
+  },
+
+  "save_button@dark_button": {
+    "$pressed_button_name": "button.save_button",
+    "$button_text": "addExternalServerScreen.saveButtonLabel",
+    "$button_content": "add_external_server.save_icon",
+    "bindings": [
+      {
+        "binding_name": "#save_button_enabled",
+        "binding_name_override": "#visible"
+      },
+      {
+        "binding_name": "#save_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "save_disabled_button@save_button": {
+    "$text_color": "$light_button_locked_text_color",
+    "bindings": [
+      {
+        "binding_name": "#save_button_disabled",
+        "binding_name_override": "#visible"
+      },
+      {
+        "binding_name": "#save_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "buttons_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "play@play_button": {
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle"
+        }
+      },
+      {
+        "play_disabled@play_disabled_button": {
+          "ignored": "$edit_mode",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "layer": 5
+        }
+      },
+      {
+        "remove@remove_button": {
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle"
+        }
+      },
+      {
+        "save@save_button": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle"
+        }
+      },
+      {
+        "save_disabled@save_disabled_button": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "layer": 1
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+
+  "main_panel": {
+    "type": "input_panel",
+    "controls": [
+      {
+        "main@common_dialogs.main_panel_one_button": {
+          "$use_custom_title_control": true,
+          "$custom_title_label": "add_external_server.title_text",
+          "$child_control": "add_external_server.content_panel",
+          "$button_panel": "add_external_server.buttons_panel"
+        }
+      }
+    ]
+  }
+}

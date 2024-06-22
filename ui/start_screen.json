@@ -1,24 +1,22 @@
 {
   "namespace": "start",
 
-  // Bottom Left Text Panel //
+  //---------------------------------------------------------------------------
+  // Label Section
+  //---------------------------------------------------------------------------
 
   "packname": {
     "type": "image",
     "texture": "textures/ui/hud_tip_text_background",
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
-    "anims": [ "@animations.background_label_anim_offset" ],
-    "disable_anim_fast_forward": true,
-    "$label_anim_bg_from": [ 0, "12%" ],
-    "$label_anim_bg_to": [ 0, 0 ],
     "controls": [
       {
         "label": {
           "type": "label",
-          "text": "Thony UI Pack v1",
+          "text": "$start_packname_title_text",
           "text_alignment": "center",
           "font_type": "smooth",
           "anchor_from": "center",
@@ -38,10 +36,7 @@
     "anchor_to": "bottom_left",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
-    "anims": [ "@animations.background_label_anim_offset" ],
-    "disable_anim_fast_forward": true,
-    "$label_anim_bg_from": [ "-16%", 0 ],
-    "$label_anim_bg_to": [ 0, 0 ],
+    "offset": [ 0, -16 ],
     "controls": [
       {
         "label": {
@@ -52,8 +47,30 @@
           "anchor_from": "center",
           "anchor_to": "center",
           "layer": 2,
-          "size": [ "default", 10 ],
-          "offset": [ 0, 0 ]
+          "size": [ "default", 10 ]
+        }
+      }
+    ]
+  },
+
+  "mojang_copyright": {
+    "type": "image",
+    "texture": "textures/ui/hud_tip_text_background",
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "alpha": 0.4,
+    "size": [ "100%c + 8px", "100%c + 4px" ],
+    "controls": [
+      {
+        "label": {
+          "type": "label",
+          "text": "menu.mojang.copyright",
+          "text_alignment": "center",
+          "font_type": "smooth",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "default", 10 ]
         }
       }
     ]
@@ -66,10 +83,7 @@
     "anchor_to": "bottom_right",
     "alpha": 0.4,
     "size": [ "100%c + 8px", "100%c + 4px" ],
-    "anims": [ "@animations.background_label_anim_offset" ],
-    "disable_anim_fast_forward": true,
-    "$label_anim_bg_from": [ "16%", 0 ],
-    "$label_anim_bg_to": [ 0, 0 ],
+    "offset": [ 0, -16 ],
     "controls": [
       {
         "label": {
@@ -97,11 +111,14 @@
     "controls": [
       { "version@version": {} },
       { "packname@packname": {} },
-      { "copyright@copyright": {} }
+      { "copyright@copyright": {} },
+      { "mojang@mojang_copyright": {} }
     ]
   },
 
-  // Skin Viewer Panel //
+  //---------------------------------------------------------------------------
+  // Skin Viewer Section
+  //---------------------------------------------------------------------------
 
   "skin_viewer_panel": {
     "type": "input_panel",
@@ -176,7 +193,9 @@
     ]
   },
 
-  // Main Center Buttons Panel //
+  //---------------------------------------------------------------------------
+  // Main Panels
+  //---------------------------------------------------------------------------
 
   "main_text_button@common_buttons.dark_text_button": {
     "$border_visible": false,
@@ -282,13 +301,13 @@
           "size": [ "100%c", 96 ],
           "controls": [
             {
-              "skin_viewer@skin_viewer_panel": {
-                "size": [ 64, "100%" ]
+              "main_stack@main_stack_panel": {
+                "size": [ 164, "100%" ]
               }
             },
             {
-              "main_stack@main_stack_panel": {
-                "size": [ 164, "100%" ]
+              "skin_viewer@skin_viewer_panel": {
+                "size": [ 64, "100%" ]
               }
             }
           ]
@@ -297,7 +316,9 @@
     ]
   },
 
-  // Top More Buttons //
+  //---------------------------------------------------------------------------
+  // Top Buttons
+  //---------------------------------------------------------------------------
 
   "header_button_stack": {
     "type": "stack_panel",
@@ -312,7 +333,9 @@
     ]
   },
 
-  // Welcome Gamertag Panel //
+  //---------------------------------------------------------------------------
+  // Welcome Gamertag Panel
+  //---------------------------------------------------------------------------
 
   "welcome_gamertag_panel": {
     "type": "image",
@@ -385,7 +408,9 @@
     ]
   },
 
-  // Title Image //
+  //---------------------------------------------------------------------------
+  // Title Section
+  //---------------------------------------------------------------------------
 
   "title_panel": {
     "type": "panel",
@@ -403,14 +428,16 @@
     ]
   },
 
-  // Screen Content //
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
 
   "start_screen_content": {
     "controls": [
       { "text_panel@text_panel": {} },
       { "main_stack@main_stack_bg": {} },
       { "hello@welcome_gamertag_panel": {} },
-      { "header_stack@header_button_stack": {} },
+      // { "header_stack@header_button_stack": {} },
       { "title_panel@title_panel": {} }
     ]
   }
