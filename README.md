@@ -1,5 +1,5 @@
 # Thony Pack Ui
-Resource Pack for Minecraft Bedrock Ui mod menu, etc.
+Resource Pack for Minecraft Bedrock Ui.
 
 ## Language Support
 - [Language Support English - Inglés](README-en.md)
