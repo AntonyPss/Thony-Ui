@@ -15,7 +15,7 @@ Welcome to the repository of **Thony Pack Ui** for Minecraft Bedrock. This pack 
 
 This pack is designed for Minecraft Bedrock. Make sure you have the latest version of the game to ensure compatibility. Remember, this interface pack only changes the appearance of the game and does not modify any game mechanics.
 
-**Thony Pack Ui** is a simple resource pack, not a client type, as it **reduces your FPS due to code limitations.**
+**Thony Pack Ui** is a simple resource pack.
 
 ## Important Links
 
