@@ -2,6 +2,7 @@
 menu.welcome.title=Be welcome to Minecraft Bedrock:
 menu.creator.name=Thony Pack Ui made by Antony Pss
 menu.creator.info=Check my Social Media and my Discord Server
+menu.mojang.copyright=Copyright Mojang AB. Do no distribute!
 
 ## Play Screen ##
 selectWorld.tab.worldsTemplates=Worlds and Templates
