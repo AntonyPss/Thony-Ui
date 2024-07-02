@@ -1,0 +1,171 @@
+{
+  "namespace": "safe_zone",
+
+  //---------------------------------------------------------------------------
+  // Corner Image Common
+  //---------------------------------------------------------------------------
+
+  "corner_image_common": {
+    "type": "image",
+    "texture": "textures/ui/White",
+    "color": "$e_color_format",
+    "alpha": 0.4,
+    "anchor_from": "$corner_image_anchor",
+    "anchor_to": "$corner_image_anchor",
+    "$local_safe_zone_offset_x|default": "",
+    "$local_safe_zone_offset_y|default": "",
+    "bindings": [
+      {
+        "binding_name": "$local_safe_zone_offset_x",
+        "binding_name_override": "#anchored_offset_value_x"
+      },
+      {
+        "binding_name": "$local_safe_zone_offset_y",
+        "binding_name_override": "#anchored_offset_value_y"
+      }
+    ]
+  },
+
+  "corner_image_left@safe_zone.corner_image_common": {
+    "$corner_image_anchor": "left_middle",
+    "$local_safe_zone_offset_x": "#left_safe_zone_offset",
+    "$local_safe_zone_offset_y": "#top_safe_zone_offset",
+    "size": [ 1, 2000 ]
+  },
+
+  "corner_image_right@safe_zone.corner_image_common": {
+    "$corner_image_anchor": "right_middle",
+    "$local_safe_zone_offset_x": "#right_safe_zone_offset",
+    "$local_safe_zone_offset_y": "#top_safe_zone_offset",
+    "size": [ 1, 2000 ]
+  },
+
+  "corner_image_top@safe_zone.corner_image_common": {
+    "$corner_image_anchor": "top_middle",
+    "$local_safe_zone_offset_x": "#right_safe_zone_offset",
+    "$local_safe_zone_offset_y": "#top_safe_zone_offset",
+    "size": [ 2000, 1 ]
+  },
+
+  "corner_image_bottom@safe_zone.corner_image_common": {
+    "$corner_image_anchor": "bottom_middle",
+    "$local_safe_zone_offset_x": "#left_safe_zone_offset",
+    "$local_safe_zone_offset_y": "#bottom_safe_zone_offset",
+    "size": [ 2000, 1 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Label Section
+  //---------------------------------------------------------------------------
+
+  "instructions_text": {
+    "text_alignment": "center",
+    "font_type": "smooth",
+    "layer": 2,
+    "alpha": "$alpha_text",
+    "size": [ "100%", "default" ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
+
+  "confirm_icon": {
+    "type": "image",
+    "texture": "textures/ui/confirm",
+    "layer": 2,
+    "size": [ 16, 14 ]
+  },
+
+  "confirm_icon_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$pressed_button_name": "button.confirm_button",
+    "$button_content": "safe_zone.confirm_icon",
+    "$button_text": "gui.confirm",
+    "size": [ "100%", "100%" ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Slider Section
+  //---------------------------------------------------------------------------
+
+  "content_panel": {
+    "size": [ "100%", "100%c" ]
+  },
+
+  "content_panel/safe_zone_slider_x": {
+    "ignored": false
+  },
+
+  "content_panel/safe_zone_slider_y": {
+    "ignored": false
+  },
+
+  "content_panel/screen_position_slider_x": {
+    "ignored": false
+  },
+
+  "content_panel/screen_position_slider_y": {
+    "ignored": false
+  },
+
+  "content_panel/instruction_text_button": {
+    "size": [ "100%", "100%cm + 4px" ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      {
+        "default@safe_zone.instructions_text": {
+          "$alpha_text": 0.8
+        }
+      },
+      {
+        "hover@safe_zone.instructions_text": {
+          "$alpha_text": 0.4
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+
+  "scrolling_panel@common.scrolling_panel": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$show_background": false,
+    "$scrolling_content": "safe_zone.content_panel",
+    "$scrolling_pane_size": [ "100%", "100% - 2px" ],
+    "$scrolling_pane_offset": [ 0, 1 ],
+    "$scroll_size": [ 4, "100% - 4px" ],
+    "$scroll_bar_left_padding_size": [ 2, 0 ],
+    "$scroll_bar_right_padding_size": [ 2, 0 ],
+    "layer": 2
+  },
+
+  "safe_zone_screen@common.base_screen": {
+    "ttsSectionContainer": true,
+    "controls": [
+      {
+        "corners_image_panel": {
+          "type": "panel",
+          "controls": [
+            { "top_left@corner_image_top": {} },
+            { "top_right@corner_image_bottom": {} },
+            { "bottom_left@corner_image_left": {} },
+            { "bottom_right@corner_image_right": {} }
+          ]
+        }
+      },
+      {
+        "main_content@common_dialogs.main_panel_one_button": {
+          "$show_close_button": false,
+          "$text_name": "options.safeZone.title",
+          "$child_control": "safe_zone.scrolling_panel",
+          "$button_panel": "safe_zone.confirm_icon_button",
+          "size": [ 212, "60%" ]
+        }
+      }
+    ]
+  }
+}

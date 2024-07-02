@@ -1,19 +1,772 @@
 {
   "namespace": "general_section",
 
-  "sound_section": {
+  //---------------------------------------------------------------------------
+  // Common Section
+  //---------------------------------------------------------------------------
+
+  "section_image_header": {
     "type": "stack_panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "size": [ "100%", "100%c" ],
+    "orientation": "horizontal",
+    "size": [ "100%", 32 ],
+
+    "$section_image_line|default": false,
+    "$section_image_line_texture|default": "textures/ui/creator_glyph_color",
+    "$section_image_icon|default": "textures/ui/icon_settings",
+    "$section_image_size|default": [ 28, 28 ],
+    "$section_image_padd|default": [ 4, 0 ],
+    "$section_title|default": "#none",
+    "controls": [
+      {
+        "section_image_panel": {
+          "type": "panel",
+          "size": [ 32, "100%" ],
+          "controls": [
+            {
+              "section_image_icon": {
+                "type": "image",
+                "texture": "$section_image_icon",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 4,
+                "size": "$section_image_size"
+              }
+            },
+            {
+              "section_image_line": {
+                "type": "image",
+                "texture": "$section_image_line_texture",
+                "ignored": "(not $section_image_line)",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 8,
+                "size": "$section_image_size"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "section_image_padding": {
+          "type": "panel",
+          "size": "$section_image_padd"
+        }
+      },
+      {
+        "section_title_panel": {
+          "type": "panel",
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "section_title": {
+                "type": "label",
+                "text": "$section_title",
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.5,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 4,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "default", 18 ],
+                "offset": [ 0, -2 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "padding_4": {
+    "type": "panel",
+    "size": [ 4, 0 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Account Section
+  //---------------------------------------------------------------------------
+
+  "gamerpic_status": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [ 13, 13 ],
+    "offset": [ 3, 0 ],
+    "controls": [
+      {
+        "status_online": {
+          "type": "image",
+          "texture": "textures/ui/online",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "layer": 4,
+          "size": [ 9, 9 ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "status_offline_bg": {
+          "type": "image",
+          "texture": "textures/ui/tooltip_default_background",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "layer": 4,
+          "size": [ 11, 11 ],
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "status_offline": {
+                "type": "image",
+                "texture": "textures/ui/offline",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 2,
+                "size": [ 9, 9 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "gamerpic_image": {
+    "type": "image",
+    "texture": "#texture",
+    "size": [ 48, 48 ],
     "bindings": [
       {
-        "binding_type": "view",
-        "source_control_name": "sound_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
+        "binding_name": "#gamerpic_texture_path",
+        "binding_name_override": "#texture"
+      },
+      {
+        "binding_name": "#gamerpic_texture_location_type",
+        "binding_name_override": "#texture_file_system"
       }
-    ],
+    ]
+  },
+
+  "gamerpic_texture_button@common.button": {
+    "$pressed_button_name": "button.gamerpic",
+    "size": [ 48, 48 ],
+    "controls": [
+      {
+        "default@common.focus_border_white": {
+          "color": "black",
+          "controls": [
+            {
+              "gamerpic_status@general_section.gamerpic_status": {
+                "layer": 4
+              }
+            },
+            {
+              "gamerpic@general_section.gamerpic_image": {
+                "layer": -1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "hover@common.focus_border_white": {
+          "controls": [
+            {
+              "gamerpic_status@general_section.gamerpic_status": {
+                "layer": 4
+              }
+            },
+            {
+              "gamerpic@general_section.gamerpic_image": {
+                "layer": -1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "pressed@common.focus_border_white": {
+          "controls": [
+            {
+              "gamerpic_status@general_section.gamerpic_status": {
+                "layer": 4
+              }
+            },
+            {
+              "gamerpic@general_section.gamerpic_image": {
+                "alpha": 0.8
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "gamertag_label_panel": {
+    "type": "stack_panel",
+    "size": [ "fill", "100%cm" ],
+    "controls": [
+      {
+        "gamertag_title": {
+          "type": "label",
+          "text": "options.gamertag",
+          "font_type": "MinecraftTen",
+          "font_scale_factor": 1.28,
+          "layer": 2,
+          "shadow": true,
+          "color": "$main_header_text_color",
+          "size": [ "100%", 16 ]
+        }
+      },
+      {
+        "gamertag_text_logged": {
+          "type": "label",
+          "text": "#gamertag_label",
+          "font_type": "smooth",
+          "layer": 2,
+          "color": "$body_text_color",
+          "size": [ "100%", 10 ],
+          "bindings": [
+            {
+              "binding_name": "#gamertag_label"
+            },
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "gamertag_text_notlogged": {
+          "type": "label",
+          "text": "xbox.connection.error",
+          "font_type": "smooth",
+          "layer": 2,
+          "shadow": true,
+          "color": "$main_header_text_color",
+          "size": [ "100%", 10 ],
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "mc_account_id_text": {
+          "type": "label",
+          "text": "#MinecraftAccount_id",
+          "font_type": "smooth",
+          "font_scale_factor": 0.9,
+          "layer": 2,
+          "alpha": 0.9,
+          "color": "$body_text_color",
+          "size": [ "100%", "default" ],
+          "bindings": [
+            {
+              "binding_name": "#MinecraftAccount_id"
+            }
+          ]
+        }
+      },
+      {
+        "device_id_text": {
+          "type": "label",
+          "text": "#device_id",
+          "font_type": "smooth",
+          "font_scale_factor": 0.9,
+          "layer": 2,
+          "alpha": 0.9,
+          "color": "$body_text_color",
+          "size": [ "100%", "default" ],
+          "bindings": [
+            {
+              "binding_name": "#device_id"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "gamertag_controls": {
+    "orientation": "horizontal",
+    "layer": 2,
+    "size": [ "100%", "100%cm" ],
+    "controls": [
+      { "button@general_section.gamerpic_texture_button": {} },
+      { "pad0@padding_4": {} },
+      { "panel@general_section.gamertag_label_panel": {} }
+    ]
+  },
+
+
+  "sign_out_gamertag_controls": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "layer": 2,
+    "size": [ "100%", "100%cm" ],
+    "controls": [
+      { "button@general_section.gamerpic_texture_button": {} },
+      { "pad0@padding_4": {} },
+      { "panel@general_section.gamertag_label_panel": {} }
+    ]
+  },
+
+  "xboxlive_deep_link_buttons": {
+    "type": "stack_panel",
+    "ignored": "($device_must_be_removed_for_xbl_signin or $fire_tv or $disable_gamertag_controls)",
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "pad": {
+          "type": "panel",
+          "size": [ 0, 4 ]
+        }
+      },
+      {
+        "account_settings_title": {
+          "type": "label",
+          "text": "options.generalTitle",
+          "layer": 2,
+          "shadow": true,
+          "color": "$main_header_text_color",
+          "size": [ "100%", 14 ]
+        }
+      },
+      {
+        "horizontal_panel_0": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", 28 ],
+          "controls": [
+            {
+              "change_gamertag_panel": {
+                "type": "panel",
+                "size": [ "50%", 28 ],
+                "controls": [
+                  {
+                    "change_gamertag_button@common_buttons.dark_text_button": {
+                      "ignored": "($is_windows_10_mobile or $is_ios or $is_android)",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$pressed_button_name": "change_gamertag_button",
+                      "$button_text": "options.changeGamertag",
+                      "size": [ "100%", 28 ]
+                    }
+                  },
+                  {
+                    "change_gamertag_button_mobile@settings_common.link_button": {
+                      "$default_button_texture": "textures/ui/button_borderless_dark",
+                      "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+                      "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+                      "$default_text_color": "$dark_button_default_text_color",
+                      "ignored": "(not ($is_windows_10_mobile or $is_ios or $is_android))",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$button_text": "options.changeGamertag",
+                      "size": [ "100%", 28 ],
+                      "property_bag": {
+                        "#hyperlink": "https://social.xbox.com/changegamertag"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "manage_account_panel": {
+                "type": "panel",
+                "size": [ "50%", 28 ],
+                "controls": [
+                  {
+                    "manage_account_button@common_buttons.dark_text_button": {
+                      "ignored": "($is_ios or $is_android)",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$pressed_button_name": "manage_account_button",
+                      "$button_text": "options.manageAccount",
+                      "size": [ "100%", 28 ]
+                    }
+                  },
+                  {
+                    "manage_account_button_mobile@settings_common.link_button": {
+                      "$default_button_texture": "textures/ui/button_borderless_dark",
+                      "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+                      "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+                      "$default_text_color": "$dark_button_default_text_color",
+                      "ignored": "(not ($is_ios or $is_android))",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "$button_text": "options.manageAccount",
+                      "size": [ "100%", 28 ],
+                      "property_bag": {
+                        "#hyperlink": "https://account.xbox.com/Settings"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "manage_invites_panel": {
+          "type": "panel",
+          "size": [ "100%", 28 ],
+          "controls": [
+            {
+              "manage_invites_popup_button@common_buttons.dark_text_button": {
+                "ignored": "(not $is_holographic and not $fire_tv and not $thirdpartyconsole)",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "$pressed_button_name": "button.manage_invites_popup",
+                "$button_text": "options.xboxLive.privacyControl",
+                "size": [ "100%", 28 ]
+              }
+            },
+            {
+              "link_button@settings_common.link_button": {
+                "$default_button_texture": "textures/ui/button_borderless_dark",
+                "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+                "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+                "$default_text_color": "$dark_button_default_text_color",
+                "ignored": "($is_holographic or $fire_tv or $education_edition or $thirdpartyconsole)",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "$button_text": "options.xboxLive.privacyControl",
+                "$focus_id": "manage_invites",
+                "$focus_override_right": "manage_invites",
+                "size": [ "100%", 28 ],
+                "property_bag": {
+                  "#hyperlink": "https://account.xbox.com/Settings"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "check_realms_invites_button@common_buttons.dark_text_button": {
+          "$pressed_button_name": "realms_invites_button",
+          "$button_text": "options.realms.checkInvites",
+          "size": [ "100%", 28 ]
+        }
+      },
+      {
+        "sign_out_button@common_buttons.dark_text_button": {
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$pressed_button_name": "sign_in_button",
+          "$button_text": "accounts.signOut",
+          "size": [ "100%", 28 ]
+        }
+      },
+      {
+        "delete_account@common_buttons.dark_text_button": {
+          "ignored": "((not $is_pregame) or (not $is_ios))",
+          "$hover_button_texture": "textures/ui/button_red",
+          "$pressed_button_texture": "textures/ui/button_red_pressed",
+          "$pressed_button_name": "button.delete_account",
+          "$button_text": "options.delete_account.button",
+          "size": [ "100%", 28 ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "delete_account_info": {
+          "type": "label",
+          "ignored": "((not $is_pregame) or (not $is_ios))",
+          "text": "options.delete_account.confirm.warning.2",
+          "font_type": "smooth",
+          "layer": 2,
+          "alpha": 0.8,
+          "color": "$body_text_color",
+          "size": [ "100%", "default" ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "switch_accounts_icon": {
+    "type": "image",
+    "texture": "textures/ui/switch_accounts",
+    "layer": 2,
+    "size": [ 35, 16 ]
+  },
+
+  "switch_accounts_panel": {
+    "controls": [
+      {
+        "pad0": {
+          "type": "panel",
+          "size": [ 0, 4 ]
+        }
+      },
+      {
+        "name_label": {
+          "type": "label",
+          "text": "#ad_account_name",
+          "layer": 2,
+          "localize": false,
+          "shadow": true,
+          "color": "$main_header_text_color",
+          "size": [ "default", 12 ],
+          "bindings": [
+            {
+              "binding_name": "#ad_account_name"
+            }
+          ]
+        }
+      },
+      {
+        "switch_accounts@common_buttons.dark_content_button": {
+          "ignored": "$ignore_profile_switch_account_button",
+          "enabled": "$is_pregame",
+          "$button_type_panel": "common_assets.icon_wrapper",
+          "$button_content": "general_section.switch_accounts_icon",
+          "$pressed_button_name": "button.switch_accounts",
+          "$button_text": "accounts.switch",
+          "size": [ "100%", 28 ]
+        }
+      },
+      {
+        "pad1": {
+          "type": "panel",
+          "size": [ 2, 0 ]
+        }
+      }
+    ]
+  },
+
+  "account_section": {
+    "controls": [
+      {
+        "logged_in_panel@general_section.gamertag_controls": {
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "not_logged_in_panel@general_section.sign_out_gamertag_controls": {
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "xbox_links@general_section.xboxlive_deep_link_buttons": {
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "switch_accounts@general_section.switch_accounts_panel": {
+          "ignored": "$ignore_profile_switch_account_button"
+        }
+      },
+      {
+        "name_controls": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%c" ],
+          "bindings": [
+            {
+              "binding_name": "#can_change_name",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "pad0": {
+                "type": "panel",
+                "size": [ 0, 4 ]
+              }
+            },
+            {
+              "change_name_title": {
+                "type": "label",
+                "text": "options.name",
+                "layer": 2,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "100%", 12 ]
+              }
+            },
+            {
+              "name_text_box@common.text_edit_box": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "$place_holder_text": "options.defaultName",
+                "max_length": 16,
+                "$text_edit_box_content_binding_name": "#player_name",
+                "$text_edit_box_binding_collection_name": "#player_name",
+                "$text_box_name": "player_name_text_box",
+                "$text_box_enabled_binding_name": "#player_name_enabled",
+                "$enabled": "#enabled",
+                "size": [ "100% - 4px", 20 ],
+                "variables": [
+                  {
+                    "requires": "(not $text_box_enabled_binding_name or not $enabled)",
+                    "$text_box_enabled_binding_name": "#not_data_bound",
+                    "$text_edit_box_enabled_binding_type": "none"
+                  }
+                ]
+              }
+            },
+            {
+              "change_name_info": {
+                "type": "label",
+                "text": "options.name.info",
+                "font_type": "smooth",
+                "layer": 2,
+                "alpha": 0.8,
+                "color": "$body_text_color",
+                "size": [ "100%", "default" ]
+              }
+            },
+            {
+              "pad1": {
+                "type": "panel",
+                "size": [ "100%", 2 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "pad2": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "sign_in_button@common_buttons.dark_text_button": {
+          "$pressed_button_name": "sign_in_button",
+          "$button_text": "xbox.signInLong",
+          "size": [ "100%", 28 ],
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "clear_msa_token_button@common_buttons.dark_text_button": {
+          "$pressed_button_name": "button.clear_msa_token_button",
+          "$button_text": "xbox.dev_wrongSandboxSigninFailed.button.clearXbl",
+          "size": [ "100%", 28 ],
+          "bindings": [
+            {
+              "binding_name": "#not_logged_in",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "pad3": {
+          "type": "panel",
+          "ignored": "((not $google_os) and (not $is_ios))",
+          "size": [ 0, 8 ]
+        }
+      },
+      {
+        "remote_connect_toggle@settings_common.option_toggle": {
+          "ignored": "((not $google_os) and (not $is_ios))",
+          "$option_label": "options.useRemoteConnect",
+          "$option_binding_name": "#use_remote_connect",
+          "$option_enabled_binding_name": "#use_remote_connect_enabled",
+          "$toggle_name": "use_remote_connect"
+        }
+      },
+      {
+        "account_microsoft_service": {
+          "type": "panel",
+          "size": [ "100%", "100%c + 2px" ],
+          "bindings": [
+            {
+              "binding_name": "#logged_in",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "active": {
+                "type": "label",
+                "text": "options.xboxLiveSignedIn",
+                "text_alignment": "center",
+                "font_type": "smooth",
+                "layer": 2,
+                "alpha": 0.8,
+                "color": "$body_text_color",
+                "size": [ "100%", 12 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Creator Section
+  //---------------------------------------------------------------------------
+
+  /*"creator_section": {
+    "controls": [
+      {
+        "section_header@general_section.section_image_header": {
+          "$section_title": "options.creatorTitle",
+          "$section_image_icon": "textures/ui/creator_glyph_color",
+          "$section_image_line": true
+        }
+      }
+    ]
+  },*/
+
+  //---------------------------------------------------------------------------
+  // Sound Section
+  //---------------------------------------------------------------------------
+
+  "sound_section": {
     "controls": [
       {
         "p0": {
@@ -57,7 +810,7 @@
                 "$slider_tts_text_value": "#music_volume_text_value",
                 "$option_enabled_binding_name": "#music_volume_enabled",
                 "$focus_override_up": "FOCUS_OVERRIDE_STOP",
-                "size": [ "50%", 16 ],
+                "size": [ "50% - 4px", 16 ],
                 "$label_bindings": [
                   {
                     "binding_name": "$option_label"
@@ -302,9 +1055,5 @@
         }
       }
     ]
-  },
-
-  "gamertag_controls/sign_out": {
-    "ignored": false
   }
 }

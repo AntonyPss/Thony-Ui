@@ -5,22 +5,21 @@
   // World Name Section
   //---------------------------------------------------------------------------
 
-  "feature_world_panel_anim": {
+  "world_name_anim_bg_offset": {
     "anim_type": "offset",
     "easing": "in_quart",
-    "duration": 0.8,
-    "from": [ -132, 1 ],
-    "to": [ 1, 1 ]
+    "duration": 0.5,
+    "from": [ "-24%", 2 ],
+    "to": [ 2, 2 ]
   },
 
-  "feature_world_name_panel": {
+  "world_name_panel": {
     "type": "panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": [ "100%cm", 24 ],
-    "offset": [ 1, 1 ],
     "anims": [
-      "@pause.feature_world_panel_anim"
+      "@pause.world_name_anim_bg_offset"
     ],
     "bindings": [
       {
@@ -34,7 +33,7 @@
       {
         "background": {
           "type": "image",
-          "texture": "textures/ui/Black",
+          "texture": "textures/ui/hud_tip_text_background",
           "anchor_from": "center",
           "anchor_to": "center",
           "layer": 2,
@@ -55,7 +54,7 @@
                       "size": [ "100%c", "100%" ],
                       "controls": [
                         {
-                          "icon@world_icon_image": {
+                          "icon@pause.world_icon_image": {
                             "anchor_from": "center",
                             "anchor_to": "center"
                           }
@@ -63,10 +62,12 @@
                       ]
                     }
                   },
-                  { "padding": {
+                  {
+                    "padding": {
                       "type": "panel",
                       "size": [ 4, 0 ]
-                  } },
+                    }
+                  },
                   {
                     "vertical": {
                       "type": "panel",
@@ -166,7 +167,7 @@
     "controls": [
       {
         "default@pause.world_icon_image_template": {
-          "$world_icon_texture": "textures/ui/world_glyph_color_2x",
+          "$world_icon_texture|default": "textures/ui/world_glyph_color_2x",
           "ignored": "$is_on_3p_server",
           "bindings": []
         }
@@ -196,13 +197,6 @@
         "lifeboat@pause.world_icon_image_template": {
           "$world_icon_texture": "textures/server_icon/lifeboat",
           "$world_server_name": "(#worldname = 'Lifeboard Network')",
-          "ignored": "(not $is_on_3p_server)"
-        }
-      },
-      {
-        "mineplex@pause.world_icon_image_template": {
-          "$world_icon_texture": "textures/server_icon/mineplex",
-          "$world_server_name": "(#worldname = '')",
           "ignored": "(not $is_on_3p_server)"
         }
       },
@@ -327,6 +321,63 @@
   },
 
   //---------------------------------------------------------------------------
+  // Small Buttons Section
+  //---------------------------------------------------------------------------
+
+  "small_dark_button@common_buttons.dark_content_button": {
+    "layer": 2,
+    "size": [ 24, 24 ]
+  },
+
+  "screenshot@pause.small_dark_button": {
+    "$pressed_button_name": "button.screenshot",
+    "$button_content": "pause.take_screenshot_icon",
+    "$button_tts_header": "key.screenshot",
+    "sound_name": "random.screenshot"
+  },
+
+  "feedback@pause.small_dark_button": {
+    "$pressed_button_name": "button.feedback",
+    "$button_content": "pause.feedback_icon",
+    "$button_tts_header": "accessibility.start.feedback"
+  },
+
+  "achievements@pause.small_dark_button": {
+    "$pressed_button_name": "button.menu_achievements",
+    "$button_content": "pause.achievements_icon",
+    "$button_tts_header": "menu.achievements"
+  },
+
+  "lower_padding": {
+    "type": "panel",
+    "size": [ 2, 0 ]
+  },
+
+  "lower_buttons_stack": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "size": [ "100%c", 24 ],
+    "offset": [ 2, -2 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "quit_world_screen",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      { "feedback@feedback": {} },
+      { "pad0@lower_padding": {} },
+      { "achievements@achievements": {} },
+      { "pad1@lower_padding": {} },
+      { "screenshot@screenshot": {} }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
   // Main Stack Section
   //---------------------------------------------------------------------------
 
@@ -348,6 +399,21 @@
     "size": [ "100%", 24 ]
   },
 
+  "realms_stories@common_buttons.dark_text_button": {
+    "$hover_button_texture": "textures/ui/realmsContentHover",
+    "$pressed_button_texture": "textures/ui/realmsContentPressed",
+    "$pressed_button_name": "butotn.menu_feed",
+    "$button_text": "pauseScreen.realmsStories",
+    "size": [ "100%", 24 ],
+    "bindings": [
+      {
+        "binding_name": "#in_realm_with_stories",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
   "quit_toggle@exit_world.toggle_common_panel": {
     "$toggle_view_binding_name": "quit_world_screen",
     "$toggle_group_forced_index": 1,
@@ -360,18 +426,11 @@
     "anchor_from": "center",
     "anchor_to": "center",
     "size": [ 186, "100%c" ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "quit_world_screen",
-        "source_property_name": "(not #toggle_state)",
-        "target_property_name": "#visible"
-      }
-    ],
     "controls": [
       { "continue@continue": {} },
       { "settings@settings": {} },
       { "profile@profile": {} },
+      { "realms@realms_stories": {} },
       { "quit_toggle@quit_toggle": {} }
     ]
   },
@@ -380,6 +439,14 @@
     "type": "stack_panel",
     "orientation": "horizontal",
     "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "quit_world_screen",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ],
     "controls": [
       {
         "main_buttons": {
@@ -395,15 +462,7 @@
       {
         "player_list_panel": {
           "type": "panel",
-          "size": [ 128, "100%" ],
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "quit_world_screen",
-              "source_property_name": "(not #toggle_state)",
-              "target_property_name": "#visible"
-            }
-          ],
+          "size": [ 124, "100%" ],
           "controls": [
             {
               "player_list@pause.player_list_screen_panel": {}
@@ -421,26 +480,10 @@
   "pause_screen_content": {
     "controls": [
       { "main_buttons@pause.main_screen_panel": {} },
-      { "world_name@pause.feature_world_name_panel": {} },
+      { "lower_buttons@lower_buttons_stack": {} },
+      { "world_name_stack@pause.world_name_panel": {} },
       { "exit_confirm@exit_world.exit_world_confirm_screen": {} },
-      { "background_screen@pause.background_screen": {} }
-    ]
-  },
-
-  "background_screen": {
-    "type": "image",
-    "texture": "textures/ui/Black",
-    "layer": 12,
-    "alpha": 0.2,
-    "fill": true,
-    "size": [ "100%", "100%" ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "quit_world_screen",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
+      { "exit_background@exit_world.background_screen": {} }
     ]
   },
 

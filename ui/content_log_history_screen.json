@@ -1,37 +1,61 @@
 {
   "namespace": "content_log_history",
 
-  "clipboard_button": {
-    "size": [ "fill", 24 ]
+  //---------------------------------------------------------------------------
+  // Image Section
+  //---------------------------------------------------------------------------
+
+  "clipboard_icon": {
+    "size": [ 14, 14 ]
   },
 
-  "clear_button": {
-    "size": [ "50%", 24 ]
+  "clear_icon": {
+    "texture": "textures/ui/cancel",
+    "size": [ 12, 12 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
+
+  "copy_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$pressed_button_name": "button.copy_to_clipboard",
+    "$button_content": "content_log_history.clipboard_icon",
+    "$button_text": "contentlog.history.copyToClipboard",
+    "size": [ "fill", "100%" ]
+  },
+
+  "delete_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$pressed_button_name": "button.clear",
+    "$button_content": "content_log_history.clear_icon",
+    "$button_text": "contentlog.history.clear",
+    "size": [ "50%", "100%" ]
   },
 
   "horizontal_button_stack_panel": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": [ "100%", 24 ],
+    "size": [ "100%", "100%" ],
     "controls": [
-      {
-        "clipboard_button@clipboard_button": {
-        }
-      },
-      {
-        "clear_button@clear_button": {
-        }
-      }
+      { "copy_button@copy_button": {} },
+      { "delete_button@delete_button": {} }
     ]
   },
 
-  "content_log_message": {
-    "shadow": true
-  },
+  //---------------------------------------------------------------------------
+  // Message Scrolling Panel
+  //---------------------------------------------------------------------------
 
   "messages_scrolling_panel": {
-    "$scroll_size": [ 4, "100% - 4px" ]
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$scroll_size": [ 4, "100% - 4px" ],
+    "offset": [ 0, 0 ]
   },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
 
   "content_log_history_panel": {
     "size": "$extra_large_screen_size"

@@ -1,0 +1,58 @@
+{
+  "namespace": "common_buttons",
+
+  //---------------------------------------------------------------------------
+  // Custom Text Button
+  //---------------------------------------------------------------------------
+
+  "custom_ui_binding_button_label": {
+    "type": "label",
+    "text": "$button_text",
+    "text_alignment": "$text_alignment",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "font_type": "$font_type",
+    "font_size": "$button_font_size",
+    "font_scale_factor": "$button_font_scale_factor",
+    "shadow": "$button_text_shadow",
+    "color": "$text_color",
+    "layer": 2,
+    "size": "$button_text_size",
+    "max_size": "$button_text_max_size",
+    "offset": "$new_ui_label_offset",
+
+    "tts_section_header": "$tts_section_header",
+    "$tts_section_header|default": "",
+
+    "$button_text|default": "#none",
+    "$text_alignment|default": "center",
+    "$font_type|default": "normal",
+    "$button_font_size|default": "default",
+    "$button_font_scale_factor|default": 1.0,
+    "$button_text_shadow|default": false,
+    "$button_text_size|default": [ "default", "default" ],
+    "$button_text_max_size|default": [ "default", 10 ],
+    "$new_ui_label_offset|default": "$button_offset",
+    "$button_offset|default": [ 0, 0 ],
+
+    "$button_text_binding_type|default": "none",
+    "$button_binding_condition|default": "none",
+    "$button_text_collection_details|default": "none",
+    "$button_text_collection_prefix|default": "",
+    "$button_text_grid_collection_name|default": "",
+    "bindings": [
+      {
+        "binding_collection_name": "$button_text_grid_collection_name",
+        "binding_collection_prefix": "$button_text_collection_prefix",
+        "binding_type": "$button_text_collection_details"
+      },
+      {
+        "binding_name": "$button_text",
+        "binding_name_override": "$button_text",
+        "binding_condition": "$button_binding_condition",
+        "binding_collection_name": "$button_text_grid_collection_name",
+        "binding_type": "$button_text_binding_type"
+      }
+    ]
+  }
+}

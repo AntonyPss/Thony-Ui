@@ -176,8 +176,7 @@
             },
             {
               "modal_label@modal_label_panel": {
-                "size": [ "100%", "fill" ],
-                "offset": [ 0, 0 ]
+                "size": [ "100%", "fill" ]
               }
             },
             {
@@ -224,7 +223,7 @@
       },
       {
         "requires": "$no_buttons_visible",
-        "$modal_screen_size": [ 236, 1012 ],
+        "$modal_screen_size": [ 236, 112 ],
         "$button_panel": "common.empty_panel"
       }
     ]

@@ -6,20 +6,25 @@ menu.mojang.copyright=Derechos de autor Mojang AB. ¡No distribuir!
 
 ## Play Screen ##
 selectWorld.tab.worldsTemplates=Mundos y Plantillas
+selectWorld.tab.totalWorlds=Mundos encontrados
+selectWorld.tab.totalFriends=Amigos en linea
+selectWorld.tab.totalServers=Servidores en linea
 
 ## Settings ##
 settings.switchUiProfile.tooltip=Para obtener una mejor experiencia en la interfaz de usuario, cambia el perfil de Modo de Bolsillo a Clásico
 settings.switchUiProfile.button=Cambiar la UI a Clásico
 
 ## Options ##
+options.worldSeed.title=Semilla:
 options.button.paste=Pegar
 options.button.copy=Copiar
 options.button.copyToClipboard=Copiar al portapapeles
+options.name.info=Puedes cambiar tu nombre de usuario en el cuadro de texto. El nombre puede tener hasta 16 caracteres.
 
 ## Chat Settings ##
-chat.settings.muteAll.description=Ocultar el chat del juego, esto hará que los mensajes no se vean a nivel global
-chat.settings.muteEmotes.description=Ocultar los gestos de los jugadores, no se te notificará si un jugador reproduce un gesto
-chat.settings.tts.description=Activar el asistente de Texto a Voz para el chat del juego para personas con alguna discapacidad
+chat.settings.muteAll.description=Ocultar el chat del juego, ideal para evitar distracciones y mantener la pantalla limpia.
+chat.settings.muteEmotes.description=Silencial los gestos del jugador, perfecto para minimizar distracciones visuales.
+chat.settings.tts.description=Activar el dictado de texto a voz, perfecto para jugadores con discapacidades visuales.
 
 ## Progress Screen ##
 progress.allowCellularData.title=¡Datos Móviles Activos!

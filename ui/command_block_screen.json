@@ -31,63 +31,6 @@
     ]
   },
 
-  "paste_button_panel": {
-    "type": "panel",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "size": [ "100% - 24px", "100% - 2px" ],
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "icon_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "icon@command_block.paste_icon": {
-                      "anchor_from": "center",
-                      "anchor_to": "center"
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 8, 0 ]
-              }
-            },
-            {
-              "label_panel": {
-                "type": "panel",
-                "size": [ "100%c - 4px", "100%" ],
-                "controls": [
-                  {
-                    "label": {
-                      "type": "label",
-                      "text": "options.button.paste",
-                      "text_alignment": "center",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "color": "$text_color",
-                      "layer": 4,
-                      "size": [ "default", 10 ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
   "close_button@common_buttons.dark_text_button": {
     "$pressed_button_name": "button.menu_leave_screen",
     "$button_text": "gui.cancel",
@@ -689,7 +632,8 @@
       {
         "paste_button@common_buttons.dark_content_button": {
           "$pressed_button_name": "command_block.paste",
-          "$button_content": "command_block.paste_button_panel",
+          "$button_content": "common_assets.icon_wrapper",
+          "$button_text": "options.button.paste",
           "size": [ "100% - 2px", 24 ],
           "bindings": [
             {

@@ -1,0 +1,217 @@
+{
+  "namespace": "exit_world",
+
+  //---------------------------------------------------------------------------
+  // Information Text
+  //---------------------------------------------------------------------------
+
+  "info_text_panel": {
+    "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to":  "top_middle",
+    "size": [ "100% - 4px", "100% - 4px" ],
+    "offset": [ 0, 2 ],
+    "controls": [
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "confirm_leave_text": {
+                "type": "label",
+                "text": "deathScreen.quit.secondaryClient.confirmLeaveWarning",
+                "font_type": "smooth",
+                "layer": 2,
+                "alpha": 0.8,
+                "color": "$body_text_color",
+                "size": [ "100%", "default" ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 0, 2 ]
+              }
+            },
+            {
+              "world_name_stack": {
+                "type": "panel",
+                "size": [ "100%", "100%cm" ],
+                "controls": [
+                  {
+                    "world_name_panel": {
+                      "type": "stack_panel",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [ "100% - 4px", "100%c" ],
+                      "controls": [
+                        {
+                          "padding": {
+                            "type": "panel",
+                            "size": [ 0, 4 ]
+                          }
+                        },
+                        {
+                          "world_name": {
+                            "type": "label",
+                            "text": "confirmLeaveWarning.worldName.title",
+                            "font_type": "smooth",
+                            "layer": 2,
+                            "color": "$body_text_color",
+                            "size": [ "100%", 12 ]
+                          }
+                        },
+                        {
+                          "world_name_text": {
+                            "type": "label",
+                            "text": "#text",
+                            "font_type": "smooth",
+                            "layer": 2,
+                            "alpha": 0.8,
+                            "localize": false,
+                            "color": "$body_text_color",
+                            "size": [ "100%", "default" ],
+                            "bindings": [
+                              {
+                                "binding_name": "#worldname",
+                                "binding_name_override": "#text"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
+
+  "two_buttons_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "cancel_button@exit_world.toggle_common": {
+          "$button_text": "gui.cancel",
+          "size": [ "50%", "100%" ]
+        }
+      },
+      {
+        "accept_button@common_buttons.dark_text_button": {
+          "$pressed_button_name": "button.menu_quit",
+          "$button_text": "gui.accept",
+          "size": [ "50%", "100%" ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+
+  "exit_world_confirm_screen": {
+    "type": "screen",
+    "layer": 999,
+    "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "quit_world_screen",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "main@common_dialogs.main_panel_one_button": {
+          "$dialog_background_image": "textures/ui/hud_tip_text_background",
+          "$fill_alpha": 0.6,
+          "$show_close_button": false,
+          "$text_name": "pauseScreen.header",
+          "$child_control": "exit_world.info_text_panel",
+          "$button_panel": "exit_world.two_buttons_panel",
+          "size": [ 224, 124 ]
+        }
+      }
+    ]
+  },
+
+  "background_screen@common_assets.background_panel": {
+    "$fill_alpha": 0.2,
+    "fill": true,
+    "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "quit_world_screen",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Toggles Section
+  //---------------------------------------------------------------------------
+
+  "toggle_common_panel": {
+    "type": "panel",
+
+    "$template_toggle": "common_toggles.dark_template_toggle",
+    "$button_type_panel": "exit_world.toggle_template",
+
+    "$radio_toggle_group": true,
+    "$toggle_view_binding_name|default": "null",
+    "$toggle_name|default": "exit_world_toggle_name",
+
+    "$button_offset": [ 0, 0 ],
+    "controls": [
+      {
+        "$toggle_view_binding_name@$template_toggle": {}
+      }
+    ]
+  },
+
+  "toggle_common@common_toggles.dark_ui_toggle": {
+    "$button_type_panel": "exit_world.toggle_template",
+    "$hover_texture": "textures/ui/button_borderless_light",
+    "$pressed_no_hover_texture": "textures/ui/button_borderless_lighthover",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$default_checked_text_color": "$dark_button_default_text_color",
+
+    "$radio_toggle_group": true,
+    "$toggle_name|default": "exit_world_toggle_name",
+    "$toggle_view_binding_name|default": null,
+
+    "$button_offset": [ 0, 0 ]
+  },
+
+  "toggle_template": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "button_text": {
+          "type": "label",
+          "text": "$button_text",
+          "layer": 12,
+          "color": "$text_color",
+          "size": [ "default", "default" ]
+        }
+      }
+    ]
+  }
+}

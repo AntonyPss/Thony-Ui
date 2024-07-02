@@ -6,11 +6,14 @@
   //---------------------------------------------------------------------------
 
   "title_text": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
     "font_type": "MinecraftTen",
     "layer": 2,
     "shadow": true,
     "color": "$main_header_text_color",
-    "size": [ "100%", 12 ]
+    "size": [ "default", 12 ],
+    "offset": [ 0, 1 ]
   },
 
   //---------------------------------------------------------------------------
@@ -42,59 +45,8 @@
   //---------------------------------------------------------------------------
 
   "dark_button@common_buttons.dark_text_button": {
-    "$button_type_panel": "add_external_server.dark_content_panel",
+    "$button_type_panel": "common_assets.icon_wrapper",
     "size": [ "50%", "100%" ]
-  },
-
-  "dark_content_panel": {
-    "type": "panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "size": [ "100% - 2px", "100% - 2px" ],
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "icon_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "icon@$button_content": {
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "offset": [ 0, 1 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 4, "100%" ]
-              }
-            },
-            {
-              "label_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "new_ui_binding_label@common_buttons.new_ui_binding_button_label": {
-                      "offset": [ 0, 1 ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
   },
 
   "play_button@dark_button": {
@@ -205,15 +157,43 @@
   // Screen
   //---------------------------------------------------------------------------
 
+  "text_edit_group/edit_box": {
+    "$place_holder_control": "common_assets.custom_place_holder_control"
+  },
+
   "main_panel": {
     "type": "input_panel",
     "controls": [
       {
-        "main@common_dialogs.main_panel_one_button": {
-          "$use_custom_title_control": true,
-          "$custom_title_label": "add_external_server.title_text",
-          "$child_control": "add_external_server.content_panel",
-          "$button_panel": "add_external_server.buttons_panel"
+        "main_dialog": {
+          "type": "panel",
+          "controls": [
+            { "close_button@common_dialogs.close_button": {} },
+            { "background@common_dialogs.background_panel": {} },
+            { "title@add_external_server.title_text": {} },
+            {
+              "panel_indent": {
+                "type": "panel",
+                "anchor_from": "top_middle",
+                "anchor_to": "top_middle",
+                "size": [ "100% - 12px", "100% - 44px" ],
+                "offset": [ 0, 16 ],
+                "controls": [
+                  {
+                    "child@add_external_server.content_panel": {}
+                  }
+                ]
+              }
+            },
+            {
+              "buttons@add_external_server.buttons_panel": {
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "size": [ "100% - 4px", 24 ],
+                "offset": [ 0, -2 ]
+              }
+            }
+          ]
         }
       }
     ]

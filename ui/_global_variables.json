@@ -3,25 +3,10 @@
   // Pack Version
   "$start_packname_title_text": "Thony Pack Ui v1 [BETA]",
 
-  // Border Button Text Color //
-  "$border_default_text_button_color": [ 1.0, 1.0, 1.0 ],
-  "$border_hover_text_button_color": [ 0.8, 0.8, 0.8 ],
-  "$border_pressed_text_button_color": [ 0.7, 0.7, 0.7 ],
-  "$border_locked_text_button_color": [ 0.6, 0.6, 0.6 ],
-
-  // Border Toggle Text Color //
-  "$border_default_text_toggle_color": [ 1.0, 1.0, 1.0 ],
-  "$border_hover_text_toggle_color": [ 0.6, 0.6, 0.6 ],
-  "$border_pressed_text_toggle_color": [ 0.8, 0.8, 0.8 ],
-  "$border_locked_text_toggle_color": [ 0.7, 0.7, 0.7 ],
-
   // Text Colors Format //
-  "$main_title_text_color": [ 1.0, 1.0, 1.0 ],
-  "$main_subtitle_text_color": [ 0.8, 0.8, 0.8 ],
-  "$subtitle_text_color": [ 0.6, 0.6, 0.6 ],
-
-  // Common Dialog //
-  "$common_dialogs_title_text_color": [ 1.0, 1.0, 1.0 ],
+  "$header_title_text_color": [ 0.3, 0.3, 0.3 ],
+  "$header_subtitle_text_color": [ 0.4, 0.4, 0.4 ],
+  "$label_text_color": [ 1.0, 1.0, 1.0 ],
 
   "$fill_alpha": 0.4,
 
@@ -48,5 +33,10 @@
   "$progress_subtitle_text_color": [ 0.8, 0.8, 0.8 ],
 
   // Screen Varaibles //
-  "$show_close_button": true
+  "$show_close_button": true,
+
+  // Play Screen Colors //
+  "$world_name_text_color": [ 1.0, 1.0, 1.0 ],
+  "$world_gamemode_text_color": [ 1.0, 1.0, 1.0 ],
+  "$world_subtitle_text_color": [ 0.7, 0.7, 0.7 ]
 }

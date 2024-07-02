@@ -1,0 +1,63 @@
+{
+  "namespace": "persona",
+
+  "emote_wheel_screen": {
+    "$default_text_color": [ 0.7, 0.7, 0.7 ],
+    "$fill_alpha":  0.2
+  },
+
+  "emote_wheel_touch_zone@common.button": {
+    "$pressed_button_name": "button.menu_exit",
+    "size": [ "100%", "100%" ]
+  },
+
+  "emote_wheel_screen_content/dressing_room_button_panel": {
+    "size": [ "100%", 28 ],
+    "controls": [
+      {
+        "dressing_room_button@common_buttons.dark_text_button": {
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "$pressed_button_name": "button.dressing_room",
+          "enabled": "(not $store_disabled)",
+          "$button_text": "emotes.change_emotes",
+          "$default_text_color": "$light_button_default_text_color",
+          "focus_change_down": "FOCUS_OVERRIDE_STOP",
+          "focus_change_left": "emote_wheel",
+          "focus_change_right": "emote_wheel",
+          "size": [ 128, 24 ],
+          "bindings": [
+            {
+              "binding_name": "#dressing_room_button_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "emote_wheel_screen_content/instruction_panel/instruction_background": {
+    "size": [ "100%c + 8px", "100%c + 8px" ],
+    "min_size": [ 1, "100%c + 8px" ],
+    "max_size": [ "100%c + 8px", "100%c + 8px" ]
+  },
+
+  "emote_wheel_screen_content/instruction_panel/instruction_background/gamepad_instruction_stack/instruction_label_gamepad": {
+    "shadow": true,
+    "size": [ "default", "default" ],
+    "max_size": [ 312, 28 ]
+  },
+
+  "emote_wheel_screen_content/instruction_panel/instruction_background/instruction_label_keyboard": {
+    "shadow": true,
+    "size": [ "default", "default" ],
+    "max_size": [ 312, 12 ]
+  },
+
+  "emote_wheel_screen_content/instruction_panel/instruction_background/instruction_label_touch": {
+    "shadow": true,
+    "size": [ "default", "default" ],
+    "max_size": [ 312, 12 ]
+  }
+}

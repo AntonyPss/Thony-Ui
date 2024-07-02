@@ -379,7 +379,7 @@
     "type": "panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [ "100%c", "100%" ],
+    "size": [ "100%", "100%c" ],
     "$screen_title_texture|default": "textures/ui/title",
     "controls": [
       {
@@ -389,7 +389,7 @@
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "layer": 2,
-          "size": [ 176, 42 ],
+          "size": [ 224, 64 ],
           "offset": [ 2, 2 ]
         }
       }
@@ -428,14 +428,14 @@
     "size": [ 12, 10 ]
   },
 
-  "dark_button@common_buttons.dark_content_button": {
+  "dark_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
     "layer": 2
   },
 
   "cancel_button@dark_button": {
     "$pressed_button_name": "button.menu_exit",
-    "$button_content": "progress.dark_button_panel",
-    "$button_icon": "progress.cancel_icon",
+    "$button_content": "progress.cancel_icon",
     "$button_text": "#cancel_button_text",
     "$button_text_binding_type": "global",
     "size": [ "100%", 20 ],
@@ -450,8 +450,7 @@
 
   "retry_button@dark_button": {
     "$pressed_button_name": "button.menu_retry",
-    "$button_content": "progress.dark_button_panel",
-    "$button_icon": "progress.retry_icon",
+    "$button_content": "progress.retry_icon",
     "$button_text": "gui.retry",
     "size": [ "100%", 20 ],
     "offset": [ 0, 0 ],
@@ -465,8 +464,7 @@
 
   "abort_button@dark_button": {
     "$pressed_button_name": "button.menu_exit",
-    "$button_content": "progress.dark_button_panel",
-    "$button_icon": "progress.abort_icon",
+    "$button_content": "progress.abort_icon",
     "$button_text": "gui.cancel",
     "size": [ "100%", 20 ],
     "offset": [ 0, 0 ],
@@ -480,8 +478,7 @@
 
   "ok_button@dark_button": {
     "$pressed_button_name": "button.menu_exit",
-    "$button_content": "progress.dark_button_panel",
-    "$button_icon": "progress.confirm_icon",
+    "$button_content": "progress.confirm_icon",
     "$button_text": "gui.ok",
     "size": [ "100%", 20 ],
     "offset": [ 0, 0 ],
@@ -489,57 +486,6 @@
       {
         "binding_name": "#ok_visible",
         "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  "dark_button_panel": {
-    "type": "panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "size": [ "100% - 2px", "100% - 2px" ],
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "icon_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "icon@$button_icon": {
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "offset": [ 0, 1 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 4, "100%" ]
-              }
-            },
-            {
-              "label_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "new_ui_binding_label@common_assets.new_ui_binding_button_label": {
-                      "offset": [ 0, 1 ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
       }
     ]
   },

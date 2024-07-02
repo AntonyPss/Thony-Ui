@@ -1,0 +1,58 @@
+{
+  "namespace": "content_log",
+
+  //---------------------------------------------------------------------------
+  // Anims Section
+  //---------------------------------------------------------------------------
+
+  "anim_content_log_bg_offset_pop": {
+    "anim_type": "offset",
+    "easing": "out_expo",
+    "duration": 0.5,
+    "from": [ "-60%", 0 ],
+    "to": [ 0, 0 ],
+    "next": "@content_log.anim_content_log_bg_offset_wait"
+  },
+
+  "anim_content_log_bg_offset_wait": {
+    "anim_type": "wait",
+    "duration": "($content_log_item_lifetime - 0.2)",
+    "next": "@content_log.anim_content_log_bg_offset_push"
+  },
+
+  "anim_content_log_bg_offset_push": {
+    "anim_type": "offset",
+    "easing": "in_expo",
+    "duration": 0.5,
+    "from": [ 0, 0 ],
+    "to": [ "-60%", 0 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+
+  "content_log_label": {
+    "hide_hyphen": true,
+    "shadow": false,
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100% - 2px", "default" ]
+  },
+
+  "content_log_grid_item/content_log_background": {
+    "texture": "textures/ui/hud_tip_text_background",
+    "offset": "@content_log.anim_content_log_bg_offset_pop",
+    "size": [ "100%", "100%c - 2px" ]
+  },
+
+  "content_log_grid_item/content_log_background/content_log_text": {
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle"
+  },
+
+  "content_log_panel": {
+    "size": [ "60% - 24px", "100%c" ],
+    "max_size": [ "60% - 24px", "50%" ]
+  }
+}

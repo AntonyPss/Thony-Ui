@@ -279,7 +279,7 @@
         "operation": "replace",
         "value": [
           {
-            "asa_addon_screen@asa_resouce_packs_screen.asa_addon_screen": {
+            "addon_screen@asa_resouce_packs_screen.asa_addon_screen": {
               "visible": false
             }
           }

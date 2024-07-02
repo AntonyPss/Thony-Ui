@@ -8,7 +8,7 @@
   "standard_title_label": {
     "font_type": "MinecraftTen",
     "shadow": true,
-    "color": "$common_dialogs_title_text_color",
+    "color": "$header_title_text_color",
     "size": [ "default", 10 ]
   },
 

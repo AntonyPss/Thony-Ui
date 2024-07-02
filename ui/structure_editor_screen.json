@@ -80,63 +80,8 @@
   //---------------------------------------------------------------------------
 
   "dark_text_button@common_buttons.dark_text_button": {
-    "$button_type_panel": "structure_editor.dark_content_panel",
+    "$button_type_panel": "common_assets.icon_wrapper",
     "layer": 2
-  },
-
-  "dark_content_panel": {
-    "type": "panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "size": [ "100% - 2px", "100% - 2px" ],
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "controls": [
-            {
-              "icon_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "icon@$button_content": {
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "offset": [ 0, 1 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 4, "100%" ]
-              }
-            },
-            {
-              "label_panel": {
-                "type": "panel",
-                "size": [ "100%c", "100%" ],
-                "controls": [
-                  {
-                    "label": {
-                      "type": "label",
-                      "text": "$button_text",
-                      "color": "$text_color",
-                      "size": [ "default", 10 ],
-                      "offset": [ 0, 1 ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
   },
 
   "save_button@dark_text_button": {
@@ -355,7 +300,7 @@
     "size": [ "100%", "100%" ],
     "controls": [
       {
-        "header_image@common_assets.store_top_bar": {
+        "header_image": {
           "type": "image",
           "texture": "textures/ui/StoreTopBar",
           "layer": 2,
@@ -402,10 +347,10 @@
                       ]
                     }
                   },
-                  {
-                    "title_panel": {
+                  // Remove this for a error in the bindings names
+                  /* {
+                    "structure_mode_title_panel": {
                       "type": "panel",
-                      "ignored": true,
                       "size": [ "100%c", "100%" ],
                       "controls": [
                         {
@@ -442,7 +387,7 @@
                         }
                       ]
                     }
-                  },
+                  },*/
                   {
                     "fill_padding": {
                       "type": "panel",
@@ -461,7 +406,8 @@
                             "size": [ "100%c", 18 ],
                             "offset": [ -2, -1 ],
                             "controls": [
-                              {
+                              // Remove this for a error in the toggle
+                              /*{
                                 "structure_zoom@common_toggles.light_content_toggle": {
                                   "$toggle_view_binding_name": "structure_zoom_toggle",
                                   "$toggle_name": "structure_zoom",
@@ -469,7 +415,7 @@
                                   "$button_content": "structure_editor.spyglass_flat",
                                   "size": [ 18, 18 ]
                                 }
-                              },
+                              },*/
                               {
                                 "help_button@common_buttons.light_content_button": {
                                   "$pressed_button_name": "button.help",
@@ -490,16 +436,13 @@
         }
       },
       {
-        "main": {
+        "main_stack": {
           "type": "panel",
           "size": [ "100%", "fill" ],
           "controls": [
-            {
-              "structure_renderer@structure_renderer_panel": {}
-            },
-            {
-              "divider_content@divider_content": {}
-            }
+            // Remove this for a error in the toggle
+            // { "structure_renderer@structure_renderer_panel": {} },
+            { "divider_content@divider_content": {} }
           ]
         }
       }

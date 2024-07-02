@@ -6,20 +6,25 @@ menu.mojang.copyright=Copyright Mojang AB. Do no distribute!
 
 ## Play Screen ##
 selectWorld.tab.worldsTemplates=Worlds and Templates
+selectWorld.tab.totalWorlds=Worlds Found
+selectWorld.tab.totalFriends=Friends Online
+selectWorld.tab.totalServers=Servers Online
 
 ## Settings ##
 settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
 settings.switchUiProfile.button=Change the UI to Classic
 
 ## Options ##
+options.worldSeed.title=Seed:
 options.button.paste=Paste
 options.button.copy=Copy
 options.button.copyToClipboard=Copy to clipboard
+options.name.info=Edit your username in the text box. Remember, it can have up to 16 characters!
 
 ## Chat Settings ##
-chat.settings.muteAll.description=Hide game chat, this will make messages not globally visible
-chat.settings.muteEmotes.description=Hide player emotes, you will not be alerted if a player plays an emote
-chat.settings.tts.description=Enable Text to Speech assistant for game chat for individuals with a disability
+chat.settings.muteAll.description=Hides the chat window, ideal for avoiding distractions and keeping the screen tidy.
+chat.settings.muteEmotes.description=Disables player emotes, perfect for minimising visual distractions.
+chat.settings.tts.description=Converts chat text into audio, essential for players with visual impairments.
 
 ## Progress Screen ##
 progress.allowCellularData.title=¡Activated Mobile Data!

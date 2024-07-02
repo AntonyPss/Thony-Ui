@@ -1,9 +1,41 @@
 {
 	"namespace": "chat",
 
+  //---------------------------------------------------------------------------
+  // Images Section
+  //---------------------------------------------------------------------------
+
   "keyboard_image": {
 		"texture": "textures/ui/chat_keyboard_hover"
   },
+
+  "previous_image": {
+    "type": "image",
+    "size": [ 13, 13 ],
+    "texture": "textures/ui/chat_previous"
+  },
+
+  "next_image": {
+    "type": "image",
+    "size": [ 13, 13 ],
+    "texture": "textures/ui/chat_next"
+  },
+
+  "autocomplete_image": {
+    "type": "image",
+    "size": [ 14, 14 ],
+    "texture": "textures/ui/chat_autocomplete"
+  },
+
+  "autocompleteback_image": {
+    "type": "image",
+    "size": [ 14, 14 ],
+    "texture": "textures/ui/chat_autocompleteback"
+  },
+
+  //---------------------------------------------------------------------------
+  // Messages Scrolling Panel
+  //---------------------------------------------------------------------------
 
 	"messages_text/text": {
 		"shadow": true
@@ -21,6 +53,10 @@
 		"offset": [ 2, -24 ]
 	},
 
+  //---------------------------------------------------------------------------
+  // Bottom Panel
+  //---------------------------------------------------------------------------
+
   "chat_bottom_panel/send_button": {
     "ignored": true
   },
@@ -31,7 +67,14 @@
     "modifications": [
 			{
 				"control_name": "host_main_button",
-				"operation": "remove"
+				"operation": "replace",
+        "value": [
+          {
+            "host_main_button@host_options.host_main_dark_button": {
+              "size": [ 24, 24 ]
+            }
+          }
+        ]
 			},
       {
         "control_name": "keyboard_button",
@@ -90,43 +133,20 @@
     ]
 	},
 
-  "previous_image": {
-    "type": "image",
-    "size": [ 13, 13 ],
-    "texture": "textures/ui/chat_previous"
-  },
-
-  "next_image": {
-    "type": "image",
-    "size": [ 13, 13 ],
-    "texture": "textures/ui/chat_next"
-  },
-
-  "autocomplete_image": {
-    "type": "image",
-    "size": [ 14, 14 ],
-    "texture": "textures/ui/chat_autocomplete"
-  },
-
-  "autocompleteback_image": {
-    "type": "image",
-    "size": [ 14, 14 ],
-    "texture": "textures/ui/chat_autocompleteback"
-  },
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
 
   "small_button@common_buttons.dark_glyph_button": {
-    "$pressed_button_name|default": "",
-    "$button_content|default": "",
     "size": [ 24, 24 ]
   },
 
   "small_glyph_button@common_buttons.dark_glyph_button": {
-    "$pressed_button_name|default": "",
-    "$button_content|default": "",
     "size": [ 24, 24 ]
   },
 
   "text_edit_box": {
+    "$place_holder_control": "common_assets.custom_place_holder_control",
     "$text_edit_text_control": "message_text_box_display_text",
     "$place_holder_text": "chat.placeHolderText",
 		"size": [ "fill", 24 ]
@@ -190,6 +210,10 @@
       }
     ]
   },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
 
 	"chat_screen": {
     "$header_safezone_control": "common_assets.store_top_bar_filler",

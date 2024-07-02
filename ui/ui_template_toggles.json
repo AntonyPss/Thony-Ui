@@ -31,6 +31,36 @@
     ]
   },
 
+  "action_dark_template_toggle@common_toggles.dark_template_toggle": {
+    "$button_offset|default": [ 0, 0 ],
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "focused"
+      },
+      {
+        "ignored": "(not $enable_directional_toggling)",
+        "from_button_id": "button.menu_left",
+        "to_button_id": "$toggle_off_button",
+        "mapping_type": "pressed",
+        "input_mode_condition": "gamepad_and_not_gaze"
+      },
+      {
+        "ignored": "(not $enable_directional_toggling)",
+        "from_button_id": "button.menu_right",
+        "to_button_id": "$toggle_on_button",
+        "mapping_type": "pressed",
+        "input_mode_condition": "gamepad_and_not_gaze"
+      }
+    ]
+  },
+
   "custom_toggle_template@common.toggle": {
     "$unchecked_control|default": "common_toggles.toggle_unchecked",
     "$checked_control|default": "common_toggles.toggle_checked",
@@ -152,40 +182,6 @@
           "color": [ 0.2, 0.2, 0.2 ],
           "size": [ "default", "default" ]
         }
-      }
-    ]
-  },
-
-  "border_template_toggle@common_toggles.light_template_toggle": {
-    "$default_texture|default": "textures/ui/button_texture",
-    "$hover_texture|default": "textures/ui/button_texture",
-    "$pressed_texture|default": "textures/ui/button_texture",
-    "$pressed_no_hover_texture|default": "textures/ui/button_texture",
-    "$locked_texture|default": "textures/ui/button_texture",
-    "$default_texture_alpha|default": 0.5,
-    "$default_checked_texture_alpha|default": 0.5,
-    "$hover_texture_alpha|default": 0.6,
-    "$hover_checked_texture_alpha|default": 0.7,
-    "$default_texture_color|default": "$border_default_text_toggle_color",
-    "$default_checked_texture_color|default": "$border_default_text_toggle_color",
-    "$hover_texture_color|default": "$border_hover_text_toggle_color",
-    "$hover_checked_texture_color|default": "$border_hover_text_toggle_color",
-    "$default_text_color|default": "$border_default_text_toggle_color",
-    "$hover_text_color|default": "$border_hover_text_toggle_color",
-    "$default_checked_text_color|default": "$border_pressed_text_toggle_color",
-    "$hover_checked_text_color|default": "$border_pressed_text_toggle_color",
-    "$default_border_visible|default": false,
-    "$hover_border_visible|default": false,
-    "$locked_alpha": 0.9
-  },
-
-  "border_ui_toggle": {
-    "type": "panel",
-    "$toggle_view_binding_name|default": "this_toggle",
-    "$template_toggle|default": "common_toggles.light_template_toggle",
-    "controls": [
-      {
-        "$toggle_view_binding_name@$template_toggle": {}
       }
     ]
   }

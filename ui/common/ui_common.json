@@ -1,55 +1,56 @@
 {
   "namespace": "common_assets",
 
-  //////////////////////////////
-  // -- Inventory Common --  //
-  /////////////////////////////
-
-  "new_ui_binding_button_label": {
-    "type": "label",
-    "layer": 2,
-    "text": "$button_text",
-    "color": "$text_color",
-    "$font_type|default": "default",
-    "font_type": "$font_type",
-    "font_size": "$button_font_size",
-    "$button_font_scale_factor|default": 1.0,
-    "font_scale_factor": "$button_font_scale_factor",
-    "$button_font_size|default": "normal",
-    "$new_ui_label_offset|default": "$button_offset",
-    "offset": "$new_ui_label_offset",
-    "$anchor|default": "center",
-    "anchor_from": "$anchor",
-    "anchor_to": "$anchor",
-    "shadow": false,
-    "$button_text_size|default": [ "default", "default" ],
-    "size": "$button_text_size",
-    "$button_text_max_size|default": [ "100%", 10 ], // Per design buttons are single line text only
-    "max_size": "$button_text_max_size",
-    "$text_alignment|default": "center",
-    "text_alignment": "$text_alignment",
-    "$tts_section_header|default": "",
-    "tts_section_header": "$tts_section_header",
-    "$button_text_binding_type|default": "none",
-    "$button_binding_condition|default": "none",
-    "$button_text_collection_details|default": "none",
-    "$button_text_collection_prefix|default": "",
-    "$button_text_grid_collection_name|default": "",
-    "bindings": [
+  "custom_place_holder_control": {
+    "type": "panel",
+    "size": [ "100%", "100%c" ],
+    "controls": [
       {
-        "binding_type": "$button_text_collection_details",
-        "binding_collection_name": "$button_text_grid_collection_name",
-        "binding_collection_prefix": "$button_text_collection_prefix"
-      },
-      {
-        "binding_type": "$button_text_binding_type",
-        "binding_condition": "$button_binding_condition",
-        "binding_collection_name": "$button_text_grid_collection_name",
-        "binding_name": "$button_text",
-        "binding_name_override": "$button_text"
+        "place_holder_text": {
+          "type": "label",
+          "localize": true,
+          "shadow": "$shadow",
+          "color": "$place_holder_text_color",
+          "locked_color": "$text_box_locked_text_color",
+          "alpha": "$text_alpha",
+          "locked_alpha": "$locked_text_alpha",
+          "font_size": "$font_size",
+          "text_alignment": "$text_alignment",
+          "size": [ "100% - 4px", "default" ],
+          "offset": [ 0, 0 ],
+          "$shadow|default": false,
+          "$text_alpha|default": 1.0,
+          "$locked_text_alpha|default": 0.5,
+          "$font_size|default": "normal",
+          "$text_alignment|default": "left",
+      
+          "$text_edit_box_placeholder_content_binding_type|default": "global",
+          "$text_edit_box_placeholder_content_binding_name|default": "#text_box_item_name",
+          "$text_edit_box_placeholder_binding_condition|default": "visible",
+          "$text_box_name|default": "#text_box_name",
+      
+          "$place_holder_text|default": "",
+      
+          "text": "$place_holder_text",
+          "$text_edit_box_placeholder_binding_type": "global",
+          "$text_edit_box_placeholder_binding_collection_name": "",
+      
+          "bindings": [
+            {
+              "binding_type": "$text_edit_box_placeholder_content_binding_type",
+              "binding_condition": "$text_edit_box_placeholder_binding_condition",
+              "binding_collection_name": "$text_edit_box_grid_collection_name",
+              "binding_name": "$text_edit_box_placeholder_content_binding_name"
+            }
+          ]
+        }
       }
     ]
   },
+
+  //////////////////////////////
+  // -- Inventory Common --  //
+  /////////////////////////////
 
   // Images //
 
@@ -63,167 +64,6 @@
   "store_top_bar_filler": {
     "type": "image",
     "texture": "textures/ui/StoreTopBarFiller"
-  },
-
-  "crafting_image": {
-    "type": "custom",
-    "renderer": "inventory_item_renderer",
-    "layer": 2,
-    "size": [ 16, 16 ],
-    "property_bag": {
-      "#item_id_aux": "3801088"
-    }
-  },
-
-  "drop_one_icon": {
-    "type": "image",
-    "texture": "textures/ui/drop_icon",
-    "layer": 2,
-    "size": [ 16, 16 ]
-  },
-
-  "drop_all_icon": {
-    "type": "image",
-    "texture": "textures/ui/drop_all_icon",
-    "layer": 2,
-    "size": [ 16, 16 ]
-  },
-
-  // Buttons //
-
-  "quick_craft_button@common_buttons.border_content_button": {
-    "$button_content": "common_assets.crafting_image",
-    "size": [ 24, 24 ],
-    "property_bag": {
-      "#collection_name": "crafting_output_items",
-      "#collection_index": 0
-    },
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.crafting_output_tertiary",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.crafting_output_tertiary",
-        "mapping_type": "pressed"
-      }
-    ]
-  },
-
-  "drop_one_item_button@common_buttons.border_content_button": {
-    "sound_name": "random.pop",
-    "sound_pitch": 0.66,
-    "sound_volume": 1.0,
-    "$pressed_button_name": "button.cursor_drop_one",
-    "$button_content": "common_assets.drop_one_icon",
-    "size": [ 24, 24 ]
-  },
-
-  "drop_all_item_button@common_buttons.border_content_button": {
-    "sound_name": "random.pop",
-    "sound_pitch": 0.66,
-    "sound_volume": 1.0,
-    "$pressed_button_name": "button.cursor_drop_all",
-    "$button_content": "common_assets.drop_all_icon",
-    "size": [ 24, 24 ]
-  },
-
-  "destroy_one_item_button@common_buttons.border_text_button": {
-    "sound_name": "mob.zombie.woodbreak",
-    "sound_pitch": 0.66,
-    "sound_volume": 1.0,
-    "$pressed_button_name": "button.clear_hotbar_or_remove_one",
-    "$button_text": "[x1]",
-    "size": [ 24, 24 ],
-    "bindings": [
-      {
-        "binding_type": "global",
-        "binding_name": "#is_creative_mode",
-        "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  "destroy_all_item_button@common_buttons.border_text_button": {
-    "sound_name": "mob.zombie.woodbreak",
-    "sound_pitch": 0.66,
-    "sound_volume": 1.0,
-    "$pressed_button_name": "button.destroy_selection",
-    "$button_text": "[x64]",
-    "size": [ 24, 24 ],
-    "bindings": [
-      {
-        "binding_type": "global",
-        "binding_name": "#is_creative_mode",
-        "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  "auto_place_normal_button@auto_place.auto_place_button": {
-    "$toggle_bindings": "inventory_normal",
-    "$toggle_group_forced_index": 0,
-    "$toggle_default_state": true
-  },
-
-  "auto_place_mode_button@auto_place.auto_place_button": {
-    "$toggle_bindings": "inventory_auto_place_mode",
-    "$toggle_group_forced_index": 1
-  },
-
-  "item_renderer_template": {
-    "type": "panel",
-    "controls": [
-      {
-        "background": {
-          "type": "custom",
-          "renderer": "inventory_item_renderer",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 4,
-          "size": "$icon_size",
-          "property_bag": {
-            "#item_id_aux": "$item_id_render"
-          }
-        }
-      }
-    ]
-  },
-
-  "clock_icon@common_buttons.border_content_button": {
-    "$pressed_button_name": "button.any",
-    "$button_content": "common_assets.item_renderer_template",
-    "$item_id_render": 26083328,
-    "$icon_size": [ "100% - 4px", "100% - 4px" ],
-    "size": [ 24, 24 ]
-  },
-
-  "compass_icon@common_buttons.border_content_button": {
-    "$pressed_button_name": "button.any",
-    "$button_content": "common_assets.item_renderer_template",
-    "$item_id_render": 25952256,
-    "$icon_size": [ "100% - 2px", "100% - 2px" ],
-    "size": [ 24, 24 ]
-  },
-
-  // Inventory Button Panel //
-
-  "inventory_button_panel": {
-    "type": "stack_panel",
-    "anchor_from": "top_right",
-    "anchor_to": "top_right",
-    "size": [ 24, "100%" ],
-    "controls": [
-      { "quick_craft@quick_craft_button": {} },
-      { "clock_icon@clock_icon": {} },
-      { "compass_icon@compass_icon": {} },
-      { "drop_one_item@drop_one_item_button": {} },
-      { "drop_all_item@drop_all_item_button": {} },
-      { "destroy_one_item@destroy_one_item_button": {} },
-      { "destroy_all_item@destroy_all_item_button": {} }
-    ]
   },
 
   // Text Edit Box //
@@ -435,88 +275,414 @@
     ]
   },
 
-  "modal_background": {
+  "background_panel": {
     "type": "image",
-    "texture": "textures/ui/ribbon_bar_text_background_hover",
+    "texture": "$background_texture",
+    "$background_texture|default": "textures/ui/Black",
     "layer": 1,
-    "alpha": "$modal_background_alpha",
-    "$modal_background_alpha|default": 0.2,
-    "color": "$modal_background_color",
-    "$modal_background_color|default": [ 1.0, 1.0, 0.333 ],
-    "size": [ "100%", "100%" ]
+    "alpha": "$fill_alpha"
   },
 
-  "start_screen_background@common_assets.background_template": {
-    "$background_texture": "textures/background/bg_4",
-    "$background_alpha": 0.2
+  "background_image@common_assets.background_panel": {
+    "$background_texture": "textures/ui/hud_tip_text_background"
   },
 
-  "background_template": {
+  //---------------------------------------------------------------------------
+  // Label Background Section
+  //---------------------------------------------------------------------------
+
+  "label_section_divider": {
     "type": "panel",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": "$background_layer",
-    "size": [ "100%", "100%" ],
-    "$background_layer|default": -12,
-    "$background_texture|default": "textures/ui/bg_0",
-    "$background_alpha|default": 0.4,
-    "$background_visible_black|default": true,
-    "$background_visible_texture|default": true,
+    "size": [ "100%", 24 ],
     "controls": [
       {
-        "background": {
-          "type": "image",
-          "texture": "textures/ui/Black",
-          "ignored": "(not $background_visible_black)",
-          "alpha": "$background_alpha",
-          "layer": -27,
-          "fill": true,
-          "uv_size": [ "100%c", "100%" ]
-        }
-      },
-      {
-        "image": {
-          "type": "image",
-          "texture": "$background_texture",
-          "ignored": "(not $background_visible_texture)",
-          "layer": "$background_layer",
-          "$background_layer": -29,
-          "fill": true,
-          "size": [ "100%", "100%" ],
-          "uv_size": [ "100%c", "100%" ]
+        "panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100% - 2px", "100%cm" ],
+          "controls": [
+            {
+              "label_section_title": {
+                "type": "image",
+                "ignored": "$label_visible",
+                "texture": "$label_background",
+                "anchor_from": "$label_anchor",
+                "anchor_to": "$label_anchor",
+                "layer": 2,
+                "alpha": 0.6,
+                "size": "$label_background_size",
+                "bindings": "$label_bindings",
+            
+                "$label_background|default": "textures/ui/Black",
+                "$label_anchor|default": "center",
+                "$label_text|default": "#none",
+                "$label_visible|default": false,
+                "$label_bindings|default": [],
+                "$label_text_bindings|default": [],
+                "$label_color|default": "$body_text_color",
+                "$label_background_size|default": [ "100%c + 8px", 14 ],
+                "controls": [
+                  {
+                    "label_title": {
+                      "type": "label",
+                      "text": "$label_text",
+                      "layer": 4,
+                      "shadow": true,
+                      "color": "$label_color",
+                      "size": [ "default", 10 ],
+                      "bindings": "$label_text_bindings"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 2, 0 ]
+              }
+            },
+            {
+              "image_section_divider": {
+                "type": "panel",
+                "size": [ "fill", 14 ],
+                "controls": [
+                  {
+                    "image_section": {
+                      "type": "image",
+                      "texture": "textures/ui/list_item_divider_line_light",
+                      "anchor_from": "left_middle",
+                      "anchor_to": "left_middle",
+                      "layer": 4,
+                      "size": [ "100%", 1 ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
         }
       }
     ]
   },
 
-  "background_screen_image": {
+  "label_background": {
     "type": "image",
+    "ignored": "$label_visible",
+    "texture": "$label_background",
+    "anchor_from": "$label_anchor",
+    "anchor_to": "$label_anchor",
+    "layer": 2,
+    "alpha": 0.6,
+    "size": "$label_background_size",
 
-    "anchor_from": "center",
-    "anchor_to": "center",
-
-    "texture": "$background_screen_texture",
-    "alpha": "$background_screen_alpha",
-    "layer": "$background_screen_layer",
-    "size": "$background_screen_size",
-
-    "$background_screen_texture|default": "textures/ui/Black",
-    "$background_screen_alpha|default": 0.7,
-    "$background_screen_layer|default": 1,
-    "$background_screen_size|default": [ "100%cm + 4px", "100%cm + 4px" ]
+    "$label_background|default": "textures/ui/Black",
+    "$label_anchor|default": "center",
+    "$label_text_anchor|default": "center",
+    "$label_text|default": "#none",
+    "$label_visible|default": false,
+    "$label_bindings|default": [],
+    "$label_color|default": "$body_text_color",
+    "$label_background_size|default": [ "100%c + 6px", 14 ],
+    "controls": [
+      {
+        "label_panel": {
+          "type": "label",
+          "text": "$label_text",
+          "anchor_from": "$label_text_anchor",
+          "anchor_to": "$label_text_anchor",
+          "layer": 4,
+          "shadow": true,
+          "color": "$label_color",
+          "size": [ "default", 10 ],
+          "bindings": "$label_bindings"
+        }
+      }
+    ]
   },
 
-  "background_panel": {
+  "label_background_panel": {
     "type": "image",
     "texture": "textures/ui/Black",
-    "layer": 1,
-    "alpha": "$fill_alpha"
+    "ignored": "(not $label_visible)",
+    "anchor_from": "$label_anchor",
+    "anchor_to": "$label_anchor",
+    "layer": 2,
+    "alpha": 0.6,
+    "size": [ "100%", "100%cm + 4px" ],
+    "bindings": "$label_bindings",
+
+    "$label_visible|default": false,
+    "$label_anchor|default": "center",
+    "$label_text|default": "#none",
+    "$label_bindings|default": [],
+    "$label_text_bindings|default": [],
+    "controls": [
+      {
+        "label_text_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%cm + 2px" ],
+          "controls": [
+            {
+              "label_text": {
+                "type": "label",
+                "text": "$label_text",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 4,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "100% - 8px", "default" ],
+                "bindings": "$label_text_bindings"
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
 
-  "background_image": {
+  //---------------------------------------------------------------------------
+  // Label Background With Buttons Section
+  //---------------------------------------------------------------------------
+
+  "label_background_with_buttons": {
     "type": "image",
-    "texture": "textures/ui/hud_tip_text_background",
-    "layer": 1,
-    "alpha": "$fill_alpha"
+    "texture": "textures/ui/Black",
+    "anchor_from": "$label_anchor",
+    "anchor_to": "$label_anchor",
+    "layer": 2,
+    "alpha": 0.6,
+    "size": [ "100%", "100%cm + 12px" ],
+    "bindings": "$label_bindings",
+
+    "$label_anchor|default": "center",
+    "$label_title|default": "#none",
+    "$label_description|default": "#none",
+    "$label_title_visible|default": true,
+    "$label_description_visible|default": true,
+    "$label_title_bindings|default": [],
+    "$label_description_bindings|default": [],
+    "$label_bindings|default": [],
+    "$label_button_panel|default": "common.empty_panel",
+    "controls": [
+      {
+        "label_background_content": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100% - 12px", "100%c" ],
+          "controls": [
+            {
+              "label_title_panel": {
+                "type": "label",
+                "text": "$label_title",
+                "ignored": "(not $label_title_visible)",
+                "layer": 4,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "100%", 12 ],
+                "bindings": "$label_title_bindings"
+              }
+            },
+            {
+              "label_description_panel": {
+                "type": "label",
+                "text": "$label_description",
+                "ignored": "(not $label_description_visible)",
+                "layer": 4,
+                "shadow": true,
+                "color": "$header_subtitle_text_color",
+                "size": [ "100%", "default" ],
+                "bindings": "$label_description_bindings"
+              }
+            },
+            {
+              "padding_1": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "label_button_panel": {
+                "type": "panel",
+                "size": [ "100%", 30 ],
+                "controls": [
+                  {
+                    "label_button_panel@$label_button_panel": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Button Hover Text Section
+  //---------------------------------------------------------------------------
+
+  "dark_text_hover_button@common.button": {
+    "$button_content_panel|default": "common_assets.text_hover_button_panel",
+
+    "$button_content_visible|default": true,
+
+    "$default_button_texture|default": "textures/ui/button_borderless_dark",
+    "$hover_button_texture|default": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture|default": "textures/ui/button_borderless_darkpressed",
+    "controls": [
+      {
+        "default@$button_content_panel": {
+          "$button_texture": "$default_button_texture",
+          "$button_content_visible": false,
+          "$button_texture_color": [ 0.0, 0.0, 0.0 ],
+          "$text_color": "$dark_button_default_text_color"
+        }
+      },
+      {
+        "hover@$button_content_panel": {
+          "$button_texture": "$hover_button_texture",
+          "$text_color": "$dark_button_hover_text_color"
+        }
+      },
+      {
+        "pressed@$button_content_panel": {
+          "$button_texture": "$pressed_button_texture",
+          "$text_color": "$dark_button_pressed_text_color"
+        }
+      }
+    ]
+  },
+
+  "text_hover_button_panel": {
+    "type": "panel",
+
+    "$button_content|default": "common.empty_panel",
+    "$button_text|default": "#none",
+    "$button_texture_color|default": [ 1.0, 1.0, 1.0 ],
+    "controls": [
+      {
+        "button_border": {
+          "type": "image",
+          "texture": "textures/ui/focus_border_white",
+          "layer": 8,
+          "color": "$button_texture_color",
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "button_image": {
+          "type": "image",
+          "texture": "$button_texture",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
+          "controls": [
+            {
+              "button_content": {
+                "type": "image",
+                "visible": "$button_content_visible",
+                "texture": "textures/ui/hud_tip_text_background",
+                "anchor_from": "right_middle",
+                "anchor_to": "left_middle",
+                "layer": 4,
+                "alpha": 0.7,
+                "size": [ "100%cm + 8px", 14 ],
+                "offset": [ 4, 0 ],
+                "controls": [
+                  {
+                    "label_panel": {
+                      "type": "panel",
+                      "size": [ "100%c", "100%" ],
+                      "controls": [
+                        {
+                          "label@common_buttons.custom_ui_binding_button_label": {
+                            "$button_text_shadow": true,
+                            "$button_text_size": [ "default", 10 ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "icon_panel": {
+          "type": "panel",
+          "layer": 4,
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "icon@$button_content": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Icon Wrapper Section
+  //---------------------------------------------------------------------------
+
+  "icon_wrapper": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100% - 2px", "100% - 2px" ],
+
+    "$button_content|default": "common.empty_panel",
+    "$button_text|default": "#none",
+    "$button_offset|default": [ 0, 1 ],
+    "$button_content_offset|default": [ 0, 0 ],
+    "controls": [
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "icon_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "icon@$button_content": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": "$button_content_offset"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 4, "100%" ]
+              }
+            },
+            {
+              "label_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "ui_binding_label@common_buttons.custom_ui_binding_button_label": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

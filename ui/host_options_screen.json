@@ -1,22 +1,14 @@
 {
-  "namespace": "host_options",
-  
-  "host_text_panel": {
-    "type": "label",
-    "text": "/",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "text_alignment": "center",
-    "shadow": true,
-    "color": "$body_text_color",
-    "size": [ 12, 12 ]
+  "host_image_panel": {
+    "size": [ 16, 16 ]
   },
 
-  "host_main_button_@chat.content_button": {
-    "$pressed_button_name": "button.host_toggle",
+  "host_main_dark_button@common_buttons.dark_text_button": {
     "$focus_id": "host_main_button_focus_id",
-    "$button_content": "host_options.host_text_panel",
-    "size": [ 16, 16 ],
+    "$button_type_panel": "host_options.host_image_panel",
+    "$pressed_button_name": "button.host_toggle",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
     "bindings": [
       {
         "binding_name": "#cheats_on",
