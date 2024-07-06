@@ -1,0 +1,17 @@
+{
+  "content": {
+    "controls": [
+      {
+        "main_panel@main_panel": {}
+      },
+      {
+        "purchase_coins_panel@common_store.purchase_coins_panel": {
+          "offset": [ "1px", "-22.5px" ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "size": [ "100%c", "24px" ]
+        }
+      }
+    ]
+  }
+}
