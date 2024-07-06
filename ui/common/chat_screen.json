@@ -49,7 +49,7 @@
     ]
   },
 
-  "copy_button@common_buttons.dark_content_button": {
+  "copy_button@common_buttons.light_content_button": {
     "$button_content": "chat.copy_image",
     "$pressed_button_name": "copy_coordinates_button",
     "$focus_id": "coordinate_copy_button_focus_id",
@@ -64,7 +64,7 @@
     ]
   },
 
-  "paste_button@common_buttons.dark_content_button": {
+  "paste_button@common_buttons.light_content_button": {
     "$button_content": "chat.paste_image",
     "$pressed_button_name": "paste_button",
     "$focus_id": "paste_button_focus_id",
@@ -148,7 +148,7 @@
 					"size": [ "100%cm", "100%c" ],
 					"controls": [
 						{
-							"coordinates_stack@coordinates_stack_panel": {
+							"coordinates@chat_panel.coordinates_stack_panel": {
 								"offset": [ -2, -2 ]
 							}
 						}
@@ -191,11 +191,11 @@
 
     "$radio_toggle_group": true,
 
-		"$default_texture": "textures/ui/button_borderless_dark",
-		"$hover_texture": "textures/ui/button_borderless_dark",
+		"$default_texture": "textures/ui/button_borderless_light",
+		"$hover_texture": "textures/ui/button_borderless_light",
     "controls": [
       {
-        "player_position@common_toggles.dark_text_toggle": {
+        "player_position@common_toggles.light_text_toggle": {
 					"$button_type_panel": "common_assets.icon_wrapper",
           "$toggle_name": "#coordinate_type_position",
           "$toggle_state_binding_name": "#coordinate_type_position",
@@ -210,7 +210,7 @@
         }
       },
       {
-        "block_position@common_toggles.dark_text_toggle": {
+        "block_position@common_toggles.light_text_toggle": {
 					"$button_type_panel": "common_assets.icon_wrapper",
           "$toggle_name": "#coordinate_type_facing",
           "$toggle_state_binding_name": "#coordinate_type_facing",
@@ -283,17 +283,17 @@
 				}
 			},
 			{
-				"coordinates_buttons@coordinates_buttons_panel": {
+				"coordinates_buttons@chat_panel.coordinates_buttons_panel": {
 					"size": [ 124, 18 ]
 				}
 			},
 			{
-				"copy_button@copy_button": {
+				"copy_button@chat_panel.copy_button": {
 					"size": [ 18, 18 ]
 				}
 			},
 			{
-				"paste_button@paste_button": {
+				"paste_button@chat_panel.paste_button": {
 					"size": [ 18, 18 ]
 				}
 			}
