@@ -7,7 +7,7 @@
 
   "player_position": {
     "texture": "textures/ui/hud_tip_text_background",
-    "size": [ "100%c + 6px", 14 ]
+    "size": [ "100%c + 4px", 14 ]
   },
 
   "player_position/player_position_text": {
@@ -19,7 +19,7 @@
 
   "number_of_days_played": {
     "texture": "textures/ui/hud_tip_text_background",
-    "size": [ "100%c + 6px", 14 ]
+    "size": [ "100%c + 4px", 14 ]
   },
 
   "number_of_days_played/number_of_days_played_text": {
