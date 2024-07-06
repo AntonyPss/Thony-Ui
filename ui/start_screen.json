@@ -42,6 +42,17 @@
     "size": [ 15, 15 ]
   },
 
+  "update_prompt_icon": {
+    "size": [ 10, 20 ]
+  },
+
+  "info_icon": {
+    "type": "image",
+    "texture": "textures/ui/infobulb",
+    "layer": 2,
+    "size": [ 11, 15 ]
+  },
+
   //---------------------------------------------------------------------------
   // Label Section
   //---------------------------------------------------------------------------
@@ -110,7 +121,7 @@
   "dressing_room_dark_button@common_buttons.dark_text_button": {
     "$button_type_panel": "common_assets.icon_wrapper",
     "$pressed_button_name": "button.to_profile_screen",
-    "$button_text": "profileScreen.header",
+    "$button_text": "menu.skins",
     "$button_content": "start.change_skin_icon",
     "size": [ "100%", "100%" ]
   },
@@ -126,7 +137,7 @@
 
   "skin_or_profile_panel": {
     "alpha": 1.0,
-    "size": [ 92, 24 ],
+    "size": [ 98, 24 ],
     "controls": [
       {
         "change_skin@start.change_skin_dark_button": {
@@ -176,6 +187,7 @@
               "layer": 2,
               "alpha": 0.5,
               "size": [ "100%c + 8px", 14 ],
+              "max_size": [ 132, 14 ],
               "controls": [
                 {
                   "paper_doll_name_tag_label": {
@@ -239,13 +251,58 @@
   "store_main_button@common_buttons.dark_content_button": {
     "$pressed_button_name": "button.menu_store",
     "$button_text": "menu.store",
-    "$button_content": "start.store_button_content",
+    "$button_content": "start.store_main_button_content",
     "$button_text_binding_type": "none",
     "$button_binding_condition": "none",
     "$button_text_grid_collection_name": "",
     "tts_inherit_siblings": true,
     "$focus_override_right": "profile_button",
     "size": [ "100%", "100% - 2px" ]
+  },
+
+  "store_main_button_content@start.stacked_panel": {
+    "size": [ "100%", 28 ],
+    "enabled": "(not $store_disabled and not ($is_ios and $pre_release)))",
+    "controls": [
+      {
+        "button_label@common_buttons.new_ui_binding_button_label": {
+          "layer": 5
+        }
+      },
+      {
+        "sales_banner@start.store_button_sale_banner": {
+          "visible": false,
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "offset": [ -6, -8 ]
+        }
+      },
+      {
+        "update_icon@start.update_prompt_icon": {
+          "ignored": "$store_disabled",
+          "offset": [ 6, -6 ],
+          "bindings": [
+            {
+              "binding_name": "#update_icon_visible",
+              "binding_name_override": "#visible",
+              "binding_condition": "always"
+            }
+          ]
+        }
+      },
+      {
+        "new_offers_icon@start.new_offers_icon": {
+          "ignored": "$store_disabled",
+          "offset": [ 8, -6 ],
+          "bindings": [
+            {
+              "binding_name": "#new_offers",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
   },
 
   "realms_main_button@common_buttons.dark_text_button": {
@@ -361,6 +418,12 @@
           "type": "panel",
           "size": [ "100%", "fill" ]
         }
+      },
+      {
+        "padding_end": {
+          "type": "panel",
+          "size": [ "100%", 24 ]
+        }
       }
     ]
   },
@@ -375,7 +438,7 @@
   },
 
   "world_button@common_assets.dark_text_hover_button": {
-    "$pressed_button_name": "button.menu_world",
+    "$pressed_button_name": "button.featured_category",
     "$button_content": "start.worlds_icon",
     "$button_text": "start_screen.start_demo",
     "size": [ 24, 24 ]
@@ -417,7 +480,13 @@
     "$button_content": "start.Xbox_icon",
     "$button_text": "#platform_signin_text",
     "$button_text_binding_type": "global",
-    "size": [ 24, 24 ]
+    "size": [ 24, 24 ],
+    "bindings": [
+      {
+        "binding_name": "#sign_in_visible",
+        "binding_name_override": "#visible"
+      }
+    ]
   },
 
   "header_button_stack": {
@@ -441,7 +510,55 @@
   },
 
   //---------------------------------------------------------------------------
-  // Screen
+  // Cloud Upload Popup
+  //---------------------------------------------------------------------------
+
+  "scrolling_child/scrolling_panel": {
+    "$scrolling_pane_size": [ "100%", "100%" ],
+    "$scroll_size": [ 4, "100% - 4px" ]
+  },
+
+  "cloud_upload_do_not_show_checkbox": {
+    "size": [ "100%", 28 ]
+  },
+
+  "cloud_upload_do_not_show_checkbox/header_description_stack_panel/checkbox_visuals": {
+    "size": [ 28, "100%" ]
+  },
+
+  "cloud_upload_do_not_show_checkbox/header_description_stack_panel/buffer_panel/label": {
+    "color": "$main_header_text_color"
+  },
+
+  "cloud_upload_worlds_dark_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$pressed_button_name": "button.worlds",
+    "$button_text": "cloud_upload.prompt.button.worlds",
+    "$button_content": "start.worlds_icon",
+    "size": [ "100%", 28 ]
+  },
+
+  "cloud_upload_learn_more_dark_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$pressed_button_name": "button.learn_more",
+    "$button_text": "cloud_upload.prompt.button.learn_more",
+    "$button_content": "start.info_icon",
+    "size": [ "100%", 28 ]
+  },
+
+  "cloud_upload_description": {
+    "size": [ "100%", "default" ]
+  },
+
+  "cloud_upload_prompt": {
+    "$middle_button_panel": "start.cloud_upload_worlds_dark_button",
+    "$bottom_button_panel": "start.cloud_upload_learn_more_dark_button",
+
+    "$fill_alpha": 0.5
+  },
+
+  //---------------------------------------------------------------------------
+  // Screens
   //---------------------------------------------------------------------------
 
   "start_screen_content": {
@@ -459,5 +576,15 @@
         }
       }
     ]
+  },
+
+  "s_o@common.button": {
+    "$pressed_button_name": "button.menu_settings",
+    "size": [ "100%", "100%" ]
+  },
+
+  "start_screen": {
+    "$screen_bg_content": "common.screen_background",
+    "$screen_background_alpha": 0.2
   }
 }
