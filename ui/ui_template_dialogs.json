@@ -8,7 +8,7 @@
   "standard_title_label": {
     "font_type": "MinecraftTen",
     "shadow": true,
-    "color": "$header_title_text_color",
+    "color": "$dialog_title_text_color",
     "size": [ "default", 10 ]
   },
 
@@ -32,7 +32,8 @@
     "texture": "$dialog_background_image",
     "$dialog_background_image|default": "textures/ui/Black",
     "layer": 1,
-    "alpha": "$fill_alpha"
+    "alpha": "$fill_alpha",
+    "$show_close_button|default": true
   },
 
   //---------------------------------------------------------------------------
