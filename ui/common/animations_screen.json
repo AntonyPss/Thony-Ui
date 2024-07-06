@@ -1,33 +1,47 @@
 {
   "namespace": "animations",
 
-  "background_label_anim_offset": {
+  "anim_alpha": {
+    "anim_type": "alpha",
+    "easing": "$anim_easing_alpha",
+    "duration": "$anim_alpha_duration",
+    "from": "$anim_alpha_from",
+    "to": "$anim_alpha_to"
+  },
+
+  "anim_size": {
+    "anim_type": "size",
+    "easing": "$anim_easing_size",
+    "duration": "$anim_size_duration",
+    "from": "$anim_size_from",
+    "to": "$anim_size_to"
+  },
+
+  "anim_offset": {
     "anim_type": "offset",
-    "easing": "in_expo",
-    "duration": "$label_anim_bg_duration_offset",
-    "from": "$label_anim_bg_from",
-    "to": "$label_anim_bg_to",
-    "$label_anim_bg_from|default": [],
-    "$label_anim_bg_to|default": []
+    "easing": "$anim_easing_offset",
+    "duration": "$anim_offset_duration",
+    "from": "$anim_offset_from",
+    "to": "$anim_offset_to",
+    "play_event": "$anim_offset_play_event",
+    "end_event": "$anim_offset_end_event",
+    "destroy_at_end": "$anim_offset_destroy_at_end",
+    "$anim_offset_play_event|default": "",
+    "$anim_offset_end_event|default": "",
+    "$anim_offset_destroy_at_end|default": ""
   },
 
-  "background_panel_anim_alpha": {
-    "anim_type": "alpha",
-    "easing": "in_expo",
-    "duration": "$panel_anim_bg_duration_alpha",
-    "from": "$panel_anim_bg_from",
-    "to": "$panel_anim_bg_to",
-    "$panel_anim_bg_from|default": null,
-    "$panel_anim_bg_to|default": null
-  },
-
-  "background_label_anim_alpha": {
-    "anim_type": "alpha",
-    "easing": "in_expo",
-    "duration": "$label_anim_bg_duration_alpha",
-    "from": "$label_anim_bg_alpha_from",
-    "to": "$label_anim_bg_alpha_to",
-    "$label_anim_bg_alpha_from|default": null,
-    "$label_anim_bg_alpha_to|default": null
+  "anim_offset_1": {
+    "anim_type": "offset",
+    "easing": "$anim_easing_offset_1",
+    "duration": "$anim_offset_duration_1",
+    "from": "$anim_offset_from_1",
+    "to": "$anim_offset_to_1",
+    "play_event": "$anim_offset_play_event_1",
+    "end_event": "$anim_offset_end_event_1",
+    "destroy_at_end": "$anim_offset_destroy_at_end_1",
+    "$anim_offset_play_event_1|default": "",
+    "$anim_offset_end_event_1|default": "",
+    "$anim_offset_destroy_at_end_1|default": ""
   }
 }
