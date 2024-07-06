@@ -1,32 +1,22 @@
-## Pack ##
-menu.welcome.title=Bienvenido a Minecraft Bedrock:
+confirmLeaveWarning.worldName.title=Nombre del mundo:
+
+chat.placeHolderText=Escribe aqui un texto o comando...
+
+chat.settings.muteAll.description=Oculta el chat del juego, ideal para evitar distracciones y mantener la pantalla limpia.
+chat.settings.muteEmotes.description=Desactiva los gestos del jugador, perfecto para minimizar distracciones visuales.
+chat.settings.tts.description=Activar el dictado de texto a voz, esencial para jugadores con discapacidades visuales.
+
+menu.creator=Thony Ui por @AntonyPss
+menu.creator.beta=Thony Ui [BETA]
 menu.creator.name=Thony Pack Ui creado por Antony Pss
-menu.creator.info=Mira mis Redes Sociales y mi Servidor de Discord
-menu.mojang.copyright=Derechos de autor Mojang AB. ¡No distribuir!
+menu.creator.info=Mira mis Redes Sociales y nuestro Servidor de Discord
 
-## Play Screen ##
-selectWorld.tab.worldsTemplates=Mundos y Plantillas
-selectWorld.tab.totalWorlds=Mundos encontrados
-selectWorld.tab.totalFriends=Amigos en linea
-selectWorld.tab.totalServers=Servidores en linea
-
-## Settings ##
-settings.switchUiProfile.tooltip=Para obtener una mejor experiencia en la UI, cambia el perfil de Modo de Bolsillo a Clásico
-settings.switchUiProfile.button=Cambiar la UI a Clásico
-
-## Options ##
 options.worldSeed.title=Semilla:
 options.button.paste=Pegar
 options.button.copy=Copiar
 options.button.copyToClipboard=Copiar al portapapeles
 options.name.info=Edita tu nombre de usuario en el cuadro de texto. Recuerda, ¡puede tener hasta 16 caracteres!
 
-## Chat Settings ##
-chat.settings.muteAll.description=Oculta el chat del juego, ideal para evitar distracciones y mantener la pantalla limpia.
-chat.settings.muteEmotes.description=Desactiva los gestos del jugador, perfecto para minimizar distracciones visuales.
-chat.settings.tts.description=Activar el dictado de texto a voz, esencial para jugadores con discapacidades visuales.
-
-## Progress Screen ##
 progress.allowCellularData.title=¡Datos Móviles Activado!
 progress.allowCellularData.message=Esto podría generar un coste adicional de datos.
 
@@ -38,8 +28,10 @@ progress.loadingWorld.overworld.tip=De vuelta a la familiaridad y la tranquilida
 progress.loadingWorld.nether.tip=Prepárate para el calor y las llamas, estás a punto de adentrarte en el temible Nether.
 progress.loadingWorld.theEnd.tip=El misterio y la oscuridad te esperan, estás a punto de aventurarte en The End.
 
-## Pause Screen ##
-confirmLeaveWarning.worldName.title=Nombre del mundo:
+selectWorld.tab.worldsTemplates=Mundos y Plantillas
+selectWorld.tab.totalWorlds=Mundos encontrados
+selectWorld.tab.totalFriends=Amigos en linea
+selectWorld.tab.totalServers=Servidores en linea
 
-## Chat Screen ##
-chat.placeHolderText=Escribe aqui un texto o comando...
+settings.switchUiProfile.tooltip=Para obtener una mejor experiencia en la UI, cambia el perfil de Modo de Bolsillo a Clásico
+settings.switchUiProfile.button=Cambiar la UI a Clásico

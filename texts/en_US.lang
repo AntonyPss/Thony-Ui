@@ -1,32 +1,22 @@
-## Pack ##
-menu.welcome.title=Welcome to Minecraft Bedrock:
+confirmLeaveWarning.worldName.title=World Name:
+
+chat.placeHolderText=Write here a text or command...
+
+chat.settings.muteAll.description=Hides the chat window, great for avoiding distractions and keeping the screen clean.
+chat.settings.muteEmotes.description=Disables player emotes, perfect for reducing visual distractions.
+chat.settings.tts.description=Turns chat text into audio, crucial for players with visual impairments.
+
+menu.creator=Thony Ui by @AntonyPss
+menu.creator.beta=Thony Ui [BETA]
 menu.creator.name=Thony Pack Ui create by Antony Pss
 menu.creator.info=See my Social Media and my Discord Server
-menu.mojang.copyright=Copyright Mojang AB. Do no distribute!
 
-## Play Screen ##
-selectWorld.tab.worldsTemplates=Worlds and Templates
-selectWorld.tab.totalWorlds=Worlds Found
-selectWorld.tab.totalFriends=Friends Online
-selectWorld.tab.totalServers=Servers Online
-
-## Settings ##
-settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
-settings.switchUiProfile.button=Change the UI to Classic
-
-## Options ##
 options.worldSeed.title=Seed:
 options.button.paste=Paste
 options.button.copy=Copy
 options.button.copyToClipboard=Copy to clipboard
 options.name.info=Edit your username in the text box. Remember, it can be up to 16 characters long!
 
-## Chat Settings ##
-chat.settings.muteAll.description=Hides the chat window, great for avoiding distractions and keeping the screen clean.
-chat.settings.muteEmotes.description=Disables player emotes, perfect for reducing visual distractions.
-chat.settings.tts.description=Turns chat text into audio, crucial for players with visual impairments.
-
-## Progress Screen ##
 progress.allowCellularData.title=¡Enabled Mobile Data!
 progress.allowCellularData.message=This could generate additional data charges.
 
@@ -38,8 +28,10 @@ progress.loadingWorld.overworld.tip=Back to familiarity and tranquility, welcome
 progress.loadingWorld.nether.tip=Brace yourself for the heat and flames, you're about to enter the fearsome Nether.
 progress.loadingWorld.theEnd.tip=Mystery and darkness await you, you’re about to venture into The End.
 
-## Pause Screen ##
-confirmLeaveWarning.worldName.title=World Name:
+selectWorld.tab.worldsTemplates=Worlds and Templates
+selectWorld.tab.totalWorlds=Worlds Found
+selectWorld.tab.totalFriends=Friends Online
+selectWorld.tab.totalServers=Servers Online
 
-## Chat Screen ##
-chat.placeHolderText=Write here a text or command...
+settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
+settings.switchUiProfile.button=Change the UI to Classic
