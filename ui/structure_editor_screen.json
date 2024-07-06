@@ -17,7 +17,7 @@
 
   "save_icon@structure_editor.icon_panel": {
     "texture": "textures/ui/copy",
-    "size": [ 16, 16 ]
+    "size": [ 14, 14 ]
   },
 
   "3d_export_icon@structure_editor.icon_panel": {
@@ -32,27 +32,27 @@
 
   "load_icon@structure_editor.icon_panel": {
     "texture": "textures/ui/color_plus",
-    "size": [ 16, 16 ]
+    "size": [ 14, 14 ]
   },
 
   "detect_icon@structure_editor.icon_panel": {
     "texture": "textures/ui/spyglass_flat",
-    "size": [ 14, 14 ]
+    "size": [ 12, 12 ]
   },
 
   "import_icon@structure_editor.icon_panel": {
     "texture": "textures/ui/icon_import",
     "color": "$text_color",
-    "size": [ 16, 16 ]
+    "size": [ 15, 15 ]
   },
 
   "reset_icon@structure_editor.icon_panel": {
     "texture": "textures/ui/refresh_light",
-    "size": [ 15, 16 ]
+    "size": [ 14, 15 ]
   },
 
   //---------------------------------------------------------------------------
-  // Paddings Section
+  // Padding Section
   //---------------------------------------------------------------------------
 
   "padding_vertical_2": {
@@ -292,10 +292,10 @@
   },
 
   //---------------------------------------------------------------------------
-  // Header Section
+  // Header Section and Screen Content
   //---------------------------------------------------------------------------
 
-  "fullscreen_header": {
+  "structure_editor_content": {
     "type": "stack_panel",
     "size": [ "100%", "100%" ],
     "controls": [
@@ -304,7 +304,7 @@
           "type": "image",
           "texture": "textures/ui/StoreTopBar",
           "layer": 2,
-          "size": [ "100%", 28 ],
+          "size": [ "100%", 24 ],
           "controls": [
             {
               "title_stack_panel": {
@@ -739,119 +739,6 @@
   },
 
   //---------------------------------------------------------------------------
-  // Zoom Screen Section
-  //---------------------------------------------------------------------------
-
-  "structure_renderer_panel": {
-    "type": "panel",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "size": [ "100% - 4px", "100% - 4px" ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "structure_zoom_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
-    "controls": [
-      {
-        "structure_renderer_input_panel": {
-          "type": "input_panel",
-          "focus_enabled": true,
-          "gesture_tracking_button": "button.turn_structure",
-          "always_handle_controller_direction": true,
-          "size": [ "100% - 12px", "100% - 12px" ],
-          "button_mappings": [
-            {
-              "from_button_id": "button.menu_select",
-              "to_button_id": "button.turn_structure",
-              "mapping_type": "pressed",
-              "button_up_right_of_first_refusal": true
-            }
-          ],
-          "bindings": [
-            {
-              "binding_name": "#structure_renderer_visible",
-              "binding_name_override": "#visible"
-            }
-          ],
-          "controls": [
-            {
-              "renderer": {
-                "type": "custom",
-                "renderer": "3d_structure_renderer",
-                "property_bag": {
-                  "#has_focus": false,
-                  "#block_position": [ 0, 0, 0 ],
-                  "#bottom_left_block": [ 0, 0, 0 ],
-                  "#top_right_block": [ 1, 1, 1 ],
-                  "#include_entities": false,
-                  "#remove_blocks": false,
-                  "#include_players": false
-                },
-                "anims": [
-                  "@common.screen_exit_size_animation_push",
-                  "@common.screen_exit_size_animation_pop"
-                ],
-                "bindings": [
-                  {
-                    "binding_name": "#has_focus",
-                    "binding_condition": "visible"
-                  },
-                  {
-                    "binding_name": "#block_position",
-                    "binding_condition": "visible"
-                  },
-                  {
-                    "binding_name": "#bottom_left_block",
-                    "binding_condition": "visible"
-                  },
-                  {
-                    "binding_name": "#top_right_block",
-                    "binding_condition": "visible"
-                  },
-                  {
-                    "binding_name": "#include_entities",
-                    "binding_condition": "visible"
-                  },
-                  {
-                    "binding_name": "#remove_blocks",
-                    "binding_condition": "visible"
-                  },
-                  {
-                    "binding_name": "#include_players",
-                    "binding_condition": "visible"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "structure_renderer",
-                    "source_property_name": "#gesture_delta_source",
-                    "target_property_name": "#gesture_delta_source"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "structure_renderer",
-                    "source_property_name": "#gesture_mouse_delta_x",
-                    "target_property_name": "#gesture_mouse_delta_x"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "structure_renderer",
-                    "source_property_name": "#gesture_mouse_delta_y",
-                    "target_property_name": "#gesture_mouse_delta_y"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------
   // Screen
   //---------------------------------------------------------------------------
 
@@ -895,7 +782,9 @@
           "size": [ "100% - 12px", 10 ]
         }
       },
-      { "padding@padding_vertical_4": {} },
+      {
+        "padding@padding_vertical_4": {}
+      },
       {
         "paragraph_2_corner": {
           "type": "label",
@@ -906,12 +795,6 @@
           "size": [ "100% - 12px", "default" ]
         }
       }
-    ]
-  },
-
-  "structure_editor_content": {
-    "controls": [
-      { "fullscreen_header@fullscreen_header": {} }
     ]
   },
 
