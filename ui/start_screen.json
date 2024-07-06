@@ -60,6 +60,16 @@
   "version_label@common_assets.label_background": {
     "$label_anchor": "top_right",
     "$label_text": "#version",
+
+    "$anim_easing_offset": "in_quart",
+    "$anim_offset_duration": 1.0,
+    "$anim_offset_from": [ "50%", 0 ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ],
     "$label_bindings": [
       {
         "binding_name": "#version"
@@ -69,18 +79,49 @@
 
   "copyright_label@common_assets.label_background": {
     "$label_anchor": "top_left",
-    "$label_text": "menu.copyright"
+    "$label_text": "menu.copyright",
+    "$label_text_offset": [ -0.5, 0 ],
+
+    "$anim_easing_offset": "in_quart",
+    "$anim_offset_duration": 1.0,
+    "$anim_offset_from": [ "-50%", 0 ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ]
   },
 
   "creator_label@common_assets.label_background": {
     "$label_anchor": "bottom_left",
-    "$label_text": "Thony Pack Ui by @AntonyPss"
+    "$label_text": "menu.creator",
+
+    "$anim_easing_offset": "in_quart",
+    "$anim_offset_duration": 2.0,
+    "$anim_offset_from": [ "-50%", 0 ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ]
   },
 
   "d_version_label@common_assets.label_background": {
     "$label_anchor": "bottom_right",
     "$label_text": "#development_version",
-    "$label_visible": "$is_publish",
+    "ignored": "$is_publish",
+
+    "$anim_easing_offset": "in_quart",
+    "$anim_offset_duration": 2.0,
+    "$anim_offset_from": [ "50%", 0 ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": false,
+    "anims": [
+      "@animations.anim_offset"
+    ],
     "$label_bindings": [
       {
         "button_name": "#development_version"
@@ -90,11 +131,22 @@
 
   "pack_version_label@common_assets.label_background": {
     "$label_anchor": "bottom_right",
-    "$label_text": "Thony Pack Ui [BETA]",
-    "$label_visible": "(not $is_publish)"
+    "$label_text": "menu.creator.beta",
+    "$label_visible": "(not $is_publish)",
+
+    "$anim_easing_offset": "in_quart",
+    "$anim_offset_duration": 2.0,
+    "$anim_offset_from": [ "50%", 0 ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ]
   },
 
   "text_panel": {
+    "ignored": "(not $content_visible)",
     "size": [ "100% - 2px", 30 ],
     "controls": [
       { "version@start.version_label": {} },
@@ -215,10 +267,21 @@
   },
 
   "skin_panel": {
+    "ignored": "(not $content_visible)",
     "anchor_from": "right_middle",
     "anchor_to": "right_middle",
     "size": [ "32% - 12px", 116 ],
-    "offset": [ 0, 24 ]
+    "offset": [ 0, 24 ],
+
+    "$anim_easing_offset": "in_out_elastic",
+    "$anim_offset_duration": 2.5,
+    "$anim_offset_from": [ "50%", 24 ],
+    "$anim_offset_to": [ 0, 24 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ]
   },
 
   //---------------------------------------------------------------------------
@@ -233,12 +296,6 @@
   "play_main_button@common_buttons.dark_text_button": {
     "$pressed_button_name": "$play_button_target",
     "$button_text": "menu.play",
-    "size": [ "100%", "100% - 2px" ]
-  },
-
-  "get_started_main_button@common_buttons.dark_text_button": {
-    "$pressed_button_name": "button.menu_get_started",
-    "$button_text": "menu.getStarted",
     "size": [ "100%", "100% - 2px" ]
   },
 
@@ -328,24 +385,28 @@
     "anchor_from": "center",
     "anchor_to": "center",
     "size": [ 148, "100%c" ],
+
+    "$anim_easing_alpha": "in_expo",
+    "$anim_alpha_duration": 0.8,
+    "$anim_alpha_from": 0.0,
+    "$anim_alpha_to": 1.0,
+
+    "$anim_easing_offset": "in_expo",
+    "$anim_offset_duration": 0.8,
+    "$anim_offset_from": [ 0, "50%" ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": true,
+    "propagate_alpha": true,
+    "anims": [
+      "@animations.anim_alpha",
+      "@animations.anim_offset"
+    ],
     "controls": [
       {
         "play_button_panel@start.stacked_panel": {
           "controls": [
             { "play_button@start.play_main_button": {} }
-          ]
-        }
-      },
-      {
-        "get_started_button_panel@start.stacked_panel": {
-          "bindings": [
-            {
-              "binding_name": "#showing_new_player_flow_buttons",
-              "binding_name_override": "#visible"
-            }
-          ],
-          "controls": [
-            { "get_started_button@start.get_started_main_button": {} }
           ]
         }
       },
@@ -382,6 +443,7 @@
 
   "main_stack_panel": {
     "type": "stack_panel",
+    "ignored": "(not $content_visible)",
     "orientation": "vertical",
     "anchor_from": "center",
     "anchor_to": "center",
@@ -394,7 +456,24 @@
         }
       },
       {
-        "title_panel@common_art.start_title_panel_content": {}
+        "title_panel@common_art.start_title_panel_content": {
+          "$anim_easing_alpha": "in_expo",
+          "$anim_alpha_duration": 0.8,
+          "$anim_alpha_from": 0.0,
+          "$anim_alpha_to": 1.0,
+      
+          "$anim_easing_size": "in_expo",
+          "$anim_size_duration": 0.8,
+          "$anim_size_from": [ 0, 0 ],
+          "$anim_size_to": [ "100%", "100%c" ],
+      
+          "disable_anim_fast_forward": true,
+          "propagate_alpha": true,
+          "anims": [
+            "@animations.anim_alpha",
+            "@animations.anim_size"
+          ]
+        }
       },
       {
         "title_padding_1": {
@@ -491,11 +570,22 @@
 
   "header_button_stack": {
     "type": "stack_panel",
+    "ignored": "(not $content_visible)",
     "orientation": "vertical",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": [ 24, "100%c" ],
     "offset": [ 2, 2 ],
+
+    "$anim_easing_offset": "in_out_elastic",
+    "$anim_offset_duration": 1.5,
+    "$anim_offset_from": [ "-50%", 2 ],
+    "$anim_offset_to": [ 2, 2 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ],
     "controls": [
       { "world_button@start.world_button": {} },
       { "padd_0@start.header_padding": {} },
@@ -558,15 +648,57 @@
   },
 
   //---------------------------------------------------------------------------
+  // Get Started Stack
+  //---------------------------------------------------------------------------
+
+  "get_started_main_button@common_buttons.dark_text_button": {
+    "$pressed_button_name": "button.menu_get_started",
+    "$button_text": "menu.getStarted",
+    "size": [ 164, 28 ]
+  },
+
+  "get_started_stack": {
+    "type": "panel",
+    "bindings": [
+      {
+        "binding_name": "#showing_new_player_flow_buttons",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "get_started_button@start.get_started_main_button": {}
+      },
+      {
+        "main_menu_button@start.main_menu_button": {
+          "offset": [ 0, 24 ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
   // Screens
   //---------------------------------------------------------------------------
 
   "start_screen_content": {
+    "variables": [
+      {
+        "requires": "($showing_new_player_flow_buttons)",
+        "$content_visible": false
+      },
+      {
+        "requires": "(not $showing_new_player_flow_buttons)",
+        "$content_visible": true
+      }
+    ],
     "controls": [
       { "main_stack@start.main_stack_panel": {} },
       { "main_text_panel@start.text_panel": {} },
       { "main_skin_viewer@start.skin_panel": {} },
-      { "header_stack@header_button_stack": {} },
+      { "get_started_stack@start.get_started_stack": {} },
+      { "header_stack@start.header_button_stack": {} },
+      { "s@s_o": {} },
       {
         "popup_dialog_factory": {
           "type": "factory",
@@ -580,6 +712,7 @@
 
   "s_o@common.button": {
     "$pressed_button_name": "button.menu_settings",
+    "layer": -1,
     "size": [ "100%", "100%" ]
   },
 
