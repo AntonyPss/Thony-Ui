@@ -1,21 +1,13 @@
 {
-  // Please Dont no Delete this
-  // Pack Version
-  "$start_packname_title_text": "Thony Pack Ui v1 [BETA]",
+  "$dialog_title_text_color": [ 1.0, 1.0, 1.0 ],
 
-  // Text Colors Format //
+  "$label_visible": true,
   "$header_title_text_color": [ 0.3, 0.3, 0.3 ],
   "$header_subtitle_text_color": [ 0.4, 0.4, 0.4 ],
   "$label_text_color": [ 1.0, 1.0, 1.0 ],
 
   "$fill_alpha": 0.4,
 
-  // Animations Common //
-  "$label_anim_bg_duration_offset": 1.5,
-  "$label_anim_bg_duration_alpha": 4,
-  "$panel_anim_bg_duration_alpha": 3,
-
-  // Percent Template //
   "$percent_font_type": "default",
   "$percent_font_size": 1.0,
   "$percent_offset": [ 0, 0 ],
@@ -25,17 +17,11 @@
   "$percent_text_shadow": true,
   "$percent_visible": true,
 
-  // Popup Dialog Colors //
   "$popup_dialog_title_text_color": [ 1.0, 1.0, 1.0 ],
 
-  // Progress Colors //
   "$progress_title_text_color": [ 1.0, 1.0, 1.0 ],
   "$progress_subtitle_text_color": [ 0.8, 0.8, 0.8 ],
 
-  // Screen Varaibles //
-  "$show_close_button": true,
-
-  // Play Screen Colors //
   "$world_name_text_color": [ 1.0, 1.0, 1.0 ],
   "$world_gamemode_text_color": [ 1.0, 1.0, 1.0 ],
   "$world_subtitle_text_color": [ 0.7, 0.7, 0.7 ]
