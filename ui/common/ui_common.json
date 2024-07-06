@@ -1,6 +1,60 @@
 {
   "namespace": "common_assets",
 
+  //---------------------------------------------------------------------------
+  // Toggle With Description Section
+  //---------------------------------------------------------------------------
+
+  "toggle_with_info_panel": {
+    "type": "stack_panel",
+
+    "$one_line_layout|default": true,
+    "$option_description_text|default": "",
+    "$option_description_font|default": "smooth",
+    "$option_description_shadow|default": false,
+    "$option_toggle_bindings|default": [],
+
+    "size": [ "100%", "100%c" ],
+    "controls": [
+      {
+        "option_toggle_control@settings_common.option_toggle": {
+          "bindings": "$option_toggle_bindings"
+        }
+      },
+      {
+        "option_toggle_description_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%c" ],
+          "controls": [
+            {
+              "option_toggle_description_label": {
+                "type": "label",
+                "text": "$option_description_text",
+                "font_type": "$option_description_font",
+                "layer": 4,
+                "locked_alpha": 0.6,
+                "shadow": "$option_description_shadow",
+                "color": "$place_holder_text_color",
+                "size": [ "100%", "default" ],
+                "bindings": "$option_toggle_bindings"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "paddding": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Section
+  //---------------------------------------------------------------------------
+
   "custom_place_holder_control": {
     "type": "panel",
     "size": [ "100%", "100%c" ],
@@ -294,11 +348,22 @@
   "label_section_divider": {
     "type": "panel",
     "size": [ "100%", 24 ],
+
+    "$label_background|default": "textures/ui/Black",
+    "$label_anchor|default": "center",
+    "$label_text|default": "#none",
+    "$label_bindings|default": [],
+    "$label_text_bindings|default": [],
+    "$label_text_size|default": [ "default", 10 ],
+    "$label_text_offset|default": [ 0, 0 ],
+    "$label_color|default": "$body_text_color",
+    "$label_background_size|default": [ "100%c + 8px", 14 ],
     "controls": [
       {
-        "panel": {
+        "labe_panel": {
           "type": "stack_panel",
           "orientation": "horizontal",
+          "ignored": "(not $label_visible)",
           "anchor_from": "center",
           "anchor_to": "center",
           "size": [ "100% - 2px", "100%cm" ],
@@ -306,7 +371,6 @@
             {
               "label_section_title": {
                 "type": "image",
-                "ignored": "$label_visible",
                 "texture": "$label_background",
                 "anchor_from": "$label_anchor",
                 "anchor_to": "$label_anchor",
@@ -314,15 +378,6 @@
                 "alpha": 0.6,
                 "size": "$label_background_size",
                 "bindings": "$label_bindings",
-            
-                "$label_background|default": "textures/ui/Black",
-                "$label_anchor|default": "center",
-                "$label_text|default": "#none",
-                "$label_visible|default": false,
-                "$label_bindings|default": [],
-                "$label_text_bindings|default": [],
-                "$label_color|default": "$body_text_color",
-                "$label_background_size|default": [ "100%c + 8px", 14 ],
                 "controls": [
                   {
                     "label_title": {
@@ -332,6 +387,7 @@
                       "shadow": true,
                       "color": "$label_color",
                       "size": [ "default", 10 ],
+                      "offset": "$label_text_offset",
                       "bindings": "$label_text_bindings"
                     }
                   }
@@ -370,7 +426,7 @@
 
   "label_background": {
     "type": "image",
-    "ignored": "$label_visible",
+    "ignored": "(not $label_visible)",
     "texture": "$label_background",
     "anchor_from": "$label_anchor",
     "anchor_to": "$label_anchor",
@@ -382,7 +438,8 @@
     "$label_anchor|default": "center",
     "$label_text_anchor|default": "center",
     "$label_text|default": "#none",
-    "$label_visible|default": false,
+    "$label_text_size|default": [ "default", 10 ],
+    "$label_text_offset|default": [ 0, 0 ],
     "$label_bindings|default": [],
     "$label_color|default": "$body_text_color",
     "$label_background_size|default": [ "100%c + 6px", 14 ],
@@ -396,7 +453,8 @@
           "layer": 4,
           "shadow": true,
           "color": "$label_color",
-          "size": [ "default", 10 ],
+          "size": "$label_text_size",
+          "offset": "$label_text_offset",
           "bindings": "$label_bindings"
         }
       }
@@ -414,9 +472,10 @@
     "size": [ "100%", "100%cm + 4px" ],
     "bindings": "$label_bindings",
 
-    "$label_visible|default": false,
     "$label_anchor|default": "center",
     "$label_text|default": "#none",
+    "$label_text_size|default": [ "100% - 8px", "default" ],
+    "$label_text_offset|default": [ 0, 0 ],
     "$label_bindings|default": [],
     "$label_text_bindings|default": [],
     "controls": [
@@ -434,7 +493,8 @@
                 "layer": 4,
                 "shadow": true,
                 "color": "$main_header_text_color",
-                "size": [ "100% - 8px", "default" ],
+                "size": "$label_text_size",
+                "offset": "$label_text_offset",
                 "bindings": "$label_text_bindings"
               }
             }
@@ -451,6 +511,7 @@
   "label_background_with_buttons": {
     "type": "image",
     "texture": "textures/ui/Black",
+    "ignored": "(not $label_visible)",
     "anchor_from": "$label_anchor",
     "anchor_to": "$label_anchor",
     "layer": 2,
