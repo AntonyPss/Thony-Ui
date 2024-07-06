@@ -5,68 +5,28 @@
   // Toggles Section
   //---------------------------------------------------------------------------
 
-  "toggle_with_info_panel": {
-    "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
-    "$option_info_bindings|default": [],
-    "controls": [
-      {
-        "option_toggle@settings_common.option_toggle": {
-          "$one_line_layout": true,
-          "bindings": "$option_info_bindings"
-        }
-      },
-      {
-        "option_info": {
-          "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-            {
-              "option_label": {
-                "type": "label",
-                "text": "$option_description",
-                "font_type": "smooth",
-                "layer": 4,
-                "locked_alpha": 0.6,
-                "color": "$place_holder_text_color",
-                "size": [ "100%", "default" ],
-                "bindings": "$option_info_bindings"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "pad1": {
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      }
-    ]
-  },
-
-  "toggle_mute_all_chat@chat_settings.toggle_with_info_panel": {
+  "toggle_mute_all_chat@common_assets.toggle_with_info_panel": {
     "$option_label": "chat.settings.muteAll",
-    "$option_description": "chat.settings.muteAll.description",
+    "$option_description_text": "chat.settings.muteAll.description",
     "$option_binding_name": "#hide_chat",
     "$toggle_name": "hide_chat",
     "$focus_id": "mute_all_toggle_focus_id",
     "$focus_override_up": "reset_button_focus_id"
   },
 
-  "toggle_mute_emote_chat@chat_settings.toggle_with_info_panel": {
+  "toggle_mute_emote_chat@common_assets.toggle_with_info_panel": {
     "$option_label": "chat.settings.muteEmotes",
-    "$option_description": "chat.settings.muteEmotes.description",
+    "$option_description_text": "chat.settings.muteEmotes.description",
     "$option_binding_name": "#toggle_emote_chat",
     "$toggle_name": "toggle_emote_chat"
   },
 
-  "toggle_chat_tts@chat_settings.toggle_with_info_panel": {
+  "toggle_chat_tts@common_assets.toggle_with_info_panel": {
     "$option_label": "chat.settings.tts",
-    "$option_description": "chat.settings.tts.description",
+    "$option_description_text": "chat.settings.tts.description",
     "$option_binding_name": "#toggle_tss",
     "$toggle_name": "toggle_tts",
-    "$option_info_bindings": [
+    "$option_toggle_bindings": [
       {
         "binding_name": "(not #hide_chat)",
         "binding_name_override": "#enabled"
@@ -82,7 +42,7 @@
     "type": "image",
     "texture": "textures/ui/refresh_light",
     "layer": 2,
-    "size": [ 15, 16 ]
+    "size": [ 14, 15 ]
   },
 
   "restart_button@common_buttons.dark_text_button": {
@@ -127,7 +87,7 @@
 
   "chat_settings_scrolling_content": {
     "type": "stack_panel",
-    "size": [ "100%", "100%c" ],
+
     "$default_texture": "textures/ui/button_borderless_dark",
     "$hover_texture": "textures/ui/button_borderless_darkhover",
     "$pressed_texture": "textures/ui/button_borderless_darkhover",
@@ -140,6 +100,8 @@
     "$hover_text_color": "$dark_toggle_default_text_color",
     "$default_checked_text_color": "$dark_toggle_default_text_color",
     "$hover_checked_text_color": "$dark_toggle_default_text_color",
+    
+    "size": [ "100%", "100%c" ],
     "controls": [
       { "toggle_0@toggle_mute_all_chat": {} },
       { "toggle_1@toggle_mute_emote_chat": {} },
@@ -191,7 +153,17 @@
           "$text_name": "chat.settings",
           "$child_control": "chat_settings.chat_setting_scrolling_panel",
           "$button_panel": "chat_settings.close_button",
-          "size": [ 172, "100%" ]
+          "size": [ 172, "100%" ],
+
+          "$anim_easing_offset": "in_expo",
+          "$anim_offset_duration": 0.4,
+          "$anim_offset_from": [ "50%", 0 ],
+          "$anim_offset_to": [ 0, 0 ],
+
+          "disable_anim_fast_forward": true,
+          "anims": [
+            "@animations.anim_offset"
+          ]
         }
       }
     ]
