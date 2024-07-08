@@ -92,7 +92,15 @@
 					"anchor_from": "top_left",
 					"anchor_to": "top_left",
 					"size": [ "100%c", "100%" ],
-					"offset": [ 20, -2 ],
+
+					"$anim_easing_offset": "in_out_elastic",
+					"$anim_offset_duration": 1.0,
+					"$anim_offset_from": [ "-16%", 0 ],
+					"$anim_offset_to": [ 0, 0 ],
+			
+					"anims": [
+						"@animations.anim_offset"
+					],
 					"controls": [
 						{
 							"chat_icon": {
@@ -101,7 +109,8 @@
 								"anchor_from": "center",
 								"anchor_to": "center",
 								"layer": 3,
-								"size": [ 18, 16 ]
+								"size": [ 18, 16 ],
+								"offset": [ 20, -2 ]
 							}
 						}
 					]
@@ -112,21 +121,27 @@
 					"type": "panel",
 					"anchor_from": "left_middle",
 					"anchor_to": "left_middle",
-					"size": [ "default", "default" ],
-					"offset": [ 0, 0 ],
+					"size": [ "100%c", "100%" ],
+
+					"$anim_easing_offset": "in_out_elastic",
+					"$anim_offset_duration": 1.0,
+					"$anim_offset_from": [ "-40%", 0 ],
+					"$anim_offset_to": [ 0, 0 ],
+			
+					"anims": [
+						"@animations.anim_offset"
+					],
 					"controls": [
 						{
 							"title_text": {
 								"type": "label",
 								"text": "chat.title.cheats",
-								"font_scale_factor": 1.28,
+								"font_scale_factor": 1.4,
 								"font_type": "MinecraftTen",
-								"anchor_from": "left_middle",
-								"anchor_to": "left_middle",
 								"layer": 4,
 								"color": "$header_title_text_color",
-								"size": [ "default", 16 ],
-								"offset": [ 42, -2 ]
+								"size": [ "default", 18 ],
+								"offset": [ 42, -1.6 ]
 							}
 						}
 					]
@@ -146,6 +161,15 @@
 					"anchor_from": "right_middle",
 					"anchor_to": "right_middle",
 					"size": [ "100%cm", "100%c" ],
+
+					"$anim_easing_offset": "in_out_elastic",
+					"$anim_offset_duration": 1.0,
+					"$anim_offset_from": [ "60%", 0 ],
+					"$anim_offset_to": [ 0, 0 ],
+			
+					"anims": [
+						"@animations.anim_offset"
+					],
 					"controls": [
 						{
 							"coordinates@chat_panel.coordinates_stack_panel": {
@@ -193,6 +217,7 @@
 
 		"$default_texture": "textures/ui/button_borderless_light",
 		"$hover_texture": "textures/ui/button_borderless_light",
+		"$pressed_texture": "textures/ui/button_borderless_lighthover",
     "controls": [
       {
         "player_position@common_toggles.light_text_toggle": {

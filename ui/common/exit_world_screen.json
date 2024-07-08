@@ -6,79 +6,70 @@
   //---------------------------------------------------------------------------
 
   "info_text_panel": {
-    "type": "panel",
+    "type": "stack_panel",
     "anchor_from": "top_middle",
-    "anchor_to":  "top_middle",
-    "size": [ "100% - 4px", "100% - 4px" ],
-    "offset": [ 0, 2 ],
+    "anchor_to": "top_middle",
+    "size": [ "100%", "100%c" ],
     "controls": [
       {
-        "stack_panel": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%" ],
+        "confirm_leave_text": {
+          "type": "label",
+          "text": "deathScreen.quit.secondaryClient.confirmLeaveWarning",
+          "font_type": "smooth",
+          "layer": 2,
+          "color": "$body_text_color",
+          "size": [ "100%", "default" ]
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ 0, 2 ]
+        }
+      },
+      {
+        "world_name_stack": {
+          "type": "panel",
+          "size": [ "100%", "100%cm" ],
           "controls": [
             {
-              "confirm_leave_text": {
-                "type": "label",
-                "text": "deathScreen.quit.secondaryClient.confirmLeaveWarning",
-                "font_type": "smooth",
-                "layer": 2,
-                "alpha": 0.8,
-                "color": "$body_text_color",
-                "size": [ "100%", "default" ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 0, 2 ]
-              }
-            },
-            {
-              "world_name_stack": {
-                "type": "panel",
-                "size": [ "100%", "100%cm" ],
+              "world_name_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "size": [ "100%c - 4px", "100%cm" ],
                 "controls": [
                   {
-                    "world_name_panel": {
-                      "type": "stack_panel",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "size": [ "100% - 4px", "100%c" ],
-                      "controls": [
+                    "world_name": {
+                      "type": "label",
+                      "text": "confirmLeaveWarning.worldName.title",
+                      "font_type": "smooth",
+                      "layer": 2,
+                      "color": "$body_text_color",
+                      "size": [ "default", 10 ]
+                    }
+                  },
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [ 4, 0 ]
+                    }
+                  },
+                  {
+                    "world_name_text": {
+                      "type": "label",
+                      "text": "#text",
+                      "font_type": "smooth",
+                      "layer": 2,
+                      "alpha": 0.8,
+                      "localize": false,
+                      "color": "$body_text_color",
+                      "size": [ "default", "default" ],
+                      "bindings": [
                         {
-                          "padding": {
-                            "type": "panel",
-                            "size": [ 0, 4 ]
-                          }
-                        },
-                        {
-                          "world_name": {
-                            "type": "label",
-                            "text": "confirmLeaveWarning.worldName.title",
-                            "font_type": "smooth",
-                            "layer": 2,
-                            "color": "$body_text_color",
-                            "size": [ "100%", 12 ]
-                          }
-                        },
-                        {
-                          "world_name_text": {
-                            "type": "label",
-                            "text": "#text",
-                            "font_type": "smooth",
-                            "layer": 2,
-                            "alpha": 0.8,
-                            "localize": false,
-                            "color": "$body_text_color",
-                            "size": [ "100%", "default" ],
-                            "bindings": [
-                              {
-                                "binding_name": "#worldname",
-                                "binding_name_override": "#text"
-                              }
-                            ]
-                          }
+                          "binding_name": "#worldname",
+                          "binding_name_override": "#text"
                         }
                       ]
                     }
@@ -109,6 +100,7 @@
       },
       {
         "accept_button@common_buttons.dark_text_button": {
+          "$hover_button_texture": "textures/ui/button_red",
           "$pressed_button_name": "button.menu_quit",
           "$button_text": "gui.accept",
           "size": [ "50%", "100%" ]
@@ -136,7 +128,6 @@
     "controls": [
       {
         "main@common_dialogs.main_panel_one_button": {
-          "$dialog_background_image": "textures/ui/hud_tip_text_background",
           "$fill_alpha": 0.6,
           "$show_close_button": false,
           "$text_name": "pauseScreen.header",

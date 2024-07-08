@@ -363,7 +363,6 @@
         "labe_panel": {
           "type": "stack_panel",
           "orientation": "horizontal",
-          "ignored": "(not $label_visible)",
           "anchor_from": "center",
           "anchor_to": "center",
           "size": [ "100% - 2px", "100%cm" ],
@@ -426,7 +425,6 @@
 
   "label_background": {
     "type": "image",
-    "ignored": "(not $label_visible)",
     "texture": "$label_background",
     "anchor_from": "$label_anchor",
     "anchor_to": "$label_anchor",
@@ -464,7 +462,6 @@
   "label_background_panel": {
     "type": "image",
     "texture": "textures/ui/Black",
-    "ignored": "(not $label_visible)",
     "anchor_from": "$label_anchor",
     "anchor_to": "$label_anchor",
     "layer": 2,
@@ -511,7 +508,6 @@
   "label_background_with_buttons": {
     "type": "image",
     "texture": "textures/ui/Black",
-    "ignored": "(not $label_visible)",
     "anchor_from": "$label_anchor",
     "anchor_to": "$label_anchor",
     "layer": 2,
