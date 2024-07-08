@@ -6,207 +6,200 @@
   //---------------------------------------------------------------------------
 
   "background_with_panel": {
-    "type": "panel",
-    "size": [ "100%", "100%" ],
+    "type": "image",
+    "texture": "$background_texture",
+    "$background_texture|default": "textures/ui/Black",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "layer": 2,
+    "alpha": 0.7,
+    "color": "$background_color",
+    "$background_color|default": [ 0.0, 0.0, 0.0 ],
+    "size": [ "100%", "100%c" ],
     "controls": [
       {
-        "background_image": {
-          "type": "image",
-          "texture": "$background_texture",
-          "$background_texture|default": "textures/ui/Black",
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "layer": 2,
-          "alpha": 0.7,
-          "color": "$background_color",
-          "$background_color|default": [ 0.0, 0.0, 0.0 ],
+        "stack_panel_content": {
+          "type": "stack_panel",
           "size": [ "100%", "100%c" ],
           "controls": [
             {
-              "stack_panel_content": {
+              "title_text_stack": {
                 "type": "stack_panel",
-                "size": [ "100%", "100%c" ],
+                "orientation": "horizontal",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [ "100% - 4px", 16 ],
                 "controls": [
                   {
-                    "title_text_stack": {
-                      "type": "stack_panel",
-                      "orientation": "horizontal",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "size": [ "100% - 4px", 16 ],
-                      "controls": [
-                        {
-                          "p0": {
-                            "type": "panel",
-                            "size": [ 4, 0 ]
-                          }
-                        },
-                        {
-                          "title_text_panel": {
-                            "type": "panel",
-                            "size": [ "100%c", "100%" ],
-                            "controls": [
-                              {
-                                "title_text_visible": {
-                                  "type": "label",
-                                  "text": "#text",
-                                  "font_type": "MinecraftTen",
-                                  "font_scale_factor": 1.2,
-                                  "layer": 4,
-                                  "shadow": true,
-                                  "color": "$progress_title_text_color",
-                                  "size": [ "default", 14 ],
-                                  "bindings": [
-                                    {
-                                      "binding_name": "#title_text",
-                                      "binding_name_override": "#text"
-                                    }
-                                  ]
-                                }
-                              },
-                              {
-                                "title_text_hide": {
-                                  "type": "label",
-                                  "text": "progressScreen.message.waitingForRealms",
-                                  "font_type": "MinecraftTen",
-                                  "font_scale_factor": 1.2,
-                                  "layer": 4,
-                                  "shadow": true,
-                                  "color": "$progress_title_text_color",
-                                  "size": [ "default", 14 ],
-                                  "bindings": [
-                                    {
-                                      "binding_name": "(not #title_text)",
-                                      "binding_name_override": "#visible"
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        },
-                        {
-                          "padding": {
-                            "type": "panel",
-                            "size": [ "fill", 0 ]
-                          }
-                        },
-                        {
-                          "percent_label@percent_template.percent_template": {
-                            "$binding_name": "#loading_bar_current_amount",
-                            "$total": "#loading_bar_total_amount",
-                            "$current": "#loading_bar_current_amount",
-                            "$reverser_percent_count": true,
-                            "$percent_font_type": "MinecraftTen",
-                            "$percent_font_size": 1.2,
-                            "size": [ "default", 14 ],
-                            "$percent_bindings": [
-                              {
-                                "binding_name": "$total"
-                              },
-                              {
-                                "binding_name": "$current"
-                              },
-                              {
-                                "binding_type": "view",
-                                "source_property_name": "(((($current / $total) > $min) and (($current / $total) < $max)) or (($current / $total) = $max))",
-                                "target_property_name": "#visible"
-                              }
-                            ]
-                          }
-                        }
-                      ]
+                    "p0": {
+                      "type": "panel",
+                      "size": [ 4, 0 ]
                     }
                   },
                   {
-                    "description_panel": {
+                    "title_text_panel": {
                       "type": "panel",
-                      "size": [ "100%", "100%c + 4px" ],
+                      "size": [ "100%c", "100%" ],
                       "controls": [
                         {
-                          "description_text": {
+                          "title_text_visible": {
                             "type": "label",
                             "text": "#text",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
+                            "font_type": "MinecraftTen",
+                            "font_scale_factor": 1.2,
                             "layer": 4,
                             "shadow": true,
-                            "color": "$progress_subtitle_text_color",
-                            "size": [ "100% - 8px", "default" ],
+                            "color": "$progress_title_text_color",
+                            "size": [ "default", 14 ],
                             "bindings": [
                               {
-                                "binding_name": "#progress_text",
+                                "binding_name": "#title_text",
                                 "binding_name_override": "#text"
                               }
                             ]
                           }
+                        },
+                        {
+                          "title_text_hide": {
+                            "type": "label",
+                            "text": "progressScreen.message.waitingForRealms",
+                            "font_type": "MinecraftTen",
+                            "font_scale_factor": 1.2,
+                            "layer": 4,
+                            "shadow": true,
+                            "color": "$progress_title_text_color",
+                            "size": [ "default", 14 ],
+                            "bindings": [
+                              {
+                                "binding_name": "(not #title_text)",
+                                "binding_name_override": "#visible"
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
                   },
                   {
-                    "creator_and_cancel_stack": {
-                      "type": "stack_panel",
-                      "orientation": "horizontal",
-                      "size": [ "100%", 24 ],
+                    "padding": {
+                      "type": "panel",
+                      "size": [ "fill", 0 ]
+                    }
+                  },
+                  {
+                    "percent_label@percent_template.percent_template": {
+                      "$binding_name": "#loading_bar_current_amount",
+                      "$total": "#loading_bar_total_amount",
+                      "$current": "#loading_bar_current_amount",
+                      "$reverser_percent_count": true,
+                      "$percent_font_type": "MinecraftTen",
+                      "$percent_font_size": 1.2,
+                      "size": [ "default", 14 ],
+                      "$percent_bindings": [
+                        {
+                          "binding_name": "$total"
+                        },
+                        {
+                          "binding_name": "$current"
+                        },
+                        {
+                          "binding_type": "view",
+                          "source_property_name": "(((($current / $total) > $min) and (($current / $total) < $max)) or (($current / $total) = $max))",
+                          "target_property_name": "#visible"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "description_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%c + 4px" ],
+                "controls": [
+                  {
+                    "description_text": {
+                      "type": "label",
+                      "text": "#text",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "font_type": "smooth",
+                      "layer": 4,
+                      "shadow": true,
+                      "color": "$progress_subtitle_text_color",
+                      "size": [ "100% - 8px", "default" ],
+                      "bindings": [
+                        {
+                          "binding_name": "#progress_text",
+                          "binding_name_override": "#text"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "creator_and_cancel_stack": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 24 ],
+                "controls": [
+                  {
+                    "creator_panel": {
+                      "type": "panel",
+                      "size": [ "100%c", "100%" ],
                       "controls": [
                         {
-                          "creator_panel": {
-                            "type": "panel",
-                            "size": [ "100%c", "100%" ],
-                            "controls": [
-                              {
-                                "creator_label": {
-                                  "type": "label",
-                                  "text": "menu.creator.name",
-                                  "anchor_from": "bottom_left",
-                                  "anchor_to": "bottom_left",
-                                  "font_type": "smooth",
-                                  "font_scale_factor": 0.8,
-                                  "layer": 4,
-                                  "color": "$main_header_text_color",
-                                  "size": [ "default", 8 ],
-                                  "offset": [ 2, -10 ]
-                                }
-                              },
-                              {
-                                "creator_info": {
-                                  "type": "label",
-                                  "text": "menu.creator.info",
-                                  "anchor_from": "bottom_left",
-                                  "anchor_to": "bottom_left",
-                                  "font_type": "smooth",
-                                  "font_scale_factor": 0.8,
-                                  "layer": 4,
-                                  "color": "$main_header_text_color",
-                                  "size": [ "default", 8 ],
-                                  "offset": [ 2, -2 ]
-                                }
-                              }
-                            ]
+                          "creator_label": {
+                            "type": "label",
+                            "text": "menu.creator.name",
+                            "anchor_from": "bottom_left",
+                            "anchor_to": "bottom_left",
+                            "font_type": "smooth",
+                            "font_scale_factor": 0.8,
+                            "layer": 4,
+                            "color": "$main_header_text_color",
+                            "size": [ "default", 8 ],
+                            "offset": [ 2, -10 ]
                           }
                         },
                         {
-                          "padding": {
-                            "type": "panel",
-                            "size": [ "fill", 0 ]
+                          "creator_info": {
+                            "type": "label",
+                            "text": "menu.creator.info",
+                            "anchor_from": "bottom_left",
+                            "anchor_to": "bottom_left",
+                            "font_type": "smooth",
+                            "font_scale_factor": 0.8,
+                            "layer": 4,
+                            "color": "$main_header_text_color",
+                            "size": [ "default", 8 ],
+                            "offset": [ 2, -2 ]
                           }
-                        },
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [ "fill", 0 ]
+                    }
+                  },
+                  {
+                    "button_panel": {
+                      "type": "panel",
+                      "size": [ "100%c", "100%" ],
+                      "$modal_button_panel|default": "progress.cancel_button",
+                      "controls": [
                         {
-                          "button_panel": {
-                            "type": "panel",
-                            "size": [ "100%c", "100%" ],
-                            "$modal_button_panel|default": "progress.cancel_button",
-                            "controls": [
-                              {
-                                "button_template@$modal_button_panel": {
-                                  "anchor_from": "bottom_right",
-                                  "anchor_to": "bottom_right",
-                                  "size": [ 132, 20 ],
-                                  "offset": [ -2, -2 ]
-                                }
-                              }
-                            ]
+                          "button_template@$modal_button_panel": {
+                            "anchor_from": "bottom_right",
+                            "anchor_to": "bottom_right",
+                            "size": [ 132, 20 ],
+                            "offset": [ -2, -2 ]
                           }
                         }
                       ]

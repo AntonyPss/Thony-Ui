@@ -1,12 +1,12 @@
 {
-	"namespace": "chat",
+  "namespace": "chat",
 
   //---------------------------------------------------------------------------
   // Images Section
   //---------------------------------------------------------------------------
 
   "keyboard_image": {
-		"texture": "textures/ui/chat_keyboard_hover"
+    "texture": "textures/ui/chat_keyboard_hover"
   },
 
   "previous_image": {
@@ -37,21 +37,31 @@
   // Messages Scrolling Panel
   //---------------------------------------------------------------------------
 
-	"messages_text/text": {
-		"shadow": true
-	},
+  "messages_text/text": {
+    "shadow": true
+  },
 
-	"messages_scrolling_panel": {
-		"anchor_from": "bottom_middle",
-		"anchor_to": "bottom_middle",
-		"size": [ "100% - 4px", "100% - 50px" ],
-		"offset": [ 0, -24 ]
-	},
+  "messages_scrolling_panel": {
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
 
-	"commands_panel": {
-		"size": [ "100% - 12px", "100% - 50px" ],
-		"offset": [ 2, -24 ]
-	},
+    "$anim_easing_offset": "in_out_elastic",
+    "$anim_offset_duration": 0.5,
+    "$anim_offset_from": [ "-100%", -24 ],
+    "$anim_offset_to": [ 0, -24 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ],
+    "size": [ "100% - 4px", "100% - 50px" ],
+    "offset": [ 0, -24 ]
+  },
+
+  "commands_panel": {
+    "size": [ "100% - 12px", "100% - 50px" ],
+    "offset": [ 2, -24 ]
+  },
 
   //---------------------------------------------------------------------------
   // Bottom Panel
@@ -61,13 +71,23 @@
     "ignored": true
   },
 
-	"chat_bottom_panel": {
-		"size": [ "100%", 24 ],
-		"min_size": [ "100%", 24 ],
+  "chat_bottom_panel": {
+    "size": [ "100%", 24 ],
+    "min_size": [ "100%", 24 ],
+
+    "$anim_easing_offset": "in_expo",
+    "$anim_offset_duration": 0.4,
+    "$anim_offset_from": [ 0, "12%" ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ],
     "modifications": [
-			{
-				"control_name": "host_main_button",
-				"operation": "replace",
+      {
+        "control_name": "host_main_button",
+        "operation": "replace",
         "value": [
           {
             "host_main_button@host_options.host_main_dark_button": {
@@ -75,27 +95,27 @@
             }
           }
         ]
-			},
+      },
       {
         "control_name": "keyboard_button",
         "operation": "replace",
         "value": [
-           { "keyboard_button@chat_panel.keyboard_button": {} }
+          { "keyboard_button@chat_panel.keyboard_button": {} }
         ]
       },
       {
         "control_name": "chat_settings",
         "operation": "replace",
         "value": [
-           { "chat_settings@chat_panel.chat_settings_button": {} }
+          { "chat_settings@chat_panel.chat_settings_button": {} }
         ]
       },
       {
         "control_name": "text_box",
         "operation": "insert_before",
         "value": [
-           { "previous_button@chat.previous_button": {} },
-           { "next_button@chat.next_button": {} }
+          { "previous_button@chat.previous_button": {} },
+          { "next_button@chat.next_button": {} }
         ]
       },
       {
@@ -215,14 +235,14 @@
   // Screen
   //---------------------------------------------------------------------------
 
-	"chat_screen": {
+  "chat_screen": {
     "$header_safezone_control": "common_assets.store_top_bar_filler",
     "$header_bar_control": "common_assets.store_top_bar",
-		"$screen_content": "chat_panel.chat_screen_content",
+    "$screen_content": "chat_panel.chat_screen_content",
     "close_on_player_hurt": false
-	},
+  },
 
-	"chat_background": {
-		"alpha": 0.4
-	}
+  "chat_background": {
+    "alpha": 0.4
+  }
 }

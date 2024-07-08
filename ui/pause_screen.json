@@ -282,17 +282,22 @@
   "skin_panel": {
     "size": [ 90, "100%" ],
     "max_size": [ 96, "100%" ],
-    "offset": [ 0, "2%" ],
 
     "$anim_easing_alpha": "in_expo",
     "$anim_alpha_duration": 2.0,
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
 
+    "$anim_easing_offset": "in_out_elastic",
+    "$anim_offset_duration": 2.0,
+    "$anim_offset_from": [ "300%", "2%" ],
+    "$anim_offset_to": [ 0, "2%" ],
+
     "disable_anim_fast_forward": true,
     "propagate_alpha": true,
     "anims": [
-      "@animations.anim_alpha"
+      "@animations.anim_alpha",
+      "@animations.anim_offset"
     ]
   },
 
@@ -316,23 +321,57 @@
   // Player List Section
   //---------------------------------------------------------------------------
 
-  "player_lists": {
-    "size": [ "100%", "100%" ]
+  "player_list": {
+    "controls": [
+      { "players_grid_panel@pause.players_grid": {} },
+      {
+        "padding_1@pause.vertical_padding": {
+          "size": [ 0, 4 ]
+        }
+      },
+      { "disconnected_from_multiplayer_label_panel@pause.disconnected_from_multiplayer_label_panel": {} }
+    ]
   },
 
-  "scrolling_panel@common.scrolling_panel": {
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "$scrolling_content": "pause.player_lists",
-    "$show_background": false,
-    "$scrolling_pane_size": [ "100%", "100%" ],
-    "$scroll_size": [ 4, "100% - 4px" ],
-    "size": [ "100%", "100%" ]
+  "player_lists": {
+    "size": [ "100%", "100%c" ]
+  },
+
+  "player_grid_item": {
+    "size": [ "100%", 28 ]
+  },
+
+  "player_grid_item_content/player_button_panel": {
+    "size": [ "100%", 28 ],
+    "modifications": [
+      {
+        "control_name": "player_permission_button_padding",
+        "operation": "remove"
+      }
+    ]
+  },
+
+  "player_grid_item_content": {
+    "modifications": [
+      {
+        "control_name": "player_permission_button_panel",
+        "operation": "remove"
+      }
+    ]
+  },
+
+  "invite_icon": {
+    "type": "image",
+    "texture": "textures/ui/invite_base",
+    "layer": 2,
+    "size": [ 18, 18 ]
   },
 
   "player_list_invite_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
     "$pressed_button_name": "button.menu_invite_players",
     "$button_text": "pauseScreen.invite",
+    "$button_content": "pause.invite_icon",
     "focus_change_down": "FOCUS_OVERRIDE_STOP",
     "$focus_override_right": "FOCUS_OVERRIDE_STOP",
     "size": [ "100%", 24 ],
@@ -349,11 +388,48 @@
     ]
   },
 
+  "player_permission_button_content": {
+    "layer": 2,
+    "size": [ 12, 12 ]
+  },
+
+  "player_permission_button_content/permission_icon_image": {
+    "size": [ "100%", "100%" ]
+  },
+
+  "player_list_permission_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$pressed_button_name": "button.menu_permission",
+    "$button_text": "accessibility.pause.permissions",
+    "$button_content": "pause.player_permission_button_content",
+    "$button_tts_header": "accessibility.pause.permissions",
+    "size": [ "100%", 24 ],
+    "bindings": [
+      {
+        "binding_name": "#permissions_button_visible",
+        "binding_name_override": "#enabled"
+      },
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "players_collection"
+      }
+    ]
+  },
+
+  "player_list_scrolling_panel": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$scroll_track_size": [ 4, "100% - 4px" ],
+    "$scroll_track_offset": [ 0, 0 ],
+    "size": [ "100%", "100%" ],
+    "offset": [ 0, 0 ]
+  },
+
   "player_list_screen_panel": {
     "type": "panel",
 
     "$anim_easing_offset": "in_expo",
-    "$anim_offset_duration": 0.8,
+    "$anim_offset_duration": 0.5,
     "$anim_offset_from": [ "100%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
 
@@ -363,12 +439,13 @@
     "offset": "@animations.anim_offset",
     "controls": [
       {
-        "main@common_dialogs.main_panel_no_buttons": {
+        "main@common_dialogs.main_panel_two_buttons": {
+          "$fill_alpha": 0.5,
           "$show_close_button": false,
           "$text_name": "key.playerlist",
           "$child_control": "pause.player_list_scrolling_panel",
-          "$fill_alpha": 0.5,
-          "$panel_indent_size": [ "100% - 8px", "100% - 20px" ]
+          "$top_button_panel": "pause.player_list_permission_button",
+          "$bottom_button_panel": "pause.player_list_invite_button"
         }
       }
     ]
@@ -415,9 +492,9 @@
     "size": [ "100%c", 24 ],
 
     "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 1.5,
-    "$anim_offset_from": [ "-50%", -2 ],
-    "$anim_offset_to": [ 2, -2 ],
+    "$anim_offset_duration": 1.4,
+    "$anim_offset_from": [ "-25%", -4 ],
+    "$anim_offset_to": [ 4, -4 ],
 
     "disable_anim_fast_forward": true,
     "anims": [
@@ -501,23 +578,6 @@
     "anchor_from": "center",
     "anchor_to": "center",
     "size": [ 172, "100%c" ],
-
-    "$anim_easing_alpha": "in_expo",
-    "$anim_alpha_duration": 0.8,
-    "$anim_alpha_from": 0.0,
-    "$anim_alpha_to": 1.0,
-
-    "$anim_easing_offset": "in_expo",
-    "$anim_offset_duration": 0.8,
-    "$anim_offset_from": [ 0, "50%" ],
-    "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": true,
-    "propagate_alpha": true,
-    "anims": [
-      "@animations.anim_alpha",
-      "@animations.anim_offset"
-    ],
     "controls": [
       {
         "return_to_game_button_panel@pause.stacked_panel": {
@@ -615,10 +675,36 @@
       {
         "main_buttons_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c" ],
+          "size": [ "100%", "100%cm" ],
+
+          "$anim_easing_alpha": "in_expo",
+          "$anim_alpha_duration": 0.5,
+          "$anim_alpha_from": 0.0,
+          "$anim_alpha_to": 1.0,
+      
+          "$anim_easing_offset": "in_expo",
+          "$anim_offset_duration": 0.5,
+          "$anim_offset_from": [ 0, "50%" ],
+          "$anim_offset_to": [ 0, 0 ],
+      
+          "disable_anim_fast_forward": true,
+          "propagate_alpha": true,
+          "anims": [
+            "@animations.anim_alpha",
+            "@animations.anim_offset"
+          ],
           "controls": [
             {
-              "main_buttons@pause.main_buttons_panel": {}
+              "background_panel@common_assets.background_panel": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [ "100%sm + 8px", "100%sm + 8px" ]
+              }
+            },
+            {
+              "main_buttons@pause.main_buttons_panel": {
+                "layer": 2
+              }
             }
           ]
         }

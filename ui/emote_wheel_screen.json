@@ -1,30 +1,56 @@
 {
   "namespace": "persona",
 
-  "emote_wheel_screen": {
-    "$default_text_color": [ 0.7, 0.7, 0.7 ],
-    "$fill_alpha":  0.2
+  //---------------------------------------------------------------------------
+  // Images Section
+  //---------------------------------------------------------------------------
+
+  "dressing_room_icon": {
+    "type": "image",
+    "texture": "textures/ui/sidebar_icons/emotes",
+    "layer": 2,
+    "size": [ 14, 14 ]
   },
+
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
 
   "emote_wheel_touch_zone@common.button": {
     "$pressed_button_name": "button.menu_exit",
     "size": [ "100%", "100%" ]
   },
 
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+
+  "emote_wheel_screen": {
+    "$fill_alpha":  0.2
+  },
+
   "emote_wheel_screen_content/dressing_room_button_panel": {
+    "$anim_easing_offset": "in_expo",
+    "$anim_offset_duration": 1.0,
+    "$anim_offset_from": [ 0, "24%" ],
+    "$anim_offset_to": [ 0, 0 ],
+
+    "disable_anim_fast_forward": true,
+    "anims": [
+      "@animations.anim_offset"
+    ],
     "size": [ "100%", 28 ],
     "controls": [
       {
         "dressing_room_button@common_buttons.dark_text_button": {
           "anchor_from": "center",
           "anchor_to": "center",
-          "$pressed_button_name": "button.dressing_room",
           "enabled": "(not $store_disabled)",
+          "$button_type_panel": "common_assets.icon_wrapper",
+          "$pressed_button_name": "button.dressing_room",
           "$button_text": "emotes.change_emotes",
+          "$button_content": "persona.dressing_room_icon",
           "$default_text_color": "$light_button_default_text_color",
-          "focus_change_down": "FOCUS_OVERRIDE_STOP",
-          "focus_change_left": "emote_wheel",
-          "focus_change_right": "emote_wheel",
           "size": [ 128, 24 ],
           "bindings": [
             {
@@ -37,27 +63,59 @@
     ]
   },
 
-  "emote_wheel_screen_content/instruction_panel/instruction_background": {
-    "size": [ "100%c + 8px", "100%c + 8px" ],
-    "min_size": [ 1, "100%c + 8px" ],
-    "max_size": [ "100%c + 8px", "100%c + 8px" ]
-  },
-
-  "emote_wheel_screen_content/instruction_panel/instruction_background/gamepad_instruction_stack/instruction_label_gamepad": {
-    "shadow": true,
-    "size": [ "default", "default" ],
-    "max_size": [ 312, 28 ]
-  },
-
-  "emote_wheel_screen_content/instruction_panel/instruction_background/instruction_label_keyboard": {
-    "shadow": true,
-    "size": [ "default", "default" ],
-    "max_size": [ 312, 12 ]
-  },
-
-  "emote_wheel_screen_content/instruction_panel/instruction_background/instruction_label_touch": {
-    "shadow": true,
-    "size": [ "default", "default" ],
-    "max_size": [ 312, 12 ]
+  "emote_wheel_screen_content/instruction_panel": {
+    "$instruction_text|default": "",
+    "$instruction_text_bindings|default": [],
+    "variables": [
+      {
+        "requires": "$mouse",
+        "$instruction_text": "emotes.instructions_keyboard"
+      },
+      {
+        "requires": "$touch",
+        "$instruction_text": "emotes.instructions_touch"
+      },
+      {
+        "requires": "$game_pad",
+        "$instruction_text": "#emote_screen_instructions",
+        "$instruction_text_bindings": [
+          {
+            "binding_name": "#emote_screen_instructions",
+            "binding_condition": "always"
+          },
+          {
+            "binding_name": "#is_using_gamepad_override",
+            "binding_name_override": "#visible"
+          }
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "instruction_background": {
+          "type": "image",
+          "texture": "textures/ui/hud_tip_text_background",
+          "alpha": 0.6,
+          "layer": 2,
+          "size": [ "100%c + 12px", "100%c + 8px" ],
+          "controls": [
+            {
+              "instruction_label": {
+                "type": "label",
+                "text": "$instruction_text",
+                "text_alignment": "center",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 4,
+                "shadow": true,
+                "color": "$f_color_format",
+                "size": [ "default", 10 ],
+                "bindings": "$instruction_text_bindings"
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

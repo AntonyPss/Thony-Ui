@@ -341,53 +341,12 @@
                             "layer": 4,
                             "color": "$title_text_color",
                             "size": [ "default", 18 ],
-                            "offset": [ 0, -1 ]
+                            "offset": [ 0, -1.6 ]
                           }
                         }
                       ]
                     }
                   },
-                  // Remove this for a error in the bindings names
-                  /* {
-                    "structure_mode_title_panel": {
-                      "type": "panel",
-                      "size": [ "100%c", "100%" ],
-                      "controls": [
-                        {
-                          "stack_content": {
-                            "type": "stack_panel",
-                            "orientation": "horizontal",
-                            "anchor_from": "center",
-                            "anchor_to": "center",
-                            "size": [ "100%c", "100%cm" ],
-                            "controls": [
-                              {
-                                "structure_editor_mode_title": {
-                                  "type": "label",
-                                  "text": "structure_block.mode",
-                                  "layer": 4,
-                                  "color": "$title_text_color",
-                                  "size": [ "default", 12 ]
-                                }
-                              },
-                              {
-                                "padding@padding_horizontal_4": {}
-                              },
-                              {
-                                "structure_editor_mode_label": {
-                                  "type": "label",
-                                  "text": "#text",
-                                  "layer": 4,
-                                  "color": "$title_text_color",
-                                  "size": [ "default", 12 ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  },*/
                   {
                     "fill_padding": {
                       "type": "panel",
@@ -406,16 +365,6 @@
                             "size": [ "100%c", 18 ],
                             "offset": [ -2, -1 ],
                             "controls": [
-                              // Remove this for a error in the toggle
-                              /*{
-                                "structure_zoom@common_toggles.light_content_toggle": {
-                                  "$toggle_view_binding_name": "structure_zoom_toggle",
-                                  "$toggle_name": "structure_zoom",
-                                  "$toggle_group_forced_index": 1,
-                                  "$button_content": "structure_editor.spyglass_flat",
-                                  "size": [ 18, 18 ]
-                                }
-                              },*/
                               {
                                 "help_button@common_buttons.light_content_button": {
                                   "$pressed_button_name": "button.help",
@@ -440,9 +389,9 @@
           "type": "panel",
           "size": [ "100%", "fill" ],
           "controls": [
-            // Remove this for a error in the toggle
-            // { "structure_renderer@structure_renderer_panel": {} },
-            { "divider_content@divider_content": {} }
+            {
+              "divider_content@divider_content": {}
+            }
           ]
         }
       }
