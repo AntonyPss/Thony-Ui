@@ -142,93 +142,13 @@
   // Screen
   //---------------------------------------------------------------------------
 
-  "fullscreen_header": {
-    "type": "stack_panel",
-
-    "$fullscreen_content": "add_external_server.main_panel",
-
-    "size": [ "100%", "100%" ],
+  "gamepad_helpers": {
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "size": [ "100%", 28 ],
     "controls": [
       {
-        "header_image": {
-          "type": "image",
-          "texture": "textures/ui/StoreTopBar",
-          "layer": 2,
-          "size": [ "100%", 24 ],
-          "controls": [
-            {
-              "back_button_panel": {
-                "type": "panel",
-                "size": [ "100%", 20 ],
-                "controls": [
-                  {
-                    "back_button@common.back_content_panel": {
-                      "offset": [ 2, 0 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "title_stack_panel": {
-                "type": "panel",
-                "size": [ "100%", "100%" ],
-                "controls": [
-                  {
-                    "stack_content": {
-                      "type": "panel",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "size": [ "100%c", 18 ],
-                      "controls": [
-                        {
-                          "title_text_": {
-                            "type": "label",
-                            "text": "#title_text",
-                            "text_alignment": "center",
-                            "font_type": "MinecraftTen",
-                            "font_scale_factor": 1.4,
-                            "layer": 4,
-                            "color": "$header_title_text_color",
-                            "size": [ "default", 18 ],
-                            "offset": [ 0, -1.6 ],
-                            "bindings": [
-                              {
-                                "binding_name": "#title_text",
-                                "binding_condition": "once"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "fullscreen_padding": {
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      },
-      {
-        "fullscreen_content": {
-          "type": "panel",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-            {
-              "fullscreen_content@$fullscreen_content": {
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "size": [ "100% - 12px", "100%c" ]
-              }
-            }
-          ]
-        }
+        "gamepad_helper_a@common.gamepad_helper_a": {}
       }
     ]
   },
@@ -239,8 +159,10 @@
 
   "main_panel": {
     "type": "input_panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
 
-    "$anim_easing_offset": "in_expo",
+    "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 1.0,
     "$anim_offset_from": [ 0, "-50%" ],
     "$anim_offset_to": [ 0, 0 ],
@@ -257,6 +179,7 @@
         "$dialog_size": [ "60%", 152 ]
       }
     ],
+    "size": [ "100%", "100%c" ],
     "controls": [
       {
         "gamepad_helpers@add_external_server.gamepad_helpers": {}
@@ -265,6 +188,8 @@
         "main_dialog": {
           "type": "panel",
           "size": "$dialog_size",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
           "controls": [
             {
               "background@common_dialogs.background_panel": {
@@ -277,7 +202,7 @@
                 "anchor_from": "top_middle",
                 "anchor_to": "top_middle",
                 "size": [ "100% - 12px", "100%c" ],
-                "offset": [ 0, 4 ],
+                "offset": [ 0, 8 ],
                 "controls": [
                   {
                     "child@add_external_server.content_panel": {}
@@ -300,9 +225,12 @@
   },
 
   "add_external_server_screen": {
+    "$fullscreen_header_title": "#title_text",
+    "$fullscreen_header_title_type": "global",
+    "$fullscreen_content_panel": "add_external_server.main_panel",
     "$header_bar_control": "common_assets.store_top_bar",
     "$header_safezone_control": "common_assets.store_top_bar_filler",
-    "$screen_content": "add_external_server.fullscreen_header",
+    "$screen_content": "common_assets.fullscreen_header",
     "$screen_bg_content": "common.screen_background",
     "$screen_background_alpha": 0.4
   }
