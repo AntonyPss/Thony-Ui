@@ -58,12 +58,21 @@
   // Label Section
   //---------------------------------------------------------------------------
 
-  "instructions_text": {
-    "text_alignment": "center",
-    "font_type": "smooth",
-    "layer": 2,
-    "alpha": "$alpha_text",
-    "size": [ "100%", "default" ]
+  "instruction_text_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%c + 4px" ],
+    "controls": [
+      {
+        "instruction_text": {
+          "type": "label",
+          "text": "options.safeZone.description",
+          "font_type": "smooth",
+          "layer": 2,
+          "color": "$body_text_color",
+          "size": [ "100%", "default" ]
+        }
+      }
+    ]
   },
 
   //---------------------------------------------------------------------------
@@ -86,11 +95,22 @@
   },
 
   //---------------------------------------------------------------------------
-  // Slider Section
+  // Contents Section
   //---------------------------------------------------------------------------
 
   "content_panel": {
-    "size": [ "100%", "100%c" ]
+    "size": [ "100%", "100%c" ],
+    "modifications": [
+      {
+        "control_name": "instruction_text_button",
+        "operation": "replace",
+        "value": [
+          {
+            "instruction_text@safe_zone.instruction_text_panel": {}
+          }
+        ]
+      }
+    ]
   },
 
   "content_panel/safe_zone_slider_x": {
@@ -107,23 +127,6 @@
 
   "content_panel/screen_position_slider_y": {
     "ignored": false
-  },
-
-  "content_panel/instruction_text_button": {
-    "size": [ "100%", "100%cm + 4px" ],
-    "offset": [ 0, 0 ],
-    "controls": [
-      {
-        "default@safe_zone.instructions_text": {
-          "$alpha_text": 0.8
-        }
-      },
-      {
-        "hover@safe_zone.instructions_text": {
-          "$alpha_text": 0.4
-        }
-      }
-    ]
   },
 
   //---------------------------------------------------------------------------
