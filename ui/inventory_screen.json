@@ -1,6 +1,10 @@
 {
   "namespace": "crafting",
 
+  "scroll_panel": {
+    "$show_background": "$player_inventory_background_scroll"
+  },
+
   "icon_image": {
     "size": [ 16, 16 ]
   },
@@ -325,10 +329,11 @@
       {
         "background": {
           "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
+          "texture": "$player_inventory_background",
           "anchor_from": "center",
           "anchor_to": "center",
-          "alpha": 0.5
+          "layer": 2,
+          "alpha": "$player_inventory_background_alpha"
         }
       },
       {
@@ -425,10 +430,11 @@
           {
             "background": {
               "type": "image",
-              "texture": "textures/ui/hud_tip_text_background",
+              "texture": "$player_inventory_background",
               "anchor_from": "center",
               "anchor_to": "center",
-              "alpha": 0.5
+              "layer": 2,
+              "alpha": "$player_inventory_background_alpha"
             }
           }
         ]
@@ -502,9 +508,11 @@
       {
         "background": {
           "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
-          "alpha": 0.5,
-          "layer": 8,
+          "texture": "$player_inventory_background",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 4,
+          "alpha": "$player_inventory_background_alpha",
           "size": [ "100%c + 4px", "100%" ],
           "controls": [
             {
@@ -513,7 +521,7 @@
                 "orientation": "horizontal",
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "size": [ 254, 18 ],
+                "size": [ 254, 20 ],
                 "controls": [
                   {
                     "hotbar_grid@common.hotbar_grid_template": {
