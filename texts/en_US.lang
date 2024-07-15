@@ -1,3 +1,6 @@
+addExternalServerScreen.namePlaceholder=Server name example
+addExternalServerScreen.ipPlaceholder=IP (1.0.0.1) or URL (www.example.com)
+
 confirmLeaveWarning.worldName.title=World Name:
 
 chat.placeHolderText=Write here a text or command...

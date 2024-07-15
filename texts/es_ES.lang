@@ -1,3 +1,6 @@
+addExternalServerScreen.namePlaceholder=Ejemplo de nombre de servidor
+addExternalServerScreen.ipPlaceholder=IP (1.0.0.1) o URL (www.ejemplo.com)
+
 confirmLeaveWarning.worldName.title=Nombre del mundo:
 
 chat.placeHolderText=Escribe aqui un texto o comando...
@@ -27,6 +30,10 @@ progress.loadingWorld.theEnd.title=Regenerando el End
 progress.loadingWorld.overworld.tip=De vuelta a la familiaridad y la tranquilidad, bienvenido de nuevo al mundo principal.
 progress.loadingWorld.nether.tip=Prepárate para el calor y las llamas, estás a punto de adentrarte en el temible Nether.
 progress.loadingWorld.theEnd.tip=El misterio y la oscuridad te esperan, estás a punto de aventurarte en The End.
+
+playScreen.additionalServer.serverName=Nombre del servidor
+playScreen.additionalServer.serverIp=Dirección del servidor
+playScreen.additionalServer.serverPort=Puerto del servidor
 
 selectWorld.tab.worldsTemplates=Mundos y Plantillas
 selectWorld.tab.totalWorlds=Mundos encontrados
