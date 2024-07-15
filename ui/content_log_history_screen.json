@@ -57,105 +57,17 @@
   // Screen
   //---------------------------------------------------------------------------
 
-  "fullscreen_header": {
-    "type": "stack_panel",
-
-    "$fullscreen_content": "content_log_history.content_log_history_panel",
-
-    "size": [ "100%", "100%" ],
-    "controls": [
-      {
-        "header_image": {
-          "type": "image",
-          "texture": "textures/ui/StoreTopBar",
-          "layer": 2,
-          "size": [ "100%", 24 ],
-          "controls": [
-            {
-              "back_button_panel": {
-                "type": "panel",
-                "size": [ "100%", 20 ],
-                "controls": [
-                  {
-                    "back_button@common.back_content_panel": {
-                      "offset": [ 2, 0 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "title_stack_panel": {
-                "type": "panel",
-                "size": [ "100%", "100%" ],
-                "controls": [
-                  {
-                    "stack_content": {
-                      "type": "panel",
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "size": [ "100%c", 18 ],
-                      "controls": [
-                        {
-                          "gameplay_title": {
-                            "type": "label",
-                            "text": "contentlog.history.title",
-                            "font_type": "MinecraftTen",
-                            "font_scale_factor": 1.4,
-                            "layer": 4,
-                            "color": "$header_title_text_color",
-                            "size": [ "default", "100%" ],
-                            "offset": [ 0, -1.6 ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "fullscreen_padding_up": {
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      },
-      {
-        "fullscreen_content": {
-          "type": "panel",
-          "size": [ "100%", "fill" ],
-          "controls": [
-            {
-              "fullscreen_content@$fullscreen_content": {
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "size": [ "100% - 12px", "100%" ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "fullscreen_padding_bottom": {
-          "type": "panel",
-          "size": [ "100%", 4 ]
-        }
-      }
-    ]
-  },
-
   "content_log_history_panel": {
     "$show_close_button": false,
     "$show_title_text": false
   },
 
   "content_log_history_screen": {
+    "$fullscreen_header_title": "contentlog.history.title",
+    "$fullscreen_content_panel": "content_log_history.content_log_history_panel",
     "$header_bar_control": "common_assets.store_top_bar",
     "$header_safezone_control": "common_assets.store_top_bar_filler",
-    "$screen_content": "content_log_history.fullscreen_header",
+    "$screen_content": "common_assets.fullscreen_header",
     "$screen_bg_content": "common.screen_background",
     "$screen_background_alpha": 0.5
   }
