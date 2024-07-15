@@ -9,7 +9,6 @@
     "type": "label",
     "localize": false,
 
-    // Global Variables //
     "color": "$percent_text_color",
     "shadow": "$percent_text_shadow",
     "layer": "$percent_text_layer",
@@ -18,7 +17,6 @@
     "font_scale_factor": "$percent_font_size",
     "ignored": "(not $percent_visible)",
 
-    // Bindings //
     "bindings": "$percent_bindings",
     "$binding_name|default": "",
     "$binding_condition|default": "none",

@@ -82,9 +82,9 @@
           "$text_edit_box_placeholder_content_binding_name|default": "#text_box_item_name",
           "$text_edit_box_placeholder_binding_condition|default": "visible",
           "$text_box_name|default": "#text_box_name",
-      
+
           "$place_holder_text|default": "",
-      
+
           "text": "$place_holder_text",
           "$text_edit_box_placeholder_binding_type": "global",
           "$text_edit_box_placeholder_binding_collection_name": "",
@@ -102,11 +102,9 @@
     ]
   },
 
-  //////////////////////////////
-  // -- Inventory Common --  //
-  /////////////////////////////
-
-  // Images //
+  //---------------------------------------------------------------------------
+  // Full Screen Header
+  //---------------------------------------------------------------------------
 
   "store_top_bar": {
     "type": "image",
@@ -120,11 +118,211 @@
     "texture": "textures/ui/StoreTopBarFiller"
   },
 
-  // Text Edit Box //
-
-  "text_edit_box@common.text_edit_box": {
-    "layer": 1
+  "play_fullscreen_header": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "header_image@common_assets.store_top_bar": {
+          "controls": [
+            {
+              "header_buttons": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "anchor_from": "right_middle",
+                "anchor_to": "right_middle",
+                "size": [ "100%c", 24 ],
+                "offset": [ 0, -2 ],
+                "controls": [
+                  {
+                    "inbox_button_panel": {
+                      "type": "panel",
+                      "size": [ 24, 24 ],
+                      "visible": "#realms_notification_button_visible",
+                      "bindings": [
+                        {
+                          "binding_name": "#realms_notification_button_visible",
+                          "binding_name_override": "#visible",
+                          "binding_type": "global"
+                        }
+                      ],
+                      "controls": [
+                        {
+                          "inbox_button@common.button": {
+                            "$pressed_button_name": "button.menu_invite_notification",
+                            "layer": 4,
+                            "size": [ 24, 24 ],
+                            "controls": [
+                              {
+                                "bell_icon@start.inbox_bell_animated_icon": {
+                                  "anchor_from": "center",
+                                  "anchor_to": "center",
+                                  "size": [ 16, 16 ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "back_button_panel": {
+                "type": "panel",
+                "size": [ "100%", 20 ],
+                "controls": [
+                  {
+                    "back_button@common.back_content_panel": {
+                      "offset": [ 2, 0 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title_text_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%" ],
+                "controls": [
+                  {
+                    "title_text@common_assets.title_text": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "fullscreen_content": {
+          "type": "panel",
+          "size": [ "100%", "fill" ],
+          "controls": [
+            {
+              "fullscreen_content@$fullscreen_content_panel": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [ "100% - 12px", "100% - 4px" ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "fullscreen_buttons": {
+          "type": "panel",
+          "size": [ "100%", 30 ],
+          "controls": [
+            {
+              "fullscreen_buttons@$fullscreen_button_panel": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [ "100%", "100%" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
+
+  "fullscreen_header": {
+    "type": "stack_panel",
+
+    "$fullscreen_content_panel|default": "common.empty_panel",
+    "$fullscreen_button_panel|default": "common.empty_panel",
+
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "header_image@common_assets.store_top_bar": {
+          "controls": [
+            {
+              "back_button_panel": {
+                "type": "panel",
+                "size": [ "100%", 20 ],
+                "controls": [
+                  {
+                    "back_button@common.back_content_panel": {
+                      "offset": [ 2, 0 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title_text_panel": {
+                "type": "panel",
+                "size": [ "100%", "100%" ],
+                "controls": [
+                  {
+                    "title_text@common_assets.title_text": {}
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "fullscreen_padding_up": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "fullscreen_content": {
+          "type": "panel",
+          "size": [ "100%", "fill" ],
+          "controls": [
+            {
+              "fullscreen_content@$fullscreen_content_panel": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "size": [ "100% - 12px", "100%" ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "fullscreen_padding_bottom": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      }
+    ]
+  },
+
+  "title_text": {
+    "type": "label",
+    "text": "$fullscreen_header_title",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "font_type": "MinecraftTen",
+    "font_scale_factor": 1.4,
+    "layer": 4,
+    "color": "$header_title_text_color",
+    "size": [ "default", 18 ],
+    "offset": [ 0, -1.5 ],
+
+    "$fullscreen_header_title|default": "#text",
+    "$fullscreen_header_title_type|default": "none",
+    "$fullscreen_header_title_condition|default": "once",
+    "bindings": [
+      {
+        "binding_type": "$fullscreen_header_title_type",
+        "binding_condition": "$fullscreen_header_title_condition",
+        "binding_name": "$fullscreen_header_title",
+        "binding_name_override": "$fullscreen_header_title"
+      }
+    ]
+  },
+
+  ////////////////
 
   "new_back_button_image": {
     "type": "image",
@@ -501,6 +699,149 @@
     ]
   },
 
+  "network_information": {
+    "type": "panel",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": "$network_information_size",
+    "bindings": "$network_information_bindings",
+
+    "$network_information_title|default": "#none",
+    "$network_information_title_alignm|default": "center",
+    "$network_information_title_bindings|default": [],
+
+    "$network_information_description|default": "",
+    "$network_information_description_alignm|default": "center",
+    "$network_information_description_bindings|default": [],
+
+    "$network_information_icon_visible|default": true,
+    "$network_information_icon|default": "textures/ui/world_glyph_color_2x",
+    "$network_information_icon_size|default": [ 28, 28 ],
+
+    "$network_information_size|default": [ "100%", "100%cm" ],
+    "$network_information_bindings|default": [
+      {
+        "binding_name": "(not #is_network_available)",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "background": {
+          "type": "image",
+          "texture": "textures/ui/Black",
+          "layer": 2,
+          "alpha": 0.6,
+          "size": [ "100%", "100%sm + 8px" ]
+        }
+      },
+      {
+        "stack_content": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100% - 12px", "100%c" ],
+          "controls": [
+            {
+              "network_information_image": {
+                "type": "panel",
+                "ignored": "(not $network_information_icon_visible)",
+                "size": [ "100%", "100%cm + 4px" ],
+                "controls": [
+                  {
+                    "network_information_icon": {
+                      "type": "image",
+                      "texture": "$network_information_icon",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 8,
+                      "size": "$network_information_icon_size"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "network_information_title": {
+                "type": "label",
+                "text": "$network_information_title",
+                "text_alignment": "$network_information_title_alignm",
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.2,
+                "layer": 4,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "100%", 16 ],
+                "bindings": "$network_information_title_bindings"
+              }
+            },
+            {
+              "network_information_description": {
+                "type": "label",
+                "text": "$network_information_description",
+                "text_alignment": "$network_information_description_alignm",
+                "font_type": "smooth",
+                "layer": 4,
+                "alpha": 0.8,
+                "size": [ "100%", "default" ],
+                "bindings": "$network_information_description_bindings"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "error_connection_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", 24 ],
+    "bindings": [
+      {
+        "binding_name": "(not #is_network_available)",
+        "binding_name_override": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "icon_panel": {
+          "type": "panel",
+          "size": [ 24, 24 ],
+          "controls": [
+            {
+              "icon": {
+                "type": "image",
+                "texture": "textures/ui/WarningGlyph",
+                "layer": 12,
+                "size": [ 14, 21 ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "description_text_panel": {
+          "type": "panel",
+          "size": [ "100%c", "100%" ],
+          "controls": [
+            {
+              "description_text": {
+                "type": "label",
+                "text": "options.unlink_msa.failure.title",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 24,
+                "shadow": true,
+                "size": [ "default", "default" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   //---------------------------------------------------------------------------
   // Label Background With Buttons Section
   //---------------------------------------------------------------------------
@@ -696,7 +1037,7 @@
     "size": [ "100% - 2px", "100% - 2px" ],
 
     "$button_content|default": "common.empty_panel",
-    "$button_text|default": "#none",
+    "$button_text|default": "",
     "$button_offset|default": [ 0, 1 ],
     "$button_content_offset|default": [ 0, 0 ],
     "controls": [
@@ -732,7 +1073,7 @@
                 "size": [ "100%c", "100%" ],
                 "controls": [
                   {
-                    "ui_binding_label@common_buttons.custom_ui_binding_button_label": {}
+                    "label_bindings@common_buttons.custom_ui_binding_button_label": {}
                   }
                 ]
               }
