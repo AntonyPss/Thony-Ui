@@ -126,7 +126,6 @@
                       "anchor_to": "center",
                       "font_type": "smooth",
                       "layer": 4,
-                      "shadow": true,
                       "color": "$progress_subtitle_text_color",
                       "size": [ "100% - 8px", "default" ],
                       "bindings": [
@@ -680,14 +679,14 @@
 
   "modal_button_panel": {
     "type": "panel",
-    "size": [ 132, 20 ],
+    "size": [ "100%", 20 ],
     "controls": [
       { "cancel@cancel_button": {} }
     ]
   },
 
   "modal_button_panel_with_retry@modal_button_panel": {
-    "size": [ 132, 20 ],
+    "size": [ "100%", 20 ],
     "controls": [
       { "abort@abort_button": {} },
       { "cancel@cancel_button": {} },

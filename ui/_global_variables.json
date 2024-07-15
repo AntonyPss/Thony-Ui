@@ -1,4 +1,7 @@
 {
+  "$light_button_locked_text_color": [ 0.5, 0.5, 0.5 ],
+  "$dark_button_locked_text_color": [ 0.7, 0.7, 0.7 ],
+
   "$dialog_title_text_color": [ 1.0, 1.0, 1.0 ],
 
   "$label_visible": true,
@@ -24,5 +27,13 @@
 
   "$world_name_text_color": [ 1.0, 1.0, 1.0 ],
   "$world_gamemode_text_color": [ 1.0, 1.0, 1.0 ],
-  "$world_subtitle_text_color": [ 0.7, 0.7, 0.7 ]
+  "$world_subtitle_text_color": [ 0.7, 0.7, 0.7 ],
+
+  // Player Inventory Variables //
+  // 1 - Background Panel Image (hud_tip_text_background)
+  // 2 - Background Panel Image Alpha (0.0 to 1.0)
+  // 3 - Background Panel Scroll (false to true)
+  "$player_inventory_background": "textures/ui/hud_tip_text_background",
+  "$player_inventory_background_alpha": 0.5,
+  "$player_inventory_background_scroll": false
 }

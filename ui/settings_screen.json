@@ -12,7 +12,7 @@
   }
 
   // BUG //
-  /* "resource_pack_screen_panel": {
+  /*"resource_pack_screen_panel": {
     "type": "stack_panel",
     "$selected_pack_items": "#selected_pack_items_global",
     "$available_pack_items": "#available_pack_items_global",
