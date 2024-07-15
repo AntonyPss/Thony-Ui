@@ -132,7 +132,7 @@
   "pack_version_label@common_assets.label_background": {
     "$label_anchor": "bottom_right",
     "$label_text": "menu.creator.beta",
-    "$label_visible": "(not $is_publish)",
+    "ignored": "(not $is_publish)",
 
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 2.0,
@@ -319,7 +319,6 @@
 
   "store_main_button_content@start.stacked_panel": {
     "size": [ "100%", 28 ],
-    "enabled": "(not $store_disabled and not ($is_ios and $pre_release)))",
     "controls": [
       {
         "button_label@common_buttons.new_ui_binding_button_label": {
@@ -499,9 +498,17 @@
         }
       },
       {
-        "padding_end": {
+        "padding_fill_2": {
           "type": "panel",
-          "size": [ "100%", 24 ]
+          "size": [ "100%", 24 ],
+          "controls": [
+            {
+              "gamepad_helpers@start.gamepad_helpers": {}
+            },
+            {
+              "keyboard_helpers@start.keyboard_helper_vr_swap": {}
+            }
+          ]
         }
       }
     ]
@@ -575,17 +582,14 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": [ 24, "100%c" ],
-    "offset": [ 2, 2 ],
+    "offset": "@animations.anim_offset",
 
     "$anim_easing_offset": "in_out_elastic",
     "$anim_offset_duration": 1.5,
-    "$anim_offset_from": [ "-50%", 2 ],
-    "$anim_offset_to": [ 2, 2 ],
+    "$anim_offset_from": [ "-50%", 4 ],
+    "$anim_offset_to": [ 4, 4 ],
 
     "disable_anim_fast_forward": true,
-    "anims": [
-      "@animations.anim_offset"
-    ],
     "controls": [
       { "world_button@start.world_button": {} },
       { "padd_0@start.header_padding": {} },
@@ -698,7 +702,6 @@
       { "main_skin_viewer@start.skin_panel": {} },
       { "get_started_stack@start.get_started_stack": {} },
       { "header_stack@start.header_button_stack": {} },
-      { "s@s_o": {} },
       {
         "popup_dialog_factory": {
           "type": "factory",
@@ -708,16 +711,5 @@
         }
       }
     ]
-  },
-
-  "s_o@common.button": {
-    "$pressed_button_name": "button.menu_settings",
-    "layer": -1,
-    "size": [ "100%", "100%" ]
-  },
-
-  "start_screen": {
-    "$screen_bg_content": "common.screen_background",
-    "$screen_background_alpha": 0.2
   }
 }
