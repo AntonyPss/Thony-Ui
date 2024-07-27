@@ -65,8 +65,10 @@
   "content_log_history_screen": {
     "$fullscreen_header_title": "contentlog.history.title",
     "$fullscreen_content_panel": "content_log_history.content_log_history_panel",
+
     "$header_bar_control": "common_assets.store_top_bar",
     "$header_safezone_control": "common_assets.store_top_bar_filler",
+
     "$screen_content": "common_assets.fullscreen_header",
     "$screen_bg_content": "common.screen_background",
     "$screen_background_alpha": 0.5

@@ -153,7 +153,7 @@
           "$text_name": "chat.settings",
           "$child_control": "chat_settings.chat_setting_scrolling_panel",
           "$button_panel": "chat_settings.close_button",
-          "size": [ 172, "100%" ],
+          "size": [ "168px", "100%" ],
 
           "$anim_easing_offset": "in_expo",
           "$anim_offset_duration": 0.4,

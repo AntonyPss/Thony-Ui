@@ -9,7 +9,7 @@
     "visible": "$show_title_text",
     "font_type": "MinecraftTen",
     "shadow": true,
-    "color": "$dialog_title_text_color",
+    "color": "$main_header_text_color",
     "size": [ "default", 10 ]
   },
 

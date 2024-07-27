@@ -1,0 +1,288 @@
+{
+	"namespace": "permissions",
+
+  //---------------------------------------------------------------------------
+  // IMAGES
+  //---------------------------------------------------------------------------
+
+	"banner_background": {
+		"texture": "textures/ui/Black",
+		"alpha": "$fill_alpha"
+	},
+
+	"kick_icon": {
+		"type": "image",
+		"texture": "textures/ui/cancel",
+		"layer": 2,
+		"size": [ 12, 12 ]
+	},
+
+	"ban_icon": {
+		"type": "image",
+		"texture": "textures/ui/icon_none",
+		"layer": 2,
+		"color": "red",
+		"size": [ 16, 16 ]
+	},
+
+  //---------------------------------------------------------------------------
+  // CONTENT
+  //---------------------------------------------------------------------------
+
+	"player_and_permissions_panel": {
+		"modifications": [
+			{
+				"control_name": "selector_area",
+				"operation": "insert_after",
+				"value": [
+					{
+						"padding": {
+							"type": "panel",
+							"size": [ 4, 0 ]
+						}
+					}
+				]
+			}
+		]
+	},
+
+	"selector_area": {
+		"size": [ "148px", "100%" ],
+		"modifications": [
+			{
+				"array_name": "controls",
+				"operation": "insert_back",
+				"value": [
+					{
+						"background@common_assets.background_panel": {}
+					}
+				]
+			}
+		]
+	},
+
+	"selector_area/player_scrolling_panel": {
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"layer": 4,
+		"size": [ "100% - 4px", "100% - 4px" ]
+	},
+
+	"content_area": {
+		"size": [ "fill", "100%" ]
+	},
+
+	"content_area/permissions_options_background": {
+		"size": [ "100%", "100%" ]
+	},
+
+	"content_area/permissions_options_background/permissions_options_background_image": {
+		"size": [ "100% - 2px", "100% - 2px" ]
+	},
+
+	"content_area/permissions_options_background/permissions_options_background_image/permissions_options_scrolling_panel": {
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"layer": 4,
+		"size": [ "100% - 2px", "100% - 4px" ]
+	},
+
+	"permissions_options_stack_panel": {
+    "$default_texture": "textures/ui/button_borderless_dark",
+    "$hover_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_no_hover_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_chevron": "textures/ui/chevron_white_down",
+    "$default_chevron_nohover": "textures/ui/chevron_white_down",
+
+    "$default_text_color": "$dark_toggle_default_text_color",
+    "$hover_text_color": "$dark_toggle_default_text_color",
+    "$default_checked_text_color": "$dark_toggle_default_text_color",
+    "$hover_checked_text_color": "$dark_toggle_default_text_color",
+		"modifications": [
+			{
+				"control_name": "permissions_kick_button_panel",
+				"operation": "replace",
+				"value": [
+					{
+						"kick_dark_button@permissions.kick_dark_button": {}
+					}
+				]
+			},
+			{
+				"control_name": "permissions_ban_button_panel",
+				"operation": "replace",
+				"value": [
+					{
+						"ban_dark_button@permissions.ban_dark_button": {}
+					}
+				]
+			}
+		]
+	},
+
+  //---------------------------------------------------------------------------
+  // BUTTONS
+  //---------------------------------------------------------------------------
+
+	"kick_dark_button@common_buttons.dark_text_button": {
+		"$hover_button_texture": "textures/ui/button_red",
+		"$button_type_panel": "common_assets.icon_wrapper",
+		"$pressed_button_name": "button.kick",
+		"$button_text": "permissionsScreen.kick",
+		"$button_content": "permissions.kick_icon",
+		"layer": 2,
+		"size": [ "100%", 28 ],
+		"bindings": [
+			{
+				"binding_name": "#kick_button_visible",
+				"binding_name_override": "#visible",
+				"binding_type": "global"
+			},
+			{
+				"binding_name": "#kick_button_enabled",
+				"binding_name_override": "#enabled"
+			}
+		]
+	},
+
+	"ban_dark_button@common_buttons.dark_text_button": {
+		"$hover_button_texture": "textures/ui/button_red",
+		"$button_type_panel": "common_assets.icon_wrapper",
+		"$pressed_button_name": "button.ban",
+		"$button_text": "permissionsScreen.ban",
+		"$button_content": "permissions.ban_icon",
+		"layer": 2,
+		"size": [ "100%", 28 ],
+		"bindings": [
+			{
+				"binding_name": "#ban_button_visible",
+				"binding_name_override": "#visible",
+				"binding_type": "global"
+			},
+			{
+				"binding_name": "#ban_button_enabled",
+				"binding_name_override": "#enabled"
+			}
+		]
+	},
+
+  //---------------------------------------------------------------------------
+  // LABELS
+  //---------------------------------------------------------------------------
+
+	"gamertag_label": {
+		"text_alignment": "center",
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"layer": 4,
+		"shadow": true,
+		"size": [ "default", 10 ],
+		"max_size": [ 132, 10 ]
+	},
+
+  //---------------------------------------------------------------------------
+  // TOGGLES
+  //---------------------------------------------------------------------------
+
+	"player_pic_panel": {
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"size": [ 22, 24 ],
+		"offset": [ 0, 0 ]
+	},
+
+	"player_button_content": {
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"controls": [
+			{
+				"padding_left": {
+					"type": "panel",
+					"size": [ 0, 0 ]
+				}
+			},
+			{
+				"player_pic_panel": {
+					"type": "panel",
+					"size": [ "100%c", "100%" ],
+					"controls": [
+						{
+							"player_pic_panel@permissions.player_pic_panel": {}
+						}
+					]
+				}
+			},
+			{
+				"gamertag_panel": {
+					"type": "panel",
+					"size": [ "fill", "100%" ],
+					"controls": [
+						{
+							"gamertag_label@permissions.gamertag_label": {}
+						}
+					]
+				}
+			},
+			{
+				"permission_icon_panel": {
+					"type": "panel",
+					"size": [ 24, "100%" ],
+					"controls": [
+						{
+							"permission_icon_image": {
+								"type": "image",
+								"texture": "#player_permission_level_icon_texture",
+								"anchor_from": "center",
+								"anchor_to": "center",
+								"layer": 4,
+								"size": [ 16, 16 ],
+								"bindings": [
+									{
+										"binding_name": "#player_permission_level_icon_texture",
+										"binding_name_override": "#texture",
+										"binding_type": "collection",
+										"binding_collection_name": "players_collection"
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			{
+				"padding_right": {
+					"type": "panel",
+					"size": [ 0, 0 ]
+				}
+			}
+		]
+	},
+
+  //---------------------------------------------------------------------------
+  // SCREEN
+  //---------------------------------------------------------------------------
+
+	"content_panel": {
+		"size": [ "100%", "100%" ]
+	},
+
+	"content_panel/content_stack_panel": {
+		"size": [ "100%", "100%" ]
+	},
+
+	"permissions_screen": {
+		"$back_button_has_title": true,
+		"$button_text": "gui.back",
+
+    "$fullscreen_header_title": "permissions.title",
+    "$fullscreen_content_panel": "permissions.content_panel",
+
+    "$header_bar_control": "common_assets.store_top_bar",
+    "$header_safezone_control": "common_assets.store_top_bar_filler",
+
+    "$screen_content": "common_assets.fullscreen_header",
+    "$screen_background_alpha": 0.5
+	}
+}

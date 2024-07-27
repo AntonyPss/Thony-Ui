@@ -6,8 +6,8 @@
   },
 
   "player_position": {
-    "texture": "textures/ui/hud_tip_text_background",
-    "size": [ "100%c + 8px", 14 ]
+    "alpha": 0.5,
+    "size": [ "100%c + 6px", 12 ]
   },
 
   "player_position/player_position_text": {
@@ -18,8 +18,8 @@
   },
 
   "number_of_days_played": {
-    "texture": "textures/ui/hud_tip_text_background",
-    "size": [ "100%c + 8px", 14 ]
+    "alpha": 0.5,
+    "size": [ "100%c + 6px", 12 ]
   },
 
   "number_of_days_played/number_of_days_played_text": {
@@ -34,50 +34,8 @@
     "offset": [ -8, 8 ]
   },
 
-  "chat_label": {
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "size": [ "100% - 4px", "default" ]
-  },
-
-  "chat_grid_item/chat_background": {
-    "texture": "textures/ui/hud_tip_text_background",
-    "size": [ "100%", "100%c + 4px" ]
-  },
-
-  "chat_grid_item/chat_background/chat_text": {
-    "anchor_from": "left_middle",
-    "anchor_to": "left_middle"
-  },
-
   "root_panel/chat_stack": {
-    "offset": [ 1, 1 ],
-    "modifications": [
-      {
-        "control_name": "player_position",
-        "operation": "insert_after",
-        "value": [
-          {
-            "padding_0": {
-              "type": "panel",
-              "size": [ 0, 1 ]
-            }
-          }
-        ]
-      },
-      {
-        "control_name": "number_of_days_played",
-        "operation": "insert_after",
-        "value": [
-          {
-            "padding_1": {
-              "type": "panel",
-              "size": [ 0, 1 ]
-            }
-          }
-        ]
-      }
-    ]
+    "offset": [ 1, 1 ]
   },
 
   "hud_content": {

@@ -95,13 +95,13 @@
                               {
                                 "playing_label": {
                                   "type": "label",
-                                  "text": "action.interact.name",
+                                  "text": "pauseScreen.currentWorld",
                                   "anchor_from": "top_left",
                                   "anchor_to": "top_left",
                                   "font_type": "MinecraftTen",
                                   "layer": 4,
                                   "shadow": true,
-                                  "color": "$dialog_title_text_color",
+                                  "color": "$main_header_text_color",
                                   "ignored": "$is_on_3p_server",
                                   "size": [ "default", 12 ]
                                 }
@@ -115,7 +115,7 @@
                                   "font_type": "MinecraftTen",
                                   "layer": 4,
                                   "shadow": true,
-                                  "color": "$dialog_title_text_color",
+                                  "color": "$main_header_text_color",
                                   "ignored": "(not $is_on_3p_server)",
                                   "size": [ "default", 12 ]
                                 }
@@ -132,7 +132,7 @@
                                         "layer": 4,
                                         "localize": false,
                                         "shadow": true,
-                                        "color": "$world_name_text_color",
+                                        "color": "$sub_header_text_color",
                                         "size": [ "default", 10 ],
                                         "bindings": [
                                           {
@@ -545,7 +545,7 @@
     "$default_button_texture": "textures/ui/realms_button_borderless_default",
     "$hover_button_texture": "textures/ui/realms_button_borderless_hover",
     "$pressed_button_texture": "textures/ui/realms_button_borderless_hover_pressed",
-    "$pressed_button_name": "butotn.menu_feed",
+    "$pressed_button_name": "button.menu_feed",
     "$button_text": "pauseScreen.realmsStories",
     "$button_content": "start.realms_icon",
     "size": [ "100%", "100% - 2px" ]

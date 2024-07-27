@@ -11,7 +11,7 @@
     "$title_text_alignment": "center",
     "$title_text_offset": [ 0, -1 ],
     "shadow": true,
-    "color": "$popup_dialog_title_text_color",
+    "color": "$main_header_text_color",
     "size": [ "100% - 4px", 14 ]
   },
 
