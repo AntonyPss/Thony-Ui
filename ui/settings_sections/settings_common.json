@@ -38,7 +38,7 @@
     "type": "label",
     "text": "options.worldSeed.title",
     "layer": 24,
-    "color": "$header_title_text_color",
+    "color": "$title_text_color",
     "size": [ "default", 10 ]
   },
 
@@ -46,7 +46,7 @@
     "type": "label",
     "text": "#item_name",
     "layer": 24,
-    "color": "$header_subtitle_text_color",
+    "color": "$title_text_color",
     "size": [ "default", 10 ],
     "offset": [ 2, 0 ],
     "bindings": [
@@ -79,7 +79,7 @@
                 "font_scale_factor": 1.4,
                 "font_type": "MinecraftTen",
                 "layer": 16,
-                "color": "$header_title_text_color",
+                "color": "$title_text_color",
                 "size": [ "default", "100%" ],
                 "offset": [ 0, -1 ],
                 "bindings": [
@@ -161,7 +161,7 @@
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "layer": 12,
-                "color": "$header_title_text_color",
+                "color": "$title_text_color",
                 "size": [ "default", 10 ],
                 "bindings": [
                   {
@@ -289,7 +289,7 @@
                                 "anchor_to": "center",
                                 "layer": 16,
                                 "localize": true,
-                                "color": "$label_text_color",
+                                "color": "$body_text_color",
                                 "size": [ 164, "default" ]
                               }
                             },

@@ -5,79 +5,6 @@
   // Common Section
   //---------------------------------------------------------------------------
 
-  "section_image_header": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": [ "100%", 32 ],
-
-    "$section_image_line|default": false,
-    "$section_image_line_texture|default": "textures/ui/creator_glyph_color",
-    "$section_image_icon|default": "textures/ui/icon_settings",
-    "$section_image_size|default": [ 28, 28 ],
-    "$section_image_padd|default": [ 4, 0 ],
-    "$section_title|default": "#none",
-    "controls": [
-      {
-        "section_image_panel": {
-          "type": "panel",
-          "size": [ 32, "100%" ],
-          "controls": [
-            {
-              "section_image_icon": {
-                "type": "image",
-                "texture": "$section_image_icon",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "layer": 4,
-                "size": "$section_image_size"
-              }
-            },
-            {
-              "section_image_line": {
-                "type": "image",
-                "texture": "$section_image_line_texture",
-                "ignored": "(not $section_image_line)",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "layer": 8,
-                "size": "$section_image_size"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "section_image_padding": {
-          "type": "panel",
-          "size": "$section_image_padd"
-        }
-      },
-      {
-        "section_title_panel": {
-          "type": "panel",
-          "size": [ "100%c", "100%" ],
-          "controls": [
-            {
-              "section_title": {
-                "type": "label",
-                "text": "$section_title",
-                "font_type": "MinecraftTen",
-                "font_scale_factor": 1.5,
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "layer": 4,
-                "shadow": true,
-                "color": "$main_header_text_color",
-                "size": [ "default", 18 ],
-                "offset": [ 0, -2 ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
   "padding_4": {
     "type": "panel",
     "size": [ 4, 0 ]
@@ -750,17 +677,207 @@
   // Creator Section
   //---------------------------------------------------------------------------
 
-  /*"creator_section": {
+  /* "creator_toggles_panel": {
     "controls": [
       {
-        "section_header@general_section.section_image_header": {
-          "$section_title": "options.creatorTitle",
-          "$section_image_icon": "textures/ui/creator_glyph_color",
-          "$section_image_line": true
+        "copy_coordinate_section_stack_panel": {
+          "type": "stack_panel",
+          "visible": "$supports_clipboard_set",
+          "controls": [
+            {
+              "content_log_section_label": {
+                "type": "panel",
+                "size": [ "100%", 20 ],
+                "controls": [
+                  {
+                    "content_log_section_label@common_assets.label_background": {
+                      "$label_text": "options.creatorTitle",
+                      "$label_background_size": [ "100% - 2px", 14 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "content_log_section_label_spacer": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "option_content_file_log@settings_common.option_toggle": {
+                "$option_label": "options.copyCoordinateUI",
+                "$option_binding_name": "#copy_coordinate_ui",
+                "$toggle_name": "copy_coordinate_ui"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "creator_setting_button": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", 28 ],
+          "bindings": [
+            {
+              "binding_name": "#show_keybinds_button",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "go_to_keybinds_dark_button@common_buttons.dark_text_button": {
+                "$pressed_button_name": "button.go_to_keybinds",
+                "$button_text": "options.go_to_keybinds",
+                "size": [ "100%", "100%" ],
+                "bindings": [
+                  {
+                    "binding_name": "#go_to_keybinds",
+                    "binding_name_override": "#enabled"
+                  }
+                ]
+              }
+            },
+            {
+              "creator_settings_section_label_spacer": {
+                "type": "panel",
+                "size": [ "1%", "100%" ]
+              }
+            }
+          ]
         }
       }
     ]
-  },*/
+  },
+
+  "content_log_panel": {
+    "controls": [
+      {
+        "content_log_section_label": {
+          "type": "panel",
+          "size": [ "100%", 20 ],
+          "controls": [
+            {
+              "content_log_section_label@common_assets.label_background": {
+                "$label_text": "contentlog.settingsSectionName"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "content_log_section_label_spacer": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "option_content_file_log@settings_common.option_toggle": {
+          "$option_label": "options.content_log_file",
+          "$option_binding_name": "#content_log_file",
+          "$option_enabled_binding_name": "#content_log_file_enabled",
+          "$toggle_name": "content_log_file"
+        }
+      },
+      {
+        "option_content_gui_log@settings_common.option_toggle": {
+          "$option_label": "options.content_log_gui",
+          "$option_binding_name": "#content_log_gui",
+          "$option_enabled_binding_name": "#content_log_gui_enabled",
+          "$toggle_name": "content_log_gui"
+        }
+      },
+      {
+        "content_log_buttons": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", 28 ],
+          "controls": [
+            {
+              "open_content_log_history@common_buttons.dark_text_button": {
+                "$pressed_button_name": "button.open_content_log_history",
+                "$button_text": "contentlog.history.title",
+                "size": [ "50%", "100%" ],
+                "bindings": [
+                  {
+                    "binding_name": "#content_log_gui_option_enabled",
+                    "binding_name_override": "#enabled"
+                  }
+                ]
+              }
+            },
+            {
+              "clear_content_log_files@common_buttons.dark_text_button": {
+                "$pressed_button_name": "button.clear_content_log_files",
+                "$button_text": "contentlog.clear_files",
+                "size": [ "50%", "100%" ],
+                "bindings": [
+                  {
+                    "binding_name": "#allow_content_log_write_to_disk",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "content_log_section_label_spacer_2": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "content_log_location_label_header": {
+          "type": "panel",
+          "size": [ "100%", 14 ],
+          "controls": [
+            {
+              "content_log_location_label_header@common_assets.label_background": {
+                "$label_text": "contentlog.logLocationSectionName",
+                "$label_bindings": [
+                  {
+                    "binding_name": "#content_log_file_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "content_log_location_label": {
+          "type": "label",
+          "text": "#text",
+          "hide_hyphen": true,
+          "shadow": true,
+          "alpha": 0.8,
+          "color": "$body_text_color",
+          "size": [ "100%", "default" ],
+          "bindings": [
+            {
+              "binding_name": "#content_log_location_text",
+              "binding_name_override": "#text"
+            },
+            {
+              "binding_name": "#content_log_file_enabled",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "creator_section": {
+    "controls": [
+      { "creator_toggles@general_section.creator_toggles_panel": {} },
+      { "content_log_buttons@general_section.content_log_panel": {} }
+    ]
+  }, */
 
   //---------------------------------------------------------------------------
   // Sound Section
