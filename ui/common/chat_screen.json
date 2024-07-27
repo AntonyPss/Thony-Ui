@@ -139,7 +139,7 @@
 								"font_scale_factor": 1.4,
 								"font_type": "MinecraftTen",
 								"layer": 4,
-								"color": "$header_title_text_color",
+								"color": "$title_text_color",
 								"size": [ "default", 18 ],
 								"offset": [ 42, -1.6 ]
 							}
@@ -288,7 +288,7 @@
 								"anchor_from": "center",
 								"layer": 4,
 								"shadow": true,
-								"color": "$label_text_color",
+								"color": "$sub_header_text_color",
 								"size": [ "default", 10 ],
 								"bindings": [
 									{

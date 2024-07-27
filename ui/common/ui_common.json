@@ -135,6 +135,30 @@
                 "offset": [ 0, -2 ],
                 "controls": [
                   {
+                    "settings_button_panel": {
+                      "type": "panel",
+                      "ignored": true,
+                      "size": [ 24, 24 ],
+                      "controls": [
+                        {
+                          "settings_button@common.button": {
+                            "$pressed_button_name": "button.open_account_setting_gamecore",
+                            "layer": 4,
+                            "size": [ 24, 24 ],
+                            "controls": [
+                              {
+                                "settings_icon@play.settings_icon": {
+                                  "anchor_from": "center",
+                                  "anchor_to": "center"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
                     "inbox_button_panel": {
                       "type": "panel",
                       "size": [ 24, 24 ],
@@ -305,7 +329,7 @@
     "font_type": "MinecraftTen",
     "font_scale_factor": 1.4,
     "layer": 4,
-    "color": "$header_title_text_color",
+    "color": "$title_text_color",
     "size": [ "default", 18 ],
     "offset": [ 0, -1.5 ],
 
@@ -627,9 +651,12 @@
     "anchor_from": "$label_anchor",
     "anchor_to": "$label_anchor",
     "layer": 2,
-    "alpha": 0.6,
+    "alpha": "$label_background_alpha",
     "size": "$label_background_size",
 
+    "$label_localize|default": true,
+    "$label_text_scale|default": 1.0,
+    "$label_text_type|default": "normal",
     "$label_background|default": "textures/ui/Black",
     "$label_anchor|default": "center",
     "$label_text_anchor|default": "center",
@@ -638,12 +665,16 @@
     "$label_text_offset|default": [ 0, 0 ],
     "$label_bindings|default": [],
     "$label_color|default": "$body_text_color",
+    "$label_background_alpha|default": 0.6,
     "$label_background_size|default": [ "100%c + 6px", 14 ],
     "controls": [
       {
         "label_panel": {
           "type": "label",
           "text": "$label_text",
+          "localize": "$label_localize",
+          "font_scale_factor": "$label_text_scale",
+          "font_type": "$label_text_type",
           "anchor_from": "$label_text_anchor",
           "anchor_to": "$label_text_anchor",
           "layer": 4,
@@ -703,6 +734,7 @@
     "type": "panel",
     "anchor_from": "center",
     "anchor_to": "center",
+    "layer": 12,
     "size": "$network_information_size",
     "bindings": "$network_information_bindings",
 
@@ -743,10 +775,24 @@
           "size": [ "100% - 12px", "100%c" ],
           "controls": [
             {
+              "network_information_title": {
+                "type": "label",
+                "text": "$network_information_title",
+                "text_alignment": "$network_information_title_alignm",
+                "font_type": "MinecraftTen",
+                "font_scale_factor": 1.2,
+                "layer": 4,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "100%", 16 ],
+                "bindings": "$network_information_title_bindings"
+              }
+            },
+            {
               "network_information_image": {
                 "type": "panel",
                 "ignored": "(not $network_information_icon_visible)",
-                "size": [ "100%", "100%cm + 4px" ],
+                "size": [ "100%", "100%cm + 16px" ],
                 "controls": [
                   {
                     "network_information_icon": {
@@ -759,20 +805,6 @@
                     }
                   }
                 ]
-              }
-            },
-            {
-              "network_information_title": {
-                "type": "label",
-                "text": "$network_information_title",
-                "text_alignment": "$network_information_title_alignm",
-                "font_type": "MinecraftTen",
-                "font_scale_factor": 1.2,
-                "layer": 4,
-                "shadow": true,
-                "color": "$main_header_text_color",
-                "size": [ "100%", 16 ],
-                "bindings": "$network_information_title_bindings"
               }
             },
             {
@@ -892,7 +924,7 @@
                 "ignored": "(not $label_description_visible)",
                 "layer": 4,
                 "shadow": true,
-                "color": "$header_subtitle_text_color",
+                "color": "$sub_header_text_color",
                 "size": [ "100%", "default" ],
                 "bindings": "$label_description_bindings"
               }

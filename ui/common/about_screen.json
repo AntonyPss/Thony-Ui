@@ -1,0 +1,277 @@
+{
+  "namespace": "about",
+
+  "social_media_with_icon": {
+    "type": "panel",
+
+    "$social_media_icon|default": "#none",
+    "$social_media_text|default": "#none",
+    "$social_media_text_color|default": [ 1.0, 1.0, 1.0 ],
+
+    "size": [ "100%", 32 ],
+    "controls": [
+      {
+        "background@common_assets.background_image": {
+          "size": [ "100% - 2px", "100% - 2px" ]
+        }
+      },
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100% - 4px", 28 ],
+          "controls": [
+            {
+              "social_media_icon_panel": {
+                "type": "panel",
+                "size": [ 28, "100%" ],
+                "controls": [
+                  {
+                    "social_media_icon": {
+                      "type": "image",
+                      "texture": "$social_media_icon",
+                      "layer": 4,
+                      "size": [ 24, 24 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 4, 0 ]
+              }
+            },
+            {
+              "social_media_text_panel": {
+                "type": "panel",
+                "size": [ "100%c", "100%" ],
+                "controls": [
+                  {
+                    "social_media_text": {
+                      "type": "label",
+                      "text": "$social_media_text",
+                      "layer": 4,
+                      "shadow": true,
+                      "color": "$social_media_text_color",
+                      "size": [ "default", "default" ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "information_with_background": {
+    "type": "panel",
+
+    "$information_text|default": "",
+
+    "size": [ "100%", "100%cm" ],
+    "controls": [
+      {
+        "background@common_assets.background_image": {
+          "size": [ "100% - 2px", "100%sm + 4px" ]
+        }
+      },
+      {
+        "information_text_panel": {
+          "type": "panel",
+          "size": [ "100% - 8px", "100%cm" ],
+          "controls": [
+            {
+              "stack_panel": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "controls": [
+                  {
+                    "title_text": {
+                      "type": "label",
+                      "text": "$information_title_text",
+                      "layer": 4,
+                      "shadow": true,
+                      "size": [ "100%", 12 ]
+                    }
+                  },
+                  {
+                    "sub_0": {
+                      "type": "label",
+                      "text": "$information_sub_text_0",
+                      "layer": 4,
+                      "shadow": true,
+                      "size": [ "100%", "default" ]
+                    }
+                  },
+                  {
+                    "sub_1": {
+                      "type": "label",
+                      "text": "$information_sub_text_1",
+                      "layer": 4,
+                      "shadow": true,
+                      "size": [ "100%", "default" ]
+                    }
+                  },
+                  {
+                    "sub_2": {
+                      "type": "label",
+                      "text": "$information_sub_text_2",
+                      "layer": 4,
+                      "shadow": true,
+                      "size": [ "100%", "default" ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "about_button@settings_common.section_toggle_base": {
+    "$toggle_view_binding_name": "about_button_toggle",
+    "$glyph_texture": "textures/ui/infobulb",
+    "$glyph_color_texture": "textures/ui/infobulb",
+    "$glyph_size": [ 15, 19 ],
+    "$button_text": "options.thonyAbout",
+    "$toggle_property_bag": {
+      "#panel_title": "options.thonyAboutTitle"
+    }
+  },
+
+  "about_section": {
+    "type": "stack_panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ "100%", "100%c" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "about_button_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "paddingTop": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "pack@about.social_media_with_icon": {
+          "$social_media_icon": "pack_icon",
+          "$social_media_text": "menu.creator.version"
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+      {
+        "discord@about.social_media_with_icon": {
+          "$social_media_icon": "textures/icons/discord",
+          "$social_media_text": "https://discord.gg/kYDf4gadKw",
+          "$social_media_text_color": "purple"
+        }
+      },
+      {
+        "mcpedl@about.social_media_with_icon": {
+          "$social_media_icon": "textures/icons/mcpedl",
+          "$social_media_text": "Coming soon!",
+          "$social_media_text_color": "green"
+        }
+      },
+      {
+        "x_or_twitter@about.social_media_with_icon": {
+          "$social_media_icon": "textures/icons/x",
+          "$social_media_text": "https://x.com/AntonyPss"
+        }
+      },
+      {
+        "youtube@about.social_media_with_icon": {
+          "$social_media_icon": "textures/icons/youtube",
+          "$social_media_text": "https://youtube.com/@antony_2023",
+          "$social_media_text_color": "red"
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+      {
+        "can_section@about.information_with_background": {
+          "$information_title_text": "options.thonyAbout.termsOfUse.can",
+          "$information_sub_text_0": "options.thonyAbout.termsOfUse.can.0",
+          "$information_sub_text_1": "options.thonyAbout.termsOfUse.can.1",
+          "$information_sub_text_2": "options.thonyAbout.termsOfUse.can.2"
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "cant_section@about.information_with_background": {
+          "$information_title_text": "options.thonyAbout.termsOfUse.cant",
+          "$information_sub_text_0": "options.thonyAbout.termsOfUse.cant.0",
+          "$information_sub_text_1": "options.thonyAbout.termsOfUse.cant.1",
+          "$information_sub_text_2": "options.thonyAbout.termsOfUse.cant.2"
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "special_thanks@about.information_with_background": {
+          "$information_title_text": "options.thonyAbout.thanks",
+          "$information_sub_text_0": "options.thonyAbout.thanks.0",
+          "$information_sub_text_1": "options.thonyAbout.thanks.1",
+          "$information_sub_text_2": "options.thonyAbout.thanks.2"
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "disclaimer_panel": {
+          "type": "panel",
+          "size": [ "100%", "100%cm" ],
+          "controls": [
+            {
+              "disclaimer@common_assets.label_background": {
+                "$label_text": "options.thonyAboutDisclaimer",
+                "$label_text_type": "smooth",
+                "$label_text_size": [ "100% - 4px", "default" ],
+                "$label_text_offset": [ 1, 0 ],
+                "$label_color": [ 0.7, 0.7, 0.7 ],
+                "$label_background_alpha": 0.5,
+                "$label_background": "textures/ui/hud_tip_text_background",
+                "$label_background_size": [ "100% - 2px", "100%cm + 4px" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
