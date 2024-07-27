@@ -3,15 +3,14 @@
   "header": {
     "name": "Thony Ui Pack",
     "description": "Create by @Antony Pss (Discord). Please read the file README.md in the pack",
-    "uuid": "4497d6a8-4f35-433c-b0ef-bbeaa5e13bc2",
+    "uuid": "9ce7459a-9acb-4868-9520-973c9cbf9255",
     "min_engine_version": [ 1, 20, 0 ],
-    "version": [ 1, 1, 5 ]
+    "version": [ 1, 1, 8 ]
   },
-
   "modules": [
     {
       "type": "resources",
-      "uuid": "8bcafcb9-0e18-414d-89e2-19ad9651deaa",
+      "uuid": "52e8fbce-fdc4-48c9-9fc9-ac24e94addeb",
       "version": [ 1, 0, 0 ]
     }
   ]
