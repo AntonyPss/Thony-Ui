@@ -1,5 +1,211 @@
 {
   //---------------------------------------------------------------------------
+  // Quick Loot Section
+  //---------------------------------------------------------------------------
+
+  "container_item": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "button_ref@common.button_ref": {
+              "$button_id_1": "button.container_auto_place",
+              "$button_id_2": "button.container_take_all_place_all"
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "button_ref": {
+    "type": "panel",
+    "layer": 10,
+    "ignored": "$ignore_quick_loot",
+    "$button_ref_|default": "common.custom_container_slot_button_prototype",
+    "controls": [
+      {
+        "container_slot_button_prototype@$button_ref_": {
+          "tts_ignore_count": true,
+          "tts_skip_message": true,
+          "tts_inherit_siblings": true
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "custom_slider",
+        "source_property_name": "(#slider_value \u003d 1)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "custom_container_slot_button_prototype@common.container_slot_button_prototype": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$button_id_1",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$button_id_2",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+
+  "quick_loot_slider@common.custom_slider_template": {
+    "$slider_view_binding_name": "custom_slider",
+    "$slider_name": "custom_slider",
+    "$slider_default_position": 0,
+    "$slider_steps": 2,
+    "ignored": "$ignore_quick_loot"
+  },
+
+  "custom_slider_template": {
+    "type": "panel",
+
+    "$slider_view_binding_name|default": "",
+    "$slider_name|default": "",
+    "$slider_steps|default": 1,
+    "$slider_default_position|default": 0,
+
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "$slider_view_binding_name@common.slider": {
+          "property_bag": {
+            "#slider_steps": "$slider_steps"
+          },
+          "bindings": [
+            {
+              "binding_name": "#slider_steps"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((#slider_steps * 0) + $slider_default_position)",
+              "target_property_name": "#slider_value"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "inventory_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "quick_loot_panel": {
+              "type": "input_panel",
+              "anchor_from": "bottom_middle",
+              "anchor_to": "bottom_middle",
+              "size": [ "100%", "100%" ],
+              "controls": [
+                {
+                  "ql_bg@common.ql_bg": {}
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "ql_bg": {
+    "type": "image",
+    "ignored": "$ignore_quick_loot",
+    "texture": "textures/ui/hud_tip_text_background",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "layer": 2,
+    "alpha": 0.5,
+    "size": [ "100%c + 8px", "100%c + 8px" ],
+    "offset": [ 0, 36 ],
+    "controls": [
+      {
+        "quick_loot_stack_panel": {
+          "type": "stack_panel",
+          "size": [ 92, "100%cm" ],
+          "controls": [
+            {
+              "ql_on": {
+                "type": "label",
+                "text": "common.quickLoot.on",
+                "text_alignment": "center",
+                "layer": 4,
+                "color": "$quick_loot_on_text_color",
+                "size": [ "100%", 12 ],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "custom_slider",
+                    "source_property_name": "(#slider_value \u003d 1)",
+                    "target_property_name": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "ql_off": {
+                "type": "label",
+                "text": "common.quickLoot.off",
+                "text_alignment": "center",
+                "layer": 4,
+                "color": "$quick_loot_off_text_color",
+                "size": [ "100%", 12 ],
+                "bindings": [
+                  {
+                    "binding_type": "view",
+                    "source_control_name": "custom_slider",
+                    "source_property_name": "(#slider_value \u003d 0)",
+                    "target_property_name": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "quick_loot_slider_panel": {
+                "type": "panel",
+                "size": [ "100%", 28 ],
+                "controls": [
+                  {
+                    "quick_loot_slider@common.quick_loot_slider": {
+                      "anchor_from": "top_middle",
+                      "anchor_to": "top_middle",
+                      "size": [ "100% - 8px", 10 ],
+                      "offset": [ 0, 1 ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
   // Custom Gamepad Section
   //---------------------------------------------------------------------------
 
