@@ -1,4 +1,41 @@
 {
+  //---------------------------------------------------------------------------
+  // Pack Information Section
+  //---------------------------------------------------------------------------
+
+  "selector_stack_panel": {
+    "modifications": [
+      {
+        "control_name": "spacer_0",
+        "operation": "insert_before",
+        "value": [
+          {
+            "about_button@about.about_button": {
+              "$toggle_group_forced_index": 1,
+              "ignored": "(not $include_controls_and_settings_sections)"
+            }          
+          }
+        ]
+      }
+    ]
+  },
+
+  "section_content_panels": {
+    "modifications": [
+      {
+        "control_name": "world_sections",
+        "operation": "insert_before",
+        "value": [
+          {
+            "about_section@about.about_section": {
+              "ignored": "(not $include_controls_and_settings_sections)"
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   "selector_stack_panel/controls_and_settings_selector_pane/language_button": {
     "ignored": false
   },
