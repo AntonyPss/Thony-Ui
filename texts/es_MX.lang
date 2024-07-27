@@ -3,16 +3,41 @@ addExternalServerScreen.ipPlaceholder=IP (1.0.0.1) o URL (www.ejemplo.com)
 
 confirmLeaveWarning.worldName.title=Nombre del mundo:
 
-chat.placeHolderText=Escribe aqui un texto o comando...
+chat.placeHolderText=Escribe aquí un texto o comando...
 
-chat.settings.muteAll.description=Ocultar el chat del juego, ideal para evitar distracciones y mantener la pantalla limpia.
-chat.settings.muteEmotes.description=Silencial los gestos del jugador, perfecto para minimizar distracciones visuales.
+chat.settings.muteAll.description=Oculta el chat del juego, ideal para evitar distracciones y mantener la pantalla limpia.
+chat.settings.muteEmotes.description=Silencia los gestos del jugador, perfecto para minimizar distracciones visuales.
 chat.settings.tts.description=Activar el dictado de texto a voz, perfecto para jugadores con discapacidades visuales.
+
+common.quickLoot.on=Botin rapido (Si)
+common.quickLoot.off=Botin rapido (No)
 
 menu.creator=Thony Ui por @AntonyPss
 menu.creator.beta=Thony Ui [BETA]
+menu.creator.version=Thony Ui [v1.1.8]
 menu.creator.name=Thony Pack Ui hecho por Antony Pss
 menu.creator.info=Revisa mis Redes Sociales y nuestro Servidor de Discord
+
+options.inputMode=Modo de Entrada:
+
+options.thonyAbout=Thony Ui
+options.thonyAboutTitle=Acerca de Thony Ui
+options.thonyAboutDisclaimer=Thony UI es una creación de @AntonyPss. No estamos afiliados ni respaldados por Mojang AB, Microsoft, o cualquier otra entidad oficial de Minecraft. Todos los derechos de Minecraft y sus activos pertenecen a Mojang AB y Microsoft. Para cualquier consulta o problema, por favor contáctame a través de mi servidor de Discord.
+
+options.thonyAbout.termsOfUse.can=§2Usted puede hacer:
+options.thonyAbout.termsOfUse.can.0=- Hacer modificaciones al paquete siempre y cuando sea solo para uso personal.
+options.thonyAbout.termsOfUse.can.1=- Hacer un vistazo o review del paquete siempre y cuando me de credito en el video.
+options.thonyAbout.termsOfUse.can.2=- Hacer sugerencias para el paquete a de nuestro servidor de Discord.
+
+options.thonyAbout.termsOfUse.cant=§cUsted no puede hacer:
+options.thonyAbout.termsOfUse.cant.0=- Hacer modificaciones y hacerse parar por el creador original del paquete.
+options.thonyAbout.termsOfUse.cant.1=- Subir el paquete a través de un enlace de descarga diferente al original sin autorización.
+options.thonyAbout.termsOfUse.cant.2=- hmm..
+
+options.thonyAbout.thanks=§6Agradecimientos especiales:
+options.thonyAbout.thanks.0=> @Hiu Aseli Sunda §r§d(Discord) §r= Botín rapido
+options.thonyAbout.thanks.1=> none
+options.thonyAbout.thanks.2=> none
 
 options.worldSeed.title=Semilla:
 options.button.paste=Pegar
@@ -31,10 +56,17 @@ progress.loadingWorld.overworld.tip=Regresando a lo conocido y tranquilo, bienve
 progress.loadingWorld.nether.tip=Prepárate para el calor y las llamas, vas a entrar en el temible Nether.
 progress.loadingWorld.theEnd.tip=El misterio y la oscuridad te aguardan, vas a aventurarte en The End.
 
+playScreen.additionalServer.serverName=Nombre del servidor
+playScreen.additionalServer.serverIp=Dirección del servidor
+playScreen.additionalServer.serverPort=Puerto del servidor
+
+playScreen.serverInfo.pingTitle=Ping Actual:
+playScreen.serverInfo.onlineTitle=En linea:
+
 selectWorld.tab.worldsTemplates=Mundos y Plantillas
 selectWorld.tab.totalWorlds=Mundos encontrados
-selectWorld.tab.totalFriends=Amigos en linea
-selectWorld.tab.totalServers=Servidores en linea
+selectWorld.tab.totalFriends=Amigos en línea
+selectWorld.tab.totalServers=Servidores en línea
 
 settings.switchUiProfile.tooltip=Para obtener una mejor experiencia en la interfaz de usuario, cambia el perfil de Modo de Bolsillo a Clásico
 settings.switchUiProfile.button=Cambiar la UI a Clásico

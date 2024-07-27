@@ -9,10 +9,35 @@ chat.settings.muteAll.description=Hides the chat window, ideal for avoiding dist
 chat.settings.muteEmotes.description=Disables player emotes, perfect for minimising visual distractions.
 chat.settings.tts.description=Converts chat text into audio, essential for players with visual impairments.
 
+common.quickLoot.on=Quick Loot (On)
+common.quickLoot.off=Quick Loot (Off)
+
 menu.creator=Thony Ui by @AntonyPss
 menu.creator.beta=Thony Ui [BETA]
+menu.creator.version=Thony Ui [v1.1.8]
 menu.creator.name=Thony Pack Ui made by Antony Pss
 menu.creator.info=Check my Social Media and my Discord Server
+
+options.inputMode=Input Mode:
+
+options.thonyAbout=Thony UI
+options.thonyAboutTitle=About Thony UI
+options.thonyAboutDisclaimer=Thony UI is a creation of @AntonyPss. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other official Minecraft entity. All rights to Minecraft and its assets belong to Mojang AB and Microsoft. For any inquiries or issues, please contact me through my Discord server.
+
+options.thonyAbout.termsOfUse.can=§2You can:
+options.thonyAbout.termsOfUse.can.0=- Make modifications to the pack as long as it is for personal use only.
+options.thonyAbout.termsOfUse.can.1=- Review the pack as long as you give me credit in the video.
+options.thonyAbout.termsOfUse.can.2=- Make suggestions for the pack on our Discord server.
+
+options.thonyAbout.termsOfUse.cant=§cYou can't:
+options.thonyAbout.termsOfUse.cant.0=- Make modifications and claim to be the original creator of the pack.
+options.thonyAbout.termsOfUse.cant.1=- Upload the pack through a different download link without authorization.
+options.thonyAbout.termsOfUse.cant.2=- hmm..
+
+options.thonyAbout.thanks=§6Special thanks:
+options.thonyAbout.thanks.0=> @Hiu Aseli Sunda §r§d(Discord) §r= Quick loot
+options.thonyAbout.thanks.1=> none
+options.thonyAbout.thanks.2=> none
 
 options.worldSeed.title=Seed:
 options.button.paste=Paste
@@ -30,6 +55,13 @@ progress.loadingWorld.theEnd.title=Regenerating The End
 progress.loadingWorld.overworld.tip=Back to the familiar and peaceful, welcome back to the Overworld.
 progress.loadingWorld.nether.tip=Prepare yourself for the heat and flames, you're about to step into the fearsome Nether.
 progress.loadingWorld.theEnd.tip=Mystery and darkness are ahead, you’re about to venture into The End.
+
+playScreen.additionalServer.serverName=Server Name
+playScreen.additionalServer.serverIp=Server Address
+playScreen.additionalServer.serverPort=Server Port
+
+playScreen.serverInfo.pingTitle=Current Ping:
+playScreen.serverInfo.onlineTitle=Online:
 
 selectWorld.tab.worldsTemplates=Worlds and Templates
 selectWorld.tab.totalWorlds=Worlds Found
