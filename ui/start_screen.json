@@ -53,6 +53,27 @@
     "size": [ 11, 15 ]
   },
 
+  "desktop_icon": {
+    "type": "image",
+    "texture": "textures/ui/keyboard_and_mouse_glyph_color",
+    "layer": 2,
+    "size": [ 22, 12 ]
+  },
+
+  "touch_icon": {
+    "type": "image",
+    "texture": "textures/ui/touch_glyph",
+    "layer": 2,
+    "size": [ 22, 14 ]
+  },
+
+  "controller_icon": {
+    "type": "image",
+    "texture": "textures/ui/controller_glyph_color",
+    "layer": 2,
+    "size": [ 21, 14 ]
+  },
+
   //---------------------------------------------------------------------------
   // Label Section
   //---------------------------------------------------------------------------
@@ -647,7 +668,6 @@
   "cloud_upload_prompt": {
     "$middle_button_panel": "start.cloud_upload_worlds_dark_button",
     "$bottom_button_panel": "start.cloud_upload_learn_more_dark_button",
-
     "$fill_alpha": 0.5
   },
 
@@ -682,7 +702,214 @@
   },
 
   //---------------------------------------------------------------------------
-  // Screens
+  // Input Info Panel
+  //---------------------------------------------------------------------------
+
+  "input_type_text": {
+    "type": "label",
+    "layer": 4,
+    "shadow": true,
+    "color": "$input_type_mode_subtitle_color",
+    "size": [ "default", 10 ]
+  },
+
+  "input_info_panel": {
+    "type": "panel",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": [ "100%cm", "100%cm" ],
+    "offset": "@animations.anim_offset",
+
+    "$anim_easing_offset": "in_out_elastic",
+    "$anim_offset_duration": 1.5,
+    "$anim_offset_from": [ "50%", 2 ],
+    "$anim_offset_to": [ -2, 2 ],
+
+    "disable_anim_fast_forward": true,
+    "controls": [
+      {
+        "background@common_assets.background_image": {
+          "$fill_alpha": 0.6,
+          "size": [ "100%sm + 6px", "100%sm + 1px" ]
+        }
+      },
+      {
+        "stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100%c", 22 ],
+          "controls": [
+            {
+              "icon_panel": {
+                "type": "panel",
+                "size": [ 24, 22 ],
+                "controls": [
+                  {
+                    "desktop_icon@start.desktop_icon": {
+                      "ignored": "(not $mouse)",
+                      "controls": [
+                        {
+                          "desktop_icon@start.desktop_icon": {
+                            "layer": -1,
+                            "alpha": 0.8,
+                            "color": [ 0.6, 0.6, 0.6 ],
+                            "offset": [ 1, 1 ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "touch_icon@start.touch_icon": {
+                     "ignored": "(not $touch)",
+                      "controls": [
+                        {
+                          "touch_icon@start.touch_icon": {
+                            "layer": -1,
+                            "alpha": 0.8,
+                            "color": [ 0.46, 0.46, 0.46 ],
+                            "offset": [ 1, 1 ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "controller_icon@start.controller_icon": {
+                      "ignored": "(not $game_pad)",
+                      "controls": [
+                        {
+                          "controller_icon@start.controller_icon": {
+                            "layer": -1,
+                            "alpha": 0.8,
+                            "color": [ 0.6, 0.6, 0.6 ],
+                            "offset": [ 1, 1 ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 2, 0 ]
+              }
+            },
+            {
+              "label_panel": {
+                "type": "stack_panel",
+                "size": [ "100%cm", 22 ],
+                "controls": [
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [ 0, 1 ]
+                    }
+                  },
+                  {
+                    "input_title_text": {
+                      "type": "label",
+                      "text": "options.inputMode",
+                      "layer": 4,
+                      "shadow": true,
+                      "color": "$input_type_mode_title_color",
+                      "size":  [ "default", 10 ]
+                    }
+                  },
+                  {
+                    "input_type_desktop@start.input_type_text": {
+                      "ignored": "(not $mouse)",
+                      "text": "options.keyboardAndMouse"
+                    }
+                  },
+                  {
+                    "input_type_touch_text@start.input_type_text": {
+                      "ignored": "(not $touch)",
+                      "text": "options.touch"
+                    }
+                  },
+                  {
+                    "input_type_controller_text@start.input_type_text": {
+                      "ignored": "(not $game_pad)",
+                      "text": "options.controller"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Gatherings
+  //---------------------------------------------------------------------------
+
+  "gathering_dark_button@common_buttons.dark_text_button": {
+    "$pressed_button_name": "button.gathering",
+    "$button_text": "#gathering_button_text",
+    "$button_text_binding_type": "global",
+    "size": [ "100% - 8px", 24 ],
+    "bindings": [
+      {
+        "binding_name": "#gathering_button_enabled",
+        "binding_name_override": "#enabled"
+      }
+    ]
+  },
+
+  "gathering_caption/countdown_text": {
+    "shadow": true
+  },
+
+  "gathering_panel": {
+    "anchor_from": "bottom_left",
+    "anchor_to": "bottom_left",
+    "offset": "@animations.anim_offset",
+
+    "$anim_easing_offset": "in_out_elastic",
+    "$anim_offset_duration": 2.0,
+    "$anim_offset_from": [ "-50%", -42 ],
+    "$anim_offset_to": [ 6, -42 ],
+
+    "disable_anim_fast_forward": true
+  },
+
+  "gathering_panel/bottom_pad": {
+    "ignored": true
+  },
+
+  "gathering_panel/horizontal_panel/inner_panel": {
+    "modifications": [
+      {
+        "control_name": "gathering_button",
+        "operation": "replace",
+        "value": [
+          {
+            "gathering_dark_button_panel": {
+              "type": "panel",
+              "size": [ 116, 24 ],
+              "controls": [
+                {
+                  "gathering_dark_button@start.gathering_dark_button": {}
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screen
   //---------------------------------------------------------------------------
 
   "start_screen_content": {
@@ -699,7 +926,9 @@
     "controls": [
       { "main_stack@start.main_stack_panel": {} },
       { "main_text_panel@start.text_panel": {} },
+      { "gathering_panel@start.gathering_panel": {} },
       { "main_skin_viewer@start.skin_panel": {} },
+      { "input_panel@start.input_info_panel": {} },
       { "get_started_stack@start.get_started_stack": {} },
       { "header_stack@start.header_button_stack": {} },
       {
