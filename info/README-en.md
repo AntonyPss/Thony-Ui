@@ -1,7 +1,7 @@
 # Thony Ui Pack
 
 ## 📦 What is Thony Ui?
-**Thony Ui** is a package designed for the **Minecraft Bedrock** version, created by **Antony Pss**. It modifies certain screens to enhance accessibility for a better visual experience.
+**Thony Ui** is a pack designed for the **Minecraft Bedrock** version, created by **Antony Pss**. It modifies certain screens to enhance accessibility for a better visual experience.
 
 ## Pros and Cons
 
@@ -17,4 +17,5 @@
 - Source code: [Download Thony Ui on GitHub](none)
 
 ## ✨ Acknowledgments
-Created by **AntonyPss (Discord)**
+- @Hiu Aseli Sunda **(Discord)** = Quick Loot.
+- Hecho por **@AntonyPss (Discord).**

@@ -17,4 +17,5 @@
 - Código fuente: [Descarga Thony Ui en GitHub](none)
 
 ## ✨ Agradecimientos
-Hecho por **AntonyPss (Discord)**
+- @Hiu Aseli Sunda **(Discord)** = Botín rapido.
+- Hecho por **@AntonyPss (Discord).**
