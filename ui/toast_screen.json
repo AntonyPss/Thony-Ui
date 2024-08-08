@@ -1,20 +1,6 @@
 {
   "popup/background": {
-    "texture": "textures/ui/Black",
-    "alpha": 0.7
-  },
-
-  "text_stack_panel": {
-    "size": [ "100%", 24 ]
-  },
-
-  "text_stack_panel/title": {
-    "$toast_font_type": "MinecraftTen"
-  },
-
-  "text_stack_panel/subtitle/subtext_offset/subtext": {
-    "$toast_font_type": "smooth",
-    "$toast_text_color": "$body_text_color",
-    "alpha": 0.8
+    "texture": "textures/ui/hud_tip_text_background",
+    "alpha": 0.6
   }
 }
