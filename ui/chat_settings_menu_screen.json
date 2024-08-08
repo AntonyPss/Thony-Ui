@@ -161,9 +161,7 @@
           "$anim_offset_to": [ 0, 0 ],
 
           "disable_anim_fast_forward": true,
-          "anims": [
-            "@animations.anim_offset"
-          ]
+          "anims": [ "@animations.anim_offset" ]
         }
       }
     ]

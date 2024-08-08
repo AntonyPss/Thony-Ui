@@ -103,6 +103,7 @@
     "$button_type_panel": "common_assets.icon_wrapper",
     "$button_text": "selectTemplate.generateRandom",
     "$button_content": "play.worlds_icon",
+    "$button_size": [ "100% - 4px", "100% - 4px" ],
     "size": [ "fill", "100%" ],
     "variables": [
       {
@@ -131,6 +132,7 @@
     "$pressed_button_name": "button.menu_quick_play",
     "$button_text": "menu.quickplay",
     "$button_content": "play.quick_play_icon",
+    "$button_size": [ "100% - 4px", "100% - 4px" ],
     "size": [ "fill", "100%" ]
   },
 
@@ -149,61 +151,11 @@
     ]
   },
 
-  "icon_text_tmp_panel": {
-    "type": "panel",
-    "size": [ "100% - 2px", "100% - 2px" ],
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "controls": [
-            {
-              "icon_panel": {
-                "type": "panel",
-                "size": [ "100%", "100%c" ],
-                "controls": [
-                  {
-                    "icon@$button_content": {
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "layer": 4
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "padd": {
-                "type": "panel",
-                "size": [ 0, 4 ]
-              }
-            },
-            {
-              "label_panel": {
-                "type": "panel",
-                "size": [ "100%", "100%c" ],
-                "controls": [
-                  {
-                    "label@common_buttons.custom_ui_binding_button_label": {
-                      "$button_font_scale_factor": 0.8
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-  
-  "edit_world_item_button@common_buttons.dark_text_button": {
-    "$button_type_panel": "play.icon_text_tmp_panel",
+  "edit_world_item_button@common_buttons.dark_content_button": {
     "$pressed_button_name": "button.menu_local_world_item_edit",
     "$button_content": "play.edit_icon",
-    "$button_text": "action.interact.edit",
     "$button_tts_header": "accessibility.play.editWorld",
-    "size": [ 40, "100%" ],
+    "size": [ "100%y", "100%" ],
     "bindings": [
       {
         "binding_type": "collection_details",
@@ -219,7 +171,7 @@
     "shadow": true,
     "color": "$main_header_text_color",
     "bindings": "$world_label_bindings",
-    "size": [ "default", 12 ]
+    "size": [ "default", 10 ]
   },
 
   "world_subtitle": {
@@ -229,7 +181,7 @@
     "shadow": true,
     "color": "$sub_header_text_color",
     "bindings": "$world_label_bindings",
-    "size": [ "default", 12 ]
+    "size": [ "default", 10 ]
   },
 
   "local_world_text_panel": {
@@ -240,14 +192,14 @@
           "type": "panel",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [ "100% - 12px", "100%cm" ],
+          "size": [ "100% - 8px", "100%cm" ],
           "controls": [
             {
               "horizontal_panel_1": {
                 "type": "stack_panel",
                 "anchor_from": "left_middle",
                 "anchor_to": "left_middle",
-                "size": [ "100%c", 24 ],
+                "size": [ "100%c", 22 ],
                 "controls": [
                   {
                     "world_name_title@play.world_title": {
@@ -314,7 +266,7 @@
                                   "anchor_from": "center",
                                   "anchor_to": "center",
                                   "layer": 8,
-                                  "color": [ 0.626, 0.626, 0.626 ],
+                                  "color": [ 0.6, 0.6, 0.6 ],
                                   "size": [ 10, 10 ],
                                   "offset": [ 1, 1 ]
                                 }
@@ -333,7 +285,7 @@
                 "type": "panel",
                 "anchor_from": "right_middle",
                 "anchor_to": "right_middle",
-                "size": [ "100%c", 24 ],
+                "size": [ "100%c", 20 ],
                 "controls": [
                   {
                     "world_size_text@play.world_subtitle": {
@@ -379,7 +331,7 @@
                         },
                         {
                           "binding_type": "view",
-                          "source_property_name": "(':'+#local_world_date)",
+                          "source_property_name": "(':' + #local_world_date)",
                           "target_property_name": "#rawDate"
                         },
                         {
@@ -424,7 +376,7 @@
   },
 
   "local_world_item": {
-    "size": [ "100%", 40 ],
+    "size": [ "100%", 32 ],
     "controls": [
       { "local_world_item@play.local_world_item_button": {} },
       { "edit_world_item@play.edit_world_item_button": {} }
@@ -1754,12 +1706,10 @@
                 "anchor_to": "left_middle",
                 "$show_background": false,
                 "$scrolling_content": "play.server_scroll_panel",
-                "$scrolling_pane_size": [ "100%", "100%" ],
-                "$scrolling_pane_offset": [ 0, 0 ],
                 "$scroll_size": [ 4, "100%" ],
                 "$scroll_bar_left_padding_size": [ 4, 0 ],
-                "$scroll_bar_right_padding_size": [ 0, 0 ],
-                "size": [ "100% - 4px", "100% - 4px" ]
+                "$scroll_bar_right_padding_size": [ 2, 0 ],
+                "size": [ "100% - 2.5px", "100% - 4px" ]
               }
             }
           ]

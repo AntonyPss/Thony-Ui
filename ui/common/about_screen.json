@@ -1,14 +1,13 @@
 {
   "namespace": "about",
 
-  "social_media_with_icon": {
+  "icon_with_label": {
     "type": "panel",
-
-    "$social_media_icon|default": "#none",
-    "$social_media_text|default": "#none",
-    "$social_media_text_color|default": [ 1.0, 1.0, 1.0 ],
-
     "size": [ "100%", 32 ],
+
+    "$icon_texture|default": "#none",
+    "$label_text|default": "#none",
+    "$label_text_color|default": [ 1.0, 1.0, 1.0 ],
     "controls": [
       {
         "background@common_assets.background_image": {
@@ -22,14 +21,14 @@
           "size": [ "100% - 4px", 28 ],
           "controls": [
             {
-              "social_media_icon_panel": {
+              "icon_panel": {
                 "type": "panel",
                 "size": [ 28, "100%" ],
                 "controls": [
                   {
-                    "social_media_icon": {
+                    "icon_image": {
                       "type": "image",
-                      "texture": "$social_media_icon",
+                      "texture": "$icon_texture",
                       "layer": 4,
                       "size": [ 24, 24 ]
                     }
@@ -44,17 +43,17 @@
               }
             },
             {
-              "social_media_text_panel": {
+              "label_panel": {
                 "type": "panel",
                 "size": [ "100%c", "100%" ],
                 "controls": [
                   {
-                    "social_media_text": {
+                    "label": {
                       "type": "label",
-                      "text": "$social_media_text",
+                      "text": "$label_text",
                       "layer": 4,
                       "shadow": true,
-                      "color": "$social_media_text_color",
+                      "color": "$label_text_color",
                       "size": [ "default", "default" ]
                     }
                   }
@@ -69,10 +68,9 @@
 
   "information_with_background": {
     "type": "panel",
+    "size": [ "100%", "100%cm" ],
 
     "$information_text|default": "",
-
-    "size": [ "100%", "100%cm" ],
     "controls": [
       {
         "background@common_assets.background_image": {
@@ -138,7 +136,7 @@
     "$toggle_view_binding_name": "about_button_toggle",
     "$glyph_texture": "textures/ui/infobulb",
     "$glyph_color_texture": "textures/ui/infobulb",
-    "$glyph_size": [ 15, 19 ],
+    "$glyph_size": [ 14, 17 ],
     "$button_text": "options.thonyAbout",
     "$toggle_property_bag": {
       "#panel_title": "options.thonyAboutTitle"
@@ -166,42 +164,42 @@
         }
       },
       {
-        "pack@about.social_media_with_icon": {
-          "$social_media_icon": "pack_icon",
-          "$social_media_text": "menu.creator.version"
+        "pack@about.icon_with_label": {
+          "$icon_texture": "textures/icons/pack",
+          "$label_text": "$menu_creator_version"
         }
       },
       {
         "padding": {
           "type": "panel",
-          "size": [ "100%", 2 ]
+          "size": [ "100%", 1 ]
         }
       },
       {
-        "discord@about.social_media_with_icon": {
-          "$social_media_icon": "textures/icons/discord",
-          "$social_media_text": "https://discord.gg/kYDf4gadKw",
-          "$social_media_text_color": "purple"
+        "discord@about.icon_with_label": {
+          "$icon_texture": "textures/icons/discord",
+          "$label_text": "https://discord.gg/kYDf4gadKw",
+          "$label_text_color": "purple"
         }
       },
       {
-        "mcpedl@about.social_media_with_icon": {
-          "$social_media_icon": "textures/icons/mcpedl",
-          "$social_media_text": "Coming soon!",
-          "$social_media_text_color": "green"
+        "mcpedl@about.icon_with_label": {
+          "$icon_texture": "textures/icons/mcpedl",
+          "$label_text": "Coming soon!",
+          "$label_text_color": "green"
         }
       },
       {
-        "x_or_twitter@about.social_media_with_icon": {
-          "$social_media_icon": "textures/icons/x",
-          "$social_media_text": "https://x.com/AntonyPss"
+        "x_or_twitter@about.icon_with_label": {
+          "$icon_texture": "textures/icons/x",
+          "$label_text": "https://x.com/AntonyPss"
         }
       },
       {
-        "youtube@about.social_media_with_icon": {
-          "$social_media_icon": "textures/icons/youtube",
-          "$social_media_text": "https://youtube.com/@antony_2023",
-          "$social_media_text_color": "red"
+        "youtube@about.icon_with_label": {
+          "$icon_texture": "textures/icons/youtube",
+          "$label_text": "https://youtube.com/@antony_2023",
+          "$label_text_color": "red"
         }
       },
       {
@@ -263,7 +261,7 @@
                 "$label_text_type": "smooth",
                 "$label_text_size": [ "100% - 4px", "default" ],
                 "$label_text_offset": [ 1, 0 ],
-                "$label_color": [ 0.7, 0.7, 0.7 ],
+                "$label_text_color": [ 0.7, 0.7, 0.7 ],
                 "$label_background_alpha": 0.5,
                 "$label_background": "textures/ui/hud_tip_text_background",
                 "$label_background_size": [ "100% - 2px", "100%cm + 4px" ]

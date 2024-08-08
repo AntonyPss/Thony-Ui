@@ -59,7 +59,53 @@
 
   "content_log_history_panel": {
     "$show_close_button": false,
-    "$show_title_text": false
+    "$show_title_text": false,
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "background@common_assets.background_panel": {
+          "size": [ "100% - 4px", "100% - 4px" ]
+        }
+      },
+      {
+        "content_log_history_dialog": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "layer": 4,
+          "size": [ "100% - 16px", "100%" ],
+          "controls": [
+            {
+              "padding0": {
+                "type": "panel",
+                "size": [ "100%", 8 ]
+              }
+            },
+            {
+              "main_stack_panel@main_stack_panel": {
+                "size": [ "100%", "fill" ]
+              }
+            },
+            {
+              "padding1": {
+                "type": "panel",
+                "size": [ "100%", 4 ]
+              }
+            },
+            {
+              "buttons_panel@horizontal_button_stack_panel": {
+                "size": [ "100% - 4px", 24 ]
+              }
+            },
+            {
+              "padding2": {
+                "type": "panel",
+                "size": [ "100%", 8 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   },
 
   "content_log_history_screen": {

@@ -677,7 +677,79 @@
   // Creator Section
   //---------------------------------------------------------------------------
 
-  /* "creator_toggles_panel": {
+  "editor_toggle_panel": {
+    "size": [ "100%", "100%cm + 12px" ],
+    "controls": [
+      {
+        "editor_confirmation_panel": {
+          "type": "stack_panel",
+          "size": [ "fill", "100%c" ],
+          "controls": [
+            {
+              "editor_active_label": {
+                "type": "label",
+                "text": "#editor_activity_label",
+                "layer": 4,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "100%", "default" ],
+                "bindings": [
+                  {
+                    "binding_name": "#editor_activity_label"
+                  }
+                ]
+              }
+            },
+            {
+              "toggle_spacer": {
+                "type": "panel",
+                "size": [ "100%", 8 ]
+              }
+            },
+            {
+              "editor_confirmation_section_label": {
+                "type": "label",
+                "text": "#editor_label",
+                "layer": 4,
+                "shadow": true,
+                "color": "$body_text_color",
+                "size": [ "100%", "default" ],
+                "bindings": [
+                  {
+                    "binding_name": "#editor_label"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "editor_toggle_spacer": {
+          "type": "panel",
+          "size": [ 8, 0 ]
+        }
+      },
+      {
+        "editor_image_panel": {
+          "type": "stack_panel",
+          "size": [ "24%", "100%x" ],
+          "controls": [
+            {
+              "editor_icon": {
+                "type": "image",
+                "layer": 2,
+                "size": [ "100%", "100%" ],
+                "texture": "textures/ui/enable_editor"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "creator_toggles_panel": {
     "controls": [
       {
         "copy_coordinate_section_stack_panel": {
@@ -685,23 +757,9 @@
           "visible": "$supports_clipboard_set",
           "controls": [
             {
-              "content_log_section_label": {
-                "type": "panel",
-                "size": [ "100%", 20 ],
-                "controls": [
-                  {
-                    "content_log_section_label@common_assets.label_background": {
-                      "$label_text": "options.creatorTitle",
-                      "$label_background_size": [ "100% - 2px", 14 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
               "content_log_section_label_spacer": {
                 "type": "panel",
-                "size": [ "100%", 4 ]
+                "size": [ "100%", 2 ]
               }
             },
             {
@@ -747,6 +805,224 @@
             }
           ]
         }
+      },
+      {
+        "creator_settings_section_label_spacer": {
+          "type": "panel",
+          "size": [ "100%", 12 ]
+        }
+      }
+    ]
+  },
+
+  "debugger_toggles_panel": {
+    "controls": [
+      {
+        "primary_panel": {
+          "type": "stack_panel",
+          "controls": [
+            {
+              "spacer": {
+                "type": "panel",
+                "size": [ "100%", 2 ]
+              }
+            },
+            {
+              "auto_attach_toggle@settings_common.option_toggle": {
+                "ignored": "$build_platform_UWP",
+                "$option_label": "options.creator.debuggerAutoAttach",
+                "$option_binding_name": "#script_debugger_auto_attach",
+                "$option_enabled_binding_name": "#script_debugger_auto_attach_enabled",
+                "$toggle_name": "script_debugger_auto_attach"
+              }
+            },
+            {
+              "auto_connect_toggle@settings_common.option_toggle": {
+                "ignored": "(not $build_platform_UWP)",
+                "$option_label": "options.creator.debuggerAutoConnect",
+                "$option_binding_name": "#script_debugger_auto_attach",
+                "$option_enabled_binding_name": "#script_debugger_auto_attach_enabled",
+                "$toggle_name": "script_debugger_auto_attach"
+              }
+            },
+            {
+              "all_options_panel": {
+                "type": "stack_panel",
+                "size": [ "100%", "100%c" ],
+                "bindings": [
+                  {
+                    "binding_name": "#script_debugger_auto_attach_options_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ],
+                "controls": [
+                  {
+                    "attach_mode_option@settings_common.option_radio_dropdown_group": {
+                      "ignored": "$build_platform_UWP",
+                      "$option_enabled_binding_name": "#script_debugger_auto_attach_enabled",
+                      "$radio_buttons": [
+                        {
+                          "connect@settings_common.radio_with_label": {
+                            "$toggle_state_binding_name": "#script_debugger_attach_mode_connect",
+                            "$radio_label_text": "options.creator.debuggerConnect"
+                          }
+                        },
+                        {
+                          "listen@settings_common.radio_with_label": {
+                            "$toggle_state_binding_name": "#script_debugger_attach_mode_listen",
+                            "$radio_label_text": "options.creator.debuggerListen"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "host_and_port_panel": {
+                      "type": "stack_panel",
+                      "orientation": "horizontal",
+                      "size": [ "100%", 48 ],
+                      "controls": [
+                        {
+                          "host_input@settings_common.option_text_edit": {
+                            "size": [ "49.5%", "100%" ],
+                            "$text_box_name": "script_debugger_host",
+                            "$max_text_edit_length": 15,
+                            "$option_label": "options.creator.debuggerHost",
+                            "$option_binding_name": "#script_debugger_host",
+                            "bindings": [
+                              {
+                                "binding_name": "#script_debugger_attach_mode_connect",
+                                "binding_name_override": "#enabled"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "spacer": {
+                            "type": "panel",
+                            "size": [ "1%", "100%" ]
+                          }
+                        },
+                        {
+                          "port_input@settings_common.option_text_edit": {
+                            "size": [ "49.5%", "100%" ],
+                            "$text_box_name": "script_debugger_port",
+                            "$max_text_edit_length": 5,
+                            "$option_label": "options.creator.debuggerPort",
+                            "$option_binding_name": "#script_debugger_port"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 12 ]
+        }
+      }
+    ]
+  },
+
+  "watchdog_toggles_panel": {
+    "controls": [
+      {
+        "primary_panel": {
+          "type": "stack_panel",
+          "controls": [
+            {
+              "spacer": {
+                "type": "panel",
+                "size": [ "100%", 2 ]
+              }
+            },
+            {
+              "hang_threshold_slider@settings_common.option_slider": {
+                "$option_label": "#script_watchdog_hang_threshold_slider_label",
+                "$slider_name": "script_watchdog_hang_threshold",
+                "$slider_value_binding_name": "#script_watchdog_hang_threshold",
+                "$slider_tts_text_value": "#script_watchdog_hang_threshold_text_value",
+                "$option_enabled_binding_name": "#script_watchdog_hang_threshold_enabled",
+                "$slider_steps_binding_name": "#script_watchdog_hang_threshold_steps",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ]
+              }
+            },
+            {
+              "spike_warning_toggle@settings_common.option_toggle": {
+                "$option_label": "options.creator.watchdogSpikeWarning",
+                "$option_binding_name": "#script_watchdog_spike_warning",
+                "$option_enabled_binding_name": "#script_watchdog_spike_warning_enabled",
+                "$toggle_name": "script_watchdog_spike_warning"
+              }
+            },
+            {
+              "spike_threshold_slider@settings_common.option_slider": {
+                "$option_label": "#script_watchdog_spike_threshold_slider_label",
+                "$slider_name": "script_watchdog_spike_threshold",
+                "$slider_value_binding_name": "#script_watchdog_spike_threshold",
+                "$slider_tts_text_value": "#script_watchdog_spike_threshold_text_value",
+                "$option_enabled_binding_name": "#script_watchdog_spike_threshold_enabled",
+                "$slider_steps_binding_name": "#script_watchdog_spike_threshold_steps",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#script_watchdog_spike_threshold_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "slow_warning_toggle@settings_common.option_toggle": {
+                "$option_label": "options.creator.watchdogSlowWarning",
+                "$option_binding_name": "#script_watchdog_slow_warning",
+                "$option_enabled_binding_name": "#script_watchdog_slow_warning_enabled",
+                "$toggle_name": "script_watchdog_slow_warning"
+              }
+            },
+            {
+              "slow_threshold_slider@settings_common.option_slider": {
+                "$option_label": "#script_watchdog_slow_threshold_slider_label",
+                "$slider_name": "script_watchdog_slow_threshold",
+                "$slider_value_binding_name": "#script_watchdog_slow_threshold",
+                "$slider_tts_text_value": "#script_watchdog_slow_threshold_text_value",
+                "$option_enabled_binding_name": "#script_watchdog_slow_threshold_enabled",
+                "$slider_steps_binding_name": "#script_watchdog_slow_threshold_steps",
+                "$label_bindings": [
+                  {
+                    "binding_name": "$option_label"
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#script_watchdog_slow_threshold_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 12 ]
+        }
       }
     ]
   },
@@ -754,22 +1030,9 @@
   "content_log_panel": {
     "controls": [
       {
-        "content_log_section_label": {
-          "type": "panel",
-          "size": [ "100%", 20 ],
-          "controls": [
-            {
-              "content_log_section_label@common_assets.label_background": {
-                "$label_text": "contentlog.settingsSectionName"
-              }
-            }
-          ]
-        }
-      },
-      {
         "content_log_section_label_spacer": {
           "type": "panel",
-          "size": [ "100%", 4 ]
+          "size": [ "100%", 2 ]
         }
       },
       {
@@ -792,13 +1055,13 @@
         "content_log_buttons": {
           "type": "stack_panel",
           "orientation": "horizontal",
-          "size": [ "100%", 28 ],
+          "size": [ "100%", 30 ],
           "controls": [
             {
               "open_content_log_history@common_buttons.dark_text_button": {
                 "$pressed_button_name": "button.open_content_log_history",
                 "$button_text": "contentlog.history.title",
-                "size": [ "50%", "100%" ],
+                "size": [ "49.5%", "100%" ],
                 "bindings": [
                   {
                     "binding_name": "#content_log_gui_option_enabled",
@@ -808,10 +1071,16 @@
               }
             },
             {
+              "content_log_section_label_spacer": {
+                "type": "panel",
+                "size": [ "1%", "100%" ]
+              }
+            },
+            {
               "clear_content_log_files@common_buttons.dark_text_button": {
                 "$pressed_button_name": "button.clear_content_log_files",
                 "$button_text": "contentlog.clear_files",
-                "size": [ "50%", "100%" ],
+                "size": [ "49.5%", "100%" ],
                 "bindings": [
                   {
                     "binding_name": "#allow_content_log_write_to_disk",
@@ -831,19 +1100,16 @@
       },
       {
         "content_log_location_label_header": {
-          "type": "panel",
-          "size": [ "100%", 14 ],
-          "controls": [
+          "type": "label",
+          "text": "contentlog.logLocationSectionName",
+          "layer": 4,
+          "shadow": true,
+          "color": "$sub_header_text_color",
+          "size": [ "100%", 12 ],
+          "bindings": [
             {
-              "content_log_location_label_header@common_assets.label_background": {
-                "$label_text": "contentlog.logLocationSectionName",
-                "$label_bindings": [
-                  {
-                    "binding_name": "#content_log_file_enabled",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
+              "binding_name": "#content_log_file_enabled",
+              "binding_name_override": "#visible"
             }
           ]
         }
@@ -852,9 +1118,10 @@
         "content_log_location_label": {
           "type": "label",
           "text": "#text",
-          "hide_hyphen": true,
-          "shadow": true,
+          "layer": 4,
           "alpha": 0.8,
+          "shadow": true,
+          "hide_hyphen": true,
           "color": "$body_text_color",
           "size": [ "100%", "default" ],
           "bindings": [
@@ -868,16 +1135,75 @@
             }
           ]
         }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [ "100%", 12 ]
+        }
       }
     ]
   },
 
   "creator_section": {
     "controls": [
-      { "creator_toggles@general_section.creator_toggles_panel": {} },
-      { "content_log_buttons@general_section.content_log_panel": {} }
+      {
+        "editor_toggle_dialog@general_section.background_section_panel": {
+          "$text_name": "menu.editorMode",
+          "$child_control": "general_section.editor_toggle_panel",
+          "ignored": "$is_editor_ignored"
+        }
+      },
+      {
+        "padding0": {
+          "type": "panel",
+          "size": [ "100%", 4 ]
+        }
+      },
+      {
+        "creator_toggles_dialog@general_section.background_section_panel": {
+          "$text_name": "options.creatorTitle",
+          "$child_control": "general_section.creator_toggles_panel"
+        }
+      },
+      {
+        "padding1": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      },
+      {
+        "debugger_toggles_dialog@general_section.background_section_panel": {
+          "$text_name": "options.creator.debuggerHeading",
+          "$child_control": "general_section.debugger_toggles_panel"
+        }
+      },
+      {
+        "padding2": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      },
+      {
+        "watchdog_toggles_dialog@general_section.background_section_panel": {
+          "$text_name": "options.creator.watchdogHeading",
+          "$child_control": "general_section.watchdog_toggles_panel"
+        }
+      },
+      {
+        "padding3": {
+          "type": "panel",
+          "size": [ "100%", 6 ]
+        }
+      },
+      {
+        "content_log_dialog@general_section.background_section_panel": {
+          "$text_name": "contentlog.settingsSectionName",
+          "$child_control": "general_section.content_log_panel"
+        }
+      }
     ]
-  }, */
+  },
 
   //---------------------------------------------------------------------------
   // Sound Section
@@ -1169,6 +1495,37 @@
           "property_bag": {
             "reset_group": "audio"
           }
+        }
+      }
+    ]
+  },
+
+  "background_section_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%cm" ],
+    "controls": [
+      {
+        "background@common_assets.background_panel": {
+          "size": [ "100%", "100%sm + 8px" ]
+        }
+      },
+      {
+        "title_panel@common_dialogs.title_label": {
+          "layer": 2
+        }
+      },
+      {
+        "panel_indent": {
+          "type": "panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "size": [ "100% - 8px", "100%c" ],
+          "offset": [ 0, 16 ],
+          "controls": [
+            {
+              "child_control@$child_control": {}
+            }
+          ]
         }
       }
     ]

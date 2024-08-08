@@ -51,9 +51,7 @@
     "$anim_offset_to": [ 0, -24 ],
 
     "disable_anim_fast_forward": true,
-    "anims": [
-      "@animations.anim_offset"
-    ],
+    "anims": [ "@animations.anim_offset" ],
     "size": [ "100% - 4px", "100% - 50px" ],
     "offset": [ 0, -24 ]
   },
@@ -81,9 +79,7 @@
     "$anim_offset_to": [ 0, 0 ],
 
     "disable_anim_fast_forward": true,
-    "anims": [
-      "@animations.anim_offset"
-    ],
+    "anims": [ "@animations.anim_offset" ],
     "modifications": [
       {
         "control_name": "host_main_button",

@@ -30,16 +30,7 @@
   },
 
   "emote_wheel_screen_content/dressing_room_button_panel": {
-    "$anim_easing_offset": "in_expo",
-    "$anim_offset_duration": 1.0,
-    "$anim_offset_from": [ 0, "24%" ],
-    "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": true,
-    "anims": [
-      "@animations.anim_offset"
-    ],
-    "size": [ "100%", 28 ],
+    "size": [ "100%", 32 ],
     "controls": [
       {
         "dressing_room_button@common_buttons.dark_text_button": {
@@ -52,6 +43,16 @@
           "$button_content": "persona.dressing_room_icon",
           "$default_text_color": "$light_button_default_text_color",
           "size": [ 128, 24 ],
+
+          "$anim_easing_offset": "in_expo",
+          "$anim_offset_duration": 1.0,
+          "$anim_offset_from": [ 0, "32%" ],
+          "$anim_offset_to": [ 0, 0 ],
+      
+          "disable_anim_fast_forward": true,
+          "anims": [
+            "@animations.anim_offset"
+          ],
           "bindings": [
             {
               "binding_name": "#dressing_room_button_visible",

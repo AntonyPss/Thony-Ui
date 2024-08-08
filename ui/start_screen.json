@@ -152,7 +152,7 @@
 
   "pack_version_label@common_assets.label_background": {
     "$label_anchor": "bottom_right",
-    "$label_text": "menu.creator.beta",
+    "$label_text": "$menu_creator_version",
     "ignored": "(not $is_publish)",
 
     "$anim_easing_offset": "in_quart",
@@ -555,6 +555,7 @@
     "$pressed_button_name": "button.menu_servers",
     "$button_content": "start.servers_icon",
     "$button_text": "menu.servers",
+    "$button_tts_header": "menu.servers",
     "size": [ 24, 24 ]
   },
 
@@ -562,6 +563,7 @@
     "$pressed_button_name": "button.menu_achievements",
     "$button_content": "start.achievements_icon",
     "$button_text": "menu.achievements",
+    "$button_tts_header": "menu.achievements",
     "size": [ 24, 24 ]
   },
 
@@ -569,13 +571,13 @@
     "$pressed_button_name": "button.menu_inbox",
     "$button_content": "start.inbox_bell_animated_icon",
     "$button_text": "menu.inbox",
+    "$button_tts_header": "menu.inbox",
     "size": [ 24, 24 ]
   },
 
   "inbox_button_panel": {
     "type": "panel",
     "size": [ 24, 24 ],
-    "$button_tts_header": "menu.inbox",
     "controls": [
       { "inbox_button@start.bell_button": {} },
       { "inbox_button_unread@start.inbox_button_unread_panel": {} }
@@ -587,6 +589,7 @@
     "$button_content": "start.Xbox_icon",
     "$button_text": "#platform_signin_text",
     "$button_text_binding_type": "global",
+    "$button_tts_header": "menu.inbox",
     "size": [ 24, 24 ],
     "bindings": [
       {

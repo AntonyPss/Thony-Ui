@@ -1,0 +1,36 @@
+{
+  "namespace": "furnace",
+
+  "furnace_label": {
+    "color": "$main_header_text_color",
+    "shadow": true,
+    "size": [ "default", 12 ]
+  },
+
+  "furnace_panel/root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "close_button@common_dialogs.close_button": {}
+          }
+        ]
+      },
+      {
+        "control_name": "common_panel",
+        "operation": "replace",
+        "value": [
+          {
+            "background@common_assets.background_panel": {}
+          }
+        ]
+      }
+    ]
+  },
+
+  "furnace_screen": {
+    "force_render_below": true
+  }
+}

@@ -23,7 +23,6 @@
   "button_ref": {
     "type": "panel",
     "layer": 10,
-    "ignored": "$ignore_quick_loot",
     "$button_ref_|default": "common.custom_container_slot_button_prototype",
     "controls": [
       {
@@ -73,19 +72,17 @@
     "$slider_view_binding_name": "custom_slider",
     "$slider_name": "custom_slider",
     "$slider_default_position": 0,
-    "$slider_steps": 2,
-    "ignored": "$ignore_quick_loot"
+    "$slider_steps": 2
   },
 
   "custom_slider_template": {
     "type": "panel",
+    "size": [ "100%", "100%" ],
 
     "$slider_view_binding_name|default": "",
     "$slider_name|default": "",
     "$slider_steps|default": 1,
     "$slider_default_position|default": 0,
-
-    "size": [ "100%", "100%" ],
     "controls": [
       {
         "$slider_view_binding_name@common.slider": {
@@ -107,40 +104,16 @@
     ]
   },
 
-  "inventory_panel": {
-    "modifications": [
-      {
-        "array_name": "controls",
-        "operation": "insert_front",
-        "value": [
-          {
-            "quick_loot_panel": {
-              "type": "input_panel",
-              "anchor_from": "bottom_middle",
-              "anchor_to": "bottom_middle",
-              "size": [ "100%", "100%" ],
-              "controls": [
-                {
-                  "ql_bg@common.ql_bg": {}
-                }
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  },
-
   "ql_bg": {
     "type": "image",
-    "ignored": "$ignore_quick_loot",
-    "texture": "textures/ui/hud_tip_text_background",
+    "ignored": "$quick_loot_common_ignored",
+    "texture": "textures/ui/Black",
     "anchor_from": "bottom_middle",
     "anchor_to": "bottom_middle",
     "layer": 2,
-    "alpha": 0.5,
-    "size": [ "100%c + 8px", "100%c + 8px" ],
-    "offset": [ 0, 36 ],
+    "alpha": "$player_inventory_background_alpha",
+    "size": [ "100%c + 8px", "100%c + 4px" ],
+    "offset": [ 0, 32 ],
     "controls": [
       {
         "quick_loot_stack_panel": {
@@ -201,6 +174,71 @@
             }
           ]
         }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Inventory Common Panel
+  //---------------------------------------------------------------------------
+
+  "drop_one_item_icon": {
+    "type": "image",
+    "texture": "textures/ui/inventory_icon",
+    "layer": 2,
+    "size": [ 12, 12 ]
+  },
+
+  "drop_all_item_icon@common.drop_one_item_icon": {
+    "texture": "textures/ui/inventory_icon"
+  },
+
+  "drop_one_item_button@common_buttons.dark_content_button": {
+    "$pressed_button_name": "button.cursor_drop_one",
+    "$button_content": "common.drop_one_item_icon",
+    "size": [ "100%", "100%x" ]
+  },
+
+  "drop_all_item_button@common_buttons.dark_content_button": {
+    "$pressed_button_name": "button.cursor_drop_all",
+    "$button_content": "common.drop_all_item_icon",
+    "size": [ "100%", "100%x" ]
+  },
+
+  "drop_item_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "layer": 12,
+    "size": [ 20, "100%c" ],
+    "offset": [ 48, 0 ],
+    "controls": [
+      { "drop_one_item@drop_one_item_button": {} },
+      { "drop_all_item@drop_all_item_button": {} }
+    ]
+  },
+
+  "inventory_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "quick_loot_panel": {
+              "type": "input_panel",
+              "anchor_from": "bottom_middle",
+              "anchor_to": "bottom_middle",
+              "size": [ "100%", "100%" ],
+              "controls": [
+                {
+                  "ql_bg@common.ql_bg": {}
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },

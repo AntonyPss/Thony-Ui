@@ -195,16 +195,16 @@
     "$toggle_name": "navigation_tab",
     "$toggle_group_default_selected": "$search_index",
 
-    "$default_texture": "textures/ui/hud_tip_text_background",
-    "$hover_texture": "textures/ui/hud_tip_text_background",
-    "$pressed_texture": "textures/ui/hud_tip_text_background",
-    "$pressed_no_hover_texture": "textures/ui/hud_tip_text_background",
-    "$locked_texture": "textures/ui/hud_tip_text_background",
+    "$default_texture": "$player_inventory_background",
+    "$hover_texture": "$player_inventory_background",
+    "$pressed_texture": "$player_inventory_background",
+    "$pressed_no_hover_texture": "$player_inventory_background",
+    "$locked_texture": "$player_inventory_background",
 
-    "$default_texture_alpha": 0.5,
-    "$default_checked_texture_alpha": 0.5,
-    "$hover_texture_alpha": 0.6,
-    "$hover_checked_texture_alpha": 0.6,
+    "$default_texture_alpha": "$player_inventory_background_alpha",
+    "$default_checked_texture_alpha": "$player_inventory_background_alpha",
+    "$hover_texture_alpha": "($player_inventory_background_alpha + 0.6)",
+    "$hover_checked_texture_alpha": "($player_inventory_background_alpha + 0.6)",
     "$locked_alpha": 0.8,
     "size": [ 24, 24 ]
   },
@@ -521,7 +521,7 @@
                 "orientation": "horizontal",
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "size": [ 254, 20 ],
+                "size": [ 254, 18 ],
                 "controls": [
                   {
                     "hotbar_grid@common.hotbar_grid_template": {

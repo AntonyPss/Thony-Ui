@@ -14,7 +14,6 @@ common.quickLoot.off=Quick Loot (Off)
 
 menu.creator=Thony Ui by @AntonyPss
 menu.creator.beta=Thony Ui [BETA]
-menu.creator.version=Thony Ui [v1.1.8]
 menu.creator.name=Thony Pack Ui create by Antony Pss
 menu.creator.info=See my Social Media and my Discord Server
 
@@ -35,7 +34,7 @@ options.thonyAbout.termsOfUse.cant.1=- Upload the pack through a different downl
 options.thonyAbout.termsOfUse.cant.2=- hmm..
 
 options.thonyAbout.thanks=§6Special thanks:
-options.thonyAbout.thanks.0=> @Hiu Aseli Sunda §r§d(Discord) §r= Quick loot
+options.thonyAbout.thanks.0=> @Hiu Aseli Sunda §r§d(Discord) §r= Quick loot Assets
 options.thonyAbout.thanks.1=> none
 options.thonyAbout.thanks.2=> none
 

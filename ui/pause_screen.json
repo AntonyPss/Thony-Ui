@@ -6,9 +6,14 @@
   //---------------------------------------------------------------------------
 
   "world_name_panel": {
-    "type": "panel",
+    "type": "image",
+    "texture": "textures/ui/hud_tip_text_background",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
+    "layer": 24,
+    "alpha": 0.6,
+    "size": [ "100%cm + 8px", 24 ],
+    "offset": "@animations.anim_offset",
 
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 1.0,
@@ -29,9 +34,6 @@
         "target_property_name": "#visible"
       }
     ],
-    "layer": 24,
-    "size": [ "100%cm", 24 ],
-    "offset": "@animations.anim_offset",
     "bindings": [
       {
         "binding_type": "view",
@@ -42,111 +44,76 @@
     ],
     "controls": [
       {
-        "background": {
-          "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 2,
-          "alpha": 0.7,
-          "size": [ "100%cm + 8px", 24 ],
+        "world_stack_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%c", "100%" ],
           "controls": [
             {
-              "stack_panel": {
-                "type": "stack_panel",
-                "orientation": "horizontal",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "size": [ "100%cm - 2px", "100% - 4px" ],
+              "world_icon_panel": {
+                "type": "panel",
+                "size": [ "100%y - 8px", "100%" ],
                 "controls": [
                   {
-                    "world_icon": {
-                      "type": "panel",
-                      "size": [ "100%c", "100%" ],
-                      "controls": [
-                        {
-                          "icon@pause.world_icon_image": {
-                            "ignored": "$world_icon_ignored",
-                            "anchor_from": "center",
-                            "anchor_to": "center"
-                          }
-                        }
-                      ]
+                    "world_icon@pause.world_icon_image": {
+                      "ignored": "$world_icon_ignored"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 4, 0 ]
+              }
+            },
+            {
+              "world_label_panel": {
+                "type": "stack_panel",
+                "size": [ "100%cm", "100%sm" ],
+                "controls": [
+                  {
+                    "playing_label": {
+                      "type": "label",
+                      "text": "pauseScreen.currentWorld",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "font_type": "MinecraftTen",
+                      "layer": 4,
+                      "shadow": true,
+                      "color": "$main_header_text_color",
+                      "ignored": "$is_on_3p_server",
+                      "size": [ "default", 12 ]
                     }
                   },
                   {
-                    "padding": {
-                      "type": "panel",
-                      "size": [ 4, 0 ]
+                    "server_name_label": {
+                      "type": "label",
+                      "text": "menu.serverGenericName",
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "font_type": "MinecraftTen",
+                      "layer": 4,
+                      "shadow": true,
+                      "color": "$main_header_text_color",
+                      "ignored": "(not $is_on_3p_server)",
+                      "size": [ "default", 12 ]
                     }
                   },
                   {
-                    "vertical": {
-                      "type": "panel",
-                      "size": [ "100%cm - 4px", "100%" ],
-                      "controls": [
+                    "world_name_label": {
+                      "type": "label",
+                      "text": "#text",
+                      "layer": 4,
+                      "localize": false,
+                      "shadow": true,
+                      "color": "$sub_header_text_color",
+                      "size": [ "default", 10 ],
+                      "bindings": [
                         {
-                          "stack_panel": {
-                            "type": "stack_panel",
-                            "anchor_from": "left_middle",
-                            "anchor_to": "left_middle",
-                            "size": [ "100%c", 24 ],
-                            "controls": [
-                              {
-                                "playing_label": {
-                                  "type": "label",
-                                  "text": "pauseScreen.currentWorld",
-                                  "anchor_from": "top_left",
-                                  "anchor_to": "top_left",
-                                  "font_type": "MinecraftTen",
-                                  "layer": 4,
-                                  "shadow": true,
-                                  "color": "$main_header_text_color",
-                                  "ignored": "$is_on_3p_server",
-                                  "size": [ "default", 12 ]
-                                }
-                              },
-                              {
-                                "server_name_label": {
-                                  "type": "label",
-                                  "text": "menu.serverGenericName",
-                                  "anchor_from": "top_left",
-                                  "anchor_to": "top_left",
-                                  "font_type": "MinecraftTen",
-                                  "layer": 4,
-                                  "shadow": true,
-                                  "color": "$main_header_text_color",
-                                  "ignored": "(not $is_on_3p_server)",
-                                  "size": [ "default", 12 ]
-                                }
-                              },
-                              {
-                                "world_name_panel": {
-                                  "type": "panel",
-                                  "size": [ "100%c", 10 ],
-                                  "controls": [
-                                    {
-                                      "world_name_label": {
-                                        "type": "label",
-                                        "text": "#text",
-                                        "layer": 4,
-                                        "localize": false,
-                                        "shadow": true,
-                                        "color": "$sub_header_text_color",
-                                        "size": [ "default", 10 ],
-                                        "bindings": [
-                                          {
-                                            "binding_name": "#worldname",
-                                            "binding_name_override": "#text"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
+                          "binding_name": "#worldname",
+                          "binding_name_override": "#text"
                         }
                       ]
                     }
@@ -210,7 +177,7 @@
         "mineville@pause.world_icon_image_template": {
           "$world_icon_texture": "textures/server_icon/mineville",
           "$world_server_name": "(#worldname = 'Mineville City')",
-          "ignored": "(not $is_on_3p_server)"
+          "$world_icon_ignored": "(not $is_on_3p_server)"
         }
       }
     ]
@@ -477,7 +444,7 @@
 
   "lower_padding": {
     "type": "panel",
-    "size": [ 2, 0 ]
+    "size": [ 4, 0 ]
   },
 
   "lower_buttons_stack": {
@@ -486,6 +453,7 @@
     "anchor_from": "bottom_left",
     "anchor_to": "bottom_left",
     "size": [ "100%c", 24 ],
+    "offset": "@animations.anim_offset",
 
     "$anim_easing_offset": "in_out_elastic",
     "$anim_offset_duration": 1.4,
@@ -493,9 +461,6 @@
     "$anim_offset_to": [ 4, -4 ],
 
     "disable_anim_fast_forward": true,
-    "anims": [
-      "@animations.anim_offset"
-    ],
     "bindings": [
       {
         "binding_type": "view",
