@@ -19,6 +19,11 @@ menu.creator.info=Check my Social Media and my Discord Server
 
 options.inputMode=Input Mode:
 
+options.soundMain.title=Main Volume
+options.soundBlock.title=Block Volume
+options.soundAmbient.title=Ambient Volume
+options.soundTextToSpeech.title=Text-to-Speech Settings
+
 options.thonyAbout=Thony UI
 options.thonyAboutTitle=About Thony UI
 options.thonyAboutDisclaimer=Thony UI is a creation of @AntonyPss. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other official Minecraft entity. All rights to Minecraft and its assets belong to Mojang AB and Microsoft. For any inquiries or issues, please contact me through my Discord server.

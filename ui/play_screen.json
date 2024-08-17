@@ -30,7 +30,7 @@
     "type": "image",
     "texture": "textures/ui/icon_setting",
     "layer": 2,
-    "size": [ 16, 16 ]
+    "size": [ 14, 14 ]
   },
 
   //---------------------------------------------------------------------------
@@ -832,7 +832,7 @@
     "layer": 4,
     "$show_background": false,
     "$scrolling_content": "play.worlds_stack_panel",
-    "$scroll_bar_left_padding_size": [ 2.5, 0 ],
+    "$scroll_bar_left_padding_size": [ 4, 0 ],
     "$scroll_bar_right_padding_size": [ 2, 0 ],
     "$scrolling_pane_size": [ "100%", "100%" ],
     "size": [ "100%", "100%" ],

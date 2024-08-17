@@ -1,6 +1,6 @@
 {
   "$light_button_locked_text_color": [ 0.6, 0.6, 0.6 ],
-  "$dark_button_locked_text_color": [ 0.7, 0.7, 0.7 ],
+  "$dark_button_locked_text_color": [ 0.8, 0.8, 0.8 ],
 
   "$fill_alpha": 0.5,
 

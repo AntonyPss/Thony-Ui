@@ -3,11 +3,12 @@
 
   "icon_with_label": {
     "type": "panel",
-    "size": [ "100%", 32 ],
 
     "$icon_texture|default": "#none",
     "$label_text|default": "#none",
     "$label_text_color|default": [ 1.0, 1.0, 1.0 ],
+
+    "size": [ "100%", 32 ],
     "controls": [
       {
         "background@common_assets.background_image": {

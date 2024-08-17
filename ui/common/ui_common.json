@@ -131,21 +131,29 @@
                 "orientation": "horizontal",
                 "anchor_from": "right_middle",
                 "anchor_to": "right_middle",
-                "size": [ "100%c", 24 ],
-                "offset": [ 0, -2 ],
+                "layer": 4,
+                "size": [ "100%c", 20 ],
+                "offset": [ 0, -1 ],
                 "controls": [
                   {
                     "settings_button_panel": {
                       "type": "panel",
                       "ignored": true,
-                      "size": [ 24, 24 ],
+                      "size": [ "100%y", "100%" ],
                       "controls": [
                         {
                           "settings_button@common.button": {
                             "$pressed_button_name": "button.open_account_setting_gamecore",
-                            "layer": 4,
-                            "size": [ 24, 24 ],
+                            "size": [ "100%", "100%" ],
                             "controls": [
+                              {
+                                "hover@common_assets.background_panel": {
+                                  "anchor_from": "center",
+                                  "anchor_to": "center",
+                                  "$fill_alpha": 0.2,
+                                  "size": [ "100% - 4px", "100% - 4px" ]
+                                }
+                              },
                               {
                                 "settings_icon@play.settings_icon": {
                                   "anchor_from": "center",
@@ -161,8 +169,7 @@
                   {
                     "inbox_button_panel": {
                       "type": "panel",
-                      "size": [ 24, 24 ],
-                      "visible": "#realms_notification_button_visible",
+                      "size": [ "100%y", "100%" ],
                       "bindings": [
                         {
                           "binding_name": "#realms_notification_button_visible",
@@ -174,14 +181,21 @@
                         {
                           "inbox_button@common.button": {
                             "$pressed_button_name": "button.menu_invite_notification",
-                            "layer": 4,
-                            "size": [ 24, 24 ],
+                            "size": [ "100%", "100%" ],
                             "controls": [
+                              {
+                                "hover@common_assets.background_panel": {
+                                  "anchor_from": "center",
+                                  "anchor_to": "center",
+                                  "$fill_alpha": 0.2,
+                                  "size": [ "100% - 4px", "100% - 4px" ]
+                                }
+                              },
                               {
                                 "bell_icon@start.inbox_bell_animated_icon": {
                                   "anchor_from": "center",
                                   "anchor_to": "center",
-                                  "size": [ 16, 16 ]
+                                  "size": [ 14, 14 ]
                                 }
                               }
                             ]

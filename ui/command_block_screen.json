@@ -86,7 +86,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "('asa' + #command_tick_delay - 'asa')",
+              "source_property_name": "('tick' + #command_tick_delay - 'tick')",
               "target_property_name": "#cmd_delay_tick"
             },
             {

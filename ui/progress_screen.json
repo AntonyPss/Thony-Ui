@@ -142,14 +142,15 @@
             },
             {
               "creator_and_cancel_stack": {
-                "type": "stack_panel",
-                "orientation": "horizontal",
+                "type": "panel",
                 "size": [ "100%", 24 ],
                 "controls": [
                   {
                     "creator_panel": {
                       "type": "panel",
-                      "size": [ "100%cm", "100%" ],
+                      "anchor_from": "bottom_left",
+                      "anchor_to": "bottom_left",
+                      "size": [ "100%c", "100%" ],
                       "controls": [
                         {
                           "creator_label": {
@@ -183,32 +184,22 @@
                     }
                   },
                   {
-                    "padding": {
-                      "type": "panel",
-                      "size": [ "fill", 0 ]
-                    }
-                  },
-                  {
                     "button_panel": {
                       "type": "panel",
-                      "size": [ "100%c", "100%" ],
+                      "anchor_from": "right_middle",
+                      "anchor_to": "right_middle",
                       "$modal_button_panel|default": "progress.cancel_button",
+                      "size": [ "100%c", "100%" ],
+                      "offset": [ -2, 0 ],
                       "controls": [
                         {
                           "button_template@$modal_button_panel": {
-                            "anchor_from": "bottom_right",
-                            "anchor_to": "bottom_right",
-                            "size": [ 132, 20 ],
-                            "offset": [ 0, -2 ]
+                            "anchor_from": "center",
+                            "anchor_to": "center",
+                            "size": [ 132, 20 ]
                           }
                         }
                       ]
-                    }
-                  },
-                  {
-                    "paddingRight": {
-                      "type": "panel",
-                      "size": [ 2, 0 ]
                     }
                   }
                 ]
@@ -229,22 +220,7 @@
     "easing": "in_quart",
     "duration": 2,
     "from": [ 178, 4 ],
-    "to": [ -4, 4 ],
-    "next": "@progress.mobile_data_icon_anim_wait"
-  },
-
-  "mobile_data_icon_anim_wait": {
-    "anim_type": "wait",
-    "duration": 4,
-    "next": "@progress.mobile_data_icon_anim_offset_1"
-  },
-
-  "mobile_data_icon_anim_offset_1": {
-    "anim_type": "offset",
-    "easing": "out_quart",
-    "duration": 2,
-    "from": [ -4, 4 ],
-    "to": [ 178, 4 ]
+    "to": [ -4, 4 ]
   },
 
   "mobile_data_icon_anim_alpha": {
