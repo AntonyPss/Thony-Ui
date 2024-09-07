@@ -394,6 +394,7 @@
   },
 
   "worlds_stack_panel": {
+    "size": [ "100% - 2.5px", "100%c" ],
     "controls": [
       { "realm_warning_tip@play.realm_warning_tip": {} },
       { "padd_0@play.padding_2x": {} },
@@ -1706,7 +1707,7 @@
                 "anchor_to": "left_middle",
                 "$show_background": false,
                 "$scrolling_content": "play.server_scroll_panel",
-                "$scroll_size": [ 4, "100%" ],
+                "$scroll_size": [ 4, "100% - 4px" ],
                 "$scroll_bar_left_padding_size": [ 4, 0 ],
                 "$scroll_bar_right_padding_size": [ 2, 0 ],
                 "size": [ "100% - 2.5px", "100% - 4px" ]

@@ -39,8 +39,8 @@
 
   "background_panel": {
     "type": "image",
-    "texture": "$dialog_background_image",
-    "$dialog_background_image|default": "textures/ui/Black",
+    "texture": "$dialog_background",
+    "$dialog_background|default": "textures/ui/Black",
     "layer": 1,
     "alpha": "$fill_alpha"
   },

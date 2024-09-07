@@ -163,7 +163,7 @@
     "controls": [
       {
         "main@common_dialogs.main_panel_no_buttons": {
-          "$dialog_background_image": "textures/ui/hud_tip_text_background",
+          "$dialog_background": "textures/ui/hud_tip_text_background",
           "$text_name": "key.mobEffects",
           "$child_control": "mob_effect.scrolling_panel",
           "size": [ 200, "45%" ]

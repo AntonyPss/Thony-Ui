@@ -407,12 +407,12 @@
     "size": [ 148, "100%c" ],
 
     "$anim_easing_alpha": "in_expo",
-    "$anim_alpha_duration": 0.8,
+    "$anim_alpha_duration": 0.6,
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
 
     "$anim_easing_offset": "in_expo",
-    "$anim_offset_duration": 0.8,
+    "$anim_offset_duration": 0.6,
     "$anim_offset_from": [ 0, "50%" ],
     "$anim_offset_to": [ 0, 0 ],
 
@@ -461,13 +461,10 @@
     ]
   },
 
-  "main_stack_panel": {
-    "type": "stack_panel",
+  "main_buttons_stack_panel": {
     "ignored": "(not $content_visible)",
-    "orientation": "vertical",
     "anchor_from": "center",
     "anchor_to": "center",
-    "size": [ "100%", "100%" ],
     "controls": [
       {
         "title_padding_0": {
@@ -478,17 +475,18 @@
       {
         "title_panel@common_art.start_title_panel_content": {
           "$anim_easing_alpha": "in_expo",
-          "$anim_alpha_duration": 0.8,
+          "$anim_alpha_duration": 0.6,
           "$anim_alpha_from": 0.0,
           "$anim_alpha_to": 1.0,
       
           "$anim_easing_size": "in_expo",
-          "$anim_size_duration": 0.8,
+          "$anim_size_duration": 0.6,
           "$anim_size_from": [ 0, 0 ],
           "$anim_size_to": [ "100%", "100%c" ],
       
           "disable_anim_fast_forward": true,
           "propagate_alpha": true,
+          "layer": 99,
           "anims": [
             "@animations.anim_alpha",
             "@animations.anim_size"
@@ -926,21 +924,30 @@
         "$content_visible": true
       }
     ],
-    "controls": [
-      { "main_stack@start.main_stack_panel": {} },
-      { "main_text_panel@start.text_panel": {} },
-      { "gathering_panel@start.gathering_panel": {} },
-      { "main_skin_viewer@start.skin_panel": {} },
-      { "input_panel@start.input_info_panel": {} },
-      { "get_started_stack@start.get_started_stack": {} },
-      { "header_stack@start.header_button_stack": {} },
+    "modifications": [
       {
-        "popup_dialog_factory": {
-          "type": "factory",
-          "control_ids": {
-            "cloud_upload_prompt": "@start.cloud_upload_prompt"
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "header_button_stack@start.header_button_stack": {}
+          },
+          {
+            "input_info_panel@start.input_info_panel": {}
+          },
+          {
+            "get_started_stack@start.get_started_stack": {}
           }
-        }
+        ]
+      },
+      {
+        "control_name": "online_button_stack",
+        "operation": "replace",
+        "value": [
+          {
+            "gathering_panel@start.gathering_panel": {}
+          }
+        ]
       }
     ]
   }

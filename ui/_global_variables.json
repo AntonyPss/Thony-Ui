@@ -26,7 +26,8 @@
 
   "$menu_creator_version": "Thony Ui v1.2.0",
 
-  "$quick_loot_common_ignored": "$pocket_screen",
+  // Ignored this for a bug or error in mobile (pocket mode)
+  "$quick_loot_common_ignored": true, // "$pocket_screen"
   "$quick_loot_on_text_color": [ 0.10, 0.66, 0.10 ],
   "$quick_loot_off_text_color": [ 0.80, 0.06, 0.06 ]
 }
