@@ -25,6 +25,12 @@
     "size": [ 14, 16 ]
   },
 
+  "title_text": {
+    "font_type": "MinecraftTen",
+    "color": [ 1.0, 1.0, 1.0 ],
+    "offset": [ 0, 0 ]
+  },
+
   //---------------------------------------------------------------------------
   // Buttons Section
   //---------------------------------------------------------------------------
@@ -142,96 +148,41 @@
   // Screen
   //---------------------------------------------------------------------------
 
-  "gamepad_helpers": {
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
-    "size": [ "100%", 28 ],
-    "controls": [
-      {
-        "gamepad_helper_a@common.gamepad_helper_a": {}
-      }
-    ]
-  },
-
   "text_edit_group/edit_box": {
     "$place_holder_control": "common_assets.custom_place_holder_control"
   },
 
-  "main_panel": {
-    "type": "input_panel",
-    "anchor_from": "top_middle",
-    "anchor_to": "top_middle",
-
-    "$anim_easing_offset": "in_quart",
-    "$anim_offset_duration": 1.0,
-    "$anim_offset_from": [ 0, "-50%" ],
-    "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": true,
-    "anims": "@animations.anim_offset",
+  "main_screen_panel@common_dialogs.main_panel_one_button": {
+    "$use_custom_title_control": true,
+    "$custom_title_label": "add_external_server.title_text",
+    "$child_control": "add_external_server.content_panel",
+    "$button_panel": "add_external_server.buttons_panel",
     "variables": [
       {
         "requires": "$pocket_screen",
-        "$dialog_size": [ "80%", 152 ]
+        "$dialog_size": [ "80%", 180 ]
       },
       {
         "requires": "$desktop_screen",
-        "$dialog_size": [ "60%", 152 ]
-      }
-    ],
-    "size": [ "100%", "100%c" ],
-    "controls": [
-      {
-        "gamepad_helpers@add_external_server.gamepad_helpers": {}
-      },
-      {
-        "main_dialog": {
-          "type": "panel",
-          "size": "$dialog_size",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "controls": [
-            {
-              "background@common_dialogs.background_panel": {
-                "$fill_alpha": 0.5
-              }
-            },
-            {
-              "panel_indent": {
-                "type": "panel",
-                "anchor_from": "top_middle",
-                "anchor_to": "top_middle",
-                "size": [ "100% - 12px", "100%c" ],
-                "offset": [ 0, 8 ],
-                "controls": [
-                  {
-                    "child@add_external_server.content_panel": {}
-                  }
-                ]
-              }
-            },
-            {
-              "buttons@add_external_server.buttons_panel": {
-                "anchor_from": "bottom_middle",
-                "anchor_to": "bottom_middle",
-                "size": [ "100% - 4px", 24 ],
-                "offset": [ 0, -2 ]
-              }
-            }
-          ]
-        }
+        "$dialog_size": [ "60%", 180 ]
       }
     ]
   },
 
-  "add_external_server_screen": {
-    "$fullscreen_header_title": "#title_text",
-    "$fullscreen_header_title_type": "global",
-    "$fullscreen_content_panel": "add_external_server.main_panel",
-    "$header_bar_control": "common_assets.store_top_bar",
-    "$header_safezone_control": "common_assets.store_top_bar_filler",
-    "$screen_content": "common_assets.fullscreen_header",
-    "$screen_bg_content": "common.screen_background",
-    "$screen_background_alpha": 0.4
+  "add_external_server_screen_content/root_panel": {
+    "modifications": [
+      {
+        "control_name": "main_panel",
+        "operation": "replace",
+        "value": [
+          {
+            "main_screen_panel@add_external_server.main_screen_panel": {
+              "layer": 2,
+              "size": "$dialog_size"
+            }
+          }
+        ]
+      }
+    ]
   }
 }
