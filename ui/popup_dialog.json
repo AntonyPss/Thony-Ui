@@ -2,286 +2,196 @@
   "namespace": "popup_dialog",
 
   //---------------------------------------------------------------------------
-  // Label Section
+  // Title Text
   //---------------------------------------------------------------------------
 
   "modal_title_text": {
+    "anchor_from": "center",
+    "anchor_to": "center",
     "font_type": "MinecraftTen",
     "$title_text_anchor": "center",
     "$title_text_alignment": "center",
-    "$title_text_offset": [ 0, -1 ],
-    "shadow": true,
+    "$title_text_offset": [ 0, 0 ],
     "color": "$main_header_text_color",
-    "size": [ "100% - 4px", 14 ]
+    "size": [ "100% - 8px", "100% - 8px" ]
+  },
+
+  "modal_label_text": {
+    "size": [ "100%", "100%c" ],
+    "offset": [ 0, 0 ]
+  },
+
+  "modal_label_text/text": {
+    "font_type": "default"
   },
 
   "modal_label_panel": {
-    "$scrolling_pane_size": [ "100% - 2px", "100% - 2px" ],
-    "$scrolling_pane_offset": [ 0, 1 ],
-    "$scroll_size": [ 4, "100% - 4px" ]
+    "$scrolling_pane_size": [ "100%", "100%" ],
+    "$scrolling_pane_offset": [ 0, 0 ],
+    "$scroll_bar_left_padding_size": [ 4, 0 ],
+    "$scroll_bar_right_padding_size": [ 2.5, 0 ],
+    "$scroll_size": [ 4, "100% - 4px" ],
+    "size": [ "100%", "100%" ]
   },
 
   //---------------------------------------------------------------------------
-  // Popup Dialog
+  // Popup Dialog Buttons
   //---------------------------------------------------------------------------
 
-  "dark_text_button@common_buttons.dark_text_button": {
-    "layer": 2
+  "popup_dialog_button": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color"
   },
 
-  "popup_dialog_button_with_binding@common_buttons.dark_text_button": {
-    "size": [ "100%", 20 ]
+  "popup_dialog_button_with_binding": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color"
   },
 
-  "modal_left_button@dark_text_button": {
-    "anchor_to": "top_middle",
-    "anchor_from": "top_middle",
-    "size": [ "100%", "50%-1px" ],
-    "$pressed_button_name": "$popup_dialog_left_button_name",
-    "$button_text|default": "#modal_left_button_text",
-    "$left_focus_number|default": 0,
-    "default_focus_precedence": "$left_focus_number"
+  "modal_left_button": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color"
   },
 
-  "modal_middle_button@dark_text_button": {
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "size": [ "100%", "50%-1px" ],
-    "$pressed_button_name": "$popup_dialog_middle_button_name",
-    "$button_text|default": "#modal_middle_button_text",
-    "$middle_focus_number|default": 0,
-    "default_focus_precedence": "$middle_focus_number"
+  "modal_middle_button": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color"
   },
 
-  "modal_rightcancel_button@dark_text_button": {
-    "anchor_to": "bottom_middle",
-    "anchor_from": "bottom_middle",
-    "size": [ "100%", "50%-1px" ],
-    "$pressed_button_name": "$popup_dialog_rightcancel_button_name",
-    "$button_text|default": "#modal_rightcancel_button_text",
-    "$right_focus_number|default": 1,
-    "default_focus_precedence": "$right_focus_number"
+  "modal_rightcancel_button": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_red",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color"
   },
 
   "three_buttons_panel": {
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "size": [ "100%", 72 ],
-    "offset": [ 0, 0 ],
-    "controls": [
-      {
-        "left@popup_dialog.modal_left_button": {
-          "size": [ "100% - 4px", "33% - 1px" ]
-        }
-      },
-      {
-        "middle@popup_dialog.modal_middle_button": {
-          "size": [ "100% - 4px", "33% - 1px" ]
-        }
-      },
-      {
-        "right@popup_dialog.modal_rightcancel_button": {
-          "size": [ "100% - 4px", "33% - 1px" ]
-        }
-      }
-    ]
+    "size": [ "100%", 78 ],
+    "offset": [ 0, 0 ]
   },
 
   "destructive_three_buttons_panel": {
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "size": [ "100%", 72 ],
-    "offset": [ 0, 0 ],
-    "controls": [
-      {
-        "left@popup_dialog.modal_left_button": {
-          "size": [ "100% - 4px", "33% - 1px" ]
-        }
-      },
-      {
-        "middle@popup_dialog.modal_middle_button": {
-          "size": [ "100% - 4px", "33% - 1px" ]
-        }
-      },
-      {
-        "right@popup_dialog.modal_rightcancel_button": {
-          "size": [ "100% - 4px", "33% - 1px" ]
-        }
-      }
-    ]
+    "size": [ "100%", 78 ],
+    "offset": [ 0, 0 ]
   },
 
   "two_buttons_panel": {
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "size": [ "100%", 64 ],
-    "offset": [ 0, 0 ],
-    "controls": [
-      { "left@popup_dialog.modal_left_button": {} },
-      { "right@popup_dialog.modal_rightcancel_button": {} }
-    ]
+    "size": [ "100%", 52 ],
+    "offset": [ 0, 0 ]
   },
 
   "destructive_two_buttons_panel": {
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "size": [ "100%", 64 ],
-    "offset": [ 0, 0 ],
-    "controls": [
-      { "left@popup_dialog.modal_left_button": {} },
-      { "right@popup_dialog.modal_rightcancel_button": {} }
-    ]
+    "size": [ "100%", 52 ],
+    "offset": [ 0, 0 ]
   },
 
   "single_button_panel": {
-    "anchor_to": "center",
-    "anchor_from": "center",
-    "size": [ "100%", 24 ],
-    "offset": [ 0, 0 ],
-    "controls": [
-      {
-        "left@popup_dialog.modal_middle_button": {
-          "size": [ "100% - 4px", "100%" ]
-        }
-      }
-    ]
+    "size": [ "100%", 26 ],
+    "offset": [ 0, 0 ]
   },
 
   //---------------------------------------------------------------------------
   // Modal Dialog Popup
   //---------------------------------------------------------------------------
 
-  "modal_dialog_with_buttons": {
+  "modal_dialog_with_buttons@common_dialogs.background_ui": {
+    "size": "$modal_screen_size",
     "controls": [
       {
-        "background@black_tint_image": {
-          "alpha": 0.7
-        }
-      },
-      {
-        "stack_panel": {
+        "main_stack_panel": {
           "type": "stack_panel",
-          "anchor_to": "center",
           "anchor_from": "center",
-          "size": [ "100% - 4px", "100% - 4px" ],
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
           "controls": [
             {
-              "title_text_panel": {
-                "type": "panel",
-                "size": [ "100%", 16 ],
+              "header_ui@common_dialogs.header_ui": {
                 "controls": [
-                  { "title_text@modal_title_text": {} }
+                  {
+                    "title_text@popup_dialog.modal_title_text": {
+                      "layer": 2
+                    }
+                  },
+                  {
+                    "close_button@common_dialogs.close_button": {
+                      "$pressed_button_name": "$popup_dialog_escape_button_name",
+                      "layer": 2
+                    }
+                  }
                 ]
               }
             },
             {
-              "modal_label@modal_label_panel": {
-                "size": [ "100%", "fill" ]
+              "padding_header": {
+                "type": "panel",
+                "size": [ 0, "1px" ]
               }
             },
             {
-              "padding": {
-                "type": "panel",
-                "size": [ 0, 4 ]
-              }
-            },
-            {
-              "buttons@$button_panel": {}
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "modal_dialog_popup": {
-    "variables": [
-      {
-        "requires": "$three_buttons_visible",
-        "$modal_screen_size": [ 236, 186 ],
-        "$button_panel": "popup_dialog.three_buttons_panel"
-      },
-      {
-        "requires": "$destructive_three_buttons_visible",
-        "$modal_screen_size": [ 236, 186 ],
-        "$button_panel": "popup_dialog.destructive_three_buttons_panel"
-      },
-      {
-        "requires": "$two_buttons_visible",
-        "$modal_screen_size": [ 236, 176 ],
-        "$button_panel": "popup_dialog.two_buttons_panel"
-      },
-      {
-        "requires": "$destructive_two_buttons_visible",
-        "$modal_screen_size": [ 236, 176 ],
-        "$button_panel": "popup_dialog.destructive_two_buttons_panel"
-      },
-      {
-        "requires": "$single_button_visible",
-        "$modal_screen_size": [ 236, 132 ],
-        "$button_panel": "popup_dialog.single_button_panel"
-      },
-      {
-        "requires": "$no_buttons_visible",
-        "$modal_screen_size": [ 236, 112 ],
-        "$button_panel": "common.empty_panel"
-      }
-    ]
-  },
-
-  "progress_dialog_popup": {
-    "size": [ 264, 98 ],
-    "controls": [
-      {
-        "background@black_tint_image": {
-          "alpha": 0.7
-        }
-      },
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "anchor_to": "center",
-          "anchor_from": "center",
-          "size": [ "100% - 4px", "100% - 4px" ],
-          "controls": [
-            {
-              "title_text_panel": {
-                "type": "panel",
-                "size": [ "100%", 16 ],
+              "content_ui@common_dialogs.content_ui": {
                 "controls": [
-                  { "title_text@modal_title_text": {} }
+                  {
+                    "content_ui_panel": {
+                      "type": "stack_panel",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [ "100% - 8px", "100% - 8px" ],
+                      "controls": [
+                        {
+                          "modal_label_panel": {
+                            "type": "panel",
+                            "size": [ "100%", "fill" ],
+                            "controls": [
+                              {
+                                "modal_label_panel@popup_dialog.modal_label_panel": {}
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "padding_header": {
+                            "type": "panel",
+                            "size": [ 0, "4px" ]
+                          }
+                        },
+                        {
+                          "button_panel@$button_panel": {
+                            "layer": 2
+                          }
+                        }
+                      ]
+                    }
+                  }
                 ]
-              }
-            },
-            { "progress_content.progress_content": {} },
-            {
-              "button@single_button_panel": {
-                "$visibility_source_control_name|default": "modal_bg_no_buttons",
-                "bindings": []
               }
             }
           ]
         }
       }
     ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Form Fit Modal Popup Dialog Section
-  //---------------------------------------------------------------------------
-
-  "form_fit_screen_with_title_and_close": {
-    "$windows_type|default": "common_assets.background_panel",
-    "size": "$modal_size",
-    "$modal_size|default": [ "100%cm", "100%cm" ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Screen
-  //---------------------------------------------------------------------------
-
-  "progress_content": {
-    "size": [ "100%", "fill" ],
-    "offset": [ 0, 0 ]
   }
 }

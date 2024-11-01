@@ -2,66 +2,133 @@
   "namespace": "common_dialogs",
 
   //---------------------------------------------------------------------------
-  // Label Section
+  // Common Dialogs Image
+  //---------------------------------------------------------------------------
+
+  "background_ui": {
+    "type": "image",
+    "texture": "textures/ui/modal/modal_background",
+    "layer": 1,
+    "size": [ "100%", "fill" ]
+  },
+
+  "content_ui@common_dialogs.background_ui": {
+    "texture": "textures/ui/modal/modal_content"
+  },
+
+  "header_ui@common_dialogs.background_ui": {
+    "texture": "textures/ui/modal/modal_header",
+    "size": [ "100%", 22 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Header Common Panel
   //---------------------------------------------------------------------------
 
   "standard_title_label": {
-    "visible": "$show_title_text",
     "font_type": "MinecraftTen",
-    "shadow": true,
-    "color": "$main_header_text_color",
-    "size": [ "default", 10 ]
+    "color": [ 1.0, 1.0, 1.0 ]
   },
 
   "title_label": {
-    "$show_title_text|default": true,
-    "size": [ "100%c", 12 ],
-    "offset": [ 0, 0 ]
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": [ "100%c", "100%c" ],
+    "offset": [ 0, -1 ]
   },
-
-  //---------------------------------------------------------------------------
-  // Common Section
-  //---------------------------------------------------------------------------
 
   "close_button": {
     "type": "panel",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -1, -2 ],
+    "size": [ 16, 16 ],
     "$show_close_button|default": true,
     "controls": [
       {
-        "light_close_button@common.light_close_button": {
+        "close_button_mapping@common.light_close_button": {
           "ignored": "(not $show_close_button)",
-          "$close_button_panel_size": [ 14, 14 ],
-          "size": [ 14, 14 ]
-        }
-      }
-    ]
-  },
-
-  "background_panel": {
-    "type": "image",
-    "texture": "$dialog_background",
-    "$dialog_background|default": "textures/ui/Black",
-    "layer": 1,
-    "alpha": "$fill_alpha"
-  },
-
-  //---------------------------------------------------------------------------
-  // Dialog Windows
-  //---------------------------------------------------------------------------
-
-  "main_panel": {
-    "controls": [
-      { "background@common_dialogs.background_panel": {} },
-      {
-        "panel_indent": {
-          "type": "panel",
           "anchor_from": "center",
           "anchor_to": "center",
-          "size": [ "100% - 12px", "100% - 12px" ],
-          "offset": [ 0, 0 ],
+          "$close_button_panel_size": [ 15, 15 ],
+          "size": [ 15, 15 ]
+        }
+      }
+    ]
+  },
+
+  "header_ui_panel@common_dialogs.header_ui": {
+    "controls": [
+      {
+        "title_text@common_dialogs.title_label": {
+          "layer": 2
+        }
+      },
+      {
+        "close_button@common_dialogs.close_button": {
+          "layer": 2
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Common Dialogs
+  //---------------------------------------------------------------------------
+
+  "main_panel@common_dialogs.background_ui": {
+    "controls": [
+      {
+        "content_ui@common_dialogs.content_ui": {
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ]
+        }
+      },
+      {
+        "child_control@$child_control": {
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 3,
+          "size": [ "100% - 8px", "100% - 8px" ]
+        }
+      }
+    ]
+  },
+
+  "main_panel_no_buttons@common_dialogs.background_ui": {
+    "controls": [
+      {
+        "main_stack_panel": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
           "controls": [
             {
-              "child_control@$child_control": {}
+              "header_ui_panel@common_dialogs.header_ui_panel": {}
+            },
+            {
+              "padding_header": {
+                "type": "panel",
+                "size": [ 0, "1px" ]
+              }
+            },
+            {
+              "content_ui@common_dialogs.content_ui": {
+                "controls": [
+                  {
+                    "child_control@$child_control": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "layer": 2,
+                      "size": [ "100% - 8px", "100% - 8px" ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         }
@@ -69,78 +136,59 @@
     ]
   },
 
-  "main_panel_small_title_one_button": {
+  "main_panel_small_title_one_button@common_dialogs.background_ui": {
     "$show_close_button": false,
-    "$main_panel_size|default": [ "100% - 12px", "100% - 44px" ],
-    "$button_panel_size|default": [ "100% - 4px", 24 ],
+    "$button_panel_size|default": [ "100%", 28 ],
     "controls": [
-      { "close_button@common_dialogs.close_button": {} },
-      { "background@common_dialogs.background_panel": {} },
-      { "title_panel@common_dialogs.title_label": {} },
       {
-        "panel_indent": {
-          "type": "panel",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": "$main_panel_size",
-          "offset": [ 0, 16 ],
+        "main_stack_panel": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
           "controls": [
             {
-              "child_control@$child_control": {}
-            }
-          ]
-        }
-      },
-      {
-        "button_panel@$button_panel": {
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": "$button_panel_size",
-          "offset": [ 0, -2 ]
-        }
-      }
-    ]
-  },
-
-  "main_panel_no_title_no_buttons": {
-    "$panel_content_size|default": [ "100% - 12px", "100% - 20px" ],
-    "$panel_content_offset|default": [ 0, 16 ],
-    "controls": [
-      { "close_button@common_dialogs.close_button": {} },
-      { "background@common_dialogs.background_panel": {} },
-      {
-        "panel_indent": {
-          "type": "panel",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": "$panel_content_size",
-          "offset": "$panel_content_offset",
-          "controls": [
+              "header_ui_panel@common_dialogs.header_ui_panel": {}
+            },
             {
-              "child_control@$child_control": {}
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "main_panel_no_buttons": {
-    "$panel_indent_size|default": [ "100% - 12px", "100% - 20px" ],
-    "controls": [
-      { "close_button@common_dialogs.close_button": {} },
-      { "background@common_dialogs.background_panel": {} },
-      { "title_panel@common_dialogs.title_label": {} },
-      {
-        "panel_indent": {
-          "type": "panel",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": "$panel_indent_size",
-          "offset": [ 0, 16 ],
-          "controls": [
+              "padding_header": {
+                "type": "panel",
+                "size": [ 0, "1px" ]
+              }
+            },
             {
-              "child_control@$child_control": {}
+              "content_ui@common_dialogs.content_ui": {
+                "controls": [
+                  {
+                    "content_ui_panel": {
+                      "type": "stack_panel",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [ "100% - 8px", "100% - 8px" ],
+                      "controls": [
+                        {
+                          "child_control@$child_control": {
+                            "layer": 2,
+                            "size": [ "100%", "fill" ]
+                          }
+                        },
+                        {
+                          "padding_header": {
+                            "type": "panel",
+                            "size": [ 0, "4px" ]
+                          }
+                        },
+                        {
+                          "button_panel@$button_panel": {
+                            "size": "$button_panel_size"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         }
@@ -148,115 +196,227 @@
     ]
   },
 
-  "main_panel_one_button": {
+  "main_panel_one_button@common_dialogs.background_ui": {
     "controls": [
-      { "close_button@common_dialogs.close_button": {} },
-      { "background@common_dialogs.background_panel": {} },
-      { "title_panel@common_dialogs.title_label": {} },
       {
-        "panel_indent": {
-          "type": "panel",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": [ "100% - 12px", "100% - 44px" ],
-          "offset": [ 0, 16 ],
+        "main_stack_panel": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
           "controls": [
             {
-              "child_control@$child_control": {}
+              "header_ui_panel@common_dialogs.header_ui_panel": {}
+            },
+            {
+              "padding_header": {
+                "type": "panel",
+                "size": [ 0, "1px" ]
+              }
+            },
+            {
+              "content_ui@common_dialogs.content_ui": {
+                "controls": [
+                  {
+                    "content_ui_panel": {
+                      "type": "stack_panel",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [ "100% - 8px", "100% - 8px" ],
+                      "controls": [
+                        {
+                          "child_control@$child_control": {
+                            "layer": 2,
+                            "size": [ "100%", "fill" ]
+                          }
+                        },
+                        {
+                          "padding_header": {
+                            "type": "panel",
+                            "size": [ 0, "4px" ]
+                          }
+                        },
+                        {
+                          "button_panel@$button_panel": {
+                            "size": [ "100%", 28 ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
-        }
-      },
-      {
-        "button_panel@$button_panel": {
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": [ "100% - 4px", 24 ],
-          "offset": [ 0, -2 ]
         }
       }
     ]
   },
 
-  "main_panel_two_buttons": {
+  "main_panel_two_button@common_dialogs.background_ui": {
     "controls": [
-      { "close_button@common_dialogs.close_button": {} },
-      { "background@common_dialogs.background_panel": {} },
-      { "title_panel@common_dialogs.title_label": {} },
       {
-        "panel_indent": {
-          "type": "panel",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": [ "100% - 12px", "100% - 68px" ],
-          "offset": [ 0, 16 ],
+        "main_stack_panel": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
           "controls": [
             {
-              "child_control@$child_control": {}
+              "header_ui_panel@common_dialogs.header_ui_panel": {}
+            },
+            {
+              "padding_header": {
+                "type": "panel",
+                "size": [ 0, "1px" ]
+              }
+            },
+            {
+              "content_ui@common_dialogs.content_ui": {
+                "controls": [
+                  {
+                    "content_ui_panel": {
+                      "type": "stack_panel",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [ "100% - 8px", "100% - 8px" ],
+                      "controls": [
+                        {
+                          "child_control@$child_control": {
+                            "layer": 2,
+                            "size": [ "100%", "fill" ]
+                          }
+                        },
+                        {
+                          "padding_header_0": {
+                            "type": "panel",
+                            "size": [ 0, "4px" ]
+                          }
+                        },
+                        {
+                          "top_button_panel@$top_button_panel": {
+                            "size": [ "100%", 28 ]
+                          }
+                        },
+                        {
+                          "padding_header_1": {
+                            "type": "panel",
+                            "size": [ 0, "2px" ]
+                          }
+                        },
+                        {
+                          "bottom_button_panel@$bottom_button_panel": {
+                            "size": [ "100%", 28 ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
-        }
-      },
-      {
-        "button_panel_a@$top_button_panel": {
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": [ "100% - 4px", 24 ],
-          "offset": [ 0, -26 ]
-        }
-      },
-      {
-        "button_panel_b@$bottom_button_panel": {
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": [ "100% - 4px", 24 ],
-          "offset": [ 0, -2 ]
         }
       }
     ]
   },
 
-  "main_panel_three_buttons": {
+  "main_panel_three_button@common_dialogs.background_ui": {
     "controls": [
-      { "close_button@common_dialogs.close_button": {} },
-      { "background@common_dialogs.background_panel": {} },
-      { "title_panel@common_dialogs.title_label": {} },
       {
-        "panel_indent": {
-          "type": "panel",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": [ "100% - 12px", "100% - 92px" ],
-          "offset": [ 0, 16 ],
+        "main_stack_panel": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 2,
+          "size": [ "100% - 2px", "100% - 2px" ],
           "controls": [
             {
-              "child_control@$child_control": {}
+              "header_ui_panel@common_dialogs.header_ui_panel": {}
+            },
+            {
+              "padding_header": {
+                "type": "panel",
+                "size": [ 0, "1px" ]
+              }
+            },
+            {
+              "content_ui@common_dialogs.content_ui": {
+                "controls": [
+                  {
+                    "content_ui_panel": {
+                      "type": "stack_panel",
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "size": [ "100% - 8px", "100% - 8px" ],
+                      "controls": [
+                        {
+                          "child_control@$child_control": {
+                            "layer": 2,
+                            "size": [ "100%", "fill" ]
+                          }
+                        },
+                        {
+                          "padding_header_0": {
+                            "type": "panel",
+                            "size": [ 0, "4px" ]
+                          }
+                        },
+                        {
+                          "top_button_panel@$top_button_panel": {
+                            "size": [ "100%", 28 ]
+                          }
+                        },
+                        {
+                          "padding_header_1": {
+                            "type": "panel",
+                            "size": [ 0, "2px" ]
+                          }
+                        },
+                        {
+                          "middle_button_panel@$middle_button_panel": {
+                            "size": [ "100%", 28 ]
+                          }
+                        },
+                        {
+                          "padding_header_2": {
+                            "type": "panel",
+                            "size": [ 0, "2px" ]
+                          }
+                        },
+                        {
+                          "bottom_button_panel@$bottom_button_panel": {
+                            "size": [ "100%", 28 ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
             }
           ]
         }
-      },
+      }
+    ]
+  },
+
+  "main_panel_no_title_no_buttons@common_dialogs.background_ui": {
+    "controls": [
       {
-        "button_panel_a@$top_button_panel": {
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": [ "100% - 4px", 24 ],
-          "offset": [ 0, -50 ]
-        }
-      },
-      {
-        "button_panel_b@$middle_button_panel": {
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": [ "100% - 4px", 24 ],
-          "offset": [ 0, -26 ]
-        }
-      },
-      {
-        "button_panel_c@$bottom_button_panel": {
-          "anchor_from": "bottom_middle",
-          "anchor_to": "bottom_middle",
-          "size": [ "100% - 4px", 24 ],
-          "offset": [ 0, -2 ]
+        "content_ui@common_dialogs.content_ui": {
+          "controls": [
+            {
+              "child_control@$child_control": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 2,
+                "size": [ "100% - 8px", "100% - 8px" ]
+              }
+            }
+          ]
         }
       }
     ]
