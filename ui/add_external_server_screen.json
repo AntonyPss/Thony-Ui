@@ -2,116 +2,54 @@
   "namespace": "add_external_server",
 
   //---------------------------------------------------------------------------
-  // Images Section
+  // Images Common
   //---------------------------------------------------------------------------
 
-  "icon_panel": {
+  "play_icon": {
     "type": "image",
-    "layer": 2
-  },
-
-  "play_icon@add_external_server.icon_panel": {
     "texture": "textures/ui/controller_glyph_color",
+    "layer": 2,
     "size": [ 21, 14 ]
   },
 
-  "trash_icon@add_external_server.icon_panel": {
+  "trash_icon@add_external_server.play_icon": {
     "texture": "textures/ui/icon_trash",
     "size": [ 15, 16 ]
   },
 
-  "save_icon@add_external_server.icon_panel": {
+  "save_icon@add_external_server.play_icon": {
     "texture": "textures/ui/confirm",
     "size": [ 14, 16 ]
   },
 
-  "title_text": {
-    "font_type": "MinecraftTen",
-    "color": [ 1.0, 1.0, 1.0 ],
-    "offset": [ 0, 0 ]
-  },
-
   //---------------------------------------------------------------------------
-  // Buttons Section
+  // Buttons Content
   //---------------------------------------------------------------------------
 
-  "dark_button@common_buttons.dark_text_button": {
+  "play_button": {
     "$button_type_panel": "common_assets.icon_wrapper",
-    "size": [ "50%", "100%" ]
+    "$button_content": "add_external_server.play_icon"
   },
 
-  "play_button@dark_button": {
-    "$pressed_button_name": "button.play_button",
-    "$button_text": "addExternalServerScreen.playButtonLabel",
-    "$button_content": "add_external_server.play_icon",
-    "ignored": "$edit_mode",
-    "bindings": [
-      {
-        "binding_name": "#play_button_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+  "remove_button": {
+    "$hover_button_texture": "textures/ui/button_red",
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$button_content": "add_external_server.trash_icon"
   },
 
-  "play_disabled_button@play_button": {
-    "$text_color": "$light_button_locked_text_color",
-    "bindings": [
-      {
-        "binding_name": "#play_button_disabled",
-        "binding_name_override": "#visible"
-      },
-      {
-        "binding_name": "#play_button_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
-  },
-
-  "remove_button@dark_button": {
-    "$pressed_button_name": "button.remove_button",
-    "$button_text": "addExternalServerScreen.removeButtonLabel",
-    "$button_content": "add_external_server.trash_icon",
-    "visible": "($edit_mode)"
-  },
-
-  "save_button@dark_button": {
-    "$pressed_button_name": "button.save_button",
-    "$button_text": "addExternalServerScreen.saveButtonLabel",
-    "$button_content": "add_external_server.save_icon",
-    "bindings": [
-      {
-        "binding_name": "#save_button_enabled",
-        "binding_name_override": "#visible"
-      },
-      {
-        "binding_name": "#save_button_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
-  },
-
-  "save_disabled_button@save_button": {
-    "$text_color": "$light_button_locked_text_color",
-    "bindings": [
-      {
-        "binding_name": "#save_button_disabled",
-        "binding_name_override": "#visible"
-      },
-      {
-        "binding_name": "#save_button_enabled",
-        "binding_name_override": "#enabled"
-      }
-    ]
+  "save_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$button_content": "add_external_server.save_icon"
   },
 
   "buttons_panel": {
     "type": "panel",
-    "size": [ "100%", "100%" ],
     "controls": [
       {
         "play@play_button": {
           "anchor_from": "left_middle",
-          "anchor_to": "left_middle"
+          "anchor_to": "left_middle",
+          "size": [ "50%", "100%" ]
         }
       },
       {
@@ -119,57 +57,115 @@
           "ignored": "$edit_mode",
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",
-          "layer": 5
+          "layer": 5,
+          "size": [ "50%", "100%" ]
         }
       },
       {
         "remove@remove_button": {
           "anchor_from": "left_middle",
-          "anchor_to": "left_middle"
+          "anchor_to": "left_middle",
+          "size": [ "50%", "100%" ]
         }
       },
       {
         "save@save_button": {
           "anchor_from": "right_middle",
-          "anchor_to": "right_middle"
+          "anchor_to": "right_middle",
+          "size": [ "50%", "100%" ]
         }
       },
       {
         "save_disabled@save_disabled_button": {
           "anchor_from": "right_middle",
           "anchor_to": "right_middle",
-          "layer": 1
+          "layer": 1,
+          "size": [ "50%", "100%" ]
         }
       }
     ]
   },
 
   //---------------------------------------------------------------------------
-  // Screen
+  // Screen Content
   //---------------------------------------------------------------------------
+
+  "title_text": {
+    "font_type": "MinecraftTen",
+    "color": [ 1.0, 1.0, 1.0 ],
+    "offset": [ 0, 1 ]
+  },
 
   "text_edit_group/edit_box": {
     "$place_holder_control": "common_assets.custom_place_holder_control"
   },
 
-  "main_screen_panel@common_dialogs.main_panel_one_button": {
-    "$use_custom_title_control": true,
-    "$custom_title_label": "add_external_server.title_text",
-    "$child_control": "add_external_server.content_panel",
-    "$button_panel": "add_external_server.buttons_panel",
-    "variables": [
+  "content_panel": {
+    "size": [ "100% - 2px", "100%c" ],
+    "modifications": [
       {
-        "requires": "$pocket_screen",
-        "$dialog_size": [ "80%", 180 ]
-      },
-      {
-        "requires": "$desktop_screen",
-        "$dialog_size": [ "60%", 180 ]
+        "control_name": "name_edit",
+        "operation": "insert_before",
+        "value": [
+          {
+            "tooltip_message_image": {
+              "type": "image",
+              "texture": "textures/ui/tooltip_image",
+              "ignored": "$edit_mode",
+              "layer": 2,
+              "size": [ "100%", "100%c + 8px" ],
+              "controls": [
+                {
+                  "tooltip_message_label": {
+                    "type": "label",
+                    "text": "externalServerScreen.addServerDescription",
+                    "text_alignment": "center",
+                    "layer": 4,
+                    "color": [ 0.16, 0.16, 0.16 ],
+                    "size": [ "100% - 8px", "default" ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "padding": {
+              "type": "panel",
+              "ignored": "$edit_mode",
+              "size": [ "100%", 4 ]
+            }
+          }
+        ]
       }
     ]
   },
 
+  "scrolling_panel@common.scrolling_panel": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$show_background": false,
+    "$scrolling_content": "add_external_server.content_panel",
+    "$scroll_size": [ 4, "100% - 4px" ],
+    "$scroll_view_control_size": [ "100% - 2px", "100%" ],
+    "$scroll_bar_left_padding_size": [ 2.5, 0 ],
+    "$scroll_bar_right_padding_size": [ 2, 0 ]
+  },
+
+  "main_screen_panel@common_dialogs.main_panel_one_button": {
+    "$use_custom_title_control": true,
+    "$custom_title_label": "add_external_server.title_text",
+    "$child_control": "add_external_server.scrolling_panel",
+    "$button_panel": "add_external_server.buttons_panel"
+  },
+
   "add_external_server_screen_content/root_panel": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color",
     "modifications": [
       {
         "control_name": "main_panel",
@@ -178,7 +174,7 @@
           {
             "main_screen_panel@add_external_server.main_screen_panel": {
               "layer": 2,
-              "size": "$dialog_size"
+              "size": [ 280, 180 ]
             }
           }
         ]
