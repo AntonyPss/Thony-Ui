@@ -34,7 +34,7 @@
     "anchor_from": "center",
     "anchor_to": "center",
     "size": [ "100%c", "100%c" ],
-    "offset": [ 0, -1 ]
+    "offset": [ 0, -2 ]
   },
 
   "close_button": {

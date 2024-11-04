@@ -5,6 +5,13 @@
   // Corner Image Common
   //---------------------------------------------------------------------------
 
+  "confirm_icon": {
+    "type": "image",
+    "texture": "textures/ui/confirm",
+    "layer": 2,
+    "size": [ 16, 14 ]
+  },
+
   "corner_image_common": {
     "type": "image",
     "texture": "textures/ui/White",
@@ -26,28 +33,28 @@
     ]
   },
 
-  "corner_image_left@safe_zone.corner_image_common": {
+  "corner_tl@safe_zone.corner_image_common": {
     "$corner_image_anchor": "left_middle",
     "$local_safe_zone_offset_x": "#left_safe_zone_offset",
     "$local_safe_zone_offset_y": "#top_safe_zone_offset",
     "size": [ 1, 2000 ]
   },
 
-  "corner_image_right@safe_zone.corner_image_common": {
+  "corner_tr@safe_zone.corner_image_common": {
     "$corner_image_anchor": "right_middle",
     "$local_safe_zone_offset_x": "#right_safe_zone_offset",
     "$local_safe_zone_offset_y": "#top_safe_zone_offset",
     "size": [ 1, 2000 ]
   },
 
-  "corner_image_top@safe_zone.corner_image_common": {
+  "corner_bl@safe_zone.corner_image_common": {
     "$corner_image_anchor": "top_middle",
     "$local_safe_zone_offset_x": "#right_safe_zone_offset",
     "$local_safe_zone_offset_y": "#top_safe_zone_offset",
     "size": [ 2000, 1 ]
   },
 
-  "corner_image_bottom@safe_zone.corner_image_common": {
+  "corner_br@safe_zone.corner_image_common": {
     "$corner_image_anchor": "bottom_middle",
     "$local_safe_zone_offset_x": "#left_safe_zone_offset",
     "$local_safe_zone_offset_y": "#bottom_safe_zone_offset",
@@ -55,47 +62,7 @@
   },
 
   //---------------------------------------------------------------------------
-  // Label Section
-  //---------------------------------------------------------------------------
-
-  "instruction_text_panel": {
-    "type": "panel",
-    "size": [ "100%", "100%c + 4px" ],
-    "controls": [
-      {
-        "instruction_text": {
-          "type": "label",
-          "text": "options.safeZone.description",
-          "font_type": "smooth",
-          "layer": 2,
-          "color": "$body_text_color",
-          "size": [ "100%", "default" ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Buttons Section
-  //---------------------------------------------------------------------------
-
-  "confirm_icon": {
-    "type": "image",
-    "texture": "textures/ui/confirm",
-    "layer": 2,
-    "size": [ 16, 14 ]
-  },
-
-  "confirm_icon_button@common_buttons.dark_text_button": {
-    "$button_type_panel": "common_assets.icon_wrapper",
-    "$pressed_button_name": "button.confirm_button",
-    "$button_content": "safe_zone.confirm_icon",
-    "$button_text": "gui.confirm",
-    "size": [ "100%", "100%" ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Contents Section
+  // Main Content Panel
   //---------------------------------------------------------------------------
 
   "content_panel": {
@@ -106,7 +73,7 @@
         "operation": "replace",
         "value": [
           {
-            "instruction_text@safe_zone.instruction_text_panel": {}
+            "instructions_text@safe_zone.instructions_text": {}
           }
         ]
       }
@@ -129,8 +96,33 @@
     "ignored": false
   },
 
+  "instructions_text": {
+    "size": [ "100%", "100%c + 4px" ]
+  },
+
+  "instructions_text/inner_label": {
+    "shadow": true,
+    "alpha": 0.9,
+    "size": [ "100% - 4px", "default" ]
+  },
+
+  "confirm_button": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color",
+
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "$pressed_button_name": "button.confirm_button",
+    "$button_content": "safe_zone.confirm_icon",
+    "size": [ "100%", "100%" ]
+  },
+
   //---------------------------------------------------------------------------
-  // Screen
+  // Screen Content
   //---------------------------------------------------------------------------
 
   "scrolling_panel@common.scrolling_panel": {
@@ -138,36 +130,31 @@
     "anchor_to": "top_middle",
     "$show_background": false,
     "$scrolling_content": "safe_zone.content_panel",
-    "$scrolling_pane_size": [ "100%", "100% - 2px" ],
-    "$scrolling_pane_offset": [ 0, 1 ],
-    "$scroll_size": [ 4, "100% - 4px" ],
-    "$scroll_bar_left_padding_size": [ 2, 0 ],
-    "$scroll_bar_right_padding_size": [ 2, 0 ],
+    "$scrolling_pane_size": [ "100%", "100%" ],
+    "$scrolling_pane_offset": [ 0, 0 ],
+    "$scroll_size": [ 5, "100% - 4px" ],
+    "$scroll_bar_left_padding_size": [ 2.5, 0 ],
+    "$scroll_bar_right_padding_size": [ 2.5, 0 ],
     "layer": 2
   },
 
-  "safe_zone_screen@common.base_screen": {
+  "safe_zone_screen": {
     "ttsSectionContainer": true,
-    "controls": [
+    "modifications": [
       {
-        "corners_image_panel": {
-          "type": "panel",
-          "controls": [
-            { "top_left@corner_image_top": {} },
-            { "top_right@corner_image_bottom": {} },
-            { "bottom_left@corner_image_left": {} },
-            { "bottom_right@corner_image_right": {} }
-          ]
-        }
-      },
-      {
-        "main_content@common_dialogs.main_panel_one_button": {
-          "$show_close_button": false,
-          "$text_name": "options.safeZone.title",
-          "$child_control": "safe_zone.scrolling_panel",
-          "$button_panel": "safe_zone.confirm_icon_button",
-          "size": [ 212, "60%" ]
-        }
+        "control_name": "main_content_panel",
+        "operation": "replace",
+        "value": [
+          {
+            "main_content_panel@common_dialogs.main_panel_one_button": {
+              "$show_close_button": false,
+              "$text_name": "options.safeZone.title",
+              "$child_control": "safe_zone.scrolling_panel",
+              "$button_panel": "safe_zone.confirm_button",
+              "size": [ 200, "60%" ]
+            }
+          }
+        ]
       }
     ]
   }
