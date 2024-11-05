@@ -189,7 +189,7 @@
 	"player_position_icon": {
 		"type": "image",
 		"texture": "textures/ui/player_position_icon",
-		"size": [ 12, 12 ],
+		"size": [ 10, 10 ],
 		"bindings": [
 			{
 				"binding_name": "#coordinate_type_position",
@@ -201,7 +201,7 @@
 	"block_position_icon": {
 		"type": "image",
 		"texture": "textures/ui/block_position_icon",
-		"size": [ 12, 12 ],
+		"size": [ 10, 10 ],
 		"bindings": [
 			{
 				"binding_name": "#coordinate_type_facing",

@@ -24,6 +24,8 @@
   "$player_inventory_background_alpha": 0.5,
   "$player_inventory_background_scroll": false,
 
+  "$progress_text_text_color": [ 0.7, 0.7, 0.7 ],
+
   "$menu_creator_version": "Thony Ui v1.2.0",
 
   // Ignored this for a bug or error in mobile (pocket mode)

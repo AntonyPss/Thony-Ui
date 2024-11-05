@@ -1,662 +1,203 @@
 {
   "namespace": "command_block",
 
-  //---------------------------------------------------------------------------
-  // Buttons Section
-  //---------------------------------------------------------------------------
-
   "plus_icon": {
     "color": "$text_color"
   },
 
-  "plus_icon_button@common_buttons.dark_content_button": {
-    "$button_content": "command_block.plus_icon",
-    "$pressed_button_name": "command_block.input_maximize",
-    "bindings": [
-      {
-        "binding_name": "(not #maximized_input_visible)",
-        "binding_name_override": "#enabled"
-      }
-    ]
+  "cancel_button": {
+    "$default_button_texture": "textures/ui/button_red",
+    "$focus_override_right": "show_output_toggle"
   },
-
-  "paste_icon_button@common_buttons.dark_content_button": {
-    "$button_content": "command_block.paste_icon",
-    "$pressed_button_name": "command_block.paste",
-    "bindings": [
-      {
-        "binding_name": "(not #maximized_input_visible)",
-        "binding_name_override": "#enabled"
-      }
-    ]
-  },
-
-  "close_button@common_buttons.dark_text_button": {
-    "$pressed_button_name": "button.menu_leave_screen",
-    "$button_text": "gui.cancel",
-    "layer": 2,
-    "size": [ "50%", "100%" ],
-    "bindings": [
-      {
-        "binding_name": "#close_button_visible_binding_name",
-        "binding_name_override": "#enabled"
-      }
-    ]
-  },
-
-  "confirm_button@common_buttons.dark_text_button": {
-    "$pressed_button_name": "button.menu_exit",
-    "$button_text": "gui.done",
-    "layer": 2,
-    "size": [ "50%", "100%" ]
-  },
-
-  "button_stack_panel": {
-    "type": "stack_panel",
-    "orientation": "horizontal",
-    "size": [ "100%", "100%" ],
-    "controls": [
-      { "cancel@close_button": {} },
-      { "accept@confirm_button": {} }
-    ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Tick Delay Section
-  //---------------------------------------------------------------------------
-
-  "tick_delay_text": {
-    "type": "panel",
-    "size": [ "100%c", 16 ],
-    "controls": [
-      {
-        "text": {
-          "type": "label",
-          "text": "#delay_tick",
-          "shadow": true,
-          "alpha": 0.8,
-          "color": "$body_text_color",
-          "size": [ "default", 10 ],
-          "offset": [ 2, 0 ],
-          "bindings": [
-            {
-              "binding_name": "#command_tick_delay",
-              "binding_type": "global",
-              "binding_condition": "always"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "('tick' + #command_tick_delay - 'tick')",
-              "target_property_name": "#cmd_delay_tick"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(#cmd_delay_tick / 20)",
-              "target_property_name": "#delay_second"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(#delay_second / 60)",
-              "target_property_name": "#minute"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(#delay_second / 60)",
-              "target_property_name": "#delay_minute"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(#delay_minute / 60)",
-              "target_property_name": "#delay_time_hours"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(#delay_minute - (#delay_time_hours * 60))",
-              "target_property_name": "#delay_time_minutes"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(#delay_second - (#minute * 60))",
-              "target_property_name": "#delay_time_seconds"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(((#cmd_delay_tick * 10) / 2) - (#delay_second * 100))",
-              "target_property_name": "#delay_time_demical_seconds"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "(('§f0' + ((('§f' + #delay_time_demical_seconds + '§f') - '§f5§f' - '§f0§f') - '§f')) - '§f010' - '§f015' - '§f020' - '§f025' - '§f030' - '§f035' - '§f040' - '§f045' - '§f050' - '§f055' - '§f060' - '§f065' - '§f070' - '§f075' - '§f080' - '§f085' - '§f090' - '§f095')",
-              "target_property_name": "#fixed_number"
-            },
-            {
-              "binding_type": "view",
-              "source_property_name": "('Data: ' + #delay_time_hours + 'h ' + #delay_time_minutes + 'm ' + #delay_time_seconds + '.' + #fixed_number + #delay_time_demical_seconds + 's')",
-              "target_property_name": "#delay_tick"
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Command Block Info Section
-  //---------------------------------------------------------------------------
 
   "command_block_helper_stack/text_": {
     "shadow": true,
     "size": [ "default", 12 ]
   },
 
-  "command_block_info_stack": {
-    "type": "panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
+  "previous_command_block_info_stack/offset": {
+    "size": [ 4, 0 ]
+  },
 
-    "$start_text|default": "",
-    "$text_binding_name|default": "",
-    "$text_color_binding_name|default": "",
-    "$bind_type|default": "none",
+  "previous_command_block_info_stack/start_label": {
+    "size": [ "default", "default" ]
+  },
 
-    "size": [ "100%", 24 ],
+  "previous_command_block_info_stack": {
+    "modifications": [
+      {
+        "control_name": "start_label_dynamic_text",
+        "operation": "replace",
+        "value": [
+          {
+            "start_label_dynamic_enable": {
+              "type": "label",
+              "text": "#text",
+              "layer": 2,
+              "shadow": true,
+              "alpha": 0.8,
+              "color": "$body_text_color",
+              "size": [ "default", "default" ],
+              "bindings": [
+                {
+                  "binding_name": "$text_binding_name",
+                  "binding_name_override": "#text"
+                },
+                {
+                  "binding_name": "$text_color_binding_name",
+                  "binding_type": "$bind_type",
+                  "binding_name_override": "#color"
+                }
+              ]
+            }
+          },
+          {
+            "start_label_dynamic_disable": {
+              "type": "label",
+              "text": "no data",
+              "layer": 2,
+              "shadow": true,
+              "alpha": 0.9,
+              "color": "red",
+              "size": [ "default", "default" ],
+              "bindings": [
+                {
+                  "binding_name": "(not $text_binding_name)",
+                  "binding_name_override": "#visible"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "left_scroll_panel_content/content_stack_panel": {
+    "modifications": [
+      {
+        "control_name": "cancel",
+        "operation": "replace",
+        "value": [
+          {
+            "tick_delay_text": {
+              "type": "panel",
+              "size": [ "100%", "100%c + 4px" ],
+              "controls": [
+                {
+                  "text": {
+                    "type": "label",
+                    "text": "#delay_tick",
+                    "shadow": true,
+                    "alpha": 0.8,
+                    "color": "$body_text_color",
+                    "size": [ "default", "default" ],
+                    "bindings": [
+                      {
+                        "binding_name": "#command_tick_delay",
+                        "binding_type": "global",
+                        "binding_condition": "always"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "('tick' + #command_tick_delay - 'tick')",
+                        "target_property_name": "#cmd_delay_tick"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(#cmd_delay_tick / 20)",
+                        "target_property_name": "#delay_second"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(#delay_second / 60)",
+                        "target_property_name": "#minute"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(#delay_second / 60)",
+                        "target_property_name": "#delay_minute"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(#delay_minute / 60)",
+                        "target_property_name": "#delay_time_hours"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(#delay_minute - (#delay_time_hours * 60))",
+                        "target_property_name": "#delay_time_minutes"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(#delay_second - (#minute * 60))",
+                        "target_property_name": "#delay_time_seconds"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(((#cmd_delay_tick * 10) / 2) - (#delay_second * 100))",
+                        "target_property_name": "#delay_time_demical_seconds"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "(('§f0' + ((('§f' + #delay_time_demical_seconds + '§f') - '§f5§f' - '§f0§f') - '§f')) - '§f010' - '§f015' - '§f020' - '§f025' - '§f030' - '§f035' - '§f040' - '§f045' - '§f050' - '§f055' - '§f060' - '§f065' - '§f070' - '§f075' - '§f080' - '§f085' - '§f090' - '§f095')",
+                        "target_property_name": "#fixed_number"
+                      },
+                      {
+                        "binding_type": "view",
+                        "source_property_name": "('Data: ' + #delay_time_hours + 'h ' + #delay_time_minutes + 'm ' + #delay_time_seconds + '.' + #fixed_number + #delay_time_demical_seconds + 's')",
+                        "target_property_name": "#delay_tick"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }          
+          }
+        ]
+      }
+    ]
+  },
+
+  "divider_content": {
     "controls": [
       {
-        "stack_panel": {
-          "type": "stack_panel",
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "size": [ "100%", "100%cm" ],
-          "offset": [ 4, 0 ],
-          "controls": [
-            {
-              "start_label": {
-                "type": "label",
-                "text": "$start_text",
-                "layer": 2,
-                "shadow": true,
-                "color": "$body_text_color",
-                "size": [ "default", 10 ]
-              }
-            },
-            {
-              "start_label_dynamic_panel": {
-                "type": "panel",
-                "size": [ "100%c", 10 ],
-                "controls": [
-                  {
-                    "start_label_dynamic_enable": {
-                      "type": "label",
-                      "text": "#text",
-                      "layer": 2,
-                      "shadow": true,
-                      "alpha": 0.8,
-                      "color": "$body_text_color",
-                      "size": [ "default", 10 ],
-                      "offset": [ 2, 1 ],
-                      "bindings": [
-                        {
-                          "binding_name": "$text_binding_name",
-                          "binding_name_override": "#text"
-                        },
-                        {
-                          "binding_name": "$text_color_binding_name",
-                          "binding_type": "$bind_type",
-                          "binding_name_override": "#color"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "start_label_dynamic_disable": {
-                      "type": "label",
-                      "text": "no data",
-                      "layer": 2,
-                      "shadow": true,
-                      "alpha": 0.8,
-                      "color": "red",
-                      "size": [ "default", 10 ],
-                      "offset": [ 2, 1 ],
-                      "bindings": [
-                        {
-                          "binding_name": "(not $text_binding_name)",
-                          "binding_name_override": "#visible"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Scrolling Content
-  //---------------------------------------------------------------------------
-
-  "scroll_panel_content": {
-    "type": "stack_panel",
-    "size": [ "100% - 2px", "100%c - 2px" ],
-    "controls": [
-      {
-        "hover_note_text@common.text_edit_box": {
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "$focus_id": "hover_note_text",
-          "$text_box_name": "command_block.hover_note_textbox",
-          "$text_edit_box_content_binding_name": "#command_hover_note",
-          "$place_holder_text": "commandBlockScreen.hoverNote",
-          "max_length": 128,
-          "layer": 4,
-          "size": [ "100%", 24 ]
+        "left_side@common_dialogs.main_panel_one_button": {
+          "$show_close_button": false,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "$text_name": "Opciones",
+          "$child_control": "command_block.left_divider_content",
+          "$button_panel": "command_block.cancel_button",
+          "layer": 3,
+          "size": [ "40% - 2px", "100%" ]
         }
       },
       {
-        "padding0": {
-          "type": "panel",
-          "size": [ 0, 2 ]
-        }
-      },
-      {
-        "horizontal_0": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": [ "100%", 18 ],
-          "controls": [
-            {
-              "commands_text_box@command_block.command_block_text_edit_box": {
-                "$place_holder_text": "npcscreen.action.command.placeholder",
-                "$focus_id": "command_block_commands_text",
-                "focus_change_left": "hover_note_text",
-                "focus_change_up": "hover_note_text",
-                "$text_box_name": "command_block.command_text",
-                "$text_edit_box_content_binding_name": "#command_text_edit",
-                "max_length": 32500,
-                "size": [ "fill", "100%" ]
-              }
-            },
-            {
-              "paste@paste_icon_button": {
-                "size": [ 18, 18 ]
-              }
-            },
-            {
-              "plus@plus_icon_button": {
-                "size": [ 18, 18 ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "padding1": {
-          "type": "panel",
-          "size": [ 0, 4 ]
-        }
-      },
-      {
-        "show_output_toggle@settings_common.option_toggle": {
-          "$one_line_layout": true,
-          "$option_label": "advMode.previousOutput",
-          "$toggle_name": "track_output",
-          "$option_binding_name": "#track_output_binding",
-          "$option_enabled_binding_name": "#close_button_visible_binding_name",
-          "$focus_id": "show_output_toggle",
-          "$option_label_offset": [ 32, 4 ]
-        }
-      },
-      {
-        "padding2": {
-          "type": "panel",
-          "size": [ 0, 4 ]
-        }
-      },
-      {
-        "horizontal_1": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": [ "100%", "100%cm" ],
-          "controls": [
-            {
-              "command_output_text@command_block.command_block_multiline_text_edit_box": {
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "focus_enabled": false,
-                "$text_box_name": "command_block.output_text",
-                "max_length": 32500,
-                "$text_edit_box_content_binding_name": "#command_output_text",
-                "$place_holder_text": "</>",
-                "size": [ "50%", 50 ],
-                "button_mappings": [
-                  {
-                    "from_button_id": "button.menu_select",
-                    "to_button_id": "button.menu_select",
-                    "handle_select": false,
-                    "handle_deselect": false,
-                    "mapping_type": "pressed"
-                  },
-                  {
-                    "from_button_id": "button.menu_ok",
-                    "to_button_id": "button.menu_ok",
-                    "handle_select": false,
-                    "handle_deselect": false,
-                    "mapping_type": "focused"
-                  },
-                  {
-                    "from_button_id": "button.menu_cancel",
-                    "to_button_id": "button.menu_cancel",
-                    "handle_select": false,
-                    "handle_deselect": false,
-                    "mapping_type": "global"
-                  }
-                ]
-              }
-            },
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 2, 0 ]
-              }
-            },
-            {
-              "vertical": {
-                "type": "stack_panel",
-                "size": [ "fill", "100%c" ],
-                "controls": [
-                  {
-                    "self_label@command_block.command_block_helper_stack": {
-                      "$text_override": "advMode.self"
-                    }
-                  },
-                  {
-                    "nearest_player_label@command_block.command_block_helper_stack": {
-                      "$text_override": "advMode.nearestPlayer"
-                    }
-                  },
-                  {
-                    "random_player_label@command_block.command_block_helper_stack": {
-                      "$text_override": "advMode.randomPlayer"
-                    }
-                  },
-                  {
-                    "all_players_label@command_block.command_block_helper_stack": {
-                      "$text_override": "advMode.allPlayers"
-                    }
-                  },
-                  {
-                    "all_entities_label@command_block.command_block_helper_stack": {
-                      "$text_override": "advMode.allEntities"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "padding3": {
-          "type": "panel",
-          "size": [ 0, 12 ]
-        }
-      },
-      {
-        "horizontal_2": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": [ "100%", 32 ],
-          "controls": [
-            {
-              "block_type_mode_panel@command_block.block_type_panel": {
-                "size": [ "32%", "100%"]
-              }
-            },
-            {
-              "padding0": {
-                "type": "panel",
-                "size": [ 2, 0 ]
-              }
-            },
-            {
-              "condition_mode_panel@command_block.condition_mode_panel": {
-                "size": [ "32%", "100%"]
-              
-              }
-            },
-            {
-              "padding1": {
-                "type": "panel",
-                "size": [ 2, 0 ]
-              }
-            },
-            {
-              "redstone_mode_panel@command_block.redstone_mode_panel": {
-                "size": [ "fill", "100%"]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "padding4": {
-          "type": "panel",
-          "size": [ 0, 12 ]
-        }
-      },
-      {
-        "horizontal_3": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "size": [ "100%", "100%cm" ],
-          "controls": [
-            {
-              "vertical_0": {
-                "type": "stack_panel",
-                "size": [ "64% + 2px", "100%c" ],
-                "controls": [
-                  {
-                    "execute_on_first_tick_toggle@settings_common.option_toggle": {
-                      "$option_binding_name": "#execute_on_first_tick",
-                      "$option_enabled_binding_name": "#execute_on_first_tick_enabled",
-                      "$option_label": "commandBlockScreen.executeFirstTick",
-                      "$toggle_name": "execute_on_first_tick",
-                      "$toggle_binding_condition": "visible"
-                    }
-                  },
-                  {
-                    "padding": {
-                      "type": "panel",
-                      "size": [ "100%", 2 ]
-                    }
-                  },
-                  {
-                    "option_label_tick_delay": {
-                      "type": "label",
-                      "color": "$body_text_color",
-                      "size": [ "100%", "default" ],
-                      "offset": [ 2, 0 ],
-                      "layer": 1,
-                      "text": "commandBlockScreen.tickDelay",
-                      "visible": true,
-                      "locked_alpha": 0.5
-                    }
-                  },
-                  {
-                    "tick_delay_text_box@common.text_edit_box": {
-                      "anchor_from": "center",
-                      "anchor_to": "center",
-                      "$focus_id": "tick_delay_text",
-                      "$text_edit_box_text_type": "NumberChars",
-                      "$text_box_name": "command_block.tick_delay_textbox",
-                      "$text_edit_box_content_binding_name": "#command_tick_delay",
-                      "max_length": 5,
-                      "layer": 4,
-                      "size": [ "100%", 24 ]
-                    }
-                  },
-                  {
-                    "tick_delay_text_panel@tick_delay_text": {}
-                  }
-                ]
-              }
-            },
-            {
-              "vertical_1": {
-                "type": "stack_panel",
-                "size": [ "fill", "100%c" ],
-                "controls": [
-                  {
-                    "previous_block_type_text@command_block.command_block_info_stack": {
-                      "$start_text": "commandBlockScreen.blockType",
-                      "$text_binding_name": "#previous_block_type_text",
-                      "$text_color_binding_name": "#previous_block_type_text_color",
-                      "$bind_type": "global"
-                    }
-                  },
-                  {
-                    "padding1": {
-                      "type": "panel",
-                      "size": [ "100%", 2 ]
-                    }
-                  },
-                  {
-                    "previous_conditional_mode_text@command_block.command_block_info_stack": {
-                      "$start_text": "commandBlockScreen.condition",
-                      "$text_binding_name": "#previous_condition_mode_text"
-                    }
-                  },
-                  {
-                    "padding2": {
-                      "type": "panel",
-                      "size": [ "100%", 2 ]
-                    }
-                  },
-                  {
-                    "previous_redstone_mode_text@command_block.command_block_info_stack": {
-                      "$start_text": "commandBlockScreen.redstone",
-                      "$text_binding_name": "#previous_redstone_mode_text"
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "padding5": {
-          "type": "panel",
-          "size": [ 0, 4 ]
-        }
-      }
-    ]
-  },
-
-  "scrolling_panel@common.scrolling_panel": {
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "$show_background": false,
-    "$scrolling_pane_size": [ "100% - 4px", "100% - 4px" ],
-    "$scrolling_content": "command_block.scroll_panel_content",
-    "$scroll_size": [ 4, "100% - 4px" ],
-    "offset": [ 2, 2 ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Screen
-  //---------------------------------------------------------------------------
-
-  "command_block_screen_panel@common_dialogs.main_panel_one_button": {
-    "$show_close_button": false,
-    "$text_name": "commandBlockScreen.title",
-    "$child_control": "command_block.scrolling_panel",
-    "$button_panel": "command_block.button_stack_panel",
-    "bindings": [
-      {
-        "binding_name": "(not #maximized_input_visible)",
-        "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  "command_block_maxim_screen@common_dialogs.main_panel_no_buttons": {
-    "$close_button_to_button_id": "command_block.input_minimize",
-    "$text_name": "advMode.setCommand",
-    "$child_control": "command_block.command_block_maxim_content",
-    "size": [ "100% - 32px", "100% - 32px" ],
-    "bindings": [
-      {
-        "binding_name": "#maximized_input_visible",
-        "binding_name_override": "#visible"
-      }
-    ]
-  },
-
-  "command_block_maxim_content": {
-    "type": "stack_panel",
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "size": [ "100%", "100%" ],
-    "controls": [
-      {
-        "text_edit_box_panel": {
-          "type": "panel",
-          "size": [ "100%", "fill" ],
-          "controls": [
-            {
-              "maximized_command_block_text@command_block.command_block_text_edit_box": {
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "max_length": 32500,
-                "$text_box_name": "command_block.command_text",
-                "$text_edit_box_content_binding_name": "#command_text_edit",
-                "$place_holder_text": "Enter your command input here",
-                "$cancel_button_id": "command_block.input_minimize",
-                "size": [ "100% - 4px", "100% - 2px" ],
-                "offset": [ 1, 1 ],
-                "bindings": [
-                  {
-                    "binding_name": "#maximized_input_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "paste_button@common_buttons.dark_content_button": {
-          "$pressed_button_name": "command_block.paste",
-          "$button_content": "common_assets.icon_wrapper",
-          "$button_text": "options.button.paste",
-          "size": [ "100% - 2px", 24 ],
-          "bindings": [
-            {
-              "binding_name": "#minimize_button_visible_binding_name",
-              "binding_name_override": "#visible",
-              "binding_type": "global"
-            }
-          ]
+        "right_side@common_dialogs.main_panel_no_buttons": {
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "$text_name": "Comandos",
+          "$child_control": "command_block.right_divider_content",
+          "layer": 3,
+          "size": [ "60% - 2px", "100%" ]
         }
       }
     ]
   },
 
   "command_block_screen_content": {
-    "size": "$extra_large_screen_size",
-    "max_size": "$extra_large_max_screen_size",
-    "controls": [
-      { "command_block_panel@command_block_screen_panel": {} },
-      { "command_block_maxim@command_block_maxim_screen": {} }
-    ]
-  },
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
 
-  "command_block_screen": {
-    "$screen_background_alpha": 0.4
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color",
+    "controls": [
+      {
+        "divider_content@command_block.divider_content": {}
+      }
+    ]
   }
 }

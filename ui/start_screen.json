@@ -49,7 +49,7 @@
     "$anim_offset_from": [ "50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
 
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset"
     ],
@@ -70,7 +70,7 @@
     "$anim_offset_from": [ "-50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
 
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset"
     ]
@@ -85,7 +85,7 @@
     "$anim_offset_from": [ "-50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
 
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset"
     ]
@@ -122,7 +122,7 @@
     "$anim_offset_from": [ "50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
 
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset"
     ]
@@ -133,7 +133,7 @@
     "$label_anchor": "bottom_middle",
     "$label_text": "->.<-",
 
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "anims": [
       "@start.emoji_anim_show"
     ]
@@ -256,12 +256,11 @@
     "size": [ "32% - 12px", 116 ],
 
     "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 2.5,
+    "$anim_offset_duration": 2.0,
     "$anim_offset_from": [ "50%", 24 ],
     "$anim_offset_to": [ 0, 24 ],
 
-    "animation_reset_name": "screen_animation_reset",
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset"
     ]
@@ -294,12 +293,11 @@
     "anchor_to": "bottom_left",
     "size": [ "100%c", 26 ],
     "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 2.0,
+    "$anim_offset_duration": 1.5,
     "$anim_offset_from": [ "-50%", -38 ],
     "$anim_offset_to": [ 8, -38 ],
 
-    "animation_reset_name": "screen_animation_reset",
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "anims": [ "@animations.anim_offset" ],
     "controls": [
       {
@@ -360,7 +358,7 @@
                 {
                   "title_panel_content@common_art.start_title_panel_content": {
                     "$anim_easing_alpha": "in_expo",
-                    "$anim_alpha_duration": 0.6,
+                    "$anim_alpha_duration": 0.5,
                     "$anim_alpha_from": 0.0,
                     "$anim_alpha_to": 1.0,
 
@@ -369,8 +367,7 @@
                     "$anim_size_from": [ 0, 0 ],
                     "$anim_size_to": [ "100%", "100%c" ],
 
-                    "animation_reset_name": "screen_animation_reset",
-                    "disable_anim_fast_forward": true,
+                    "disable_anim_fast_forward": false,
                     "propagate_alpha": true,
                     "layer": 99,
                     "anims": [
@@ -389,17 +386,16 @@
 
   "main_buttons_panel": {
     "$anim_easing_alpha": "in_expo",
-    "$anim_alpha_duration": 1.5,
+    "$anim_alpha_duration": 1.0,
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
 
     "$anim_easing_offset": "in_expo",
     "$anim_offset_duration": 1.0,
-    "$anim_offset_from": [ 0, "25%" ],
+    "$anim_offset_from": [ 0, "16%" ],
     "$anim_offset_to": [ 0, 0 ],
 
-    "animation_reset_name": "screen_animation_reset",
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "propagate_alpha": true,
     "anims": [
       "@animations.anim_alpha",
@@ -472,14 +468,8 @@
     ]
   },
 
-  "main_buttons_panel/stacked_rows/realms": {
-    "ignored": false,
-    "bindings": []
-  },
-
   "main_buttons_panel/stacked_rows/realms/realms_button": {
     "$button_type_panel": "common_assets.icon_wrapper",
-    "$pressed_button_name": "button.menu_realms",
     "$button_content": "start.realms_icon"
   },
 
@@ -537,14 +527,14 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": [ 26, "100%c" ],
-    "offset": "@animations.anim_offset",
+    "anims": [ "@animations.anim_offset" ],
 
     "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 1.4,
+    "$anim_offset_duration": 1.0,
     "$anim_offset_from": [ "-50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
 
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "controls": [
       {
         "featured_world_button@start.upper_stack": {

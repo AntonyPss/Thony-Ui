@@ -14,82 +14,10 @@
   // Account Section
   //---------------------------------------------------------------------------
 
-  "gamerpic_status": {
-    "type": "panel",
-    "anchor_from": "bottom_middle",
-    "anchor_to": "bottom_middle",
-    "size": [ 8, 8 ],
-    "offset": [ 0, 1 ],
-    "controls": [
-      {
-        "status_online": {
-          "type": "image",
-          "texture": "textures/ui/white_background",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "layer": 4,
-          "color": "green",
-          "size": [ 6, 6 ],
-          "bindings": [
-            {
-              "binding_name": "#logged_in",
-              "binding_name_override": "#visible"
-            }
-          ],
-          "controls": [
-            {
-              "shadow": {
-                "type": "image",
-                "texture": "textures/ui/white_background",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "layer": 2,
-                "alpha": 0.5,
-                "color": "green",
-                "offset": [ 1, 1 ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "status_offline": {
-          "type": "image",
-          "texture": "textures/ui/white_background",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 2,
-          "color": "gray",
-          "size": [ 6, 6 ],
-          "bindings": [
-            {
-              "binding_name": "#not_logged_in",
-              "binding_name_override": "#visible"
-            }
-          ],
-          "controls": [
-            {
-              "shadow": {
-                "type": "image",
-                "texture": "textures/ui/white_background",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "layer": 2,
-                "alpha": 0.5,
-                "color": "gray",
-                "offset": [ 1, 1 ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
   "gamerpic_image": {
     "type": "image",
     "texture": "#texture",
-    "size": [ 42, 42 ],
+    "layer": 2,
     "bindings": [
       {
         "binding_name": "#gamerpic_texture_path",
@@ -102,88 +30,19 @@
     ]
   },
 
-  "gamerpic_texture_button@common.button": {
-    "$pressed_button_name": "button.gamerpic",
-    "size": [ 42, 42 ],
-    "controls": [
-      {
-        "default@common.focus_border_white": {
-          "color": "black",
-          "controls": [
-            {
-              "gamerpic_status@general_section.gamerpic_status": {
-                "layer": 4
-              }
-            },
-            {
-              "gamerpic@general_section.gamerpic_image": {
-                "layer": -1
-              }
-            }
-          ]
-        }
-      },
-      {
-        "hover@common.focus_border_white": {
-          "controls": [
-            {
-              "gamerpic_status@general_section.gamerpic_status": {
-                "layer": 4
-              }
-            },
-            {
-              "gamerpic@general_section.gamerpic_image": {
-                "layer": -1,
-                "color": [ 0.7, 0.7, 0.7 ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "pressed@common.focus_border_white": {
-          "controls": [
-            {
-              "gamerpic_status@general_section.gamerpic_status": {
-                "layer": 4
-              }
-            },
-            {
-              "gamerpic@general_section.gamerpic_image": {
-                "layer": -1,
-                "color": [ 0.5, 0.5, 0.5 ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "gamertag_text_panel": {
+  "profile_label_panel": {
     "type": "stack_panel",
-    "size": [ "100%", "100%" ],
+    "size": [ "fill", "100%c" ],
     "controls": [
       {
-        "gamertag_title": {
-          "type": "label",
-          "text": "options.gamertag",
-          "font_type": "MinecraftTen",
-          "font_scale_factor": 1.28,
-          "layer": 2,
-          "shadow": true,
-          "color": "$main_header_text_color",
-          "size": [ "100%", 16 ]
-        }
-      },
-      {
-        "gamertag_text_logged": {
+        "gamertag_label": {
           "type": "label",
           "text": "#gamertag_label",
-          "font_type": "smooth",
+          "font_scale_factor": 1.2,
+          "font_type": "MinecraftTen",
           "layer": 2,
-          "color": "$body_text_color",
-          "size": [ "100%", 10 ],
+          "color": "$main_header_text_color",
+          "size": [ "default", "default" ],
           "bindings": [
             {
               "binding_name": "#gamertag_label"
@@ -196,14 +55,14 @@
         }
       },
       {
-        "gamertag_text_notlogged": {
+        "gamertag_label_error": {
           "type": "label",
           "text": "xbox.connection.error",
-          "font_type": "smooth",
+          "font_scale_factor": 1.2,
+          "font_type": "MinecraftTen",
           "layer": 2,
-          "shadow": true,
           "color": "$main_header_text_color",
-          "size": [ "100%", 10 ],
+          "size": [ "default", "default" ],
           "bindings": [
             {
               "binding_name": "#not_logged_in",
@@ -213,11 +72,20 @@
         }
       },
       {
+        "gamertag_status": {
+          "type": "label",
+          "text": "networkWorld.online",
+          "font_type": "smooth",
+          "layer": 2,
+          "size": [ "100%", 10 ]
+        }
+      },
+      {
         "mc_account_id_text": {
           "type": "label",
           "text": "#MinecraftAccount_id",
           "font_type": "smooth",
-          "font_scale_factor": 0.9,
+          "font_scale_factor": 0.8,
           "layer": 2,
           "alpha": 0.9,
           "color": "$body_text_color",
@@ -234,7 +102,7 @@
           "type": "label",
           "text": "#device_id",
           "font_type": "smooth",
-          "font_scale_factor": 0.9,
+          "font_scale_factor": 0.8,
           "layer": 2,
           "alpha": 0.9,
           "color": "$body_text_color",
@@ -489,25 +357,46 @@
 
   "account_view_panel": {
     "type": "panel",
-    "size": [ "100%", 48 ],
+    "size": [ "100%", "100%c + 4px" ],
     "controls": [
       {
-        "background@common_assets.background_image": {
-          "size": [ "100%", "100%" ]
-        }
-      },
-      {
-        "gamerpic_panel@general_section.gamerpic_texture_button": {
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle",
-          "offset": [ 4, 0 ]
-        }
-      },
-      {
-        "gamertag_text@general_section.gamertag_text_panel": {
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle",
-          "offset": [ 48, 0 ]
+        "stack_content": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100%", "100%cm" ],
+          "controls": [
+            {
+              "gamerpic_image@general_section.gamerpic_image": {
+                "size": [ 48, 48 ],
+                "controls": [
+                  {
+                    "online_icon": {
+                      "type": "image",
+                      "texture": "textures/ui/white",
+                      "anchor_from": "bottom_right",
+                      "anchor_to": "bottom_right",
+                      "layer": 4,
+                      "color": "green",
+                      "size": [ 6, 6 ],
+                      "offset": [ 1, 1 ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 4, 0 ]
+              }
+            },
+            {
+              "profile_label_panel@general_section.profile_label_panel": {
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle"
+              }
+            }
+          ]
         }
       }
     ]
@@ -678,7 +567,7 @@
     ]
   },
 
-  //---------------------------------------------------------------------------
+  /*/---------------------------------------------------------------------------
   // Creator Section
   //---------------------------------------------------------------------------
 
@@ -1208,7 +1097,7 @@
         }
       }
     ]
-  },
+  },*/
 
   //---------------------------------------------------------------------------
   // Sound Section

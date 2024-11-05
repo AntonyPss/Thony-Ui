@@ -2044,7 +2044,7 @@
           "$text_name": "networkWorld.joinByCode",
           "$child_control": "play.join_by_code_popup_content",
           "$button_panel": "play.join_by_code_popup_button",
-          "size": [ "50%", 128 ]
+          "size": [ "50%", 160 ]
         }
       }
     ]
@@ -2106,7 +2106,7 @@
       {
         "help_text_panel": {
           "type": "panel",
-          "size": [ "100%", "100%c" ],
+          "size": [ "100%", "100%c + 8px" ],
           "controls": [
             {
               "help_text": {
@@ -2115,9 +2115,7 @@
                 "text_alignment": "center",
                 "anchor_from": "center",
                 "anchor_to": "center",
-                "font_type": "smooth",
                 "layer": 2,
-                "alpha": 0.8,
                 "color": "$body_text_color",
                 "size": [ "100%", "default" ]
               }
@@ -2129,6 +2127,10 @@
   },
 
   "join_by_code_popup_button@common_buttons.dark_text_button": {
+    "$default_button_texture": "textures/buttons/green_button",
+    "$hover_button_texture": "textures/buttons/green_button_hover",
+    "$pressed_button_texture": "textures/buttons/green_button_pressed",
+
     "$button_text": "networkWorld.join",
     "$pressed_button_name": "button.menu_network_join_by_code_popup_join"
   },

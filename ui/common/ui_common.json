@@ -43,7 +43,7 @@
     "$anim_offset_to": [ -2, 2 ],
 
     "animation_reset_name": "screen_animation_reset",
-    "disable_anim_fast_forward": true,
+    "disable_anim_fast_forward": false,
     "controls": [
       {
         "background@common_assets.background_image": {

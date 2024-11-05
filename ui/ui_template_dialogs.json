@@ -98,6 +98,8 @@
   },
 
   "main_panel_no_buttons@common_dialogs.background_ui": {
+    "$show_close_button|default": false,
+    "size": [ "100%", "100%" ],
     "controls": [
       {
         "main_stack_panel": {

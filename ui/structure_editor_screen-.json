@@ -1,0 +1,755 @@
+{
+  "namespace": "structure_editor",
+
+  //---------------------------------------------------------------------------
+  // Image Section
+  //---------------------------------------------------------------------------
+
+  "icon_panel": {
+    "type": "image",
+    "layer": 2
+  },
+
+  "help_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/infobulb",
+    "size": [ 10, 14 ]
+  },
+
+  "save_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/copy",
+    "size": [ 14, 14 ]
+  },
+
+  "3d_export_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/worldsIcon",
+    "size": [ 15, 16 ]
+  },
+
+  "export_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/share_apple",
+    "size": [ 12, 16 ]
+  },
+
+  "load_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/color_plus",
+    "size": [ 14, 14 ]
+  },
+
+  "detect_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/spyglass_flat",
+    "size": [ 12, 12 ]
+  },
+
+  "import_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/icon_import",
+    "color": "$text_color",
+    "size": [ 15, 15 ]
+  },
+
+  "reset_icon@structure_editor.icon_panel": {
+    "texture": "textures/ui/refresh_light",
+    "size": [ 14, 15 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Padding Section
+  //---------------------------------------------------------------------------
+
+  "padding_vertical_2": {
+    "type": "panel",
+    "size": [ 0, 2 ]
+  },
+
+  "padding_vertical_4": {
+    "type": "panel",
+    "size": [ 0, 4 ]
+  },
+
+  "padding_horizontal_2": {
+    "type": "panel",
+    "size": [ 2, 0 ]
+  },
+
+  "padding_horizontal_4": {
+    "type": "panel",
+    "size": [ 4, 0 ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
+
+  "dark_text_button@common_buttons.dark_text_button": {
+    "$button_type_panel": "common_assets.icon_wrapper",
+    "layer": 2
+  },
+
+  "save_button@dark_text_button": {
+    "$pressed_button_name": "button.structure_save",
+    "$button_content": "structure_editor.save_icon",
+    "$button_text": "structure_block.save",
+    "bindings": [
+      {
+        "binding_name": "#save_enabled",
+        "binding_name_override": "#enabled",
+        "binding_condition": "visible"
+      }
+    ]
+  },
+
+  "3d_export_button@dark_text_button": {
+    "$pressed_button_name": "button.structure_3D_export",
+    "$button_content": "structure_editor.3d_export_icon",
+    "$button_text": "structure_block.export",
+    "bindings": [
+      {
+        "binding_name": "#3d_export_enabled",
+        "binding_name_override": "#enabled",
+        "binding_condition": "visible"
+      }
+    ]
+  },
+
+  "export_button@dark_text_button": {
+    "$pressed_button_name": "button.structure_export",
+    "$button_content": "structure_editor.export_icon",
+    "$button_text": "structure_block.export",
+    "bindings": [
+      {
+        "binding_name": "#export_enabled",
+        "binding_name_override": "#enabled",
+        "binding_condition": "visible"
+      }
+    ]
+  },
+
+  "load_button@dark_text_button": {
+    "$pressed_button_name": "button.structure_load",
+    "$button_content": "structure_editor.load_icon",
+    "$button_text": "structure_block.load",
+    "bindings": [
+      {
+        "binding_name": "#load_enabled",
+        "binding_name_override": "#enabled",
+        "binding_condition": "visible"
+      }
+    ]
+  },
+
+  "detect_button@dark_text_button": {
+    "$pressed_button_name": "button.structure_detect",
+    "$button_content": "structure_editor.detect_icon",
+    "$button_text": "structure_block.detect"
+  },
+
+  "import_button@dark_text_button": {
+    "$pressed_button_name": "button.structure_import",
+    "$button_content": "structure_editor.import_icon",
+    "$button_text": "structure_block.import",
+    "bindings": [
+      {
+        "binding_name": "#import_enabled",
+        "binding_name_override": "#enabled",
+        "binding_condition": "visible"
+      }
+    ]
+  },
+
+  "reset_button@dark_text_button": {
+    "$pressed_button_name": "button.structure_reset",
+    "$button_content": "structure_editor.reset_icon",
+    "$button_text": "structure_block.reset"
+  },
+
+  "save_button_panel": {
+    "size": [ "100%", 24 ],
+    "controls": [
+      {
+        "save@save_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p0@padding_horizontal_2": {}
+      },
+      {
+        "export@export_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p1@padding_horizontal_2": {}
+      },
+      {
+        "reset@reset_button": {
+          "size": [ "fill", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "save_button_panel_no_export": {
+    "size": [ "100%", 24 ],
+    "controls": [
+      {
+        "save@save_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p0@padding_horizontal_2": {}
+      },
+      {
+        "reset@reset_button": {
+          "size": [ "fill", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "load_button_panel": {
+    "size": [ "100%", 24 ],
+    "controls": [
+      {
+        "load@load_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p0@padding_horizontal_2": {}
+      },
+      {
+        "import@import_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p1@padding_horizontal_2": {}
+      },
+      {
+        "reset@reset_button": {
+          "size": [ "fill", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "load_button_panel_no_export": {
+    "size": [ "100%", 24 ],
+    "controls": [
+      {
+        "load@load_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p1@padding_horizontal_2": {}
+      },
+      {
+        "reset@reset_button": {
+          "size": [ "fill", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "3d_export_button_panel": {
+    "size": [ "100%", 24 ],
+    "controls": [
+      {
+        "3d_export@3d_export_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p0@padding_horizontal_2": {}
+      },
+      {
+        "import@import_button": {
+          "size": [ "fill", "100%" ]
+        }
+      },
+      {
+        "p1@padding_horizontal_2": {}
+      },
+      {
+        "reset@reset_button": {
+          "size": [ "fill", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "data_button_panel": {
+    "size": [ "100%", 24 ],
+    "controls": [
+      {
+        "reset@reset_button": {
+          "size": [ "fill", "100%" ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Header Section and Screen Content
+  //---------------------------------------------------------------------------
+
+  "structure_editor_content": {
+    "type": "stack_panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "header_image": {
+          "type": "image",
+          "texture": "textures/ui/StoreTopBar",
+          "layer": 2,
+          "size": [ "100%", 24 ],
+          "controls": [
+            {
+              "title_stack_panel": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 20 ],
+                "controls": [
+                  {
+                    "p1": {
+                      "type": "panel",
+                      "size": [ 4, 0 ]
+                    }
+                  },
+                  {
+                    "back_button@common.back_content_panel": {}
+                  },
+                  {
+                    "p2": {
+                      "type": "panel",
+                      "size": [ 4, 0 ]
+                    }
+                  },
+                  {
+                    "title_panel": {
+                      "type": "panel",
+                      "size": [ "100%c", "100%" ],
+                      "controls": [
+                        {
+                          "text": {
+                            "type": "label",
+                            "text": "structure_block.title",
+                            "font_scale_factor": 1.4,
+                            "font_type": "MinecraftTen",
+                            "layer": 4,
+                            "color": "$title_text_color",
+                            "size": [ "default", 18 ],
+                            "offset": [ 0, -1.6 ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "fill_padding": {
+                      "type": "panel",
+                      "size": [ "fill", 0 ]
+                    }
+                  },
+                  {
+                    "buttons_panel": {
+                      "type": "panel",
+                      "size": [ "100%cm", "100%c" ],
+                      "controls": [
+                        {
+                          "stack_content": {
+                            "type": "stack_panel",
+                            "orientation": "horizontal",
+                            "size": [ "100%c", 18 ],
+                            "offset": [ -2, -1 ],
+                            "controls": [
+                              {
+                                "help_button@common_buttons.light_content_button": {
+                                  "$pressed_button_name": "button.help",
+                                  "$button_content": "structure_editor.help_icon",
+                                  "size": [ 18, 18 ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "main_stack": {
+          "type": "panel",
+          "size": [ "100%", "fill" ],
+          "controls": [
+            {
+              "divider_content@divider_content": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Buttons Section
+  //---------------------------------------------------------------------------
+
+  "detect_button_wrapper": {
+    "size": [ "100%", 28 ],
+    "controls": [
+      {
+        "detect@detect_button": {
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100% - 4px", 24 ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Left Content Section
+  //---------------------------------------------------------------------------
+
+  "mode_panel": {
+    "$dropdown_scroll_content_size": [ "100%", "200% + 8px" ],
+    "$option_dropdown_size": [ "100%", 24 ]
+  },
+
+  "scrolling_panel_wrapper@common_dialogs.main_panel_no_title_no_buttons": {
+    "$show_close_button": false,
+    "$child_control": "structure_editor.scrolling_panel",
+    "$panel_content_size": [ "100%", "100% - 4px" ],
+    "$panel_content_offset": [ 0, 2 ],
+    "size": [ "100% - 4px", "100% - 4px" ]
+  },
+
+  "scrolling_panel": {
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$scroll_box_visible": false,
+    "$scroll_size": [ 0, "100% - 4px" ],
+    "size": [ "100%", "100%" ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Right Content Section
+  //---------------------------------------------------------------------------
+
+  "anim_save_message_text_offset": {
+    "anim_type": "offset",
+    "easing": "in_expo",
+    "duration": 2,
+    "from": [ 0, -56 ],
+    "to": [ 0, 4 ],
+    "next": "@structure_editor.anim_message_wait"
+  },
+
+  "anim_message_wait": {
+    "anim_type": "wait",
+    "duration": 2,
+    "next": "@structure_editor.anim_save_message_text_offset_1"
+  },
+
+  "anim_save_message_text_offset_1": {
+    "anim_type": "offset",
+    "easing": "out_expo",
+    "duration": 2,
+    "from": [ 0, 4 ],
+    "to": [ 0, -56 ],
+    "destroy_at_end": "save_message_label"
+  },
+
+  "save_message_text": {
+    "type": "image",
+    "texture": "textures/ui/hud_tip_text_background",
+    "layer": 16,
+    "alpha": 0.5,
+    "size": [ "100%c + 12px", "100%c + 8px" ],
+    "offset": "@structure_editor.anim_save_message_text_offset",
+    "disable_anim_fast_forward": false,
+    "controls": [
+      {
+        "save_message_label": {
+          "type": "label",
+          "text": "structure_block.save.successful",
+          "text_alignment": "center",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 18,
+          "shadow": true,
+          "color": "$structure_editor_text",
+          "size": [ "default", 10 ]
+        }
+      }
+    ]
+  },
+
+  "image_panel": {
+    "controls": [
+      {
+        "border_indent": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "controls": [
+            {
+              "structure_renderer@structure_editor.structure_renderer": {
+                "layer": 3
+              }
+            },
+            {
+              "text_corner@structure_editor.corner_text_panel": {
+                "size": [ "100% - 6px", "100%" ],
+                "layer": 3,
+                "anchor_from": "top_left",
+                "anchor_to": "top_left",
+                "offset": [ 4, 2 ]
+              }
+            },
+            {
+              "progress_panel@structure_editor.progress_panel": {
+                "layer": 3
+              }
+            },
+            {
+              "rotate_arrows_panel": {
+                "type": "panel",
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "layer": 2,
+                "size": [ 46, 6 ],
+                "offset": [ 0, -4 ],
+                "controls": [
+                  {
+                    "image@rotation_arrows": {
+                      "layer": 2,
+                      "offset": [ 0, 0 ]
+                    }
+                  },
+                  {
+                    "shadow@rotation_arrows": {
+                      "color": [ 0.2, 0.2, 0.2 ],
+                      "offset": [ 1, 1 ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "image_panel_wrapper": {
+    "type": "image",
+    "texture": "textures/ui/Black",
+    "layer": 2,
+    "alpha": 0.5,
+    "size": [ "100% - 8px", "100%" ],
+    "controls": [
+      {
+        "image_panel@structure_editor.image_panel": {
+          "size": [ "100% - 4px", "100% - 4px" ]
+        }
+      },
+      {
+        "save_message_factory": {
+          "type": "factory",
+          "control_name": "@structure_editor.save_message_text"
+        }
+      },
+      {
+        "import_message_factory": {
+          "type": "factory",
+          "control_name": "@structure_editor.import_message_text"
+        }
+      },
+      {
+        "import_failed_message_factory": {
+          "type": "factory",
+          "control_name": "@structure_editor.import_failed_message_text"
+        }
+      },
+      {
+        "export_disabled@structure_editor.export_disabled_label": {
+          "size": [ "100%", 24 ]
+        }
+      }
+    ]
+  },
+
+  "right_divider_content": {
+    "controls": [
+      {
+        "base_offset": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+      {
+        "preview@image_panel_wrapper": {
+          "size": [ "100% - 2px", "fill" ]
+        }
+      },
+      {
+        "image_offset": {
+          "type": "panel",
+          "size": [ "100%", 2 ]
+        }
+      },
+      {
+        "button_wrapper": {
+          "type": "panel",
+          "size": [ "100% - 2px", 28 ],
+          "controls": [
+            {
+              "buttons@button_panel_wrapper": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "button_panel_wrapper": {
+    "texture": "textures/ui/Black",
+    "alpha": 0.5,
+    "size": [ "100% - 2px", "100%" ],
+    "offset": [ 0, 0 ],
+    "controls": [
+      {
+        "panel": {
+          "type": "panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100% - 4px", "100%" ],
+          "controls": [
+            {
+              "divider": {
+                "type": "panel",
+                "size": [ 2, "100%" ]
+              }
+            },
+            {
+              "save_panel@structure_editor.save_button_panel": {
+                "layer": 3,
+                "ignored": "(not $file_picking_supported)"
+              }
+            },
+            {
+              "save_panel_no_export@structure_editor.save_button_panel_no_export": {
+                "layer": 3,
+                "ignored": "($file_picking_supported)"
+              }
+            },
+            {
+              "load_panel_no_export@structure_editor.load_button_panel_no_export": {
+                "layer": 3,
+                "ignored": "($file_picking_supported)"
+              }
+            },
+            {
+              "load_panel@structure_editor.load_button_panel": {
+                "layer": 3,
+                "ignored": "(not $file_picking_supported)"
+              }
+            },
+            {
+              "3d_export_panel@structure_editor.3d_export_button_panel": {
+                "ignored": "(not $3DExport_support)",
+                "layer": 3
+              }
+            },
+            {
+              "data_panel@structure_editor.data_button_panel": {
+                "layer": 3,
+                "ignored": "(not $data_support)"
+              }
+            },
+            {
+              "end_divider": {
+                "type": "panel",
+                "size": [ 2, "100%" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Screen
+  //---------------------------------------------------------------------------
+
+  "divider_content": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "structure_zoom_toggle",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "left_side@left_divider_content": {
+          "size": [ 136, "100%" ]
+
+        }
+      },
+      {
+        "right_side@right_divider_content": {
+          "size": [ "fill", "100% - 2px" ]
+        }
+      }
+    ]
+  },
+
+  "corner_text_panel": {
+    "controls": [
+      {
+        "paragraph_1_corner": {
+          "type": "label",
+          "text": "structure_block.corner.text.1.title",
+          "font_type": "MinecraftTen",
+          "layer": 4,
+          "shadow": true,
+          "color": "$main_header_text_color",
+          "size": [ "100% - 12px", 10 ]
+        }
+      },
+      {
+        "padding@padding_vertical_4": {}
+      },
+      {
+        "paragraph_2_corner": {
+          "type": "label",
+          "text": "structure_block.corner.text.2.paragraph",
+          "font_type": "smooth",
+          "layer": 4,
+          "color": "$main_header_text_color",
+          "size": [ "100% - 12px", "default" ]
+        }
+      }
+    ]
+  },
+
+  "structure_editor_screen": {
+    "$header_bar_control": "common_assets.store_top_bar",
+    "$header_safezone_control": "common_assets.store_top_bar_filler",
+    "$screen_background_alpha": 0.4
+  }
+}
