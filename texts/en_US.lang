@@ -3,6 +3,10 @@ addExternalServerScreen.ipPlaceholder=IP (1.0.0.1) or URL (www.example.com)
 
 confirmLeaveWarning.worldName.title=World Name:
 
+chat.notesTitle=Notes:
+chat.notesTextBox.placeHolderText=Write something here...
+chat.notesMessage.message=Notes in this text box are temporary and will be §cdeleted §rwhen the screen is closed.
+
 chat.placeHolderText=Write here a text or command...
 
 chat.settings.muteAll.description=Hides the chat window, great for avoiding distractions and keeping the screen clean.

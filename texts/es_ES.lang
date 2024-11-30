@@ -3,6 +3,10 @@ addExternalServerScreen.ipPlaceholder=IP (1.0.0.1) o URL (www.ejemplo.com)
 
 confirmLeaveWarning.worldName.title=Nombre del mundo:
 
+chat.notesTitle=Notas:
+chat.notesTextBox.placeHolderText=Escribe algo aquí...
+chat.notesMessage.message=Las notas en este cuadro de texto son temporales y se §celiminarán §ral cerrar la pantalla.
+
 chat.placeHolderText=Escribe aquí un texto o comando...
 
 chat.settings.muteAll.description=Oculta el chat del juego, ideal para evitar distracciones y mantener la pantalla limpia.
