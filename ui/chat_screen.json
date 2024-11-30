@@ -33,6 +33,12 @@
     "texture": "textures/ui/chat_autocompleteback"
   },
 
+  "notes_icon": {
+    "type": "image",
+    "size": [ 14, 14 ],
+    "texture": "textures/ui/notes_icon"
+  },
+
   //---------------------------------------------------------------------------
   // Messages Scrolling Panel
   //---------------------------------------------------------------------------
@@ -52,8 +58,8 @@
 
     "disable_anim_fast_forward": true,
     "anims": [ "@animations.anim_offset" ],
-    "size": [ "100% - 4px", "100% - 50px" ],
-    "offset": [ 0, -24 ]
+    "size": [ "100% - 2px", "100% - 50px" ],
+    "offset": [ 2, -24 ]
   },
 
   "commands_panel": {

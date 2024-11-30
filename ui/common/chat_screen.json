@@ -72,6 +72,12 @@
     "$focus_override_down": "text_edit_box_focus_id"
   },
 
+	"notes_toggle_button@common_toggles.light_content_toggle": {
+		"$toggle_view_binding_name": "notes_msg_panel",
+		"$toggle_name": "text_box_notes",
+		"$button_content": "chat.notes_icon"
+	},
+
   //---------------------------------------------------------------------------
   // Header Content
   //---------------------------------------------------------------------------
@@ -174,6 +180,87 @@
 						{
 							"coordinates@chat_panel.coordinates_stack_panel": {
 								"offset": [ -2, -2 ]
+							}
+						}
+					]
+				}
+			}
+		]
+	},
+
+	"note_msg_panel": {
+		"type": "panel",
+		"anchor_from": "top_right",
+		"anchor_to": "top_right",
+		"offset": [ -2, 26 ],
+		"size": [ 128, "100%cm" ],
+		"ignored": "(not $show_notes_msg_panel)",
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_control_name": "notes_msg_panel",
+				"source_property_name": "#toggle_state",
+				"target_property_name": "#visible"
+			}
+		],
+		"controls": [
+			{
+				"background_panel@crafting.background_image": {
+					"size": [ "100%", "100%sm + 12px" ]
+				}
+			},
+			{
+				"note_msg_content": {
+					"type": "stack_panel",
+					"layer": 6,
+					"size": [ "100% - 12px", "100%c" ],
+					"controls": [
+						{
+							"notes_title": {
+								"type": "label",
+								"text": "chat.notesTitle",
+								"shadow": true,
+								"color": "$main_header_text_color",
+								"size": [ "100%", 10 ]
+							}
+						},
+						{
+							"padding0": {
+								"type": "panel",
+								"size": [ "100%", 2 ]
+							}
+						},
+						{
+							"text_box_multiline_panel": {
+								"type": "panel",
+								"size": [ "100%", "100%c" ],
+								"controls": [
+									{
+										"text_box_multiline@common.scrollable_multiline_text_edit_box": {
+											"$place_holder_text": "chat.notesTextBox.placeHolderText",
+											"$text_edit_text_control": "text_box_notes",
+											"$text_box_name": "text_box_notes",
+											"max_length": 1728,
+											"layer": 2,
+											"size": "$notes_msg_textbox_size"
+										}
+									}
+								]
+							}
+						},
+						{
+							"padding1": {
+								"type": "panel",
+								"size": [ "100%", 2 ]
+							}
+						},
+						{
+							"notes_message": {
+								"type": "label",
+								"text": "chat.notesMessage.message",
+								"shadow": true,
+								"color": "$body_text_color",
+								"size": [ "100%", "default" ]
 							}
 						}
 					]
@@ -321,6 +408,12 @@
 				"paste_button@chat_panel.paste_button": {
 					"size": [ 18, 18 ]
 				}
+			},
+			{
+				"notes_toggle_button@chat_panel.notes_toggle_button": {
+					"ignored": "(not $show_notes_msg_panel)",
+					"size": [ 18, 18 ]
+				}
 			}
 		]
 	},
@@ -333,8 +426,9 @@
 		"type": "panel",
 		"controls": [
       { "messages_panel@chat.messages_scrolling_panel": {} },
-      { "chat_bottom_panel@chat.chat_bottom_panel": { "layer": 2 } },
       { "chat_header_panel@chat_panel.chat_header_panel": { "layer": 2 } },
+      { "chat_bottom_panel@chat.chat_bottom_panel": { "layer": 2 } },
+			{ "note_msg_panel@chat_panel.note_msg_panel": { "layer": 24 } },
       { "autocomplete_commands@chat.commands_panel": { "layer": 3 } },
       { "host_main_panel@host_options.host_panel": { "layer": 4 } },
       { "popup_factory@chat_settings.popup_factory": {} }

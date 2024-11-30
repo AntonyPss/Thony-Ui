@@ -38,16 +38,15 @@
                 "orientation": "horizontal",
                 "anchor_from": "left_middle",
                 "anchor_to": "left_middle",
-                "size": [ "100%c - 4px", "100%cm" ],
+                "size": [ "100% - 4px", "100%c" ],
                 "controls": [
                   {
                     "world_name": {
                       "type": "label",
                       "text": "confirmLeaveWarning.worldName.title",
-                      "font_type": "smooth",
                       "layer": 2,
                       "color": "$body_text_color",
-                      "size": [ "default", 10 ]
+                      "size": [ "100%", 10 ]
                     }
                   },
                   {
@@ -60,12 +59,11 @@
                     "world_name_text": {
                       "type": "label",
                       "text": "#text",
-                      "font_type": "smooth",
                       "layer": 2,
                       "alpha": 0.8,
                       "localize": false,
                       "color": "$body_text_color",
-                      "size": [ "default", "default" ],
+                      "size": [ "100%", "default" ],
                       "bindings": [
                         {
                           "binding_name": "#worldname",
