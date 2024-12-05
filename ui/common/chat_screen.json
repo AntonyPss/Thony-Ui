@@ -74,7 +74,7 @@
 
 	"notes_toggle_button@common_toggles.light_content_toggle": {
 		"$toggle_view_binding_name": "notes_msg_panel",
-		"$toggle_name": "text_box_notes",
+		"$toggle_name": "notes_toggle_button",
 		"$button_content": "chat.notes_icon"
 	},
 
@@ -220,6 +220,7 @@
 								"type": "label",
 								"text": "chat.notesTitle",
 								"shadow": true,
+								"layer": 2,
 								"color": "$main_header_text_color",
 								"size": [ "100%", 10 ]
 							}
@@ -259,6 +260,7 @@
 								"type": "label",
 								"text": "chat.notesMessage.message",
 								"shadow": true,
+								"layer": 2,
 								"color": "$body_text_color",
 								"size": [ "100%", "default" ]
 							}

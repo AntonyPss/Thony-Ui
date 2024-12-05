@@ -1,0 +1,206 @@
+{
+  "namespace": "hud_assets",
+
+  "modal_background": {
+    "type": "image",
+    "texture": "textures/ui/Black",
+    "layer": 2,
+    "alpha": 0.3
+  },
+
+  "player_list_item_grid": {
+    "type": "panel",
+    "layer": 4,
+    "size": [ "100%", 14 ],
+    "controls": [
+      {
+        "background@hud_assets.modal_background": {
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "gamertag_label": {
+          "type": "label",
+          "text": "#text",
+          "text_alignment": "center",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 8,
+          "size": [ "default", 10 ],
+          "bindings": [
+            {
+              "binding_name": "#gamertag",
+              "binding_name_override": "#text",
+              "binding_type": "collection",
+              "binding_collection_name": "players_collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "player_list_grid": {
+    "type": "grid",
+    "collection_name": "players_collection",
+    "grid_item_template": "hud_assets.player_list_item_grid",
+    "grid_dimension_binding": "#players_grid_dimension",
+    "size": [ "100%", "100%c" ],
+    "bindings": [
+      {
+        "binding_name": "#players_grid_dimension",
+        "binding_condition": "always"
+      }
+    ]
+  },
+
+  "player_list_modal": {
+    "type": "panel",
+    "ttsSectionContainer": true,
+    "size": [ 100, 120 ],
+    "controls": [
+      {
+        "background@hud_assets.modal_background": {
+          "size": [ "100%", "100%" ]
+        }
+      },
+      {
+        "player_list_content": {
+          "type": "stack_panel",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "size": [ "100% - 4px", "100% - 4px" ],
+          "controls": [
+            {
+              "player_list_title": {
+                "type": "label",
+                "text": "List Player",
+                "text_alignment": "center",
+                "layer": 4,
+                "shadow": true,
+                "color": "$main_header_text_color",
+                "size": [ "100%", 10 ]
+              }
+            },
+            {
+              "player_list_scrolling": {
+                "type": "panel",
+                "size": [ "100%", "fill" ],
+                "controls": [
+                  {
+                    "scrolling_panel@common.scrolling_panel": {
+                      "layer": 2,
+                      "$show_background": false,
+                      "$always_handle_scrolling": true,
+                      "$scrolling_content": "hud_assets.player_list_grid",
+                      "$scroll_size": [ 5, "100% - 4px" ],
+                      "size": [ "100% - 2px", "100% - 2px" ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "players_count_grid@hud_assets.players_count_grid": {
+                "size": [ "100%", 12 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "players_count_text_grid": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "controls": [
+      {
+        "icon_lan": {
+          "type": "image",
+          "texture": "textures/ui/lan_icon",
+          "layer": 2,
+          "size": [ 12, 12 ]
+        }
+      },
+      {
+        "players_count_text": {
+          "type": "label",
+          "text": "#text",
+          "layer": 4,
+          "size": [ "default", "100%" ],
+          "bindings": [
+            {
+              "binding_type": "collection_details",
+              "binding_collection_name": "players_collection"
+            },
+            {
+              "binding_type": "collection",
+              "binding_collection_name": "players_collection",
+              "binding_name": "#collection_index"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "('§z' + (#collection_index + 1) + '§z' + Online)",
+              "target_property_name": "#text"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "players_count_grid": {
+    "type": "grid",
+    "collection_name": "players_collection",
+    "grid_item_template": "hud_assets.players_count_text_grid",
+    "grid_dimension_binding": "#players_grid_dimension",
+    "size": [ "100%", "default" ],
+    "bindings": [
+      {
+        "binding_name": "#players_grid_dimension",
+        "binding_condition": "always"
+      }
+    ]
+  },
+
+  "player_list_toggle@common_toggles.light_text_toggle": {
+    "$toggle_view_binding_name": "ShowPlayerListToggle",
+    "$toggle_name": "PlayerListModal",
+    "$button_text": "P"
+  },
+
+  "player_list_screen_ui": {
+    "type": "input_panel",
+    "prevent_touch_input": true,
+    "variables": [
+      {
+        "requires": "($win10_edition or $is_ps4)",
+        "$playerListModalVisible": false
+      },
+      {
+        "requires": "($pocket_edition or $pocket_screen or $desktop_screen)",
+        "$playerListModalVisible": true
+      }
+    ],
+    "controls": [
+      {
+        "player_list_modal@hud_assets.player_list_modal": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "layer": 99,
+          "offset": [ -2, -2 ]
+        }
+      },
+      {
+        "player_list_toggle@hud_assets.player_list_toggle": {
+          // "ignored": "(not $playerListModalVisible)",
+          "anchor_from": "bottom_right",
+          "anchor_to": "top_right",
+          "layer": 2,
+          "size": [ 20, 20 ]
+        }
+      }
+    ]
+  }
+}

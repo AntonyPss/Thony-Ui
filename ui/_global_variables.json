@@ -26,6 +26,10 @@
 
   "$progress_text_text_color": [ 0.7, 0.7, 0.7 ],
 
+  "$show_notes_msg_panel": true,
+  // Default Size [ "100%", 36 ]
+  "$notes_msg_textbox_size": [ "100%", 36 ],
+
   "$menu_creator_version": "Thony Ui v1.2.0",
 
   // Ignored this for a bug or error in mobile (pocket mode)

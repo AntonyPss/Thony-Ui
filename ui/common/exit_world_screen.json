@@ -10,70 +10,55 @@
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
     "size": [ "100%", "100%c" ],
+    "offset": [ 1, 0 ],
     "controls": [
       {
-        "confirm_leave_text": {
+        "confirm_leave_title": {
           "type": "label",
           "text": "deathScreen.quit.secondaryClient.confirmLeaveWarning",
-          "font_type": "smooth",
+          "text_alignment": "center",
           "layer": 2,
-          "color": "$body_text_color",
-          "size": [ "100%", "default" ]
+          "color": "$main_header_text_color",
+          "size": [ "100% - 4px", "default" ]
         }
       },
       {
-        "padding": {
+        "padding0": {
+          "type": "panel",
+          "size": [ 0, 8 ]
+        }
+      },
+      {
+        "world_name_title": {
+          "type": "label",
+          "text": "confirmLeaveWarning.worldName.title",
+          "text_alignment": "center",
+          "layer": 2,
+          "alpha": 0.6,
+          "color": "$body_text_color",
+          "size": [ "100% - 4px", 10 ]
+        }
+      },
+      {
+        "padding1": {
           "type": "panel",
           "size": [ 0, 2 ]
         }
       },
       {
-        "world_name_stack": {
-          "type": "panel",
-          "size": [ "100%", "100%cm" ],
-          "controls": [
+        "world_name_text": {
+          "type": "label",
+          "text": "#text",
+          "text_alignment": "center",
+          "layer": 2,
+          "alpha": 0.6,
+          "localize": false,
+          "color": "$body_text_color",
+          "size": [ "100% - 4px", "default" ],
+          "bindings": [
             {
-              "world_name_panel": {
-                "type": "stack_panel",
-                "orientation": "horizontal",
-                "anchor_from": "left_middle",
-                "anchor_to": "left_middle",
-                "size": [ "100% - 4px", "100%c" ],
-                "controls": [
-                  {
-                    "world_name": {
-                      "type": "label",
-                      "text": "confirmLeaveWarning.worldName.title",
-                      "layer": 2,
-                      "color": "$body_text_color",
-                      "size": [ "100%", 10 ]
-                    }
-                  },
-                  {
-                    "padding": {
-                      "type": "panel",
-                      "size": [ 4, 0 ]
-                    }
-                  },
-                  {
-                    "world_name_text": {
-                      "type": "label",
-                      "text": "#text",
-                      "layer": 2,
-                      "alpha": 0.8,
-                      "localize": false,
-                      "color": "$body_text_color",
-                      "size": [ "100%", "default" ],
-                      "bindings": [
-                        {
-                          "binding_name": "#worldname",
-                          "binding_name_override": "#text"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
+              "binding_name": "#worldname",
+              "binding_name_override": "#text"
             }
           ]
         }
@@ -131,7 +116,7 @@
           "$text_name": "pauseScreen.header",
           "$child_control": "exit_world.info_text_panel",
           "$button_panel": "exit_world.two_buttons_panel",
-          "size": [ 224, 124 ]
+          "size": [ 224, 128 ]
         }
       }
     ]
@@ -140,7 +125,7 @@
   "background_screen@common_assets.background_panel": {
     "$fill_alpha": 0.2,
     "fill": true,
-    "size": [ "100%", "100%" ],
+    "size": [ 1000, 1000 ],
     "bindings": [
       {
         "binding_type": "view",
