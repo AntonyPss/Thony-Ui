@@ -85,7 +85,7 @@
               "progress_text@progress.progress_screen_text": {
                 "font_type": "smooth",
                 "text": "#text",
-                "color": "$progress_text_text_color",
+                "color": [0.7, 0.7, 0.7],
                 "size": [ "100%", "default" ],
                 "bindings": [
                   {
@@ -234,7 +234,7 @@
   },
 
   "world_save_modal_progress_screen_content": {
-    "$percent_visible": false,
+    "$percentVisible": false,
     "modifications": [
       {
         "control_name": "world_modal_progress_panel",

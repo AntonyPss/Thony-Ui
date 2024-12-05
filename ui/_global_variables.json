@@ -1,39 +1,24 @@
 {
-  "$light_button_locked_text_color": [ 0.6, 0.6, 0.6 ],
-  "$dark_button_locked_text_color": [ 0.8, 0.8, 0.8 ],
+  "$fillAlpha": 0.5,
 
-  "$fill_alpha": 0.5,
+  "$inputTypeModeTitleColor": [1.0, 1.0, 1.0],
+  "$inputTypeModeSubtitleColor": [0.848, 0.848, 0.848],
 
-  "$input_type_mode_title_color": [ 1.0, 1.0, 1.0 ],
-  "$input_type_mode_subtitle_color": [ 0.848, 0.848, 0.848 ],
+  "$percentFontType": "default",
+  "$percentFontSize": 1.0,
+  "$percentOffset": [0, 0],
+  "$percentTextAlpha": 1.0,
+  "$percentTextColor": [1.0, 1.0, 1.0],
+  "$percentTextLayer": 2,
+  "$percentTextShadow": true,
+  "$percentVisible": true,
 
-  "$percent_font_type": "default",
-  "$percent_font_size": 1.0,
-  "$percent_offset": [ 0, 0 ],
-  "$percent_text_alpha": 1.0,
-  "$percent_text_color": [ 1.0, 1.0, 1.0 ],
-  "$percent_text_layer": 2,
-  "$percent_text_shadow": true,
-  "$percent_visible": true,
+  "$showNotesMsgPanel": true,
+  "$notesMsgTextboxSize": ["100%", 36],
 
-  // Player Inventory Variables //
-  // 1 - Background Panel Image (hud_tip_text_background)
-  // 2 - Background Panel Image Alpha (0.0 to 1.0)
-  // 3 - Background Panel Scroll (false to true)
-  "$player_inventory_background": "textures/ui/hud_tip_text_background",
-  "$player_inventory_background_alpha": 0.5,
-  "$player_inventory_background_scroll": false,
+  "$menuCreatorVersion": "Thony Ui v1.2.4",
 
-  "$progress_text_text_color": [ 0.7, 0.7, 0.7 ],
-
-  "$show_notes_msg_panel": true,
-  // Default Size [ "100%", 36 ]
-  "$notes_msg_textbox_size": [ "100%", 36 ],
-
-  "$menu_creator_version": "Thony Ui v1.2.0",
-
-  // Ignored this for a bug or error in mobile (pocket mode)
-  "$quick_loot_common_ignored": true, // "$pocket_screen"
-  "$quick_loot_on_text_color": [ 0.10, 0.66, 0.10 ],
-  "$quick_loot_off_text_color": [ 0.80, 0.06, 0.06 ]
+  "$quickLootCommonIgnored": true,
+  "$quickLootOnTextColor": [0.10, 0.66, 0.10],
+  "$quickLootOffTextColor": [0.80, 0.06, 0.06]
 }

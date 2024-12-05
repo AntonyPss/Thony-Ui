@@ -5,11 +5,6 @@
   // Buttons Section
   //---------------------------------------------------------------------------
 
-  // "section_toggle_base@section_dark_toggle_base": {
-  //  "$button_size_override": [ "100%", "100% + 1px" ],
-  //  "size": [ "100%", "30px" ]
-  // },
-
   "section_dark_toggle_base@common_toggles.dark_ui_toggle": {
     "anchor_from": "top_left",
     "anchor_to": "top_left",

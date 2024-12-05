@@ -111,7 +111,7 @@
     "controls": [
       {
         "main@common_dialogs.main_panel_one_button": {
-          "$fill_alpha": 0.6,
+          "$fillAlpha": 0.6,
           "$show_close_button": false,
           "$text_name": "pauseScreen.header",
           "$child_control": "exit_world.info_text_panel",
@@ -123,7 +123,7 @@
   },
 
   "background_screen@common_assets.background_panel": {
-    "$fill_alpha": 0.2,
+    "$fillAlpha": 0.2,
     "fill": true,
     "size": [ 1000, 1000 ],
     "bindings": [

@@ -98,15 +98,11 @@
 					"anchor_from": "top_left",
 					"anchor_to": "top_left",
 					"size": [ "100%c", "100%" ],
-
 					"$anim_easing_offset": "in_out_elastic",
 					"$anim_offset_duration": 1.0,
 					"$anim_offset_from": [ "-16%", 0 ],
 					"$anim_offset_to": [ 0, 0 ],
-			
-					"anims": [
-						"@animations.anim_offset"
-					],
+					"anims": [ "@animations.anim_offset" ],
 					"controls": [
 						{
 							"chat_icon": {
@@ -128,15 +124,11 @@
 					"anchor_from": "left_middle",
 					"anchor_to": "left_middle",
 					"size": [ "100%c", "100%" ],
-
 					"$anim_easing_offset": "in_out_elastic",
 					"$anim_offset_duration": 1.0,
 					"$anim_offset_from": [ "-40%", 0 ],
 					"$anim_offset_to": [ 0, 0 ],
-			
-					"anims": [
-						"@animations.anim_offset"
-					],
+					"anims": [ "@animations.anim_offset"	],
 					"controls": [
 						{
 							"title_text": {
@@ -194,7 +186,7 @@
 		"anchor_to": "top_right",
 		"offset": [ -2, 26 ],
 		"size": [ 128, "100%cm" ],
-		"ignored": "(not $show_notes_msg_panel)",
+		"ignored": "(not $showNotesMsgPanel)",
 		"bindings": [
 			{
 				"binding_type": "view",
@@ -243,7 +235,7 @@
 											"$text_box_name": "text_box_notes",
 											"max_length": 1728,
 											"layer": 2,
-											"size": "$notes_msg_textbox_size"
+											"size": "$notesMsgTextboxSize"
 										}
 									}
 								]

@@ -1134,7 +1134,7 @@
               "controls": [
                 {
                   "background@common_assets.background_panel": {
-                    "$fill_alpha": 0.5,
+                    "$fillAlpha": 0.5,
                     "size": [ "100%", "100%" ]
                   }
                 },
@@ -1472,7 +1472,7 @@
                 "controls": [
                   {
                     "background@common_assets.background_panel": {
-                      "$fill_alpha": 0.6,
+                      "$fillAlpha": 0.6,
                       "size": [ "100% - 4px", 32 ]
                     }
                   },
@@ -2030,7 +2030,7 @@
   //---------------------------------------------------------------------------
 
   "join_by_code_popup_background": {
-    "alpha": "$fill_alpha"
+    "alpha": "$fillAlpha"
   },
 
   "popup_dialog_join_by_code": {

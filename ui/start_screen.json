@@ -8,14 +8,12 @@
   "realms_icon": {
     "type": "image",
     "texture": "textures/ui/realmsIcon",
-    "layer": 2,
     "size": [ 11, 14 ]
   },
 
   "servers_icon": {
     "type": "image",
     "texture": "textures/ui/servers",
-    "layer": 2,
     "size": [ 16, 16 ]
   },
 
@@ -32,7 +30,6 @@
   "profile_icon": {
     "type": "image",
     "texture": "textures/ui/icon_steve",
-    "layer": 2,
     "size": [ 12, 12 ]
   },
 
@@ -43,20 +40,13 @@
   "version_label@common_assets.label_background": {
     "$label_anchor": "top_right",
     "$label_text": "#version",
-
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 0.8,
     "$anim_offset_from": [ "50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": false,
-    "anims": [
-      "@animations.anim_offset"
-    ],
+    "anims": [ "@animations.anim_offset" ],
     "$label_bindings": [
-      {
-        "binding_name": "#version"
-      }
+      { "binding_name": "#version" }
     ]
   },
 
@@ -64,79 +54,53 @@
     "$label_anchor": "top_left",
     "$label_text": "menu.copyright",
     "$label_text_offset": [ -0.5, 0 ],
-
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 0.8,
     "$anim_offset_from": [ "-50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": false,
-    "anims": [
-      "@animations.anim_offset"
-    ]
+    "anims": [ "@animations.anim_offset" ]
   },
 
   "creator_label@common_assets.label_background": {
     "$label_anchor": "bottom_left",
     "$label_text": "menu.creator",
-
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 1.5,
     "$anim_offset_from": [ "-50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": false,
-    "anims": [
-      "@animations.anim_offset"
-    ]
+    "anims": [ "@animations.anim_offset" ]
   },
 
   "d_version_label@common_assets.label_background": {
     "$label_anchor": "bottom_right",
     "$label_text": "#development_version",
     "ignored": "$is_publish",
-
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 1.5,
     "$anim_offset_from": [ "50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": false,
-    "anims": [
-      "@animations.anim_offset"
-    ],
+    "anims": [ "@animations.anim_offset" ],
     "$label_bindings": [
-      {
-        "button_name": "#development_version"
-      }
+      { "button_name": "#development_version" }
     ]
   },
 
   "pack_version_label@common_assets.label_background": {
     "$label_anchor": "bottom_right",
-    "$label_text": "$menu_creator_version",
+    "$label_text": "$menuCreatorVersion",
     "ignored": "(not $is_publish)",
-
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 1.5,
     "$anim_offset_from": [ "50%", 0 ],
     "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": false,
-    "anims": [
-      "@animations.anim_offset"
-    ]
+    "anims": [ "@animations.anim_offset" ]
   },
 
   "emoji_text@common_assets.label_background": {
     "$label_background": "textures/ui/hud_tip_text_background",
     "$label_anchor": "bottom_middle",
     "$label_text": "->.<-",
-
-    "disable_anim_fast_forward": false,
-    "anims": [
-      "@start.emoji_anim_show"
-    ]
+    "anims": [ "@start.emoji_anim_show" ]
   },
 
   "emoji_anim_show": {
@@ -190,7 +154,6 @@
               "texture": "textures/ui/hud_tip_text_background",
               "anchor_from": "top_middle",
               "anchor_to": "bottom_middle",
-              "layer": 2,
               "alpha": 0.5,
               "size": [ "100%c + 8px", 14 ],
               "max_size": [ 132, 14 ],
@@ -201,10 +164,9 @@
                     "text": "#playername",
                     "anchor_from": "center",
                     "anchor_to": "center",
-                    "layer": 4,
+                    "layer": 2,
                     "shadow": true,
                     "color": "$main_header_text_color",
-                    "size": [ "default", "default" ],
                     "bindings": [
                       {
                         "binding_name": "#playername"
@@ -254,18 +216,14 @@
     "anchor_from": "right_middle",
     "anchor_to": "right_middle",
     "size": [ "32% - 12px", 116 ],
-
     "$anim_easing_offset": "in_out_cubic",
     "$anim_offset_duration": 0.8,
     "$anim_offset_from": [ 200, 0 ],
     "$anim_offset_to": [ 0, 24 ],
-
     "$anim_easing_alpha": "in_out_circ",
     "$anim_alpha_duration": 0.6,
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
-
-    "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset",
       "@animations.anim_alpha"
@@ -298,18 +256,14 @@
     "anchor_from": "bottom_left",
     "anchor_to": "bottom_left",
     "size": [ "100%c", 26 ],
-
     "$anim_easing_offset": "in_out_cubic",
     "$anim_offset_duration": 0.7,
     "$anim_offset_from": [ 0, 100 ],
     "$anim_offset_to": [ 8, -38 ],
-
     "$anim_easing_alpha": "in_out_sine",
     "$anim_alpha_duration": 0.7,
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
-
-    "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset",
       "@animations.anim_alpha"
@@ -376,13 +330,10 @@
                     "$anim_alpha_duration": 0.6,
                     "$anim_alpha_from": 0.0,
                     "$anim_alpha_to": 1.0,
-
                     "$anim_easing_offset": "out_back",
                     "$anim_offset_duration": 0.8,
                     "$anim_offset_from": [ 0, -100 ],
                     "$anim_offset_to": [ 0, 0 ],
-
-                    "disable_anim_fast_forward": false,
                     "propagate_alpha": true,
                     "layer": 99,
                     "anims": [
@@ -404,13 +355,10 @@
     "$anim_alpha_duration": 0.3,
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
-
     "$anim_easing_offset": "in_out_expo",
     "$anim_offset_duration": 0.5,
     "$anim_offset_from": [ 0, -200 ],
     "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": false,
     "propagate_alpha": true,
     "anims": [
       "@animations.anim_alpha",
@@ -542,13 +490,10 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": [ 26, "100%c" ],
-
     "$anim_easing_offset": "in_out_sine",
     "$anim_offset_duration": 1.0,
     "$anim_offset_from": [ 0, 100 ],
     "$anim_offset_to": [ 0, 0 ],
-
-    "disable_anim_fast_forward": false,
     "anims": [ "@animations.anim_offset" ],
     "controls": [
       {

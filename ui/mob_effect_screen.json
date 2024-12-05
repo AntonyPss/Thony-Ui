@@ -128,7 +128,7 @@
 
   "mob_effect_grid_item": {
     "size": [ "100%", 32 ],
-    "$fill_alpha": 0.5,
+    "$fillAlpha": 0.5,
     "controls": [
       {
         "mob_effect_grid_content": {

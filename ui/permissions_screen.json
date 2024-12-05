@@ -7,7 +7,7 @@
 
 	"banner_background": {
 		"texture": "textures/ui/Black",
-		"alpha": "$fill_alpha"
+		"alpha": "$fillAlpha"
 	},
 
 	"kick_icon": {

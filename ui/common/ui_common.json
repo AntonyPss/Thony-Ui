@@ -26,7 +26,7 @@
     "type": "label",
     "layer": 4,
     "shadow": true,
-    "color": "$input_type_mode_subtitle_color",
+    "color": "$inputTypeModeSubtitleColor",
     "size": [ "default", 10 ]
   },
 
@@ -36,18 +36,15 @@
     "anchor_to": "top_right",
     "size": [ "100%cm", "100%cm" ],
     "offset": "@animations.anim_offset",
-
     "$anim_easing_offset": "in_out_elastic",
     "$anim_offset_duration": 1.5,
     "$anim_offset_from": [ "50%", 2 ],
     "$anim_offset_to": [ -2, 2 ],
-
     "animation_reset_name": "screen_animation_reset",
-    "disable_anim_fast_forward": false,
     "controls": [
       {
         "background@common_assets.background_image": {
-          "$fill_alpha": 0.6,
+          "$fillAlpha": 0.6,
           "size": [ "100%sm + 6px", "100%sm + 1px" ]
         }
       },
@@ -135,7 +132,7 @@
                       "text": "options.inputMode",
                       "layer": 4,
                       "shadow": true,
-                      "color": "$input_type_mode_title_color",
+                      "color": "$inputTypeModeTitleColor",
                       "size":  [ "default", 10 ]
                     }
                   },
@@ -317,7 +314,7 @@
                                 "hover@common_assets.background_panel": {
                                   "anchor_from": "center",
                                   "anchor_to": "center",
-                                  "$fill_alpha": 0.2,
+                                  "$fillAlpha": 0.2,
                                   "size": [ "100% - 4px", "100% - 4px" ]
                                 }
                               },
@@ -354,7 +351,7 @@
                                 "hover@common_assets.background_panel": {
                                   "anchor_from": "center",
                                   "anchor_to": "center",
-                                  "$fill_alpha": 0.2,
+                                  "$fillAlpha": 0.2,
                                   "size": [ "100% - 4px", "100% - 4px" ]
                                 }
                               },
@@ -527,217 +524,12 @@
     ]
   },
 
-  ////////////////
-
-  "new_back_button_image": {
-    "type": "image",
-    "texture": "$image_texture",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "layer": 1,
-    "size": "$image_texture_size"
-  },
-
-  "new_back_button@common.button": {
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "$pressed_button_name|default": "button.menu_exit",
-    "size": "$button_panel_size",
-    "offset": "$button_panel_offset",
-    "$image_texture_size|default": [ 16, 16 ],
-    "$button_panel_size|default": [ 24, 24 ],
-    "$button_panel_offset|default": [ 0, 0 ],
-    "$button_panel_type|default": "common_assets.new_back_button_image",
-    "controls": [
-      {
-        "default@$button_panel_type": {
-          "$image_texture": "textures/ui/back_button_default"
-        }
-      },
-      {
-        "hover@$button_panel_type": {
-          "$image_texture": "textures/ui/back_button_hover"
-        }
-      },
-      {
-        "pressed@$button_panel_type": {
-          "$image_texture": "textures/ui/back_button_pressed"
-        }
-      }
-    ]
-  },
-
-  "exit_button": {
-    "type": "panel",
-    "anchor_from": "$exit_button_anchor",
-    "anchor_to": "$exit_button_anchor",
-    "size": "$exit_button_size",
-
-    "$exit_button_image|default": "textures/ui/hud_tip_text_background",
-    "$exit_button_name|default": "button.menu_exit",
-    "$exit_button_anchor|default": "right_middle",
-    "$exit_button_alpha|default": 0.5,
-    "$exit_button_size|default": [ 16, 16 ],
-    "$exit_button_offset|default": [ 0, 0 ],
-    "$exit_button_icon_size|default": [ 14, 14 ],
-    "controls": [
-      {
-        "background": {
-          "type": "image",
-          "texture": "$exit_button_image",
-          "alpha": "$exit_button_alpha",
-          "layer": 1
-        }
-      },
-      {
-        "content_button@common.button": {
-          "$pressed_button_name": "$exit_button_name",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 2,
-          "size": "$exit_button_icon_size",
-          "controls": [
-            {
-              "default": {
-                "type": "image",
-                "texture": "textures/ui/close_button_default_light"
-              }
-            },
-            {
-              "hover": {
-                "type": "image",
-                "texture": "textures/ui/close_X_button_hover",
-                "alpha": 0.6
-              }
-            },
-            {
-              "pressed": {
-                "type": "image",
-                "texture": "textures/ui/close_X_button",
-                "alpha": 0.8
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "back_button": {
-    "type": "panel",
-    "anchor_from": "$back_button_anchor",
-    "anchor_to": "$back_button_anchor",
-    "size": "$back_button_size",
-
-    "$back_button_name|default": "button.menu_exit",
-    "$back_button_anchor|default": "right_middle",
-    "$back_button_size|default": [ 16, 16 ],
-    "$back_button_offset|default": [ 0, 0 ],
-    "$back_button_icon_size|default": [ 12, 12 ],
-    "controls": [
-      {
-        "background": {
-          "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
-          "alpha": 0.2,
-          "layer": 1
-        }
-      },
-      {
-        "content_button@common.button": {
-          "$pressed_button_name": "$back_button_name",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 2,
-          "size": "$back_button_icon_size",
-          "controls": [
-            {
-              "default": {
-                "type": "image",
-                "texture": "textures/ui/arrow_left_white"
-              }
-            },
-            {
-              "hover": {
-                "type": "image",
-                "texture": "textures/ui/arrow_left_white",
-                "alpha": 0.6
-              }
-            },
-            {
-              "pressed": {
-                "type": "image",
-                "texture": "textures/ui/arrow_left_white",
-                "alpha": 0.8
-              }
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "title_label": {
-    "type": "image",
-    "texture": "textures/ui/hud_tip_text_background",
-    "anchor_from": "center",
-    "anchor_to": "center",
-    "alpha": 0.2,
-    "size": [ "fill", "100%" ],
-    "controls": [
-      {
-        "text": {
-          "type": "label",
-          "text": "$topbar_title_text",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 2,
-          "shadow": true,
-          "size": [ "default", 10 ],
-          "bindings": "$topbar_title_bindings"
-        }
-      }
-    ]
-  },
-
-  "topbar_panel": {
-    "type": "panel",
-    "anchor_from": "top_middle",
-    "anchor_to": "top_middle",
-    "size": [ "100%", "100%cm" ],
-
-    "$topbar_title_text|default": "",
-    "$topbar_title_bindings|default": "",
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "orientation": "horizontal",
-          "anchor_from": "top_middle",
-          "anchor_to": "top_middle",
-          "size": [ "100% - 4px", 16 ],
-          "offset": [ 0, 0 ],
-          "controls": [
-            { "back_button@common_assets.back_button": {
-              "$back_button_anchor": "left_middle"
-            } },
-            { "padding": {
-              "type": "panel",
-              "size": [ 2, 0 ]
-            } },
-            { "title_label@common_assets.title_label": {} }
-          ]
-        }
-      }
-    ]
-  },
-
   "background_panel": {
     "type": "image",
     "texture": "$background_texture",
     "$background_texture|default": "textures/ui/Black",
     "layer": 1,
-    "alpha": "$fill_alpha"
+    "alpha": "$fillAlpha"
   },
 
   "background_image@common_assets.background_panel": {

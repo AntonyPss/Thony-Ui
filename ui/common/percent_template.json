@@ -9,12 +9,12 @@
     "type": "label",
     "localize": false,
 
-    "color": "$percent_text_color",
-    "shadow": "$percent_text_shadow",
-    "layer": "$percent_text_layer",
-    "alpha": "$percent_text_alpha",
-    "font_type": "$percent_font_type",
-    "font_scale_factor": "$percent_font_size",
+    "color": "$percentTextColor",
+    "shadow": "$percentTextShadow",
+    "layer": "$percentTextLayer",
+    "alpha": "$percentTextAlpha",
+    "font_type": "$percentFontType",
+    "font_scale_factor": "$percentFontSize",
 
     "bindings": "$percent_bindings",
     "$binding_name|default": "",
@@ -36,11 +36,11 @@
   "percent_template": {
     "type": "stack_panel",
     "orientation": "horizontal",
-    "ignored": "(not $percent_visible)",
+    "ignored": "(not $percentVisible)",
     "$reverser_percent_count|default": false,
     "$percent_panel|default": "percent_template.percent_number",
     "size": [ "100%c", "100%cm" ],
-    "offset": "$percent_offset",
+    "offset": "$percentOffset",
     "variables": [
       {
         "requires": "$reverser_percent_count",
