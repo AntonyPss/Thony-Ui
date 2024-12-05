@@ -168,13 +168,19 @@
   },
 
   "skin_panel/interior": {
-    "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 2.0,
-    "$anim_offset_from": [ 200, 0 ],
-    "$anim_offset_to": [ 0, 0 ],
+    "$anim_easing_alpha": "out_back",
+    "$anim_alpha_duration": 0.3,
+    "$anim_alpha_from": 0.0,
+    "$anim_alpha_to": 1.0,
 
-    "disable_anim_fast_forward": false,
+    "$anim_easing_offset": "out_quart",
+    "$anim_offset_duration": 0.6,
+    "$anim_offset_from": [ 1000, 0 ],
+    "$anim_offset_to": [ 0, 0 ],
+    "disable_anim_fast_forward": true,
+    "propagate_alpha": true,
     "anims": [
+      "@animations.anim_alpha",
       "@animations.anim_offset"
     ]
   },
@@ -232,12 +238,20 @@
               "controls": [
                 {
                   "title_panel@common_art.pause_logo_panel": {
-                    "$anim_easing_alpha": "in_expo",
-                    "$anim_alpha_duration": 1.0,
+                    "$anim_easing_alpha": "in_out_sine",
+                    "$anim_alpha_duration": 0.6,
                     "$anim_alpha_from": 0.0,
                     "$anim_alpha_to": 1.0,
+
+                    "$anim_easing_offset": "out_back",
+                    "$anim_offset_duration": 0.8,
+                    "$anim_offset_from": [ 0, "-50%" ],
+                    "$anim_offset_to": [ 0, 0 ],
                     "disable_anim_fast_forward": true,
-                    "anims": [ "@animations.anim_alpha" ]
+                    "anims": [
+                      "@animations.anim_alpha",
+                      "@animations.anim_offset"
+                    ]
                   }
                 },
                 {
@@ -256,12 +270,21 @@
                           "anchor_from": "center",
                           "anchor_to": "center",
                           "size": [ 150, "100%c + 8px" ],
-                          "$anim_easing_offset": "in_expo",
+
+                          "$anim_easing_alpha": "out_cubic",
+                          "$anim_alpha_duration": 0.3,
+                          "$anim_alpha_from": 0.0,
+                          "$anim_alpha_to": 1.0,
+      
+                          "$anim_easing_offset": "in_out_expo",
                           "$anim_offset_duration": 0.5,
-                          "$anim_offset_from": [ 0, "50%" ],
+                          "$anim_offset_from": [ -200, 0 ],
                           "$anim_offset_to": [ 0, 0 ],
                           "disable_anim_fast_forward": true,
-                          "anims": [ "@animations.anim_offset" ]
+                          "anims": [
+                            "@animations.anim_alpha",
+                            "@animations.anim_offset"
+                          ]
                         }
                       }
                     ]
@@ -480,14 +503,20 @@
   },
 
   "the_icon_panel/stacked_column": {
-    "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 1.4,
-    "$anim_offset_from": [ -200, 0 ],
+    "$anim_easing_alpha": "in_out_sine",
+    "$anim_alpha_duration": 0.6,
+    "$anim_alpha_from": 0.0,
+    "$anim_alpha_to": 1.0,
+
+    "$anim_easing_offset": "in_out_sine",
+    "$anim_offset_duration": 2.0,
+    "$anim_offset_from": [ 0, 50 ],
     "$anim_offset_to": [ 0, 0 ],
-
     "disable_anim_fast_forward": true,
-    "anims": [ "@animations.anim_offset" ],
-
+    "anims": [
+      "@animations.anim_alpha",
+      "@animations.anim_offset"
+    ],
     "size": [ "100%", 38 ],
     "offset": [ 0, 0 ],
     "modifications": [
@@ -574,6 +603,43 @@
           {
             "confirm_exit_world_modal@exit_world.exit_world_confirm_screen": {
               "layer": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "pause_screen_main_panels": {
+    "modifications": [
+      {
+        "control_name": "info_panel",
+        "operation": "replace",
+        "value": [
+          {
+            "info_panel_content": {
+              "type": "panel",
+              "size": [ "100%c", "100%" ],
+              "controls": [
+                {
+                  "info_panel@pause.info_panel": {
+                    "$anim_easing_alpha": "in_out_sine",
+                    "$anim_alpha_duration": 0.7,
+                    "$anim_alpha_from": 0.0,
+                    "$anim_alpha_to": 1.0,
+
+                    "$anim_easing_offset": "out_cubic",
+                    "$anim_offset_duration": 0.5,
+                    "$anim_offset_from": [ 1000, 0 ],
+                    "$anim_offset_to": [ 0, 0 ],
+                    "disable_anim_fast_forward": true,
+                    "anims": [
+                      "@animations.anim_alpha",
+                      "@animations.anim_offset"
+                    ]
+                  }
+                }
+              ]
             }
           }
         ]

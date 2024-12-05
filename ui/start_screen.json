@@ -265,7 +265,6 @@
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
 
-    "animation_reset_name": "screen_animation_reset",
     "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset",
@@ -310,7 +309,6 @@
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
 
-    "animation_reset_name": "screen_animation_reset",
     "disable_anim_fast_forward": false,
     "anims": [
       "@animations.anim_offset",
@@ -384,7 +382,6 @@
                     "$anim_offset_from": [ 0, -100 ],
                     "$anim_offset_to": [ 0, 0 ],
 
-                    "animation_reset_name": "screen_animation_reset",
                     "disable_anim_fast_forward": false,
                     "propagate_alpha": true,
                     "layer": 99,
@@ -413,7 +410,6 @@
     "$anim_offset_from": [ 0, -200 ],
     "$anim_offset_to": [ 0, 0 ],
 
-    "animation_reset_name": "screen_animation_reset",
     "disable_anim_fast_forward": false,
     "propagate_alpha": true,
     "anims": [
@@ -551,7 +547,7 @@
     "$anim_offset_duration": 1.0,
     "$anim_offset_from": [ 0, 100 ],
     "$anim_offset_to": [ 0, 0 ],
-    "animation_reset_name": "screen_animation_reset",
+
     "disable_anim_fast_forward": false,
     "anims": [ "@animations.anim_offset" ],
     "controls": [
