@@ -13,7 +13,8 @@
   },
 
   "content_ui@common_dialogs.background_ui": {
-    "texture": "textures/ui/modal/modal_content"
+    "texture": "textures/ui/modal/modal_content",
+    "layer": 2
   },
 
   "header_ui@common_dialogs.background_ui": {
