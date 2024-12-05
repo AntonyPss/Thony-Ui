@@ -34,6 +34,20 @@
     "offset": [ -8, 8 ]
   },
 
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "player_list_screen_ui@hud_assets.player_list_screen_ui": {}
+          }
+        ]
+      }
+    ]
+  },
+
   "root_panel/chat_stack": {
     "offset": [ 1, 1 ]
   },
