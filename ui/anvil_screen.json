@@ -1,16 +1,19 @@
 {
   "generic_label": {
     "color": "$main_header_text_color",
-    "shadow": true,
-    "size": [ "default", 12 ]
+    "size": [ "default", "default" ]
   },
 
-  "anvil_icon": {
-    "size": [ 28, 28 ]
+  "plus_sign_icon": {
+    "texture": "textures/ui/plus"
+  },
+
+  "arrow_icon": {
+    "texture": "textures/ui/arrow_active"
   },
 
   "text_edit_control": {
-    "max_length": 100
+    "max_length": 60
   },
 
   "anvil_panel/root_panel": {
@@ -20,7 +23,11 @@
         "operation": "insert_front",
         "value": [
           {
-            "close_button@common_dialogs.close_button": {}
+            "close_button@common_dialogs.close_button": {
+              "anchor_from": "top_right",
+              "anchor_to": "top_right",
+              "offset": [ 0, 0 ]
+            }
           }
         ]
       },
@@ -29,7 +36,7 @@
         "operation": "replace",
         "value": [
           {
-            "background@common_assets.background_panel": {}
+            "background_image@crafting.background_image": {}
           }
         ]
       }

@@ -23,7 +23,7 @@
     "anchor_to": "top_left",
     "alpha": 0.7,
     "texture": "textures/ui/hud_tip_text_background",
-    "size": [ "100%cm + 10px", 22 ],
+    "size": [ "100%cm + 12px", 22 ],
     "offset": "@animations.anim_offset",
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 1.0,
@@ -126,7 +126,6 @@
                     "layer": 4,
                     "shadow": true,
                     "color": "$main_header_text_color",
-                    "size": [ "default", "default" ],
                     "bindings": [
                       {
                         "binding_name": "#playername"
@@ -331,8 +330,7 @@
               "text_alignment": "center",
               "text": "key.playerlist",
               "layer": 4,
-              "color": "$main_header_text_color",
-              "size": [ "100%", "default" ]
+              "color": "$main_header_text_color"
             }
           }
         ]
@@ -531,10 +529,6 @@
     "size": [ 2, 0 ]
   },
 
-  "the_icon_panel/stacked_column/achievements_btn": {
-    "bindings": []
-  },
-
   "the_icon_panel/stacked_column/screenshot_padding": {
     "size": [ 2, 0 ]
   },
@@ -599,6 +593,6 @@
   },
 
   "pause_screen": {
-    "$screen_background_alpha": 0.4
+    "$screen_background_alpha": 0.5
   }
 }

@@ -2,9 +2,7 @@
   "namespace": "furnace",
 
   "furnace_label": {
-    "color": "$main_header_text_color",
-    "shadow": true,
-    "size": [ "default", 12 ]
+    "color": "$main_header_text_color"
   },
 
   "furnace_panel/root_panel": {
@@ -14,7 +12,11 @@
         "operation": "insert_front",
         "value": [
           {
-            "close_button@common_dialogs.close_button": {}
+            "close_button@common_dialogs.close_button": {
+              "anchor_from": "top_right",
+              "anchor_to": "top_right",
+              "offset": [ 0, 0 ]
+            }
           }
         ]
       },
@@ -23,7 +25,7 @@
         "operation": "replace",
         "value": [
           {
-            "background@common_assets.background_panel": {}
+            "background_image@crafting.background_image": {}
           }
         ]
       }

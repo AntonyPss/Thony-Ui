@@ -16,7 +16,7 @@
     "type": "image",
     "texture": "textures/ui/White",
     "color": "$e_color_format",
-    "alpha": 0.4,
+    "alpha": 0.7,
     "anchor_from": "$corner_image_anchor",
     "anchor_to": "$corner_image_anchor",
     "$local_safe_zone_offset_x|default": "",

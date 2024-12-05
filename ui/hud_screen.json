@@ -34,7 +34,7 @@
     "offset": [ -8, 8 ]
   },
 
-  "root_panel": {
+  /*"root_panel": {
     "modifications": [
       {
         "array_name": "controls",
@@ -46,7 +46,7 @@
         ]
       }
     ]
-  },
+  },*/
 
   "root_panel/chat_stack": {
     "offset": [ 1, 1 ]

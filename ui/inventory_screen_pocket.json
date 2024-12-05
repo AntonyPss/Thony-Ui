@@ -1,1 +1,45 @@
-{}
+{
+  "namespace": "crafting_pocket",
+
+  "left_panel": {
+    "modifications": [
+      {
+        "control_name": "left_background",
+        "operation": "replace",
+        "value": [
+          {
+            "background_image@crafting.background_image": {}
+          }
+        ]
+      }
+    ]
+  },
+
+  "right_panel": {
+    "modifications": [
+      {
+        "control_name": "right_background",
+        "operation": "replace",
+        "value": [
+          {
+            "background_image@crafting.background_image": {}
+          }
+        ]
+      }
+    ]
+  },
+
+  "right_tab_content": {
+    "modifications": [
+      {
+        "control_name": "bg",
+        "operation": "replace",
+        "value": [
+          {
+            "background_image@crafting.background_image": {}
+          }
+        ]
+      }
+    ]
+  }
+}
