@@ -1,4 +1,4 @@
-# Thony Ui Pack v1.2.0
+# Thony Ui Pack
 
 ### 📦 ¿Qué es Thony Ui?
 ¡Bienvenidos a una experiencia completamente renovada en **Minecraft Bedrock**! 🎉 Si eres fan de este increíble juego, prepárate para llevar tu aventura al siguiente nivel con este alucinante Pack de Texturas. Este paquete no solo te cambia las texturas, ¡sino que transforma por completo la manera en que interactúas con el juego!
