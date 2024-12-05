@@ -12,20 +12,6 @@
     "size": [ 12, 12 ]
   },
 
-  "retry_icon@progress.cancel_icon": {
-    "texture": "textures/ui/refresh_light",
-    "size": [ 11, 12 ]
-  },
-
-  "abort_icon@progress.cancel_icon": {
-    "texture": "textures/ui/wysiwyg_reset"
-  },
-
-  "confirm_icon@progress.cancel_icon": {
-    "texture": "textures/ui/confirm",
-    "size": [ 12, 10 ]
-  },
-
   //---------------------------------------------------------------------------
   // Progress Content Panel
   //---------------------------------------------------------------------------
@@ -154,24 +140,6 @@
   "cancel_button": {
     "$button_type_panel": "common_assets.icon_wrapper",
     "$button_content": "progress.cancel_icon",
-    "size": "$progress_button_size"
-  },
-
-  "retry_button": {
-    "$button_type_panel": "common_assets.icon_wrapper",
-    "$button_content": "progress.retry_icon",
-    "size": "$progress_button_size"
-  },
-
-  "abort_button": {
-    "$button_type_panel": "common_assets.icon_wrapper",
-    "$button_content": "progress.abort_icon",
-    "size": "$progress_button_size"
-  },
-
-  "ok_button": {
-    "$button_type_panel": "common_assets.icon_wrapper",
-    "$button_content": "progress.confirm_icon",
     "size": "$progress_button_size"
   },
 

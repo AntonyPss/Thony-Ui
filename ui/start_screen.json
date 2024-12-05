@@ -255,14 +255,21 @@
     "anchor_to": "right_middle",
     "size": [ "32% - 12px", 116 ],
 
-    "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 2.0,
-    "$anim_offset_from": [ "50%", 24 ],
+    "$anim_easing_offset": "in_out_cubic",
+    "$anim_offset_duration": 0.8,
+    "$anim_offset_from": [ 200, 0 ],
     "$anim_offset_to": [ 0, 24 ],
 
+    "$anim_easing_alpha": "in_out_circ",
+    "$anim_alpha_duration": 0.6,
+    "$anim_alpha_from": 0.0,
+    "$anim_alpha_to": 1.0,
+
+    "animation_reset_name": "screen_animation_reset",
     "disable_anim_fast_forward": false,
     "anims": [
-      "@animations.anim_offset"
+      "@animations.anim_offset",
+      "@animations.anim_alpha"
     ]
   },
 
@@ -292,13 +299,23 @@
     "anchor_from": "bottom_left",
     "anchor_to": "bottom_left",
     "size": [ "100%c", 26 ],
-    "$anim_easing_offset": "in_out_elastic",
-    "$anim_offset_duration": 1.5,
-    "$anim_offset_from": [ "-50%", -38 ],
+
+    "$anim_easing_offset": "in_out_cubic",
+    "$anim_offset_duration": 0.7,
+    "$anim_offset_from": [ 0, 100 ],
     "$anim_offset_to": [ 8, -38 ],
 
+    "$anim_easing_alpha": "in_out_sine",
+    "$anim_alpha_duration": 0.7,
+    "$anim_alpha_from": 0.0,
+    "$anim_alpha_to": 1.0,
+
+    "animation_reset_name": "screen_animation_reset",
     "disable_anim_fast_forward": false,
-    "anims": [ "@animations.anim_offset" ],
+    "anims": [
+      "@animations.anim_offset",
+      "@animations.anim_alpha"
+    ],
     "controls": [
       {
         "inbox_icon_button@start.inbox_icon_button": {
@@ -357,22 +374,23 @@
               "controls": [
                 {
                   "title_panel_content@common_art.start_title_panel_content": {
-                    "$anim_easing_alpha": "in_expo",
-                    "$anim_alpha_duration": 0.5,
+                    "$anim_easing_alpha": "in_out_sine",
+                    "$anim_alpha_duration": 0.6,
                     "$anim_alpha_from": 0.0,
                     "$anim_alpha_to": 1.0,
 
-                    "$anim_easing_size": "in_expo",
-                    "$anim_size_duration": 0.5,
-                    "$anim_size_from": [ 0, 0 ],
-                    "$anim_size_to": [ "100%", "100%c" ],
+                    "$anim_easing_offset": "out_back",
+                    "$anim_offset_duration": 0.8,
+                    "$anim_offset_from": [ 0, -100 ],
+                    "$anim_offset_to": [ 0, 0 ],
 
+                    "animation_reset_name": "screen_animation_reset",
                     "disable_anim_fast_forward": false,
                     "propagate_alpha": true,
                     "layer": 99,
                     "anims": [
                       "@animations.anim_alpha",
-                      "@animations.anim_size"
+                      "@animations.anim_offset"
                     ]
                   }
                 }
@@ -385,16 +403,17 @@
   },
 
   "main_buttons_panel": {
-    "$anim_easing_alpha": "in_expo",
-    "$anim_alpha_duration": 1.0,
+    "$anim_easing_alpha": "out_cubic",
+    "$anim_alpha_duration": 0.3,
     "$anim_alpha_from": 0.0,
     "$anim_alpha_to": 1.0,
 
-    "$anim_easing_offset": "in_expo",
-    "$anim_offset_duration": 1.0,
-    "$anim_offset_from": [ 0, "16%" ],
+    "$anim_easing_offset": "in_out_expo",
+    "$anim_offset_duration": 0.5,
+    "$anim_offset_from": [ 0, -200 ],
     "$anim_offset_to": [ 0, 0 ],
 
+    "animation_reset_name": "screen_animation_reset",
     "disable_anim_fast_forward": false,
     "propagate_alpha": true,
     "anims": [
@@ -527,14 +546,14 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "size": [ 26, "100%c" ],
-    "anims": [ "@animations.anim_offset" ],
 
-    "$anim_easing_offset": "in_out_elastic",
+    "$anim_easing_offset": "in_out_sine",
     "$anim_offset_duration": 1.0,
-    "$anim_offset_from": [ "-50%", 0 ],
+    "$anim_offset_from": [ 0, 100 ],
     "$anim_offset_to": [ 0, 0 ],
-
+    "animation_reset_name": "screen_animation_reset",
     "disable_anim_fast_forward": false,
+    "anims": [ "@animations.anim_offset" ],
     "controls": [
       {
         "featured_world_button@start.upper_stack": {

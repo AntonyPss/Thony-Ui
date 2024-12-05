@@ -23,7 +23,7 @@
     "anchor_to": "top_left",
     "alpha": 0.7,
     "texture": "textures/ui/hud_tip_text_background",
-    "size": [ "100%cm + 8px", 22 ],
+    "size": [ "100%cm + 10px", 22 ],
     "offset": "@animations.anim_offset",
     "$anim_easing_offset": "in_quart",
     "$anim_offset_duration": 1.0,
@@ -529,6 +529,10 @@
 
   "the_icon_panel/stacked_column/achievements_padding": {
     "size": [ 2, 0 ]
+  },
+
+  "the_icon_panel/stacked_column/achievements_btn": {
+    "bindings": []
   },
 
   "the_icon_panel/stacked_column/screenshot_padding": {

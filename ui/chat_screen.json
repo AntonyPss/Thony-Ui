@@ -238,6 +238,7 @@
   //---------------------------------------------------------------------------
 
   "chat_screen": {
+    "cache_screen": true,
     "$header_safezone_control": "common_assets.store_top_bar_filler",
     "$header_bar_control": "common_assets.store_top_bar",
     "$screen_content": "chat_panel.chat_screen_content",
