@@ -155,10 +155,10 @@
           "$button_panel": "chat_settings.close_button",
           "size": [ "168px", "100%" ],
 
-          "$anim_easing_offset": "in_expo",
-          "$anim_offset_duration": 0.4,
-          "$anim_offset_from": [ "50%", 0 ],
-          "$anim_offset_to": [ 0, 0 ],
+          "$animOffsetEasing": "in_expo",
+          "$animOffsetDuration": 0.4,
+          "$animOffsetFrom": [ "50%", 0 ],
+          "$animOffsetTo": [ 0, 0 ],
 
           "disable_anim_fast_forward": true,
           "anims": [ "@animations.anim_offset" ]

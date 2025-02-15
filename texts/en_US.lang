@@ -16,7 +16,7 @@ chat.settings.tts.description=Turns chat text into audio, crucial for players wi
 common.quickLoot.on=Quick Loot (On)
 common.quickLoot.off=Quick Loot (Off)
 
-menu.creator=Thony Ui by @AntonyPss
+menu.creator=Made by @AntonyPss
 menu.creator.beta=Thony Ui Pack
 menu.creator.name=Thony Pack Ui create by Antony Pss
 menu.creator.info=See my Social Media and my Discord Server
@@ -53,6 +53,21 @@ options.button.copy=Copy
 options.button.copyToClipboard=Copy to clipboard
 options.name.info=Edit your username in the text box. Remember, it can be up to 16 characters long!
 
+options.game.settings=Game Settings
+
+options.video.advanced=Advanced Settings
+options.video.advancedTitle=Video Advanced Settings
+
+options.user.customization=User customization
+options.player=Player
+options.playerTitle=Player Settings
+
+options.resources.preview=Resources and Preview
+
+options.input.device=Device and Controllers
+
+options.debug.storage=Log and Storage
+
 progress.allowCellularData.title=¡Enabled Mobile Data!
 progress.allowCellularData.message=This could generate additional data charges.
 
@@ -71,10 +86,9 @@ playScreen.additionalServer.serverPort=Server Port
 playScreen.serverInfo.pingTitle=Current Ping:
 playScreen.serverInfo.onlineTitle=Online:
 
-selectWorld.tab.worldsTemplates=Worlds and Templates
-selectWorld.tab.totalWorlds=Worlds Found
-selectWorld.tab.totalFriends=Friends Online
-selectWorld.tab.totalServers=Servers Online
+selectWorld.tab.totalWorlds=World(s) found
+selectWorld.tab.totalFriends=Friend(s) online
+selectWorld.tab.totalServers=Server(s) online
 
 settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
 settings.switchUiProfile.button=Change the UI to Classic

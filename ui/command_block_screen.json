@@ -12,15 +12,15 @@
 
   "command_block_helper_stack/text_": {
     "shadow": true,
-    "size": [ "default", 12 ]
+    "size": ["default", 12]
   },
 
   "previous_command_block_info_stack/offset": {
-    "size": [ 4, 0 ]
+    "size": [4, 0]
   },
 
   "previous_command_block_info_stack/start_label": {
-    "size": [ "default", "default" ]
+    "size": ["default", "default"]
   },
 
   "previous_command_block_info_stack": {
@@ -37,7 +37,7 @@
               "shadow": true,
               "alpha": 0.8,
               "color": "$body_text_color",
-              "size": [ "default", "default" ],
+              "size": ["default", "default"],
               "bindings": [
                 {
                   "binding_name": "$text_binding_name",
@@ -59,7 +59,7 @@
               "shadow": true,
               "alpha": 0.9,
               "color": "red",
-              "size": [ "default", "default" ],
+              "size": ["default", "default"],
               "bindings": [
                 {
                   "binding_name": "(not $text_binding_name)",
@@ -80,18 +80,18 @@
         "operation": "replace",
         "value": [
           {
-            "tick_delay_text": {
+            "tick_delay_panel": {
               "type": "panel",
-              "size": [ "100%", "100%c + 4px" ],
+              "size": ["100%", "100%c + 4px"],
               "controls": [
                 {
-                  "text": {
+                  "tick_delay_text": {
                     "type": "label",
                     "text": "#delay_tick",
                     "shadow": true,
                     "alpha": 0.8,
                     "color": "$body_text_color",
-                    "size": [ "default", "default" ],
+                    "size": ["default", "default"],
                     "bindings": [
                       {
                         "binding_name": "#command_tick_delay",
@@ -152,7 +152,7 @@
                   }
                 }
               ]
-            }          
+            }
           }
         ]
       }
@@ -166,21 +166,21 @@
           "$show_close_button": false,
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",
-          "$text_name": "Opciones",
+          "$text_name": "",
           "$child_control": "command_block.left_divider_content",
           "$button_panel": "command_block.cancel_button",
           "layer": 3,
-          "size": [ "40% - 2px", "100%" ]
+          "size": ["40% - 2px", "100%"]
         }
       },
       {
         "right_side@common_dialogs.main_panel_no_buttons": {
           "anchor_from": "right_middle",
           "anchor_to": "right_middle",
-          "$text_name": "Comandos",
+          "$text_name": "",
           "$child_control": "command_block.right_divider_content",
           "layer": 3,
-          "size": [ "60% - 2px", "100%" ]
+          "size": ["60% - 2px", "100%"]
         }
       }
     ]

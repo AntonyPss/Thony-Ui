@@ -3,45 +3,49 @@
 
   "anim_alpha": {
     "anim_type": "alpha",
-    "easing": "$anim_easing_alpha",
-    "duration": "$anim_alpha_duration",
-    "from": "$anim_alpha_from",
-    "to": "$anim_alpha_to"
+    "easing": "$animAlphaEasing",
+    "duration": "$animAlphaDuration",
+    "from": "$animAlphaFrom",
+    "to": "$animAlphaTo"
   },
 
   "anim_size": {
     "anim_type": "size",
-    "easing": "$anim_easing_size",
-    "duration": "$anim_size_duration",
-    "from": "$anim_size_from",
-    "to": "$anim_size_to"
+    "easing": "$animSizeEasing",
+    "duration": "$animSizeDuration",
+    "from": "$animSizeFrom",
+    "to": "$animSizeTo"
   },
 
   "anim_offset": {
     "anim_type": "offset",
-    "easing": "$anim_easing_offset",
-    "duration": "$anim_offset_duration",
-    "from": "$anim_offset_from",
-    "to": "$anim_offset_to",
-    "play_event": "$anim_offset_play_event",
-    "end_event": "$anim_offset_end_event",
-    "destroy_at_end": "$anim_offset_destroy_at_end",
-    "$anim_offset_play_event|default": "",
-    "$anim_offset_end_event|default": "",
-    "$anim_offset_destroy_at_end|default": ""
+    "easing": "$animOffsetEasing",
+    "duration": "$animOffsetDuration",
+    "from": "$animOffsetFrom",
+    "to": "$animOffsetTo"
   },
 
-  "anim_offset_1": {
+  "anim_header_offset": {
     "anim_type": "offset",
-    "easing": "$anim_easing_offset_1",
-    "duration": "$anim_offset_duration_1",
-    "from": "$anim_offset_from_1",
-    "to": "$anim_offset_to_1",
-    "play_event": "$anim_offset_play_event_1",
-    "end_event": "$anim_offset_end_event_1",
-    "destroy_at_end": "$anim_offset_destroy_at_end_1",
-    "$anim_offset_play_event_1|default": "",
-    "$anim_offset_end_event_1|default": "",
-    "$anim_offset_destroy_at_end_1|default": ""
+    "easing": "in_out_expo",
+    "duration": 0.5,
+    "from": [0, -200],
+    "to": [0, 0]
+  },
+
+  "anim_header_alpha": {
+    "anim_type": "offset",
+    "easing": "in_out_sine",
+    "duration": 0.4,
+    "from": 0.0,
+    "to": 1.0
+  },
+
+  "anim_footer_offset": {
+    "anim_type": "offset",
+    "easing": "in_expo",
+    "duration": 0.4,
+    "from": [0, "16%"],
+    "to": [0, 0]
   }
 }

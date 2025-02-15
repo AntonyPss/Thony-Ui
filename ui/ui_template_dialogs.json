@@ -27,8 +27,7 @@
   //---------------------------------------------------------------------------
 
   "standard_title_label": {
-    "font_type": "MinecraftTen",
-    "color": [ 1.0, 1.0, 1.0 ]
+    "font_type": "MinecraftTen"
   },
 
   "title_label": {
@@ -48,6 +47,7 @@
     "controls": [
       {
         "close_button_mapping@common.light_close_button": {
+          // "$close_button_to_button_id|default": "button.menu_exit",
           "ignored": "(not $show_close_button)",
           "anchor_from": "center",
           "anchor_to": "center",
@@ -62,6 +62,7 @@
     "controls": [
       {
         "title_text@common_dialogs.title_label": {
+          "$title_text_color": "$main_header_text_color",
           "layer": 2
         }
       },

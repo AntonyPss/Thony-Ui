@@ -1,10 +1,6 @@
 {
   "namespace": "common_buttons",
 
-  //---------------------------------------------------------------------------
-  // Custom Text Button
-  //---------------------------------------------------------------------------
-
   "custom_ui_binding_button_label": {
     "type": "label",
     "text": "$button_text",
@@ -30,10 +26,10 @@
     "$button_font_size|default": "default",
     "$button_font_scale_factor|default": 1.0,
     "$button_text_shadow|default": false,
-    "$button_text_size|default": [ "default", "default" ],
-    "$button_text_max_size|default": [ "default", 10 ],
+    "$button_text_size|default": ["default", "default"],
+    "$button_text_max_size|default": ["default", "default"],
     "$new_ui_label_offset|default": "$button_offset",
-    "$button_offset|default": [ 0, 0 ],
+    "$button_offset|default": [0, 0],
 
     "$button_text_binding_type|default": "none",
     "$button_binding_condition|default": "none",

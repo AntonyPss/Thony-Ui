@@ -1,24 +1,436 @@
 {
+  "namespace": "settings",
+
   //---------------------------------------------------------------------------
-  // Pack Information Section
+  // Selector Title Divider
   //---------------------------------------------------------------------------
 
-  "selector_stack_panel": {
-    "modifications": [
+  "title_divider": {
+    "type": "panel",
+    "size": ["100%", "100%c + 6px"],
+    "controls": [
       {
-        "control_name": "spacer_0",
-        "operation": "insert_before",
-        "value": [
-          {
-            "about_button@about.about_button": {
-              "$toggle_group_forced_index": 1,
-              "ignored": "(not $include_controls_and_settings_sections)"
-            }          
-          }
-        ]
+        "title_text@common.minecraftTenLabel": {
+          "text": "$title_divider_text",
+          "text_alignment": "left",
+          "layer": 4,
+          "size": ["100% - 2px", "default"]
+        }
       }
     ]
   },
+
+  //---------------------------------------------------------------------------
+  // Selector Stack Content
+  //---------------------------------------------------------------------------
+
+  "selector_stack_panel": {
+    "$general_section_header": "stat.generalButton",
+    "size": ["100%", "100%c"],
+    "controls": [
+      {
+        "world_information_panel": {
+          "type": "image",
+          "texture": "textures/ui/hud_tip_text_background",
+          "ignored": "(not $include_world_section)",
+          "layer": 2,
+          "alpha": 0.6,
+          "size": ["100%", "100%cm + 4px"],
+          "controls": [
+            {
+              "world_seed_icon": {
+                "type": "image",
+                "texture": "textures/ui/icon_new",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "layer": 4,
+                "size": [20, 20],
+                "offset": [2, 0]
+              }
+            },
+            {
+              "world_information_label": {
+                "type": "stack_panel",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "size": ["80% - 4px", "100%c"],
+                "offset": [24, 0],
+                "controls": [
+                  {
+                    "world_seed_text@settings_common.white_label": {
+                      "text": "options.worldSeed.title",
+                      "shadow": true,
+                      "size": ["100%", "default"]
+                    }
+                  },
+                  {
+                    "world_seed_label@settings_common.white_label": {
+                      "text": "#item_name",
+                      "shadow": true,
+                      "color": "$bottomTextColor",
+                      "size": ["100%", "default"],
+                      "bindings": [
+                        {
+                          "binding_name": "#world_seed",
+                          "binding_name_override": "#item_name"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "worldPaddingTop": {
+          "type": "panel",
+          "ignored": "(not $include_world_section)",
+          "size": ["100%", 4]
+        }
+      },
+      {
+        "selector_area_header": {
+          "type": "stack_panel",
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "controls": [
+            {
+              "perspective_dropdown@settings_common.option_dropdown": {
+                "$option_label": "options.thirdperson",
+                "ignored": "($is_holographic and $is_reality_mode)",
+                "$dropdown_content": "general_section.third_person_dropdown_content",
+                "$dropdown_area": "content_area",
+                "$dropdown_name": "third_person_dropdown",
+                "$option_enabled_binding_name": "#third_person_dropdown_enabled",
+                "$options_dropdown_toggle_label_binding": "#third_person_dropdown_toggle_label",
+                "$dropdown_scroll_content_size": ["100%", "200%"]
+              }
+            },
+            {
+              "option_toggle_hidehand@settings_common.option_toggle": {
+                "ignored": "($is_holographic)",
+                "$option_label": "options.hidehand",
+                "$option_binding_name": "#hide_hand",
+                "$option_enabled_binding_name": "#hide_hand_enabled",
+                "$toggle_name": "hide_hand"
+              }
+            },
+            {
+              "option_toggle_vrhidehand@settings_common.option_toggle": {
+                "ignored": "(not $is_holographic)",
+                "$option_label": "options.vrHideHand",
+                "$option_binding_name": "#vr_hide_hand",
+                "$option_enabled_binding_name": "#vr_hide_hand_enabled",
+                "$toggle_name": "vr_hide_hand"
+              }
+            },
+            {
+              "option_toggle_hidehud@settings_common.option_toggle": {
+                "ignored": "($is_holographic)",
+                "$option_label": "options.hidehud",
+                "$option_binding_name": "#hide_hud",
+                "$option_enabled_binding_name": "#hide_hud_enabled",
+                "$toggle_name": "hide_hud"
+              }
+            },
+            {
+              "option_toggle_vrhidehud@settings_common.option_toggle": {
+                "ignored": "(not $is_holographic)",
+                "$option_label": "options.vrHideHud",
+                "$option_binding_name": "#vr_hide_hud",
+                "$option_enabled_binding_name": "#vr_hide_hud_enabled",
+                "$toggle_name": "vr_hide_hud"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "selector_area_0": {
+          "type": "stack_panel",
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "controls": [
+            {
+              "title_divider_0@settings.title_divider": {
+                "$title_divider_text": "options.game.settings"
+              }
+            },
+            {
+              "video_button@general_section.video_button": {
+                "$toggle_group_forced_index": 3,
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "sound_button@general_section.sound_button": {
+                "$toggle_group_forced_index": "$sound_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "accessibility_button@general_section.accessibility_button": {
+                "$toggle_group_forced_index": 2
+              }
+            },
+            {
+              "video_advanced_button@general_section.video_advanced_button": {
+                "$toggle_group_forced_index": "$video_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "world_selector_pane@world_section.selector_pane_content": {
+          "ignored": "(not $include_world_section)"
+        }
+      },
+      {
+        "selector_area_1": {
+          "type": "stack_panel",
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "controls": [
+            {
+              "title_divider_1@settings.title_divider": {
+                "$title_divider_text": "options.user.customization"
+              }
+            },
+            {
+              "account_button@general_section.account_button": {
+                "$toggle_group_forced_index": "$account_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "player_button@general_section.player_button": {
+                "$toggle_group_forced_index": 1,
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "language_button@general_section.language_button": {
+                "ignored": "(not $is_pregame)",
+                "$toggle_group_forced_index": "$language_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "view_subscriptions_button@general_section.view_subscriptions_button": {
+                "ignored": "$is_editor_mode_enabled",
+                "$toggle_group_forced_index": "$view_subscriptions_forced_index",
+                "$tts_section_header": "$general_section_header",
+                "bindings": [
+                  {
+                    "binding_name": "#should_show_subscription_tab",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "realm_selector_pane@realms_settings.selector_panel": {
+          "ignored": "(not $include_realm_section)",
+          "$world_toggle_index": "$world_forced_index",
+          "$members_toggle_index": "$members_forced_index",
+          "$subscription_toggle_index": "$subscription_forced_index",
+          "$backup_toggle_index": "$backup_forced_index",
+          "$dev_options_toggle_index": "$dev_options_forced_index",
+          "$invite_links_toggle_index": "$invite_links_forced_index"
+        }
+      },
+      {
+        "selector_area_2": {
+          "type": "stack_panel",
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "controls": [
+            {
+              "title_divider_2@settings.title_divider": {
+                "$title_divider_text": "options.resources.preview"
+              }
+            },
+            {
+              "creator_button@general_section.creator_button": {
+                "$toggle_group_forced_index": "$creator_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "global_texture_pack_button@general_section.global_texture_pack_button": {
+                "ignored": "$ignore_global_resources_section",
+                "$toggle_group_forced_index": "$global_texture_pack_forced_index",
+                "visible": "($is_global_texture_packs_visible)",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "about_button@about.about_button": {
+                "$toggle_group_forced_index": 0
+              }
+            }
+          ]
+        }
+      },
+      {
+        "controls_and_settings_selector": {
+          "type": "stack_panel",
+          "ignored": "(not $include_controls_and_settings_sections)",
+          "$controls_section_header": "options.group.input",
+          "$debug_section_header": "options.debug",
+          "controls": [
+            {
+              "title_divider_3@settings.title_divider": {
+                "$title_divider_text": "options.input.device"
+              }
+            },
+            {
+              "keyboard_and_mouse_button@controls_section.keyboard_and_mouse_button": {
+                "ignored": "(not $keyboard_and_mouse_supported)",
+                "$toggle_group_forced_index": "$keyboard_and_mouse_forced_index",
+                "$tts_section_header": "$controls_section_header"
+              }
+            },
+            {
+              "controller_button@controls_section.controller_button": {
+                "ignored": "(not $gamepad_supported or $nx_os)",
+                "$toggle_group_forced_index": "$controller_and_switch_forced_index",
+                "$tts_section_header": "$controls_section_header"
+              }
+            },
+            {
+              "switch_controller_button@controls_section.controller_button": {
+                "ignored": "(not $gamepad_supported or not $nx_os)",
+                "$toggle_group_forced_index": "$controller_and_switch_forced_index",
+                "$glyph_texture": "textures/ui/controller_glyph_switch",
+                "$glyph_color_texture": "textures/ui/controller_glyph_color_switch",
+                "$tts_section_header": "$controls_section_header"
+              }
+            },
+            {
+              "touch_button@controls_section.touch_button": {
+                "ignored": "($is_holographic or not $touch_supported or $nx_os)",
+                "$toggle_group_forced_index": "$touch_forced_index",
+                "$tts_section_header": "$controls_section_header"
+              }
+            },
+            {
+              "title_divider_4@settings.title_divider": {
+                "$title_divider_text": "options.debug.storage"
+              }
+            },
+            {
+              "storage_management_button@general_section.storage_management_button": {
+                "ignored": "($ignore_storage_section or not $include_controls_and_settings_sections)",
+                "$toggle_group_forced_index": "$storage_management_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "edu_cloud_storage_button@general_section.edu_cloud_storage_button": {
+                "ignored": "(not $education_edition or not $edu_save_to_cloud_on)",
+                "$toggle_group_forced_index": "$edu_cloud_storage_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+
+            // Debug Buttons Section //
+            {
+              "preview_button@general_section.preview_button": {
+                "ignored": "(not $show_preview_button)",
+                "$toggle_group_forced_index": "$preview_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "debug_button@general_section.debug_button": {
+                "ignored": "$is_publish",
+                "$toggle_group_forced_index": "$debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "discovery_debug_button@general_section.discovery_debug_button": {
+                "ignored": "$is_publish",
+                "$toggle_group_forced_index": "$discovery_debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "ui_debug_button@general_section.ui_debug_button": {
+                "ignored": "$is_publish",
+                "$toggle_group_forced_index": "$ui_debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "edu_debug_button@general_section.edu_debug_button": {
+                "ignored": "($is_publish or $creator_build or not $education_edition)",
+                "$toggle_group_forced_index": "$edu_debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "marketplace_debug_button@general_section.marketplace_debug_button": {
+                "ignored": "$is_publish",
+                "$toggle_group_forced_index": "$marketplace_debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "gatherings_debug_button@general_section.gatherings_debug_button": {
+                "ignored": "$is_publish",
+                "$toggle_group_forced_index": "$gatherings_debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "flighting_debug_button@general_section.flighting_debug_button": {
+                "ignored": "$is_publish",
+                "$toggle_group_forced_index": "$flighting_debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "realms_debug_button@general_section.realms_debug_button": {
+                "ignored": "$is_publish",
+                "$toggle_group_forced_index": "$realms_debug_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            },
+            {
+              "automation_button@general_section.automation_button": {
+                "ignored": "($is_publish or $test_infrastructure_disabled)",
+                "$toggle_group_forced_index": "$automation_forced_index",
+                "$tts_section_header": "$general_section_header"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "addons_selector_panel@world_section.addons_selector_panel": {
+          "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
+          "$level_texture_pack_toggle_index": "$level_texture_pack_index",
+          "$addon_toggle_index": "$addon_index"
+        }
+      },
+      {
+        "realms_invite_link_settings_pane@realms_invite_link_settings.selector_panel": {
+          "ignored": "(not $include_realm_invite_link_settings)",
+          "$general_toggle_index": "$general_invite_link_forced_index",
+          "$advanced_toggle_index": "$advanced_invite_link_forced_index"
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Selector Section Content
+  //---------------------------------------------------------------------------
 
   "section_content_panels": {
     "modifications": [
@@ -27,507 +439,24 @@
         "operation": "insert_before",
         "value": [
           {
-            "about_section@about.about_section": {
-              "ignored": "(not $include_controls_and_settings_sections)"
-            }
-          }
-        ]
-      }
-    ]
-  },
-
-  "selector_stack_panel/controls_and_settings_selector_pane/language_button": {
-    "ignored": false
-  },
-
-  "section_content_panels/general_and_controls_sections/language_section": {
-    "ignored": false
-  },
-
-  "section_content_panels/general_and_controls_sections/storage_management_section": {
-    "ignored": false
-  }
-
-  // BUG //
-  /*"resource_pack_screen_panel": {
-    "type": "stack_panel",
-    "$selected_pack_items": "#selected_pack_items_global",
-    "$available_pack_items": "#available_pack_items_global",
-    "$realms_pack_items": "#realms_pack_items_global",
-    "$unowned_pack_items": "#unowned_pack_items_global",
-    "$selected_grid_dimensions": "#selected_grid_dimensions_global",
-    "$available_grid_dimensions": "#available_grid_dimensions_global",
-    "$realms_grid_dimensions": "#realms_grid_dimensions_global",
-    "$unowned_grid_dimensions": "#unowned_grid_dimensions_global",
-    "$unowned_visible": "#unowned_visible_global",
-    "$button.selected_pack": "button.selected_pack_global",
-    "$button.deselected_pack": "button.deselected_pack_global",
-    "$button.available_pack": "button.available_pack_global",
-    "$button.realms_pack": "button.realms_pack_global",
-    "$button.unowned_pack": "button.unowned_pack_global",
-    "$button.move_left": "button.move_left_global",
-    "$button.sort_up": "button.sort_up_global",
-    "$button.sort_down": "button.sort_down_global",
-    "$button.expand_selected": "button.expand_selected_global",
-    "$button.expand_available": "button.expand_available_global",
-    "$button.expand_realms": "button.expand_realms_global",
-    "$button.expand_unowned": "button.expand_unowned_global",
-    "$button.store": "button.store_global",
-    "$button.read_toggle": "button.read_toggle_global",
-    "$button.report_errors": "button.report_errors_global",
-    "$bottom_description_text": "resourcePack.description.bottom.global",
-    "$selected_label_text": "resourcePack.selected.title.packs",
-    "$available_label_text": "resourcePack.available.title.packs",
-    "$realms_label_text": "resourcePack.realmsPlus.title.packs",
-    "$unowned_label_text": "resourcePack.suggestedContent.title",
-    "$platform_locked": "#platform_locked_global",
-    "$view_more_unowned_content_button_text": "resourcePack.suggestedContent.button.viewMore",
-    "$default_item_texture": "#default_item_texture_global",
-    "$default_item_file_system": "#default_item_file_system_global",
-    "$default_item_zip": "#default_item_zip_global",
-    "$default_item_title": "resourcePack.vanilla.name",
-    "$default_item_description": "resourcePack.vanilla.description",
-    "$no_packs_text": "resourcePack.available.none.text",
-    "$read_more_label": "read_more_label_global",
-    "$read_less_label": "read_less_label_global",
-    "$total_size_binding": "#total_size_binding_global",
-    "$in_game_error_text": "resourcePack.error.ingame.packs",
-    "$invalid_pack_items": "#invalid_pack_items_global",
-    "$invalid_grid_dimensions": "#invalid_grid_dimensions_global",
-    "$button.invalid_pack": "button.invalid_pack_global",
-    "$button.pack_warning": "button.pack_warning_global",
-    "$invalid_label_text": "resourcePack.invalid.title.packs",
-    "$view_in_store": "resourcePack.description.store",
-    "$errors_text": "resourcePack.errors",
-    "$warnings_text": "resourcePack.warnings",
-    "$expired_text": "resourcePack.realmsPlus.expired",
-    "$top_label_box": false,
-    "$show_checkbox": false,
-    "$button.resource_pack_options_exit": "button.resource_pack_options_exit_global",
-    "$button.pack_settings": "button.pack_settings_global",
-    "$button.add": "resourcePack.available.add",
-    "$button.remove": "resourcePack.selected.remove",
-    "$options_slider_name": "content_tier_slider_global",
-    "$display_suggested_content_offers": true,
-    "$suggested_content_offers_collection": "#suggested_offers_collection_global",
-    "$suggested_content_offers_loading_binding": "#suggested_offers_loading_global",
-    "$button.more_suggested_content_offers": "button.more_suggested_content_offers_global",
-    "$button.select_offer": "button.select_offer_global",
-    "$suggested_content_offers_label_text": "#suggested_offers_title_global",
-    "$no_available_packs_visibility_binding": "#no_available_packs_visibility_global",
-    "$no_realms_packs_visibility_binding": "#no_realms_packs_visibility_global",
-    "$no_unowned_packs_visibility_binding": "#no_unowned_packs_visibility_global",
-    "$view_more_unowned_content_button_visibility_binding": "#suggested_content_visible_global",
-    "size": [ "100%", "100%c" ],
-    "bindings": [
-      {
-        "binding_type": "view",
-        "source_control_name": "global_texture_pack_button_toggle",
-        "source_property_name": "#toggle_state",
-        "target_property_name": "#visible"
-      }
-    ],
-    "controls": [
-      {
-        "p0": {
-          "type": "panel",
-          "size": [ 0, 2 ]
-        }
-      },
-      {
-        "section_1": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%c" ],
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "global_rsp_ac",
-              "source_property_name": "#toggle_state",
-              "target_property_name": "#visible"
-            }
-          ],
-          "controls": [
-            {
-              "selected_pack_grid": {
-                "type": "stack_panel",
-                "orientation": "vertical",
-                "collection_name": "$selected_pack_items",
-                "factory": {
-                    "name": "selected_pack_factory",
-                    "control_name": "resource_packs.selected_pack_panel"
+            "section_content_panel": {
+              "type": "stack_panel",
+              "ignored": "(not $include_controls_and_settings_sections)",
+              "controls": [
+                {
+                  "about_section@about.about_section": {}
                 },
-                "bindings": [
-                  {
-                    "binding_name": "$selected_grid_dimensions",
-                    "binding_name_override": "#collection_length"
-                  }
-                ]
-              }
-            },
-            {
-              "minecraft_default_pack": {
-                "type": "stack_panel",
-                "orientation": "horizontal",
-                "size": [ "100%", "100%cm" ],
-                "controls": [
-                  {
-                    "pack_icon": {
-                      "type": "image",
-                      "texture": "#texture",
-                      "layer": 4,
-                      "texture_file_system": "#icon_file_system",
-                      "size": [ 32, 32 ],
-                      "bindings": [
-                        {
-                          "binding_name": "#default_item_texture_global",
-                          "binding_name_override": "#texture"
-                        },
-                        {
-                          "binding_name": "#default_item_file_system_global",
-                          "binding_name_override": "#texture_file_system"
-                        },
-                        {
-                          "binding_name": "#default_item_zip_global",
-                          "binding_name_override": "#zip_folder"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "p0": {
-                      "type": "panel",
-                      "size": [ 4, 0 ]
-                    }
-                  },
-                  {
-                    "pack_name": {
-                      "type": "stack_panel",
-                      "anchor_from": "top_left",
-                      "anchor_to": "top_left",
-                      "size": [ "100% - 4px", "100%cm" ],
-                      "controls": [
-                        {
-                          "title@resource_packs.white_label": {
-                            "text": "resourcePack.vanilla.name",
-                            "layer": 2,
-                            "size": [ "100%", "default" ]
-                          }
-                        },
-                        {
-                          "description@resource_packs.white_label": {
-                            "text": "resourcePack.vanilla.description",
-                            "font_type": "smooth",
-                            "layer": 2,
-                            "color": [ 0.8, 0.8, 0.8 ],
-                            "size": [ "100%", "default" ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "p1": {
-                "type": "panel",
-                "size": [ 0, 2 ]
-              }
-            },
-            {
-              "pack_information": {
-                "type": "panel",
-                "size": [ "100%", "100%cm" ],
-                "controls": [
-                  {
-                    "description@resouce_packs.white_label": {
-                      "text": "resourcePack.description.bottom.global",
-                      "size": [ "100% - 8px", "default" ],
-                      "offset": [ 2, 0 ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "section_2": {
-          "type": "stack_panel",
-          "size": [ "100%", "100%c" ],
-          "bindings": [
-            {
-              "binding_type": "view",
-              "source_control_name": "global_rsp_un",
-              "source_property_name": "#toggle_state",
-              "target_property_name": "#visible"
-            }
-          ],
-          "controls": [
-            {
-              "global_packs@resource_packs_navigation_toggle": {
-                "$radio_toggle_group": false,
-                "$button_text": "Pack de recursos",
-                "size": [ "100%", 28 ]
-              }
-            },
-            {
-              "": {}
-            }
-          ]
-        }
-      }
-    ]
-  },
-
-  "section_content_panels/general_and_controls_sections": {
-    "modifications": [
-      {
-        "control_name": "global_texture_pack_section",
-        "operation": "replace",
-        "value": [
-          {
-            "resouce_packs_screen@resource_pack_screen_panel": {
-              "visible": false,
-              "ignored": "$ignore_global_resources_section"
+                {
+                  "video_advanced_section@general_section.video_advanced_section": {}
+                },
+                {
+                  "player_section@general_section.player_section": {}
+                }
+              ]
             }
           }
         ]
       }
     ]
-  },
-
-  "section_content_panels/packs_sections": {
-    "modifications": [
-      {
-        "control_name": "level_texture_pack_section",
-        "operation": "replace",
-        "value": [
-          {
-            "asa_resouce_packs_screen@asa_resouce_packs_screen.asa_world_resource_pack_screen": {
-              "visible": false
-            }
-          }
-        ]
-      },
-      {
-        "control_name": "addon_section",
-        "operation": "replace",
-        "value": [
-          {
-            "addon_screen@asa_resouce_packs_screen.asa_addon_screen": {
-              "visible": false
-            }
-          }
-        ]
-      }
-    ]
-  },
-
-  "toggle_text_template": {
-    "type": "panel",
-    "size": [ "100%", "100%" ],
-    "controls": [
-      {
-        "text": {
-          "type": "label",
-          "text": "$button_text",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 2,
-          "color": [ 0.2, 0.2, 0.2 ],
-          "size": [ "default", "default" ]
-        }
-      }
-    ]
-  },
-
-  "resource_packs_navigation_toggle@common_toggles.light_template_toggle": {
-    "$button_type_panel": "settings.toggle_text_template",
-    "$radio_toggle_group": true
-  },
-
-  "section_header_panels/world_sections": {
-    "ignored": false,
-    "controls": [
-      {
-        "stack_panel": {
-          "type": "stack_panel",
-          "anchor_from": "top_left",
-          "anchor_to": "top_left",
-          "size": [ "100%", "100%c" ],
-          "controls": [
-            {
-              "padding": {
-                "type": "panel",
-                "size": [ 0, 2 ]
-              }
-            },
-            {
-              "top_button_stack": {
-                "type": "stack_panel",
-                "orientation": "horizontal",
-                "anchor_from": "top_left",
-                "anchor_to": "top_left",
-                "$default_selector_toggle_index": 0,
-                "visible": false,
-                "size": [ "100%", "100%cm" ],
-                "bindings": [
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "global_texture_pack_button_toggle",
-                    "source_property_name": "#toggle_state",
-                    "target_property_name": "#asa1"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "level_texture_pack_button_toggle",
-                    "source_property_name": "#toggle_state",
-                    "target_property_name": "#asa2"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "addon_button_toggle",
-                    "source_property_name": "#toggle_state",
-                    "target_property_name": "#asa3"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_property_name": "(#asa1 or #asa2 or #asa3)",
-                    "target_property_name": "#visible"
-                  }
-                ],
-                "controls": [
-                  {
-                    "global_rsp_ac@resource_packs_navigation_toggle": {
-                      "$toggle_name": "global_rsp",
-                      "$toggle_default_state": true,
-                      "$toggle_group_forced_index": 0,
-                      "$button_text": "Activos (no lang)",
-                      "size": [ "50% - 2px", 24 ]
-                    }
-                  },
-                  {
-                    "global_rsp_un@resource_packs_navigation_toggle": {
-                      "$toggle_name": "global_rsp",
-                      "$toggle_group_forced_index": 1,
-                      "$button_text": "gui.all",
-                      "size": [ "50% - 4px", 24 ]
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "top_panel": {
-                "type": "panel",
-                "visible": "$show_checkbox",
-                "ignored": "(not $include_world_section)",
-                "$force_pack_download_binding_type|default": "none",
-                "$selected_pack_items": "#selected_pack_items_level",
-                "$available_pack_items": "#available_pack_items_level",
-                "$realms_pack_items": "#realms_pack_items_level",
-                "$unowned_pack_items": "#unowned_pack_items_level",
-                "$default_item_texture": "#default_item_texture_level",
-                "$default_item_file_system": "#default_item_file_system_level",
-                "$default_item_zip": "#default_item_zip_level",
-                "$default_item_title": "menu.globalpacks",
-                "$default_item_description": "resourcePack.description.default.level",
-                "$no_packs_text": "resourcePack.available.none.text",
-                "$selected_grid_dimensions": "#selected_grid_dimensions_level",
-                "$available_grid_dimensions": "#available_grid_dimensions_level",
-                "$realms_grid_dimensions": "#realms_grid_dimensions_level",
-                "$unowned_grid_dimensions": "#unowned_grid_dimensions_level",
-                "$unowned_visible": "#unowned_visible_level",
-                "$button.selected_pack": "button.selected_pack_level",
-                "$button.deselected_pack": "button.deselected_pack_level",
-                "$button.available_pack": "button.available_pack_level",
-                "$button.realms_pack": "button.realms_pack_level",
-                "$button.unowned_pack": "button.unowned_pack_level",
-                "$button.move_left": "button.move_left_level",
-                "$button.sort_up": "button.sort_up_level",
-                "$button.sort_down": "button.sort_down_level",
-                "$button.expand_selected": "button.expand_selected_level",
-                "$button.expand_available": "button.expand_available_level",
-                "$button.expand_realms": "button.expand_realms_level",
-                "$button.expand_unowned": "button.expand_unowned_level",
-                "$button.store": "button.store_level",
-                "$button.read_toggle": "button.read_toggle_level",
-                "$button.report_errors": "button.report_errors_level",
-                "$bottom_description_text": "resourcePack.description.bottom.level",
-                "$selected_label_text": "resourcePack.selected.title.packs",
-                "$available_label_text": "resourcePack.available.title.packs",
-                "$realms_label_text": "resourcePack.realmsPlus.title.packs",
-                "$unowned_label_text": "resourcePack.suggestedContent.title",
-                "$platform_locked": "#platform_locked_level",
-                "$view_more_unowned_content_button_text": "resourcePack.suggestedContent.button.viewMore",
-                "$read_more_label": "read_more_label_level",
-                "$read_less_label": "read_less_label_level",
-                "$total_size_binding": "#total_size_binding_level",
-                "$in_game_error_text": "resourcePack.error.ingame.packs",
-                "$invalid_pack_items": "#invalid_pack_items_level",
-                "$invalid_grid_dimensions": "#invalid_grid_dimensions_level",
-                "$button.invalid_pack": "button.invalid_pack_level",
-                "$button.pack_warning": "button.pack_warning_level",
-                "$invalid_label_text": "resourcePack.invalid.title.packs",
-                "$view_in_store": "resourcePack.description.store",
-                "$errors_text": "resourcePack.errors",
-                "$warnings_text": "resourcePack.warnings",
-                "$expired_text": "resourcePack.realmsPlus.expired",
-                "$top_label_box": true,
-                "$show_checkbox": true,
-                "$button.resource_pack_options_exit": "button.resource_pack_options_exit_level",
-                "$button.pack_settings": "button.pack_settings_level",
-                "$button.add": "resourcePack.available.add",
-                "$button.remove": "resourcePack.selected.remove",
-                "$options_slider_name": "content_tier_slider_level",
-                "$display_suggested_content_offers": true,
-                "$suggested_content_offers_collection": "#suggested_offers_collection_level",
-                "$suggested_content_offers_loading_binding": "#suggested_offers_loading_level",
-                "$button.more_suggested_content_offers": "button.more_suggested_content_offers_level",
-                "$button.select_offer": "button.select_offer_level",
-                "$suggested_content_offers_label_text": "#suggested_offers_title_level",
-                "$no_available_packs_visibility_binding": "#no_available_packs_visibility_level",
-                "$no_realms_packs_visibility_binding": "#no_realms_packs_visibility_level",
-                "$no_unowned_packs_visibility_binding": "#no_unowned_packs_visibility_level",
-                "$view_more_unowned_content_button_visibility_binding": "#suggested_content_visible_level",
-                "$force_pack_download_binding_type": "global",
-                "size": [ "100%", 28 ],
-                "controls": [
-                  {
-                    "panel_bg@resource_packs.panel_bg": {}
-                  },
-                  {
-                    "header_control@resource_packs.header_control": {}
-                  }
-                ],
-                "bindings": [
-                  {
-                    "binding_name": "#force_pack_download_enabled_level",
-                    "binding_type": "$force_pack_download_binding_type"
-                  },
-                  {
-                    "binding_name": "#force_pack_download_locked_level",
-                    "binding_type": "$force_pack_download_binding_type"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_control_name": "level_texture_pack_button_toggle",
-                    "source_property_name": "#toggle_state",
-                    "target_property_name": "#asa2"
-                  },
-                  {
-                    "binding_type": "view",
-                    "source_property_name": "(#force_pack_download_enabled_level and #asa2)",
-                    "target_property_name": "#visible"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    ]
-  } */
+  }
 }

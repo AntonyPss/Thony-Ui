@@ -9,58 +9,15 @@
     "type": "stack_panel",
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
-    "size": [ "100%", "100%c" ],
-    "offset": [ 1, 0 ],
+    "size": ["100%", "100%c"],
     "controls": [
       {
         "confirm_leave_title": {
           "type": "label",
           "text": "deathScreen.quit.secondaryClient.confirmLeaveWarning",
-          "text_alignment": "center",
           "layer": 2,
           "color": "$main_header_text_color",
-          "size": [ "100% - 4px", "default" ]
-        }
-      },
-      {
-        "padding0": {
-          "type": "panel",
-          "size": [ 0, 8 ]
-        }
-      },
-      {
-        "world_name_title": {
-          "type": "label",
-          "text": "confirmLeaveWarning.worldName.title",
-          "text_alignment": "center",
-          "layer": 2,
-          "alpha": 0.6,
-          "color": "$body_text_color",
-          "size": [ "100% - 4px", 10 ]
-        }
-      },
-      {
-        "padding1": {
-          "type": "panel",
-          "size": [ 0, 2 ]
-        }
-      },
-      {
-        "world_name_text": {
-          "type": "label",
-          "text": "#text",
-          "text_alignment": "center",
-          "layer": 2,
-          "alpha": 0.6,
-          "localize": false,
-          "color": "$body_text_color",
-          "size": [ "100% - 4px", "default" ],
-          "bindings": [
-            {
-              "binding_name": "#worldname",
-              "binding_name_override": "#text"
-            }
-          ]
+          "size": ["100%", "default"]
         }
       }
     ]
@@ -73,12 +30,12 @@
   "two_buttons_panel": {
     "type": "stack_panel",
     "orientation": "horizontal",
-    "size": [ "100%", "100%" ],
+    "size": ["100%", "100%"],
     "controls": [
       {
         "cancel_button@exit_world.toggle_common": {
           "$button_text": "gui.cancel",
-          "size": [ "50%", "100%" ]
+          "size": ["50%", "100%"]
         }
       },
       {
@@ -86,7 +43,7 @@
           "$hover_button_texture": "textures/ui/button_red",
           "$pressed_button_name": "button.menu_quit",
           "$button_text": "gui.accept",
-          "size": [ "50%", "100%" ]
+          "size": ["50%", "100%"]
         }
       }
     ]
@@ -99,7 +56,7 @@
   "exit_world_confirm_screen": {
     "type": "screen",
     "layer": 999,
-    "size": [ "100%", "100%" ],
+    "size": ["100%", "100%"],
     "bindings": [
       {
         "binding_type": "view",
@@ -116,7 +73,7 @@
           "$text_name": "pauseScreen.header",
           "$child_control": "exit_world.info_text_panel",
           "$button_panel": "exit_world.two_buttons_panel",
-          "size": [ 224, 128 ]
+          "size": [200, 100]
         }
       }
     ]
@@ -125,7 +82,7 @@
   "background_screen@common_assets.background_panel": {
     "$fillAlpha": 0.2,
     "fill": true,
-    "size": [ 1000, 1000 ],
+    "size": [999, 999],
     "bindings": [
       {
         "binding_type": "view",
@@ -150,7 +107,7 @@
     "$toggle_view_binding_name|default": "null",
     "$toggle_name|default": "exit_world_toggle_name",
 
-    "$button_offset": [ 0, 0 ],
+    "$button_offset": [0, 0],
     "controls": [
       {
         "$toggle_view_binding_name@$template_toggle": {}
@@ -170,12 +127,12 @@
     "$toggle_name|default": "exit_world_toggle_name",
     "$toggle_view_binding_name|default": null,
 
-    "$button_offset": [ 0, 0 ]
+    "$button_offset": [0, 0]
   },
 
   "toggle_template": {
     "type": "panel",
-    "size": [ "100%", "100%" ],
+    "size": ["100%", "100%"],
     "controls": [
       {
         "button_text": {
@@ -183,7 +140,7 @@
           "text": "$button_text",
           "layer": 12,
           "color": "$text_color",
-          "size": [ "default", "default" ]
+          "size": ["default", "default"]
         }
       }
     ]

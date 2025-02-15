@@ -1,6 +1,17 @@
 {
   "namespace": "common_toggles",
 
+  "custom_dark_ui_toggle": {
+    "type": "panel",
+    "$toggle_view_binding_name|default": "this_toggle",
+    "$template_toggle|default": "common_toggles.action_dark_template_toggle",
+    "controls": [
+      {
+        "$toggle_view_binding_name@$template_toggle": {}
+      }
+    ]
+  },
+
   "action_light_template_toggle@common_toggles.light_template_toggle": {
     "$button_offset|default": [ 0, 0 ],
     "button_mappings": [

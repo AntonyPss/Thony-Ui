@@ -6,32 +6,32 @@
 
     "$icon_texture|default": "#none",
     "$label_text|default": "#none",
-    "$label_text_color|default": [ 1.0, 1.0, 1.0 ],
+    "$label_text_color|default": [1.0, 1.0, 1.0],
 
-    "size": [ "100%", 32 ],
+    "size": ["100%", 32],
     "controls": [
       {
         "background@common_assets.background_image": {
-          "size": [ "100% - 2px", "100% - 2px" ]
+          "size": ["100% - 2px", "100% - 2px"]
         }
       },
       {
         "stack_panel": {
           "type": "stack_panel",
           "orientation": "horizontal",
-          "size": [ "100% - 4px", 28 ],
+          "size": ["100% - 4px", 28],
           "controls": [
             {
               "icon_panel": {
                 "type": "panel",
-                "size": [ 28, "100%" ],
+                "size": [28, "100%"],
                 "controls": [
                   {
                     "icon_image": {
                       "type": "image",
                       "texture": "$icon_texture",
                       "layer": 4,
-                      "size": [ 24, 24 ]
+                      "size": [24, 24]
                     }
                   }
                 ]
@@ -40,13 +40,13 @@
             {
               "padding": {
                 "type": "panel",
-                "size": [ 4, 0 ]
+                "size": [4, 0]
               }
             },
             {
               "label_panel": {
                 "type": "panel",
-                "size": [ "100%c", "100%" ],
+                "size": ["100%c", "100%"],
                 "controls": [
                   {
                     "label": {
@@ -55,7 +55,7 @@
                       "layer": 4,
                       "shadow": true,
                       "color": "$label_text_color",
-                      "size": [ "default", "default" ]
+                      "size": ["default", "default"]
                     }
                   }
                 ]
@@ -69,24 +69,23 @@
 
   "information_with_background": {
     "type": "panel",
-    "size": [ "100%", "100%cm" ],
-
+    "size": ["100%", "100%cm"],
     "$information_text|default": "",
     "controls": [
       {
         "background@common_assets.background_image": {
-          "size": [ "100% - 2px", "100%sm + 4px" ]
+          "size": ["100% - 2px", "100%sm + 4px"]
         }
       },
       {
         "information_text_panel": {
           "type": "panel",
-          "size": [ "100% - 8px", "100%cm" ],
+          "size": ["100% - 8px", "100%cm"],
           "controls": [
             {
               "stack_panel": {
                 "type": "stack_panel",
-                "size": [ "100%", "100%c" ],
+                "size": ["100%", "100%c"],
                 "controls": [
                   {
                     "title_text": {
@@ -94,7 +93,7 @@
                       "text": "$information_title_text",
                       "layer": 4,
                       "shadow": true,
-                      "size": [ "100%", 12 ]
+                      "size": ["100%", 12]
                     }
                   },
                   {
@@ -103,7 +102,7 @@
                       "text": "$information_sub_text_0",
                       "layer": 4,
                       "shadow": true,
-                      "size": [ "100%", "default" ]
+                      "size": ["100%", "default"]
                     }
                   },
                   {
@@ -112,7 +111,7 @@
                       "text": "$information_sub_text_1",
                       "layer": 4,
                       "shadow": true,
-                      "size": [ "100%", "default" ]
+                      "size": ["100%", "default"]
                     }
                   },
                   {
@@ -121,7 +120,7 @@
                       "text": "$information_sub_text_2",
                       "layer": 4,
                       "shadow": true,
-                      "size": [ "100%", "default" ]
+                      "size": ["100%", "default"]
                     }
                   }
                 ]
@@ -137,7 +136,7 @@
     "$toggle_view_binding_name": "about_button_toggle",
     "$glyph_texture": "textures/ui/infobulb",
     "$glyph_color_texture": "textures/ui/infobulb",
-    "$glyph_size": [ 14, 17 ],
+    "$glyph_size": [14, 17],
     "$button_text": "options.thonyAbout",
     "$toggle_property_bag": {
       "#panel_title": "options.thonyAboutTitle"
@@ -148,7 +147,7 @@
     "type": "stack_panel",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [ "100%", "100%c" ],
+    "size": ["100%", "100%c"],
     "bindings": [
       {
         "binding_type": "view",
@@ -161,19 +160,19 @@
       {
         "paddingTop": {
           "type": "panel",
-          "size": [ "100%", 4 ]
+          "size": ["100%", 4]
         }
       },
       {
         "pack@about.icon_with_label": {
           "$icon_texture": "textures/icons/pack",
-          "$label_text": "$menu_creator_version"
+          "$label_text": "$menuCreatorVersion"
         }
       },
       {
         "padding": {
           "type": "panel",
-          "size": [ "100%", 1 ]
+          "size": ["100%", 1]
         }
       },
       {
@@ -206,7 +205,7 @@
       {
         "padding": {
           "type": "panel",
-          "size": [ "100%", 2 ]
+          "size": ["100%", 2]
         }
       },
       {
@@ -220,7 +219,7 @@
       {
         "padding": {
           "type": "panel",
-          "size": [ "100%", 4 ]
+          "size": ["100%", 4]
         }
       },
       {
@@ -234,7 +233,7 @@
       {
         "padding": {
           "type": "panel",
-          "size": [ "100%", 4 ]
+          "size": ["100%", 4]
         }
       },
       {
@@ -248,24 +247,24 @@
       {
         "padding": {
           "type": "panel",
-          "size": [ "100%", 4 ]
+          "size": ["100%", 4]
         }
       },
       {
         "disclaimer_panel": {
           "type": "panel",
-          "size": [ "100%", "100%cm" ],
+          "size": ["100%", "100%cm"],
           "controls": [
             {
               "disclaimer@common_assets.label_background": {
                 "$label_text": "options.thonyAboutDisclaimer",
                 "$label_text_type": "smooth",
-                "$label_text_size": [ "100% - 4px", "default" ],
-                "$label_text_offset": [ 1, 0 ],
-                "$label_text_color": [ 0.7, 0.7, 0.7 ],
+                "$label_text_size": ["100% - 4px", "default"],
+                "$label_text_offset": [1, 0],
+                "$label_text_color": [0.7, 0.7, 0.7],
                 "$label_background_alpha": 0.5,
                 "$label_background": "textures/ui/hud_tip_text_background",
-                "$label_background_size": [ "100% - 2px", "100%cm + 4px" ]
+                "$label_background_size": ["100% - 2px", "100%cm + 4px"]
               }
             }
           ]

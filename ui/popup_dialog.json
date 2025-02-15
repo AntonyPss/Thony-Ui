@@ -11,14 +11,14 @@
     "font_type": "MinecraftTen",
     "$title_text_anchor": "center",
     "$title_text_alignment": "center",
-    "$title_text_offset": [ 0, 0 ],
+    "$title_text_offset": [0, 0],
     "color": "$main_header_text_color",
-    "size": [ "100% - 8px", "100% - 8px" ]
+    "size": ["100% - 8px", "100% - 8px"]
   },
 
   "modal_label_text": {
-    "size": [ "100%", "100%c" ],
-    "offset": [ 0, 0 ]
+    "size": ["100%", "100%c"],
+    "offset": [0, 0]
   },
 
   "modal_label_text/text": {
@@ -26,12 +26,12 @@
   },
 
   "modal_label_panel": {
-    "$scrolling_pane_size": [ "100%", "100%" ],
-    "$scrolling_pane_offset": [ 0, 0 ],
-    "$scroll_bar_left_padding_size": [ 4, 0 ],
-    "$scroll_bar_right_padding_size": [ 2.5, 0 ],
-    "$scroll_size": [ 4, "100% - 4px" ],
-    "size": [ "100%", "100%" ]
+    "$scrolling_pane_size": ["100%", "100%"],
+    "$scrolling_pane_offset": [0, 0],
+    "$scroll_bar_left_padding_size": [4, 0],
+    "$scroll_bar_right_padding_size": [2.5, 0],
+    "$scroll_size": [4, "100% - 4px"],
+    "size": ["100%", "100%"]
   },
 
   //---------------------------------------------------------------------------
@@ -58,59 +58,33 @@
     "$pressed_text_color": "$dark_button_pressed_text_color"
   },
 
-  "modal_left_button": {
-    "$default_button_texture": "textures/ui/button_borderless_dark",
-    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
-    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
-
-    "$default_text_color": "$dark_button_default_text_color",
-    "$hover_text_color": "$dark_button_hover_text_color",
-    "$pressed_text_color": "$dark_button_pressed_text_color"
-  },
-
-  "modal_middle_button": {
-    "$default_button_texture": "textures/ui/button_borderless_dark",
-    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
-    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
-
-    "$default_text_color": "$dark_button_default_text_color",
-    "$hover_text_color": "$dark_button_hover_text_color",
-    "$pressed_text_color": "$dark_button_pressed_text_color"
-  },
-
   "modal_rightcancel_button": {
-    "$default_button_texture": "textures/ui/button_borderless_dark",
-    "$hover_button_texture": "textures/ui/button_red",
-    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
-
-    "$default_text_color": "$dark_button_default_text_color",
-    "$hover_text_color": "$dark_button_hover_text_color",
-    "$pressed_text_color": "$dark_button_pressed_text_color"
+    "$hover_button_texture": "textures/ui/button_red"
   },
 
   "three_buttons_panel": {
-    "size": [ "100%", 78 ],
-    "offset": [ 0, 0 ]
+    "size": ["100%", 78],
+    "offset": [0, 0]
   },
 
   "destructive_three_buttons_panel": {
-    "size": [ "100%", 78 ],
-    "offset": [ 0, 0 ]
+    "size": ["100%", 78],
+    "offset": [0, 0]
   },
 
   "two_buttons_panel": {
-    "size": [ "100%", 52 ],
-    "offset": [ 0, 0 ]
+    "size": ["100%", 52],
+    "offset": [0, 0]
   },
 
   "destructive_two_buttons_panel": {
-    "size": [ "100%", 52 ],
-    "offset": [ 0, 0 ]
+    "size": ["100%", 52],
+    "offset": [0, 0]
   },
 
   "single_button_panel": {
-    "size": [ "100%", 26 ],
-    "offset": [ 0, 0 ]
+    "size": ["100%", 26],
+    "offset": [0, 0]
   },
 
   //---------------------------------------------------------------------------
@@ -126,7 +100,7 @@
           "anchor_from": "center",
           "anchor_to": "center",
           "layer": 2,
-          "size": [ "100% - 2px", "100% - 2px" ],
+          "size": ["100% - 2px", "100% - 2px"],
           "controls": [
             {
               "header_ui@common_dialogs.header_ui": {
@@ -148,7 +122,7 @@
             {
               "padding_header": {
                 "type": "panel",
-                "size": [ 0, "1px" ]
+                "size": [0, "1px"]
               }
             },
             {
@@ -159,12 +133,12 @@
                       "type": "stack_panel",
                       "anchor_from": "center",
                       "anchor_to": "center",
-                      "size": [ "100% - 8px", "100% - 8px" ],
+                      "size": ["100% - 8px", "100% - 8px"],
                       "controls": [
                         {
                           "modal_label_panel": {
                             "type": "panel",
-                            "size": [ "100%", "fill" ],
+                            "size": ["100%", "fill"],
                             "controls": [
                               {
                                 "modal_label_panel@popup_dialog.modal_label_panel": {}
@@ -175,7 +149,7 @@
                         {
                           "padding_header": {
                             "type": "panel",
-                            "size": [ 0, "4px" ]
+                            "size": [0, "4px"]
                           }
                         },
                         {
@@ -193,5 +167,15 @@
         }
       }
     ]
+  },
+
+  "modal_dialog_popup": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_pressed_text_color"
   }
 }

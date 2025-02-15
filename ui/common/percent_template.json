@@ -37,25 +37,25 @@
     "type": "stack_panel",
     "orientation": "horizontal",
     "ignored": "(not $percentVisible)",
-    "$reverser_percent_count|default": false,
+    "$reverserPercentCount|default": false,
     "$percent_panel|default": "percent_template.percent_number",
     "size": [ "100%c", "100%cm" ],
     "offset": "$percentOffset",
     "variables": [
       {
-        "requires": "$reverser_percent_count",
+        "requires": "$reverserPercentCount",
         "$percent_panel": "percent_template.percent_number_reverse"
       }
     ],
     "controls": [
       {
         "percent_panel@$percent_panel": {
-          "offset": "$percent_offset"
+          "offset": "$percentOffset"
         }
       },
       {
         "percent_bindings@percent_bindings": {
-          "offset": "$percent_offset",
+          "offset": "$percentOffset",
           "text": "%",
           "$min": -1,
           "$max": 1

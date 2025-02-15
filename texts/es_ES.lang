@@ -16,9 +16,9 @@ chat.settings.tts.description=Activar el dictado de texto a voz, esencial para j
 common.quickLoot.on=Botin rapido (Si)
 common.quickLoot.off=Botin rapido (No)
 
-menu.creator=Thony Ui por @AntonyPss
+menu.creator=Hecho por @AntonyPss
 menu.creator.beta=Thony Ui Pack
-menu.creator.name=Thony Pack Ui creado por Antony Pss
+menu.creator.name=Thony Ui creado por Antony Pss
 menu.creator.info=Mira mis Redes Sociales y nuestro Servidor de Discord
 
 options.inputMode=Modo de Entrada:
@@ -53,6 +53,22 @@ options.button.copy=Copiar
 options.button.copyToClipboard=Copiar al portapapeles
 options.name.info=Edita tu nombre de usuario en el cuadro de texto. Recuerda, ¡puede tener hasta 16 caracteres!
 
+options.game.settings=Configuración de juego
+
+options.video.advanced=Ajustes avanzados
+options.video.advancedTitle=Ajustes avanzados de video
+
+options.user.customization=Personalización del Usuario
+
+options.player=Jugador
+options.playerTitle=Ajustes del jugador
+
+options.resources.preview=Recursos y Personalización
+
+options.input.device=Controles y Dispositivos
+
+options.debug.storage=Registro y Almacenamiento
+
 progress.allowCellularData.title=¡Datos Móviles Activado!
 progress.allowCellularData.message=Esto podría generar un coste adicional de datos.
 
@@ -71,10 +87,9 @@ playScreen.additionalServer.serverPort=Puerto del servidor
 playScreen.serverInfo.pingTitle=Ping Actual:
 playScreen.serverInfo.onlineTitle=En linea:
 
-selectWorld.tab.worldsTemplates=Mundos y Plantillas
-selectWorld.tab.totalWorlds=Mundos encontrados
-selectWorld.tab.totalFriends=Amigos en línea
-selectWorld.tab.totalServers=Servidores en línea
+selectWorld.tab.totalWorlds=Mundo(s) encontrados
+selectWorld.tab.totalFriends=Amigo(s) en línea
+selectWorld.tab.totalServers=Servidor(es) en línea
 
 settings.switchUiProfile.tooltip=Para obtener una mejor experiencia en la UI, cambia el perfil de Modo de Bolsillo a Clásico
 settings.switchUiProfile.button=Cambiar la UI a Clásico

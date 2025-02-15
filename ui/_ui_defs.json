@@ -2,8 +2,6 @@
   "ui_defs": [
     "ui/common/percent_template.json",
     "ui/common/animations_screen.json",
-    "ui/common/chat_screen.json",
-    "ui/common/hud_assets.json",
     "ui/common/exit_world_screen.json",
     "ui/common/about_screen.json",
     "ui/common/ui_common.json"

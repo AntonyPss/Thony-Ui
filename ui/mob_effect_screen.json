@@ -1,104 +1,72 @@
 {
   "namespace": "mob_effect",
 
-  //---------------------------------------------------------------------------
-  // Images Section
-  //---------------------------------------------------------------------------
-
-  "effect_timer_icon": {
-    "type": "image",
-    "texture": "textures/ui/icon_timer",
-    "layer": 2,
-    "size": [ 11, 11 ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Labels Section
-  //---------------------------------------------------------------------------
-
   "effect_name": {
-    "font_type": "MinecraftTen",
-    "layer": 3,
-    "shadow": true,
-    "size": [ "default", 14 ],
-    "offset": [ 0, 0 ]
+    "shadow": false,
+    "size": ["100%", 12]
   },
 
   "effect_timer": {
-    "layer": 3,
-    "shadow": true,
-    "alpha": 0.8,
-    "size": [ "default", 12 ],
-    "offset": [ 0, 0 ]
+    "size": ["100%", 10]
   },
 
-  //---------------------------------------------------------------------------
-  // Effect Image Section
-  //---------------------------------------------------------------------------
+  "mob_effect_grid": {
+    "size": ["100%", "default"],
+    "offset": [0, 0]
+  },
 
-  "effect_image_panel": {
-    "type": "panel",
-    "anchor_from": "left_middle",
-    "anchor_to": "left_middle",
-    "size": [ 32, 32 ],
+  "mob_effect_grid_item": {
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100% - 4px", 26],
     "controls": [
       {
-        "effect_icon": {
-          "type": "image",
-          "texture": "#texture",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "layer": 4,
-          "size": [ 24, 24 ],
-          "bindings": [
-            {
-              "binding_name": "#texture",
-              "binding_type": "collection",
-              "binding_collection_name": "mob_effects_collection",
-              "binding_condition": "visible"
-            }
-          ]
+        "background@pause.transparent_background": {
+          "texture": "textures/ui/hud_tip_text_background",
+          "size": ["100%", "100%sm + 2px"]
         }
-      }
-    ]
-  },
-
-  //---------------------------------------------------------------------------
-  // Effect Label Section
-  //---------------------------------------------------------------------------
-
-  "effect_label_panel": {
-    "type": "panel",
-    "anchor_from": "left_middle",
-    "anchor_to": "left_middle",
-    "size": [ "100%c", "100%" ],
-    "controls": [
+      },
       {
-        "effect_stack_panel": {
+        "mob_effect_grid_content": {
           "type": "stack_panel",
-          "size": [ "100%c", "100%" ],
-          "offset": [ 34, 0 ],
+          "orientation": "horizontal",
+          "size": ["100%", 22],
           "controls": [
-            { "pad@mob_effect.padding_2": {} },
-            { "name@mob_effect.effect_name": {} },
             {
-              "time_panel": {
-                "type": "stack_panel",
-                "orientation": "horizontal",
-                "size": [ "100%c", 16 ],
+              "effect_icon_panel": {
+                "type": "panel",
+                "size": ["100%y", "100%"],
                 "controls": [
-                  { "icon@mob_effect.effect_timer_icon": {} },
                   {
-                    "time_label": {
-                      "type": "panel",
-                      "size": [ "100%c", 10 ],
-                      "controls": [
-                        {
-                          "time@mob_effect.effect_timer": {
-                            "offset": [ 2, 3 ]
-                          }
-                        }
-                      ]
+                    "effect_icon@mob_effect.effect_icon": {
+                      "layer": 4,
+                      "offset": [0, 0]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "effect_labels_panel": {
+                "type": "panel",
+                "layer": 3,
+                "size": ["100% - 4px", "100%"],
+                "controls": [
+                  {
+                    "effect_name@mob_effect.effect_name": {
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "font_type": "MinecraftTen",
+                      "font_scale_factor": 1.08,
+                      "offset": [0, 0]
+                    }
+                  },
+                  {
+                    "effect_duration@mob_effect.effect_timer": {
+                      "anchor_from": "bottom_left",
+                      "anchor_to": "bottom_left",
+                      "color": "$bottomTextColor",
+                      "offset": [0, 0]
                     }
                   }
                 ]
@@ -110,65 +78,43 @@
     ]
   },
 
-  //---------------------------------------------------------------------------
-  // Screen
-  //---------------------------------------------------------------------------
-
-  "padding_2": {
-    "type": "panel",
-    "size": [ 0, 2 ]
+  "mob_effect_list_content_panel": {
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "size": ["32%", "100%"],
+    "offset": [0, 0]
   },
 
-  "mob_effect_grid": {
+  "mob_effect_list_content_panel/scrolling_panel": {
+    "$scroll_size": ["5px", "100% - 4px"],
+    "$scrolling_pane_size": ["100%", "100%"],
+    "$scroll_left_padding_size": [2, 0],
+    "size": ["100%", "100%"],
+    "offset": [0, 0]
+  },
+
+  "close_button_text@settings_common.white_label": {
+    "text": "gui.close",
+    "text_alignment": "center",
+    "layer": 2,
+    "shadow": true
+  },
+
+  "close_button@common.button": {
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "size": [ "100% - 2px", "default" ],
-    "offset": [ 0, 0 ]
-  },
-
-  "mob_effect_grid_item": {
-    "size": [ "100%", 32 ],
-    "$fillAlpha": 0.5,
+    "$pressed_button_name": "button.menu_continue",
+    "size": ["68%", "100%"],
     "controls": [
-      {
-        "mob_effect_grid_content": {
-          "type": "panel",
-          "anchor_from": "center",
-          "anchor_to": "center",
-          "size": [ "100%", "100% - 2px" ],
-          "controls": [
-            { "bg@common_assets.background_image": {} },
-            { "image@effect_image_panel": {} },
-            { "label@effect_label_panel": {} }
-          ]
-        }
-      }
+      { "default@mob_effect.close_button_text": {} },
+      { "hover@mob_effect.close_button_text": { "alpha": 0.5 } }
     ]
   },
 
-  "scrolling_panel@common.scrolling_panel": {
-    "anchor_from": "top_middle",
-    "anchor_to": "top_middle",
-    "$show_background": false,
-    "$always_handle_scrolling": true,
-    "$scrolling_content": "mob_effect.mob_effect_grid_panel",
-    "$scroll_bar_left_padding_size": [ 4, 0 ],
-    "$scroll_bar_right_padding_size": [ 3.5, 0 ],
-    "$scroll_size": [ 0, "100% - 4px" ],
-    "size": [ "100%", "100%" ]
-  },
-
-  "main_screen": {
-    "ttsSectionContainer": true,
+  "mob_effect_content": {
     "controls": [
-      {
-        "main@common_dialogs.main_panel_no_buttons": {
-          "$dialog_background": "textures/ui/hud_tip_text_background",
-          "$text_name": "key.mobEffects",
-          "$child_control": "mob_effect.scrolling_panel",
-          "size": [ 200, "45%" ]
-        }
-      }
+      { "close_button@mob_effect.close_button": { "layer": -1 } },
+      { "content@mob_effect.mob_effect_list_content_panel": { "layer": 3 } }
     ]
   }
 }

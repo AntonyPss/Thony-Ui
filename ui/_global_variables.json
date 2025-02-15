@@ -1,4 +1,8 @@
 {
+  "$chatBackgroundAlpha": 0.5,
+
+  "$showDropItemPanel": false,
+
   "$fillAlpha": 0.5,
 
   "$inputTypeModeTitleColor": [1.0, 1.0, 1.0],
@@ -16,9 +20,15 @@
   "$showNotesMsgPanel": true,
   "$notesMsgTextboxSize": ["100%", 36],
 
-  "$menuCreatorVersion": "Thony Ui v1.2.4",
+  "$menuCreatorVersion": "Thony Ui v1.2.9",
+
+  // You can edit this
+  "$menuEmojiText": ">.<",
+
+  "$headerTitleTextColor": [0.2, 0.2, 0.2],
+  "$bottomTextColor": [0.9, 0.9, 0.9],
 
   "$quickLootCommonIgnored": true,
-  "$quickLootOnTextColor": [0.10, 0.66, 0.10],
-  "$quickLootOffTextColor": [0.80, 0.06, 0.06]
+  "$quickLootOnTextColor": [0.1, 0.66, 0.1],
+  "$quickLootOffTextColor": [0.8, 0.06, 0.06]
 }

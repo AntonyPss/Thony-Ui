@@ -2,8 +2,9 @@
   //---------------------------------------------------------------------------
   // Quick Loot Section
   //---------------------------------------------------------------------------
+  // So...
 
-  "container_item": {
+  /*"container_item": {
     "modifications": [
       {
         "array_name": "controls",
@@ -112,7 +113,6 @@
     "anchor_from": "bottom_middle",
     "anchor_to": "bottom_middle",
     "layer": 2,
-    "alpha": "$fillAlpha",
     "size": [ "100%c + 8px", "100%c + 4px" ],
     "offset": [ 0, 32 ],
     "controls": [
@@ -179,47 +179,6 @@
     ]
   },
 
-  //---------------------------------------------------------------------------
-  // Inventory Common Panel
-  //---------------------------------------------------------------------------
-
-  "drop_one_item_icon": {
-    "type": "image",
-    "texture": "textures/ui/inventory_icon",
-    "layer": 2,
-    "size": [ 12, 12 ]
-  },
-
-  "drop_all_item_icon@common.drop_one_item_icon": {
-    "texture": "textures/ui/inventory_icon"
-  },
-
-  "drop_one_item_button@common_buttons.dark_content_button": {
-    "$pressed_button_name": "button.cursor_drop_one",
-    "$button_content": "common.drop_one_item_icon",
-    "size": [ "100%", "100%x" ]
-  },
-
-  "drop_all_item_button@common_buttons.dark_content_button": {
-    "$pressed_button_name": "button.cursor_drop_all",
-    "$button_content": "common.drop_all_item_icon",
-    "size": [ "100%", "100%x" ]
-  },
-
-  "drop_item_panel": {
-    "type": "stack_panel",
-    "orientation": "vertical",
-    "anchor_from": "bottom_right",
-    "anchor_to": "bottom_right",
-    "layer": 12,
-    "size": [ 20, "100%c" ],
-    "offset": [ 48, 0 ],
-    "controls": [
-      { "drop_one_item@drop_one_item_button": {} },
-      { "drop_all_item@drop_all_item_button": {} }
-    ]
-  },
-
   "inventory_panel": {
     "modifications": [
       {
@@ -241,6 +200,48 @@
           }
         ]
       }
+    ]
+  },*/
+
+  //---------------------------------------------------------------------------
+  // Inventory Common Panel
+  //---------------------------------------------------------------------------
+
+  "drop_one_icon": {
+    "type": "image",
+    "texture": "textures/ui/drop_one",
+    "layer": 2,
+    "size": [12, 12]
+  },
+
+  "drop_all_icon@drop_one_icon": {
+    "texture": "textures/ui/drop_all"
+  },
+
+  "drop_one_item_button@common_buttons.dark_content_button": {
+    "$pressed_button_name": "button.cursor_drop_one",
+    "$button_content": "common.drop_one_icon",
+    "size": ["100%", "100%x"]
+  },
+
+  "drop_all_item_button@common_buttons.dark_content_button": {
+    "$pressed_button_name": "button.cursor_drop_all",
+    "$button_content": "common.drop_all_icon",
+    "size": ["100%", "100%x"]
+  },
+
+  "drop_item_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_right",
+    "layer": 12,
+    "ignored": "(not $showDropItemPanel)",
+    "size": [20, "100%c"],
+    "offset": [48, 0],
+    "controls": [
+      { "drop_one_item@drop_one_item_button": {} },
+      { "drop_all_item@drop_all_item_button": {} }
     ]
   },
 
