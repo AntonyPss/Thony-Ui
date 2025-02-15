@@ -1,6 +1,0 @@
-{
-  "popup/background": {
-    "texture": "textures/ui/hud_tip_text_background",
-    "alpha": 0.6
-  }
-}
