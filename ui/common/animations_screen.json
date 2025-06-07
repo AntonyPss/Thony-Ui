@@ -27,24 +27,24 @@
 
   "anim_header_offset": {
     "anim_type": "offset",
-    "easing": "in_out_expo",
+    "easing": "ease_out",
     "duration": 0.5,
-    "from": [0, -200],
+    "from": [0, -100],
     "to": [0, 0]
   },
 
   "anim_header_alpha": {
-    "anim_type": "offset",
-    "easing": "in_out_sine",
-    "duration": 0.4,
+    "anim_type": "alpha",
+    "easing": "ease_in_out",
+    "duration": 0.5,
     "from": 0.0,
     "to": 1.0
   },
 
   "anim_footer_offset": {
     "anim_type": "offset",
-    "easing": "in_expo",
-    "duration": 0.4,
+    "easing": "ease_in",
+    "duration": 0.5,
     "from": [0, "16%"],
     "to": [0, 0]
   }

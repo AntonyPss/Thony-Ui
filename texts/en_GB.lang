@@ -1,94 +1,67 @@
-addExternalServerScreen.namePlaceholder=Server name example
-addExternalServerScreen.ipPlaceholder=IP (1.0.0.1) or URL (www.example.com)
-
-confirmLeaveWarning.worldName.title=World Name:
-
 chat.notesTitle=Notes:
 chat.notesTextBox.placeHolderText=Write something here...
-chat.notesMessage.message=Notes in this text box are temporary and will be §cdeleted §rwhen the screen is closed.
+chat.notesMessage.message=Notes in this text box are temporary and will be deleted when you close the world.
 
-chat.placeHolderText=Write here a text or command...
+chat.placeHolderText=Write text or a command here...
 
-chat.settings.muteAll.description=Hides the chat window, ideal for avoiding distractions and keeping the screen tidy.
-chat.settings.muteEmotes.description=Disables player emotes, perfect for minimising visual distractions.
-chat.settings.tts.description=Converts chat text into audio, essential for players with visual impairments.
-
-common.quickLoot.on=Quick Loot (On)
-common.quickLoot.off=Quick Loot (Off)
+chat.settings.muteAll.description=Hide the in-game chat, ideal for avoiding distractions and keeping your screen clear.
+chat.settings.muteEmotes.description=Disables player gestures, perfect for minimizing visual distractions.
+chat.settings.tts.description=Enable text-to-speech dictation, essential for players with visual impairments.
 
 menu.creator=Made by @AntonyPss
-menu.creator.beta=Thony Ui Pack
-menu.creator.name=Thony Pack Ui made by Antony Pss
-menu.creator.info=Check my Social Media and my Discord Server
 
 options.inputMode=Input Mode:
 
-options.soundMain.title=Main Volume
-options.soundBlock.title=Block Volume
-options.soundAmbient.title=Ambient Volume
-options.soundTextToSpeech.title=Text-to-Speech Settings
-
 options.thonyAbout=Thony UI
 options.thonyAboutTitle=About Thony UI
-options.thonyAboutDisclaimer=Thony UI is a creation of @AntonyPss. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other official Minecraft entity. All rights to Minecraft and its assets belong to Mojang AB and Microsoft. For any inquiries or issues, please contact me through my Discord server.
+options.thonyAboutDisclaimer=Thony UI is created by @AntonyPss. We are not affiliated with or endorsed by Mojang AB, Microsoft, or any other official Minecraft entity. All rights to Minecraft and its assets belong to Mojang AB and Microsoft. For any questions or issues, please contact me through my Discord server.
 
-options.thonyAbout.termsOfUse.can=§2You can:
-options.thonyAbout.termsOfUse.can.0=- Make modifications to the pack as long as it is for personal use only.
-options.thonyAbout.termsOfUse.can.1=- Review the pack as long as you give me credit in the video.
-options.thonyAbout.termsOfUse.can.2=- Make suggestions for the pack on our Discord server.
+options.thonyAbout.termsOfUse.can=§2 You may:
+options.thonyAbout.termsOfUse.can.0=- Modify this pack for personal use only.
+options.thonyAbout.termsOfUse.can.1=- Review or analyze the pack, as long as proper credit is given.
+options.thonyAbout.termsOfUse.can.2=- Submit suggestions for improvements to this package through our Discord server.
 
-options.thonyAbout.termsOfUse.cant=§cYou can't:
-options.thonyAbout.termsOfUse.cant.0=- Make modifications and claim to be the original creator of the pack.
-options.thonyAbout.termsOfUse.cant.1=- Upload the pack through a different download link without authorization.
-options.thonyAbout.termsOfUse.cant.2=- hmm..
+options.thonyAbout.termsOfUse.cant=§cYou may not:
+options.thonyAbout.termsOfUse.cant.0=- Claim this package as your own or remove the original credits.
+options.thonyAbout.termsOfUse.cant.1=- Redistribute this package with modifications without my consent.
+options.thonyAbout.termsOfUse.cant.2=- Use this package for commercial or profit-making purposes without prior authorization.
 
-options.thonyAbout.thanks=§6Special thanks:
-options.thonyAbout.thanks.0=> @Hiu Aseli Sunda §r§d(Discord) §r= Quick loot
-options.thonyAbout.thanks.1=> none
-options.thonyAbout.thanks.2=> none
+options.thonyAbout.thanks=§6Thanks:
+options.thonyAbout.thanks.0=@Hiu Aseli Sunda §r§d (Discord)
 
 options.worldSeed.title=Seed:
 options.button.paste=Paste
 options.button.copy=Copy
-options.button.copyToClipboard=Copy to clipboard
-options.name.info=Edit your username in the text box. Remember, it can have up to 16 characters!
+options.button.copyToClipboard=Copy to Clipboard
+options.name.info=Edit your username in the text box. Remember, it can be up to 16 characters!
 
 options.game.settings=Game Settings
 
 options.video.advanced=Advanced Settings
-options.video.advancedTitle=Video Advanced Settings
+options.video.advancedTitle=Advanced Video Settings
 
-options.user.customization=User customization
+options.user.customization=User Customization
+
 options.player=Player
 options.playerTitle=Player Settings
 
-options.resources.preview=Resources and Preview
+options.resources.preview=Resources and Customization
 
-options.input.device=Device and Controllers
+options.input.device=Controls and Devices
 
-options.debug.storage=Log and Storage
+options.debug.storage=Logging and Storage
 
-progress.allowCellularData.title=¡Activated Mobile Data!
-progress.allowCellularData.message=This could incur additional data charges.
-
-progress.loadingWorld.overworld.title=Regenerating The Overworld
-progress.loadingWorld.nether.title=Regenerating The Nether
-progress.loadingWorld.theEnd.title=Regenerating The End
-
-progress.loadingWorld.overworld.tip=Back to the familiar and peaceful, welcome back to the Overworld.
-progress.loadingWorld.nether.tip=Prepare yourself for the heat and flames, you're about to step into the fearsome Nether.
-progress.loadingWorld.theEnd.tip=Mystery and darkness are ahead, you’re about to venture into The End.
+Progress.allowCellularData.title=Mobile Data On!
+Progress.allowCellularData.message=This may incur additional data charges.
 
 playScreen.additionalServer.serverName=Server Name
 playScreen.additionalServer.serverIp=Server Address
 playScreen.additionalServer.serverPort=Server Port
 
-playScreen.serverInfo.pingTitle=Current Ping:
-playScreen.serverInfo.onlineTitle=Online:
+selectWorld.tab.totalWorlds=World(s) Found
+selectWorld.tab.totalFriends=Friend(s) Online
+selectWorld.tab.totalServers=Server(s) Online
 
-selectWorld.tab.totalWorlds=World(s) found
-selectWorld.tab.totalFriends=Friend(s) online
-selectWorld.tab.totalServers=Server(s) online
-
+settings.switchUiProfile.title=UI Mode
 settings.switchUiProfile.tooltip=For a better UI experience, switch the profile from Pocket Mode to Classic
-settings.switchUiProfile.button=Change the UI to Classic
+settings.switchUiProfile.button=Switch UI to Classic

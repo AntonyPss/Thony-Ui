@@ -71,7 +71,12 @@
                       "font_type": "smooth",
                       "color": "$bottomTextColor",
                       "size": ["default", 10],
-                      "bindings": [{ "binding_name": "#players_list_title", "binding_type": "global" }]
+                      "bindings": [
+                        {
+                          "binding_name": "#players_list_title",
+                          "binding_type": "global"
+                        }
+                      ]
                     }
                   }
                 ]
@@ -225,14 +230,6 @@
     "$button_text": "pauseScreen.quit"
   },
 
-  "pause_button_template": {
-    "size": ["100%", 26]
-  },
-
-  "grid_button_template": {
-    "size": ["100%", 26]
-  },
-
   "info_panel_background": {
     "anchor_from": "center",
     "anchor_to": "center",
@@ -248,11 +245,75 @@
   },
 
   "info_panel_content_list/player_list_scrolling_panel": {
+    "layer": 4,
     "size": ["100%", "fill"]
   },
 
   "info_panel_content_list/vertical_padding": {
-    "size": ["100%", 4]
+    "size": ["100%", 2]
+  },
+
+  "social_buttons_panel/friendsbutton_panel/vertical_padding_1": {
+    "size": [0, 2]
+  },
+
+  "social_buttons_panel/invitebutton_panel/vertical_padding_2": {
+    "size": [0, 2]
+  },
+
+  "social_buttons_panel": {
+    "modifications": [
+      {
+        "control_name": "friendsbutton_panel",
+        "operation": "insert_before",
+        "value": [
+          {
+            "permissionbutton_panel": {
+              "type": "stack_panel",
+              "orientation": "vertical",
+              "size": ["100%", "100%c"],
+              "controls": [
+                {
+                  "permission_button@iconbutton.button": {
+                    "$pressed_button_name": "button.menu_permission",
+                    "$button_text": "accessibility.pause.permissions",
+                    "$icon_texture": "textures/ui/sidebar_icons/genre",
+                    "$textbutton_binding_type": "none",
+                    "button_mappings": [
+                      {
+                        "from_button_id": "button.menu_select",
+                        "to_button_id": "$pressed_button_name",
+                        "mapping_type": "pressed"
+                      },
+                      {
+                        "from_button_id": "button.menu_ok",
+                        "to_button_id": "$pressed_button_name",
+                        "mapping_type": "focused"
+                      }
+                    ],
+                    "bindings": [
+                      {
+                        "binding_type": "collection_details",
+                        "binding_collection_name": "players_collection"
+                      },
+                      {
+                        "binding_name": "#permissions_button_visible",
+                        "binding_name_override": "#enabled"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "vertical_padding_3@pause.vertical_padding": {
+                    "size": [0, 2]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
   },
 
   "info_panel_content_list": {
@@ -287,34 +348,94 @@
         "operation": "insert_after",
         "value": [
           {
-            "permission_button@pause.player_permission_button": {
-              "size": ["100%", 24]
-            }
-          },
-          {
-            "invite_players_button@pause.invite_players_button": {
-              "size": ["100%", 24]
-            }
+            "social_buttons@pause.social_buttons_panel": {}
           }
         ]
       }
     ]
   },
 
-  "player_grid_item_content/player_button_panel": {
-    "modifications": [
+  // Player Button //
+
+  "player_gamer_pic": {
+    "controls": [
       {
-        "control_name": "player_permission_button_padding",
-        "operation": "remove"
+        "black_border": {
+          "type": "image",
+          "texture": "textures/ui/promo_background",
+          "anchor_to": "center",
+          "anchor_from": "center",
+          "layer": -1,
+          "size": ["100% + 2px", "100% + 2px"]
+        }
+      }
+    ]
+  },
+
+  "player_button_content": {
+    "offset": [2, 0],
+    "controls": [
+      {
+        "player_pic": {
+          "type": "panel",
+          "layer": 3,
+          "size": ["100%c", "100%"],
+          "controls": [
+            {
+              "image@pause.player_gamer_pic": {
+                "layer": 4
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding_left_0": {
+          "type": "panel",
+          "size": [6, 0]
+        }
+      },
+      {
+        "player_gamertag": {
+          "type": "panel",
+          "layer": 4,
+          "size": ["fill", "100%"],
+          "controls": [
+            {
+              "gamertag@settings_common.white_label": {
+                "text": "#gamertag",
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+                "size": ["100%", 10],
+                "bindings": [
+                  {
+                    "binding_name": "#gamertag",
+                    "binding_type": "collection",
+                    "binding_collection_name": "players_collection"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "padding_right_0": {
+          "type": "panel",
+          "size": [4, 0]
+        }
       }
     ]
   },
 
   "player_grid_item_content": {
-    "modifications": [
+    "size": ["100%", "100%c"],
+    "controls": [
       {
-        "control_name": "player_permission_button_panel",
-        "operation": "remove"
+        "player_button@pause.player_button": {
+          "layer": 2,
+          "size": ["100% - 1px", 28]
+        }
       }
     ]
   },
@@ -332,22 +453,12 @@
       {
         "control_name": "invite_players_button_panel",
         "operation": "remove"
+      },
+      {
+        "control_name": "social_buttons_panel",
+        "operation": "remove"
       }
     ]
-  },
-
-  "player_permission_button": {
-    "$pressed_button_name": "button.menu_permission",
-    "$button_type_panel": "common_assets.icon_wrapper",
-    "$button_text": "accessibility.pause.permissions",
-    "$button_content": "pause.player_permission_button_content",
-    "size": ["100%", "100%"]
-  },
-
-  "invite_players_button": {
-    "$button_type_panel": "common_assets.icon_wrapper",
-    "$button_content": "pause.invite_icon",
-    "size": ["100%", "100%"]
   },
 
   "pause_screen_content/pause_screen_main_panels": {

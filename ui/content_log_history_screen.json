@@ -6,12 +6,12 @@
   //---------------------------------------------------------------------------
 
   "clipboard_icon": {
-    "size": [ 14, 14 ]
+    "size": [14, 14]
   },
 
   "clear_icon": {
     "texture": "textures/ui/cancel",
-    "size": [ 12, 12 ]
+    "size": [12, 12]
   },
 
   //---------------------------------------------------------------------------
@@ -23,7 +23,7 @@
     "$pressed_button_name": "button.copy_to_clipboard",
     "$button_content": "content_log_history.clipboard_icon",
     "$button_text": "contentlog.history.copyToClipboard",
-    "size": [ "fill", "100%" ]
+    "size": ["fill", "100%"]
   },
 
   "delete_button@common_buttons.dark_text_button": {
@@ -31,11 +31,11 @@
     "$pressed_button_name": "button.clear",
     "$button_content": "content_log_history.clear_icon",
     "$button_text": "contentlog.history.clear",
-    "size": [ "50%", "100%" ]
+    "size": ["50%", "100%"]
   },
 
   "horizontal_button_stack_panel": {
-    "size": [ "100%", "100%" ],
+    "size": ["100%", "100%"],
     "controls": [
       { "copy_button@copy_button": {} },
       { "delete_button@delete_button": {} }
@@ -49,8 +49,8 @@
   "messages_scrolling_panel": {
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
-    "$scroll_size": [ 4, "100% - 4px" ],
-    "offset": [ 0, 0 ]
+    "$scroll_size": [4, "100% - 4px"],
+    "offset": [0, 0]
   },
 
   //---------------------------------------------------------------------------
@@ -60,11 +60,11 @@
   "content_log_history_panel": {
     "$show_close_button": false,
     "$show_title_text": false,
-    "size": [ "100%", "100%" ],
+    "size": ["100%", "100%"],
     "controls": [
       {
         "background@common_assets.background_panel": {
-          "size": [ "100% - 4px", "100% - 4px" ]
+          "size": ["100% - 4px", "100% - 4px"]
         }
       },
       {
@@ -72,34 +72,34 @@
           "type": "stack_panel",
           "orientation": "vertical",
           "layer": 4,
-          "size": [ "100% - 16px", "100%" ],
+          "size": ["100% - 16px", "100%"],
           "controls": [
             {
               "padding0": {
                 "type": "panel",
-                "size": [ "100%", 8 ]
+                "size": ["100%", 8]
               }
             },
             {
               "main_stack_panel@main_stack_panel": {
-                "size": [ "100%", "fill" ]
+                "size": ["100%", "fill"]
               }
             },
             {
               "padding1": {
                 "type": "panel",
-                "size": [ "100%", 4 ]
+                "size": ["100%", 4]
               }
             },
             {
               "buttons_panel@horizontal_button_stack_panel": {
-                "size": [ "100% - 4px", 24 ]
+                "size": ["100% - 4px", 24]
               }
             },
             {
               "padding2": {
                 "type": "panel",
-                "size": [ "100%", 8 ]
+                "size": ["100%", 8]
               }
             }
           ]

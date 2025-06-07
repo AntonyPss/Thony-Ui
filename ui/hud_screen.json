@@ -6,7 +6,7 @@
   },
 
   "player_position": {
-    "alpha": 0.4,
+    "alpha": 0.3,
     "size": [ "100%c + 6px", 12 ]
   },
 
@@ -18,7 +18,7 @@
   },
 
   "number_of_days_played": {
-    "alpha": 0.4,
+    "alpha": 0.3,
     "size": [ "100%c + 6px", 12 ]
   },
 

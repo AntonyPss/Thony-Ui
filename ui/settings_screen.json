@@ -2,435 +2,314 @@
   "namespace": "settings",
 
   //---------------------------------------------------------------------------
-  // Selector Title Divider
+  // World About Section
   //---------------------------------------------------------------------------
 
-  "title_divider": {
-    "type": "panel",
-    "size": ["100%", "100%c + 6px"],
+  "world_about": {
+    "type": "image",
+    "texture": "textures/ui/hud_tip_text_background",
+    "ignored": "(not $include_world_section)",
+    "layer": 2,
+    "alpha": 0.6,
+    "size": ["100%", "100%cm + 4px"],
     "controls": [
       {
-        "title_text@common.minecraftTenLabel": {
-          "text": "$title_divider_text",
-          "text_alignment": "left",
+        "world_seed_icon": {
+          "type": "image",
+          "texture": "textures/ui/icon_new",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
           "layer": 4,
-          "size": ["100% - 2px", "default"]
+          "size": [20, 20],
+          "offset": [2, 0]
+        }
+      },
+      {
+        "world_information_label": {
+          "type": "stack_panel",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "size": ["80% - 4px", "100%c"],
+          "offset": [24, 0],
+          "controls": [
+            {
+              "world_seed_text@settings_common.white_label": {
+                "text": "options.worldSeed.title",
+                "shadow": true,
+                "size": ["100%", "default"]
+              }
+            },
+            {
+              "world_seed_label@settings_common.white_label": {
+                "text": "#item_name",
+                "shadow": true,
+                "color": "$bottomTextColor",
+                "size": ["100%", "default"],
+                "bindings": [
+                  {
+                    "binding_name": "#world_seed",
+                    "binding_name_override": "#item_name"
+                  }
+                ]
+              }
+            }
+          ]
         }
       }
     ]
   },
 
   //---------------------------------------------------------------------------
-  // Selector Stack Content
+  // Quick Options Section
+  //---------------------------------------------------------------------------
+
+  "quick_options": {
+    "type": "stack_panel",
+    "ignored": "(not $include_controls_and_settings_sections)",
+    "controls": [
+      {
+        "perspective_dropdown@settings_common.option_dropdown": {
+          "$option_label": "options.thirdperson",
+          "ignored": "($is_holographic and $is_reality_mode)",
+          "$dropdown_content": "general_section.third_person_dropdown_content",
+          "$dropdown_area": "content_area",
+          "$dropdown_name": "third_person_dropdown",
+          "$option_enabled_binding_name": "#third_person_dropdown_enabled",
+          "$options_dropdown_toggle_label_binding": "#third_person_dropdown_toggle_label",
+          "$dropdown_scroll_content_size": ["100%", "200%"]
+        }
+      },
+      {
+        "option_toggle_hidehand@settings_common.option_toggle": {
+          "ignored": "($is_holographic)",
+          "$option_label": "options.hidehand",
+          "$option_binding_name": "#hide_hand",
+          "$option_enabled_binding_name": "#hide_hand_enabled",
+          "$toggle_name": "hide_hand"
+        }
+      },
+      {
+        "option_toggle_vrhidehand@settings_common.option_toggle": {
+          "ignored": "(not $is_holographic)",
+          "$option_label": "options.vrHideHand",
+          "$option_binding_name": "#vr_hide_hand",
+          "$option_enabled_binding_name": "#vr_hide_hand_enabled",
+          "$toggle_name": "vr_hide_hand"
+        }
+      },
+      {
+        "option_toggle_hidehud@settings_common.option_toggle": {
+          "ignored": "($is_holographic)",
+          "$option_label": "options.hidehud",
+          "$option_binding_name": "#hide_hud",
+          "$option_enabled_binding_name": "#hide_hud_enabled",
+          "$toggle_name": "hide_hud"
+        }
+      },
+      {
+        "option_toggle_vrhidehud@settings_common.option_toggle": {
+          "ignored": "(not $is_holographic)",
+          "$option_label": "options.vrHideHud",
+          "$option_binding_name": "#vr_hide_hud",
+          "$option_enabled_binding_name": "#vr_hide_hud_enabled",
+          "$toggle_name": "vr_hide_hud"
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // About Section
+  //---------------------------------------------------------------------------
+
+  "title@settings_common.white_label": {
+    "text_alignment": "center",
+    "font_type": "MinecraftTen",
+    "font_scale_factor": 1.8,
+    "size": ["100%", "default"]
+  },
+
+  "paragraph@settings_common.white_label": {
+    "text_alignment": "center",
+    "font_type": "smooth",
+    "color": [0.8, 0.8, 0.8],
+    "size": ["100%", "default"]
+  },
+
+  "about_button@settings_common.section_toggle_base": {
+    "ignored": "(not $include_controls_and_settings_sections)",
+    "$toggle_group_forced_index": 0,
+    "$glyph_texture": "textures/ui/infobulb",
+    "$glyph_color_texture": "textures/ui/infobulb",
+    "$glyph_size": [14, 17],
+    "$button_text": "options.thonyAbout",
+    "$toggle_view_binding_name": "about_section_toggle",
+    "$toggle_property_bag": {
+      "#panel_title": "options.thonyAboutTitle"
+    }
+  },
+
+  "about_section": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "$sectionPadding": [0, 6],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "about_section_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "pack_icon": {
+          "type": "panel",
+          "size": ["100%", 48],
+          "controls": [
+            {
+              "icon": {
+                "type": "image",
+                "texture": "pack_icon",
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "layer": 4,
+                "size": ["100%y", "100%"]
+              }
+            }
+          ]
+        }
+      },
+      {
+        // Upper Section
+        "main_title@title": {
+          "text": "options.thonyAbout"
+        }
+      },
+      {
+        "paddingTitles": {
+          "type": "panel",
+          "size": [0, 4]
+        }
+      },
+      {
+        "down_description@paragraph": {
+          "text": "options.thonyAboutDisclaimer"
+        }
+      },
+      {
+        "paddingSection0": {
+          "type": "panel",
+          "size": "$sectionPadding"
+        }
+      },
+      {
+        // Can Terms Section
+        "can_title@title": {
+          "text": "options.thonyAbout.termsOfUse.can"
+        }
+      },
+      {
+        "can_term1@paragraph": {
+          "text": "options.thonyAbout.termsOfUse.can.0",
+          "text_alignment": "left"
+        }
+      },
+      {
+        "can_term2@paragraph": {
+          "text": "options.thonyAbout.termsOfUse.can.1",
+          "text_alignment": "left"
+        }
+      },
+      {
+        "can_term3@paragraph": {
+          "text": "options.thonyAbout.termsOfUse.can.2",
+          "text_alignment": "left"
+        }
+      },
+      {
+        "paddingSection1": {
+          "type": "panel",
+          "size": "$sectionPadding"
+        }
+      },
+      {
+        // Cant Terms Section
+        "cant_title@title": {
+          "text": "options.thonyAbout.termsOfUse.cant"
+        }
+      },
+      {
+        "cant_term1@paragraph": {
+          "text": "options.thonyAbout.termsOfUse.cant.0",
+          "text_alignment": "left"
+        }
+      },
+      {
+        "cant_term2@paragraph": {
+          "text": "options.thonyAbout.termsOfUse.cant.1",
+          "text_alignment": "left"
+        }
+      },
+      {
+        "cant_term3@paragraph": {
+          "text": "options.thonyAbout.termsOfUse.cant.2",
+          "text_alignment": "left"
+        }
+      },
+      {
+        "paddingSection2": {
+          "type": "panel",
+          "size": "$sectionPadding"
+        }
+      },
+      {
+        // Thanks Section
+        "thanks_title@title": {
+          "text": "options.thonyAbout.thanks"
+        }
+      },
+      {
+        "user1@paragraph": {
+          "text": "options.thonyAbout.thanks.0"
+        }
+      },
+      {
+        "paddingSectionBottom": {
+          "type": "panel",
+          "size": "$sectionPadding"
+        }
+      }
+    ]
+  },
+
+  //---------------------------------------------------------------------------
+  // Settings Content
   //---------------------------------------------------------------------------
 
   "selector_stack_panel": {
-    "$general_section_header": "stat.generalButton",
-    "size": ["100%", "100%c"],
-    "controls": [
+    "modifications": [
       {
-        "world_information_panel": {
-          "type": "image",
-          "texture": "textures/ui/hud_tip_text_background",
-          "ignored": "(not $include_world_section)",
-          "layer": 2,
-          "alpha": 0.6,
-          "size": ["100%", "100%cm + 4px"],
-          "controls": [
-            {
-              "world_seed_icon": {
-                "type": "image",
-                "texture": "textures/ui/icon_new",
-                "anchor_from": "left_middle",
-                "anchor_to": "left_middle",
-                "layer": 4,
-                "size": [20, 20],
-                "offset": [2, 0]
-              }
-            },
-            {
-              "world_information_label": {
-                "type": "stack_panel",
-                "anchor_from": "left_middle",
-                "anchor_to": "left_middle",
-                "size": ["80% - 4px", "100%c"],
-                "offset": [24, 0],
-                "controls": [
-                  {
-                    "world_seed_text@settings_common.white_label": {
-                      "text": "options.worldSeed.title",
-                      "shadow": true,
-                      "size": ["100%", "default"]
-                    }
-                  },
-                  {
-                    "world_seed_label@settings_common.white_label": {
-                      "text": "#item_name",
-                      "shadow": true,
-                      "color": "$bottomTextColor",
-                      "size": ["100%", "default"],
-                      "bindings": [
-                        {
-                          "binding_name": "#world_seed",
-                          "binding_name_override": "#item_name"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
+        "control_name": "how_to_play_button",
+        "operation": "remove"
       },
       {
-        "worldPaddingTop": {
-          "type": "panel",
-          "ignored": "(not $include_world_section)",
-          "size": ["100%", 4]
-        }
-      },
-      {
-        "selector_area_header": {
-          "type": "stack_panel",
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "controls": [
-            {
-              "perspective_dropdown@settings_common.option_dropdown": {
-                "$option_label": "options.thirdperson",
-                "ignored": "($is_holographic and $is_reality_mode)",
-                "$dropdown_content": "general_section.third_person_dropdown_content",
-                "$dropdown_area": "content_area",
-                "$dropdown_name": "third_person_dropdown",
-                "$option_enabled_binding_name": "#third_person_dropdown_enabled",
-                "$options_dropdown_toggle_label_binding": "#third_person_dropdown_toggle_label",
-                "$dropdown_scroll_content_size": ["100%", "200%"]
-              }
-            },
-            {
-              "option_toggle_hidehand@settings_common.option_toggle": {
-                "ignored": "($is_holographic)",
-                "$option_label": "options.hidehand",
-                "$option_binding_name": "#hide_hand",
-                "$option_enabled_binding_name": "#hide_hand_enabled",
-                "$toggle_name": "hide_hand"
-              }
-            },
-            {
-              "option_toggle_vrhidehand@settings_common.option_toggle": {
-                "ignored": "(not $is_holographic)",
-                "$option_label": "options.vrHideHand",
-                "$option_binding_name": "#vr_hide_hand",
-                "$option_enabled_binding_name": "#vr_hide_hand_enabled",
-                "$toggle_name": "vr_hide_hand"
-              }
-            },
-            {
-              "option_toggle_hidehud@settings_common.option_toggle": {
-                "ignored": "($is_holographic)",
-                "$option_label": "options.hidehud",
-                "$option_binding_name": "#hide_hud",
-                "$option_enabled_binding_name": "#hide_hud_enabled",
-                "$toggle_name": "hide_hud"
-              }
-            },
-            {
-              "option_toggle_vrhidehud@settings_common.option_toggle": {
-                "ignored": "(not $is_holographic)",
-                "$option_label": "options.vrHideHud",
-                "$option_binding_name": "#vr_hide_hud",
-                "$option_enabled_binding_name": "#vr_hide_hud_enabled",
-                "$toggle_name": "vr_hide_hud"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "selector_area_0": {
-          "type": "stack_panel",
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "controls": [
-            {
-              "title_divider_0@settings.title_divider": {
-                "$title_divider_text": "options.game.settings"
-              }
-            },
-            {
-              "video_button@general_section.video_button": {
-                "$toggle_group_forced_index": 3,
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "sound_button@general_section.sound_button": {
-                "$toggle_group_forced_index": "$sound_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "accessibility_button@general_section.accessibility_button": {
-                "$toggle_group_forced_index": 2
-              }
-            },
-            {
-              "video_advanced_button@general_section.video_advanced_button": {
-                "$toggle_group_forced_index": "$video_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "world_selector_pane@world_section.selector_pane_content": {
-          "ignored": "(not $include_world_section)"
-        }
-      },
-      {
-        "selector_area_1": {
-          "type": "stack_panel",
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "controls": [
-            {
-              "title_divider_1@settings.title_divider": {
-                "$title_divider_text": "options.user.customization"
-              }
-            },
-            {
-              "account_button@general_section.account_button": {
-                "$toggle_group_forced_index": "$account_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "player_button@general_section.player_button": {
-                "$toggle_group_forced_index": 1,
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "language_button@general_section.language_button": {
-                "ignored": "(not $is_pregame)",
-                "$toggle_group_forced_index": "$language_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "view_subscriptions_button@general_section.view_subscriptions_button": {
-                "ignored": "$is_editor_mode_enabled",
-                "$toggle_group_forced_index": "$view_subscriptions_forced_index",
-                "$tts_section_header": "$general_section_header",
-                "bindings": [
-                  {
-                    "binding_name": "#should_show_subscription_tab",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "realm_selector_pane@realms_settings.selector_panel": {
-          "ignored": "(not $include_realm_section)",
-          "$world_toggle_index": "$world_forced_index",
-          "$members_toggle_index": "$members_forced_index",
-          "$subscription_toggle_index": "$subscription_forced_index",
-          "$backup_toggle_index": "$backup_forced_index",
-          "$dev_options_toggle_index": "$dev_options_forced_index",
-          "$invite_links_toggle_index": "$invite_links_forced_index"
-        }
-      },
-      {
-        "selector_area_2": {
-          "type": "stack_panel",
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "controls": [
-            {
-              "title_divider_2@settings.title_divider": {
-                "$title_divider_text": "options.resources.preview"
-              }
-            },
-            {
-              "creator_button@general_section.creator_button": {
-                "$toggle_group_forced_index": "$creator_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "global_texture_pack_button@general_section.global_texture_pack_button": {
-                "ignored": "$ignore_global_resources_section",
-                "$toggle_group_forced_index": "$global_texture_pack_forced_index",
-                "visible": "($is_global_texture_packs_visible)",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "about_button@about.about_button": {
-                "$toggle_group_forced_index": 0
-              }
-            }
-          ]
-        }
-      },
-      {
-        "controls_and_settings_selector": {
-          "type": "stack_panel",
-          "ignored": "(not $include_controls_and_settings_sections)",
-          "$controls_section_header": "options.group.input",
-          "$debug_section_header": "options.debug",
-          "controls": [
-            {
-              "title_divider_3@settings.title_divider": {
-                "$title_divider_text": "options.input.device"
-              }
-            },
-            {
-              "keyboard_and_mouse_button@controls_section.keyboard_and_mouse_button": {
-                "ignored": "(not $keyboard_and_mouse_supported)",
-                "$toggle_group_forced_index": "$keyboard_and_mouse_forced_index",
-                "$tts_section_header": "$controls_section_header"
-              }
-            },
-            {
-              "controller_button@controls_section.controller_button": {
-                "ignored": "(not $gamepad_supported or $nx_os)",
-                "$toggle_group_forced_index": "$controller_and_switch_forced_index",
-                "$tts_section_header": "$controls_section_header"
-              }
-            },
-            {
-              "switch_controller_button@controls_section.controller_button": {
-                "ignored": "(not $gamepad_supported or not $nx_os)",
-                "$toggle_group_forced_index": "$controller_and_switch_forced_index",
-                "$glyph_texture": "textures/ui/controller_glyph_switch",
-                "$glyph_color_texture": "textures/ui/controller_glyph_color_switch",
-                "$tts_section_header": "$controls_section_header"
-              }
-            },
-            {
-              "touch_button@controls_section.touch_button": {
-                "ignored": "($is_holographic or not $touch_supported or $nx_os)",
-                "$toggle_group_forced_index": "$touch_forced_index",
-                "$tts_section_header": "$controls_section_header"
-              }
-            },
-            {
-              "title_divider_4@settings.title_divider": {
-                "$title_divider_text": "options.debug.storage"
-              }
-            },
-            {
-              "storage_management_button@general_section.storage_management_button": {
-                "ignored": "($ignore_storage_section or not $include_controls_and_settings_sections)",
-                "$toggle_group_forced_index": "$storage_management_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "edu_cloud_storage_button@general_section.edu_cloud_storage_button": {
-                "ignored": "(not $education_edition or not $edu_save_to_cloud_on)",
-                "$toggle_group_forced_index": "$edu_cloud_storage_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-
-            // Debug Buttons Section //
-            {
-              "preview_button@general_section.preview_button": {
-                "ignored": "(not $show_preview_button)",
-                "$toggle_group_forced_index": "$preview_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "debug_button@general_section.debug_button": {
-                "ignored": "$is_publish",
-                "$toggle_group_forced_index": "$debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "discovery_debug_button@general_section.discovery_debug_button": {
-                "ignored": "$is_publish",
-                "$toggle_group_forced_index": "$discovery_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "ui_debug_button@general_section.ui_debug_button": {
-                "ignored": "$is_publish",
-                "$toggle_group_forced_index": "$ui_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "edu_debug_button@general_section.edu_debug_button": {
-                "ignored": "($is_publish or $creator_build or not $education_edition)",
-                "$toggle_group_forced_index": "$edu_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "marketplace_debug_button@general_section.marketplace_debug_button": {
-                "ignored": "$is_publish",
-                "$toggle_group_forced_index": "$marketplace_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "gatherings_debug_button@general_section.gatherings_debug_button": {
-                "ignored": "$is_publish",
-                "$toggle_group_forced_index": "$gatherings_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "flighting_debug_button@general_section.flighting_debug_button": {
-                "ignored": "$is_publish",
-                "$toggle_group_forced_index": "$flighting_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "realms_debug_button@general_section.realms_debug_button": {
-                "ignored": "$is_publish",
-                "$toggle_group_forced_index": "$realms_debug_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            },
-            {
-              "automation_button@general_section.automation_button": {
-                "ignored": "($is_publish or $test_infrastructure_disabled)",
-                "$toggle_group_forced_index": "$automation_forced_index",
-                "$tts_section_header": "$general_section_header"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "addons_selector_panel@world_section.addons_selector_panel": {
-          "ignored": "(not $include_world_section and (not $include_realm_section or not $realms_pack_feature_enabled))",
-          "$level_texture_pack_toggle_index": "$level_texture_pack_index",
-          "$addon_toggle_index": "$addon_index"
-        }
-      },
-      {
-        "realms_invite_link_settings_pane@realms_invite_link_settings.selector_panel": {
-          "ignored": "(not $include_realm_invite_link_settings)",
-          "$general_toggle_index": "$general_invite_link_forced_index",
-          "$advanced_toggle_index": "$advanced_invite_link_forced_index"
-        }
+        "control_name": "accessibility_button",
+        "operation": "insert_before",
+        "value": [
+          {
+            "world_about@settings.world_about": {}
+          },
+          {
+            "quick_options@settings.quick_options": {}
+          },
+          {
+            "about_button@settings.about_button": {}
+          }
+        ]
       }
     ]
   },
-
-  //---------------------------------------------------------------------------
-  // Selector Section Content
-  //---------------------------------------------------------------------------
 
   "section_content_panels": {
     "modifications": [
@@ -444,18 +323,21 @@
               "ignored": "(not $include_controls_and_settings_sections)",
               "controls": [
                 {
-                  "about_section@about.about_section": {}
-                },
-                {
-                  "video_advanced_section@general_section.video_advanced_section": {}
-                },
-                {
-                  "player_section@general_section.player_section": {}
+                  "about_section@settings.about_section": {}
                 }
               ]
             }
           }
         ]
+      }
+    ]
+  },
+
+  "section_content_panels/general_and_controls_sections": {
+    "modifications": [
+      {
+        "control_name": "how_to_play_section",
+        "operation": "remove"
       }
     ]
   }

@@ -1,117 +1,6 @@
 {
   "namespace": "settings_common",
 
-  //---------------------------------------------------------------------------
-  // Buttons Section
-  //---------------------------------------------------------------------------
-
-  "section_dark_toggle_base@common_toggles.dark_ui_toggle": {
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "$button_type_panel": "settings_common.toggle_button_control",
-
-    "$radio_toggle_group": true,
-    "$toggle_name": "navigation_tab",
-    "$toggle_group_default_selected": "$default_selector_toggle_index",
-
-    "$toggle_tab_focus_binding_type": "global",
-    "$toggle_tab_focus_binding_name": "#navigation_tab_focus_precedence",
-    "$toggle_on_hover_binding_type": "global",
-    "$toggle_on_hover_binding_name": "#toggle_on_hover",
-    "$toggle_tts_toggle_on_text": "accessibility.state.selected",
-    "$toggle_tts_toggle_off_text": "accessibility.state.unselected",
-    "$toggle_tts_name": "accessibility.tab.tts.title"
-  },
-
-  "toggle_button_control": {
-    "$glyph_offset|default": [2, 0],
-    "$button_label_offset|default": [32, 0],
-    "controls": [
-      {
-        "glyph_texture_panel": {
-          "type": "panel",
-          "anchor_from": "$glyph_anchor_from",
-          "anchor_to": "$glyph_anchor_to",
-          "size": ["100%y", "100%"],
-          "controls": [
-            {
-              "glyph": {
-                "type": "image",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "offset": "$glyph_offset",
-                "texture": "$glyph_texture",
-                "size": "$glyph_size",
-                "layer": 3,
-                "color": "$glyph_color",
-                "alpha": "$content_alpha",
-
-                "$glyph_bindings|default": [],
-                "bindings": "$glyph_bindings"
-              }
-            },
-            {
-              "glyph_color": {
-                "type": "image",
-                "anchor_from": "center",
-                "anchor_to": "center",
-                "offset": "$glyph_offset",
-                "texture": "$glyph_color_texture",
-                "size": "$glyph_size",
-                "layer": 4,
-                "alpha": "$content_alpha",
-
-                "$glyph_color_bindings|default": [],
-                "bindings": "$glyph_color_bindings"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "progress_loading_bars@progress.progress_loading_bars": {
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle",
-          "color": "$glyph_color",
-          "offset": [5, 0],
-          "layer": 5,
-          "size": "$glyph_size",
-          "visible": false,
-          "$glyph_progress_bindings|default": [],
-          "bindings": "$glyph_progress_bindings"
-        }
-      },
-      {
-        "tab_button_text": {
-          "type": "label",
-          "anchor_from": "left_middle",
-          "anchor_to": "left_middle",
-          "size": ["100% - 38px", "default"],
-          "max_size": ["100% - 38px", "100% - 4px"],
-          "offset": "$button_label_offset",
-          "text": "$button_text",
-          "layer": 3,
-          "color": "$text_color",
-          "alpha": "$content_alpha",
-
-          "$button_text_binding_type|default": "none",
-          "$button_text_grid_collection_name|default": "",
-          "$button_text_binding_condition|default": "none",
-
-          "bindings": [
-            {
-              "binding_type": "$button_text_binding_type",
-              "binding_condition": "$button_text_binding_condition",
-              "binding_collection_name": "$button_text_grid_collection_name",
-              "binding_name": "$button_text",
-              "binding_name_override": "$button_text"
-            }
-          ]
-        }
-      }
-    ]
-  },
-
   "blue_info_glyph": {
     "type": "image",
     "texture": "textures/ui/blue_info_glyph",
@@ -121,13 +10,15 @@
   "dialog_title_label": {
     "font_type": "MinecraftTen",
     "font_scale_factor": 1.2,
+    "color": "$main_header_text_color",
     "max_size": [200, "default"]
   },
 
   "section_title_label": {
     "anchor_from": "right_middle",
     "anchor_to": "right_middle",
-    "text_alignment": "right"
+    "text_alignment": "right",
+    "color": "$main_header_text_color"
   },
 
   "dialog_titles": {
@@ -161,13 +52,13 @@
           {
             "switch_ui_panel": {
               "type": "panel",
-              "ignored": "$switch_ui_ignored",
+              "ignored": "$switchUiIgnored",
               "size": ["100%cm", "100%"],
               "controls": [
                 {
                   "switch_ui_show_toggle@common_toggles.light_content_toggle": {
                     "$toggle_view_binding_name": "show_switch_ui_toggle",
-                    "$toggle_name": "show_switch_ui",
+                    "$toggle_name": "switch_ui_toggle",
                     "$button_content": "settings_common.blue_info_glyph",
                     "size": [18, 18],
                     "offset": [-1, 0]
@@ -206,12 +97,17 @@
     "$toggle_name": "#ui_profile_radio_classic",
     "$button_type_panel": "common_buttons.custom_ui_binding_button_label",
     "$pressed_button_name": "button.menu_exit",
-    "$button_text": "settings.switchUiProfile.button"
+    "$button_text": "settings.switchUiProfile.button",
+
+    "$default_texture": "textures/ui/button_borderless_dark",
+    "$hover_texture": "textures/ui/button_borderless_darkpressednohover",
+    "$pressed_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_no_hover_texture": "textures/ui/button_borderless_darkpressed"
   },
 
   "switch_ui_panel@common_dialogs.main_panel_one_button": {
     "$show_close_button": false,
-    "$text_name": "Switch Ui Profile",
+    "$text_name": "settings.switchUiProfile.title",
     "$child_control": "settings_common.switch_ui_content",
     "$button_panel": "settings_common.switch_ui_button",
     "bindings": [
@@ -225,7 +121,7 @@
   },
 
   "dialog_content": {
-    "$switch_ui_ignored|default": true,
+    "$switchUiIgnored|default": true,
     "modifications": [
       {
         "array_name": "controls",
@@ -234,7 +130,7 @@
           {
             "switch_ui_panel": {
               "type": "input_panel",
-              "ignored": "$switch_ui_ignored",
+              "ignored": "$switchUiIgnored",
               "anchor_from": "top_right",
               "anchor_to": "top_right",
               "layer": 99,
@@ -267,5 +163,23 @@
 
   "dynamic_dialog_screen": {
     "$screen_background_alpha": 0.6
+  },
+
+  //---------------------------------------------------------------------------
+  // Settings Content
+  //---------------------------------------------------------------------------
+
+  "settings_content": {
+    "$default_button_texture": "textures/ui/button_borderless_dark",
+    "$hover_button_texture": "textures/ui/button_borderless_darkhover",
+    "$pressed_button_texture": "textures/ui/button_borderless_darkpressed",
+
+    "$default_text_color": "$dark_button_default_text_color",
+    "$hover_text_color": "$dark_button_hover_text_color",
+    "$pressed_text_color": "$dark_button_hover_text_color",
+
+    "$default_texture": "textures/ui/button_borderless_dark",
+    "$hover_texture": "textures/ui/button_borderless_dark",
+    "$pressed_texture": "textures/ui/button_borderless_darkhover"
   }
 }

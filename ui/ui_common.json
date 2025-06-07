@@ -214,35 +214,108 @@
     "size": [12, 12]
   },
 
-  "drop_all_icon@drop_one_icon": {
-    "texture": "textures/ui/drop_all"
+  "drop_all_icon": {
+    "type": "image",
+    "texture": "textures/ui/drop_all",
+    "layer": 2,
+    "size": [12, 12]
+  },
+
+  "clock_renderer": {
+    "type": "panel",
+    "controls": [
+      {
+        "clock_renderer@beacon.item_renderer": {
+          "layer": 2,
+          "size": [14, 14],
+          "property_bag": {
+            "#item_id_aux": 22740992
+          }
+        }
+      }
+    ]
+  },
+
+  "compass_renderer": {
+    "type": "panel",
+    "controls": [
+      {
+        "compass_renderer@beacon.item_renderer": {
+          "layer": 2,
+          "size": [14, 14],
+          "property_bag": {
+            "#item_id_aux": 22609920
+          }
+        }
+      }
+    ]
   },
 
   "drop_one_item_button@common_buttons.dark_content_button": {
     "$pressed_button_name": "button.cursor_drop_one",
-    "$button_content": "common.drop_one_icon",
+    "$button_type_panel": "common.drop_one_icon",
+    "sound_name": "random.pop",
     "size": ["100%", "100%x"]
   },
 
   "drop_all_item_button@common_buttons.dark_content_button": {
     "$pressed_button_name": "button.cursor_drop_all",
-    "$button_content": "common.drop_all_icon",
+    "$button_type_panel": "common.drop_all_icon",
+    "sound_name": "random.pop",
     "size": ["100%", "100%x"]
   },
 
   "drop_item_panel": {
     "type": "stack_panel",
-    "orientation": "vertical",
-    "anchor_from": "bottom_right",
-    "anchor_to": "bottom_right",
+    "anchor_from": "$dropItemPanelAnchor",
+    "anchor_to": "$dropItemPanelAnchor",
     "layer": 12,
     "ignored": "(not $showDropItemPanel)",
-    "size": [20, "100%c"],
-    "offset": [48, 0],
+    "size": "$dropItemPanelSize",
+    "offset": "$dropItemPanelOffset",
+
+    "$dropItemPanelAnchor|default": "center",
+    "$dropItemPanelSize|default": [20, "100%c"],
+    "$dropItemPanelOffset|default": [0, 0],
     "controls": [
-      { "drop_one_item@drop_one_item_button": {} },
-      { "drop_all_item@drop_all_item_button": {} }
+      { "drop_one@common.drop_one_item_button": {} },
+      { "drop_all@common.drop_all_item_button": {} }
     ]
+  },
+
+  "compass_icon@common_buttons.dark_content_button": {
+    "$pressed_button_name": "button.compass",
+    "$button_content": "common.compass_renderer",
+    "size": ["100%", "100%x"]
+  },
+
+  "clock_icon@common_buttons.dark_content_button": {
+    "$pressed_button_name": "button.clock",
+    "$button_content": "common.clock_renderer",
+    "size": ["100%", "100%x"]
+  },
+
+  "utility_hud_panel": {
+    "type": "stack_panel",
+    "orientation": "$utilityHudPanelOrientation",
+    "anchor_from": "$utilityHudPanelAnchor",
+    "anchor_to": "$utilityHudPanelAnchor",
+    "layer": 12,
+    "size": "$utilityHudPanelSize",
+    "offset": "$utilityHudPanelOffset",
+
+    "$utilityHudPanelOrientation|default": "vertical",
+    "$utilityHudPanelAnchor|default": "center",
+    "$utilityHudPanelSize|default": [20, "100%c"],
+    "$utilityHudPanelOffset|default": [0, 0],
+    "controls": [
+      { "clock_icon@common.clock_icon": {} },
+      { "compass_icon@common.compass_icon": {} }
+    ]
+  },
+
+  "back_button_content/chevron_panel/left_chevron": {
+    "color": "$main_header_text_color"
   },
 
   //---------------------------------------------------------------------------

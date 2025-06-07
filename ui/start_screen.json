@@ -17,6 +17,12 @@
     "size": [16, 16]
   },
 
+  "friends_icon": {
+    "type": "image",
+    "texture": "textures/ui/friendsbutton/navbar-friends-icon",
+    "size": [16, 16]
+  },
+
   "Xbox_icon": {
     "size": [15, 15],
     "offset": [0.5, 0.5]
@@ -461,6 +467,13 @@
     "$button_content": "start.worlds_icon"
   },
 
+  "friends_button@start.upper_button": {
+    "$pressed_button_name": "button.friends_drawer",
+    "$button_text": "#friends_with_count",
+    "$button_content": "start.friends_icon",
+    "$button_text_binding_type": "global"
+  },
+
   "server_button@start.upper_button": {
     "$pressed_button_name": "button.menu_servers",
     "$button_text": "menu.servers",
@@ -512,6 +525,18 @@
           "ignored": "$featured_world_ignored",
           "controls": [
             { "featured_world_button@start.featured_world_button": {} }
+          ]
+        }
+      },
+      {
+        "friends_button@start.upper_stack": {
+          "controls": [{ "friends_button@start.friends_button": {} }],
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "#friends_drawer_button_visible",
+              "binding_name_override": "#visible"
+            }
           ]
         }
       },
@@ -569,7 +594,16 @@
           },
           {
             "upper_buttons@start.upper_buttons_panel": {
-              "layer": 3
+              "layer": 2
+            }
+          },
+          {
+            "gathering_panel@start.gathering_panel": {
+              "anchor_from": "bottom_left",
+              "anchor_to": "bottom_left",
+              "layer": 2,
+              "size": ["20%", "100%c"],
+              "offset": [3, -68]
             }
           },
           {

@@ -7,7 +7,7 @@
 
   "background_ui": {
     "type": "image",
-    "texture": "textures/ui/modal/modal_background",
+    "texture": "textures/ui/modal/bg",
     "layer": 1,
     "size": [ "100%", "fill" ]
   },

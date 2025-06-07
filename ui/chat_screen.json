@@ -75,11 +75,16 @@
     "font_scale_factor": 1.28,
     "anchor_from": "left_middle",
     "anchor_to": "left_middle",
+    "color": "$main_header_text_color",
     "size": ["default", "100%"],
     "offset": [0, 0]
   },
 
   "chat_header/title_panel": {
+    "anims": [
+      "@animations.anim_header_offset",
+      "@animations.anim_header_alpha"
+    ],
     "modifications": [
       {
         "control_name": "back_button_content_panel",
@@ -87,7 +92,6 @@
         "value": [
           {
             "back_button@common.back_content_panel": {
-              "$default_text_color": "$light_button_default_text_color",
               "$default_button_texture": "",
               "$hover_button_texture": "",
               "$pressed_button_texture": "",
@@ -152,12 +156,12 @@
 
     "$radio_toggle_group": true,
 
-    "$default_texture": "textures/ui/button_borderless_light",
-    "$hover_texture": "textures/ui/button_borderless_light",
-    "$pressed_texture": "textures/ui/button_borderless_lighthover",
+    "$default_texture": "textures/ui/button_borderless_dark",
+    "$hover_texture": "textures/ui/button_borderless_dark",
+    "$pressed_texture": "textures/ui/button_borderless_darkhover",
     "controls": [
       {
-        "player_position@common_toggles.light_text_toggle": {
+        "player_position@common_toggles.dark_text_toggle": {
           "$button_type_panel": "common_assets.icon_wrapper",
           "$toggle_name": "#coordinate_type_position",
           "$toggle_state_binding_name": "#coordinate_type_position",
@@ -173,7 +177,7 @@
         }
       },
       {
-        "block_position@common_toggles.light_text_toggle": {
+        "block_position@common_toggles.dark_text_toggle": {
           "$button_type_panel": "common_assets.icon_wrapper",
           "$toggle_name": "#coordinate_type_facing",
           "$toggle_state_binding_name": "#coordinate_type_facing",
@@ -191,7 +195,7 @@
     ]
   },
 
-  "notes_toggle_button@common_toggles.light_content_toggle": {
+  "notes_toggle_button@common_toggles.dark_content_toggle": {
     "$toggle_view_binding_name": "show_notes_msg_panel",
     "$toggle_name": "notes_message_toggle",
     "$button_content": "chat.notes_icon"
@@ -199,7 +203,10 @@
 
   "chat_header": {
     "animation_reset_name": "screen_animation_reset",
-    "anims": ["@animations.anim_header_offset", "@animations.anim_header_alpha"],
+    "anims": [
+      "@animations.anim_header_offset",
+      "@animations.anim_header_alpha"
+    ],
     "modifications": [
       {
         "array_name": "controls",

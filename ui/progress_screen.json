@@ -1,21 +1,8 @@
-// Prototype Concept //
 {
   "namespace": "progress",
 
   "fancy_progress_loading_bars": {
     "size": ["90%", 6]
-  },
-
-  "progress_title_text": {
-    "text_alignment": "center",
-    "size": ["default", "100%"],
-    "max_size": ["default", "100%"]
-  },
-
-  "progress_bar_text": {
-    "text_alignment": "center",
-    "size": ["100%", "default"],
-    "max_size": ["100% - 8px", "default"]
   },
 
   "progress_spinner_panel": {
@@ -44,7 +31,10 @@
               "progress_title@progress.progress_title_text": {
                 "font_type": "MinecraftTen",
                 "shadow": true,
-                "offset": [0, 0]
+                "offset": [0, 0],
+                "text_alignment": "center",
+                "size": ["default", "100%"],
+                "max_size": ["default", "100%"]
               }
             },
             {
@@ -60,7 +50,6 @@
                 "$total": "#loading_bar_total_amount",
                 "$current": "#loading_bar_current_amount",
                 "$reverserPercentCount": true,
-                "$percentTextShadow": false,
                 "$percentFontType": "MinecraftTen",
                 "size": ["default", "100%"],
                 "$percent_bindings": [
@@ -171,7 +160,10 @@
           "color": "$bottomTextColor",
           "anchor_from": "bottom_middle",
           "anchor_to": "bottom_middle",
-          "offset": [0, -10]
+          "offset": [0, -10],
+          "text_alignment": "center",
+          "size": ["100%", "default"],
+          "max_size": ["100% - 8px", "default"]
         }
       },
       {
@@ -245,6 +237,8 @@
     ]
   },
 
+  // Progress Screen //
+
   "world_loading_progress_screen": {
     "$screen_bg_content": "progress.background_gradient"
   },
@@ -256,6 +250,8 @@
   "world_saving_progress_screen": {
     "$screen_bg_content": "progress.background_gradient"
   },
+
+  // Mobile Data Common //
 
   "mobile_data_android_icon": {
     "offset": [0, 0]
@@ -273,6 +269,7 @@
     "$animOffsetDuration": 0.5,
     "$animOffsetFrom": [200, 10],
     "$animOffsetTo": [-6, 10],
+
     "offset": "@animations.anim_offset",
     "controls": [
       {
@@ -339,5 +336,9 @@
         }
       }
     ]
+  },
+
+  "auto_save": {
+    "offset": [0, 28]
   }
 }
